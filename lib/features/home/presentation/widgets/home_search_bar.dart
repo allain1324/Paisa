@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
 import 'package:paisa/core/common.dart';
 
 class HomeSearchBar extends StatelessWidget {
@@ -18,7 +16,8 @@ class HomeSearchBar extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(34),
         onTap: () {
-          GoRouter.of(context).pushNamed(searchName);
+          //TODO: Search Page
+          //GoRouter.of(context).pushNamed(searchName);
         },
         child: Padding(
           padding: const EdgeInsets.all(12.0),

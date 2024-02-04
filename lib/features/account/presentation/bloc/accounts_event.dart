@@ -17,7 +17,7 @@ class AddOrUpdateAccountEvent extends AccountsEvent {
 class DeleteAccountEvent extends AccountsEvent {
   const DeleteAccountEvent(this.accountId);
 
-  final String accountId;
+  final int accountId;
 
   @override
   List<Object> get props => [accountId];
@@ -26,7 +26,7 @@ class DeleteAccountEvent extends AccountsEvent {
 class FetchAccountAndExpenseFromIdEvent extends AccountsEvent {
   const FetchAccountAndExpenseFromIdEvent(this.accountId);
 
-  final String accountId;
+  final int accountId;
 
   @override
   List<Object> get props => [accountId];
@@ -44,7 +44,7 @@ class AccountSelectedEvent extends AccountsEvent {
 class FetchAccountFromIdEvent extends AccountsEvent {
   const FetchAccountFromIdEvent(this.accountId);
 
-  final String? accountId;
+  final int? accountId;
 
   @override
   List<Object> get props => [accountId ?? ''];

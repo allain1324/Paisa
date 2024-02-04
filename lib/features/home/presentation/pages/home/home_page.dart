@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:in_app_update/in_app_update.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/features/home/presentation/bloc/home/home_bloc.dart';
 import 'package:paisa/features/home/presentation/widgets/home_desktop_widget.dart';
@@ -10,7 +8,6 @@ import 'package:paisa/features/home/presentation/widgets/home_mobile_widget.dart
 import 'package:paisa/features/home/presentation/widgets/home_tablet_widget.dart';
 import 'package:paisa/features/home/presentation/widgets/variable_size_fab.dart';
 import 'package:paisa/main.dart';
-import 'package:paisa/core/in_app.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -55,25 +52,7 @@ final destinations = [
 class LandingPage extends StatelessWidget {
   const LandingPage({
     Key? key,
-    required this.inApp,
   }) : super(key: key);
-
-  final InApp inApp;
-  Future<void> checkInApp(BuildContext context) async {
-    final AppUpdateInfo updateInfo = await inApp.checkForUpdate();
-    if (updateInfo.immediateUpdateAllowed) {
-      final AppUpdateResult result = await inApp.performImmediateUpdate();
-      if (context.mounted) {
-        if (result == AppUpdateResult.inAppUpdateFailed) {
-          context.showMaterialSnackBar('Update failed');
-        } else if (result == AppUpdateResult.success) {
-          context.showMaterialSnackBar('Update success');
-        }
-      }
-    }
-
-    inApp.requestReview();
-  }
 
   @override
   Widget build(BuildContext context) {

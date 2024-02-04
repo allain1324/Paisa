@@ -20,7 +20,7 @@ class AddOrUpdateCategoryEvent extends CategoryEvent {
 class CategoryDeleteEvent extends CategoryEvent {
   const CategoryDeleteEvent(this.categoryId);
 
-  final String categoryId;
+  final int categoryId;
 
   @override
   List<Object?> get props => [categoryId];
@@ -29,13 +29,13 @@ class CategoryDeleteEvent extends CategoryEvent {
 class FetchCategoryFromIdEvent extends CategoryEvent {
   const FetchCategoryFromIdEvent(this.categoryId);
 
-  final String? categoryId;
+  final int? categoryId;
 
   @override
   List<Object?> get props => [categoryId];
 
   FetchCategoryFromIdEvent copyWith({
-    String? categoryId,
+    int? categoryId,
   }) =>
       FetchCategoryFromIdEvent(categoryId ?? this.categoryId);
 }

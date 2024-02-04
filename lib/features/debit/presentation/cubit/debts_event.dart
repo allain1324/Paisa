@@ -22,7 +22,7 @@ class AddTransactionToDebtEvent extends DebtsEvent {
 class FetchDebtOrCreditFromIdEvent extends DebtsEvent {
   const FetchDebtOrCreditFromIdEvent(this.id);
 
-  final String? id;
+  final int? id;
 
   @override
   List<Object?> get props => [id];

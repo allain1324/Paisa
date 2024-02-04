@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
 import 'package:paisa/core/common.dart';
 
 class PaisaSearchButton extends StatelessWidget {
@@ -14,7 +12,8 @@ class PaisaSearchButton extends StatelessWidget {
         color: context.onBackground,
       ),
       onPressed: () {
-        GoRouter.of(context).pushNamed(searchName);
+        //TODO: Search Page
+        //GoRouter.of(context).pushNamed(searchName);
       },
     );
   }

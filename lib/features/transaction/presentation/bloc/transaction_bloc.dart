@@ -67,7 +67,7 @@ class TransactionBloc extends Bloc<ExpenseEvent, TransactionState> {
     FindTransactionFromIdEvent event,
     Emitter<TransactionState> emit,
   ) async {
-    final int? expenseId = int.tryParse(event.expenseId ?? '');
+    final int? expenseId = event.expenseId;
     if (expenseId == null) {
       selectedAccountId = settingsUseCase.get(defaultAccountIdKey);
       return;
@@ -196,7 +196,7 @@ class TransactionBloc extends Bloc<ExpenseEvent, TransactionState> {
     ClearExpenseEvent event,
     Emitter<TransactionState> emit,
   ) async {
-    final int transactionId = int.parse(event.expenseId);
+    final int transactionId = event.expenseId;
     await deleteTransactionUseCase(
       params: DeleteTransactionParams(transactionId),
     );

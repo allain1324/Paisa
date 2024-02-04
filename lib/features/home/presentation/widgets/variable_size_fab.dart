@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import 'package:paisa/core/common.dart';
+import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/widgets/variable_fab_size.dart';
 import 'package:paisa/features/home/presentation/bloc/home/home_bloc.dart';
 import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
@@ -17,19 +16,20 @@ class HomeFloatingActionButtonWidget extends StatelessWidget {
   void _handleClick(BuildContext context, int page) {
     switch (page) {
       case 1:
-        context.goNamed(addAccountName);
+        const AccountPageData().push(context);
         break;
       case 6:
-        context.pushNamed(recurringName);
+        const RecurringPageData().push(context);
         break;
       case 0:
-        context.pushNamed(addTransactionsName);
+        const TransactionPageData().push(context);
+
         break;
       case 4:
-        context.goNamed(addCategoryName);
+        const CategoryPageData().push(context);
         break;
       case 2:
-        context.goNamed(addDebitName);
+        const DebitPageData().push(context);
         break;
       case 3:
         _dateRangePicker(context);

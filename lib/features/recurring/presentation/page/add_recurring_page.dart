@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:paisa/config/routes.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import 'package:paisa/core/common.dart';
@@ -157,7 +158,9 @@ class SelectedAccount extends StatelessWidget {
         final accounts = value.values.toEntities();
         if (accounts.isEmpty) {
           return ListTile(
-            onTap: () => context.pushNamed(addAccountPath),
+            onTap: () {
+              const AccountPageData().push(context);
+            },
             title: Text(context.loc.addAccountEmptyTitle),
             subtitle: Text(context.loc.addAccountEmptySubTitle),
             trailing: const Icon(Icons.keyboard_arrow_right),
@@ -227,7 +230,9 @@ class _AccountSelectedWidgetState extends State<AccountSelectedWidget> {
               selected: false,
               title: 'Add New',
               icon: MdiIcons.plus.codePoint,
-              onPressed: () => context.pushNamed(addAccountPath),
+              onPressed: () {
+                const AccountPageData().push(context);
+              },
             );
           } else {
             final AccountEntity account = widget.accounts[index - 1];
@@ -262,7 +267,9 @@ class SelectCategory extends StatelessWidget {
         final List<CategoryEntity> categories = value.values.toEntities();
         if (categories.isEmpty) {
           return ListTile(
-            onTap: () => context.pushNamed(addCategoryPath),
+            onTap: () {
+              const CategoryPageData().push(context);
+            },
             title: Text(context.loc.addCategoryEmptyTitle),
             subtitle: Text(context.loc.addCategoryEmptySubTitle),
             trailing: const Icon(Icons.keyboard_arrow_right),
@@ -327,7 +334,9 @@ class _CategorySelectWidgetState extends State<CategorySelectWidget> {
               return Padding(
                 padding: const EdgeInsets.only(right: 8),
                 child: FilterChip(
-                  onSelected: (value) => context.pushNamed(addCategoryPath),
+                  onSelected: (value) {
+                    const CategoryPageData().push(context);
+                  },
                   avatar: Icon(
                     color: context.primary,
                     IconData(

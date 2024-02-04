@@ -11,7 +11,7 @@ abstract class ExpenseEvent extends Equatable {
 class FindTransactionFromIdEvent extends ExpenseEvent {
   const FindTransactionFromIdEvent(this.expenseId);
 
-  final String? expenseId;
+  final int? expenseId;
 }
 
 class AddOrUpdateExpenseEvent extends ExpenseEvent {
@@ -23,7 +23,7 @@ class AddOrUpdateExpenseEvent extends ExpenseEvent {
 class ClearExpenseEvent extends ExpenseEvent {
   const ClearExpenseEvent(this.expenseId);
 
-  final String expenseId;
+  final int expenseId;
 }
 
 class ChangeTransactionTypeEvent extends ExpenseEvent {

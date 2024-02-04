@@ -5,7 +5,6 @@ abstract class AccountRepository {
   Future<void> addAccount({
     required String bankName,
     required String holderName,
-    required String number,
     required CardType cardType,
     required double amount,
     required int color,
@@ -15,7 +14,6 @@ abstract class AccountRepository {
     required int key,
     required String? bankName,
     required String? holderName,
-    required String? number,
     required CardType? cardType,
     required double? amount,
     required int? color,

@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:paisa/core/common.dart';
-import 'package:paisa/core/enum/card_type.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/account/presentation/bloc/accounts_bloc.dart';
 import 'package:paisa/features/account/presentation/widgets/card_type_drop_down.dart';
@@ -13,19 +12,19 @@ import 'package:responsive_builder/responsive_builder.dart';
 
 final GlobalKey<FormState> _form = GlobalKey<FormState>();
 
-class AddAccountPage extends StatefulWidget {
-  const AddAccountPage({
+class AccountPage extends StatefulWidget {
+  const AccountPage({
     Key? key,
     this.accountId,
   }) : super(key: key);
 
-  final String? accountId;
+  final int? accountId;
 
   @override
-  AddAccountPageState createState() => AddAccountPageState();
+  AccountPageState createState() => AccountPageState();
 }
 
-class AddAccountPageState extends State<AddAccountPage> {
+class AccountPageState extends State<AccountPage> {
   final accountHolderController = TextEditingController();
   final accountInitialAmountController = TextEditingController();
   final accountNameController = TextEditingController();
@@ -195,22 +194,8 @@ class AddAccountPageState extends State<AddAccountPage> {
                                 controller: accountInitialAmountController,
                               ),
                               const SizedBox(height: 16),
-                              Builder(
-                                builder: (context) {
-                                  if (state is UpdateCardTypeState &&
-                                      state.cardType == CardType.bank) {
-                                    return AccountNumberWidget(
-                                      controller: accountNumberController,
-                                    );
-                                  } else {
-                                    return const SizedBox.shrink();
-                                  }
-                                },
-                              ),
-                              const SizedBox(height: 16),
                               AccountDefaultSwitchWidget(
-                                accountId:
-                                    int.tryParse(widget.accountId ?? '') ?? -1,
+                                accountId: widget.accountId ?? -1,
                               ),
                               const AccountColorPickerWidget()
                             ],
@@ -293,23 +278,8 @@ class AddAccountPageState extends State<AddAccountPage> {
                                   controller: accountInitialAmountController,
                                 ),
                                 const SizedBox(height: 16),
-                                Builder(
-                                  builder: (context) {
-                                    if (state is UpdateCardTypeState &&
-                                        state.cardType == CardType.bank) {
-                                      return AccountNumberWidget(
-                                        controller: accountNumberController,
-                                      );
-                                    } else {
-                                      return const SizedBox.shrink();
-                                    }
-                                  },
-                                ),
-                                const SizedBox(height: 16),
                                 AccountDefaultSwitchWidget(
-                                  accountId:
-                                      int.tryParse(widget.accountId ?? '') ??
-                                          -1,
+                                  accountId: widget.accountId ?? -1,
                                 ),
                                 const AccountColorPickerWidget()
                               ],
@@ -375,9 +345,10 @@ class AccountColorPickerWidget extends StatelessWidget {
 }
 
 class DeleteAccountWidget extends StatelessWidget {
-  final String? accountId;
-
   const DeleteAccountWidget({super.key, this.accountId});
+
+  final int? accountId;
+
   void onPressed(BuildContext context) {
     paisaAlertDialog(
       context,
@@ -486,30 +457,6 @@ class AccountNameWidget extends StatelessWidget {
   }
 }
 
-class AccountNumberWidget extends StatelessWidget {
-  const AccountNumberWidget({
-    super.key,
-    required this.controller,
-  });
-
-  final TextEditingController controller;
-
-  @override
-  Widget build(BuildContext context) {
-    return PaisaTextFormField(
-      maxLength: 4,
-      controller: controller,
-      inputFormatters: [
-        FilteringTextInputFormatter.digitsOnly,
-      ],
-      hintText: context.loc.enterNumberOptional,
-      keyboardType: TextInputType.number,
-      onChanged: (value) =>
-          BlocProvider.of<AccountBloc>(context).accountNumber = value,
-    );
-  }
-}
-
 class AccountInitialAmountWidget extends StatelessWidget {
   const AccountInitialAmountWidget({
     super.key,
@@ -558,10 +505,11 @@ class AccountDefaultSwitchWidget extends StatefulWidget {
 
 class _AccountDefaultSwitchWidgetState
     extends State<AccountDefaultSwitchWidget> {
-  late final SettingCubit settingCubit = BlocProvider.of<SettingCubit>(context);
-
   late bool isAccountDefault =
       settingCubit.defaultAccountId == widget.accountId;
+
+  late final SettingCubit settingCubit = BlocProvider.of<SettingCubit>(context);
+
   @override
   Widget build(BuildContext context) {
     return SwitchListTile(

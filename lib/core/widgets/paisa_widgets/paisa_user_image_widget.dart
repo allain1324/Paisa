@@ -31,51 +31,62 @@ class PaisaUserImageWidget extends StatelessWidget {
         if (image == 'no-image') {
           image = '';
         }
-        return GestureDetector(
-          onTap: pickImage,
-          child: Builder(
-            builder: (context) {
-              if (image.isEmpty) {
-                return CircleAvatar(
-                  backgroundColor: context.primary,
-                  maxRadius: maxRadius,
-                  child: Icon(
-                    Icons.account_circle_outlined,
-                    color: context.onPrimary,
-                  ),
-                );
-              } else {
-                if (useDefault) {
+        try {
+          return GestureDetector(
+            onTap: pickImage,
+            child: Builder(
+              builder: (context) {
+                if (image.isEmpty) {
                   return CircleAvatar(
-                    foregroundImage: FileImage(File(image)),
+                    backgroundColor: context.primary,
                     maxRadius: maxRadius,
+                    child: Icon(
+                      Icons.account_circle_outlined,
+                      color: context.onPrimary,
+                    ),
                   );
                 } else {
-                  return Badge(
-                    alignment: AlignmentDirectional.bottomEnd,
-                    label: GestureDetector(
-                      onTap: () {
-                        value.put(userImageKey, '');
-                      },
-                      child: Center(
-                        child: Icon(
-                          MdiIcons.delete,
-                          size: 8,
-                          color: context.onPrimary,
-                        ),
-                      ),
-                    ),
-                    backgroundColor: context.primary,
-                    child: CircleAvatar(
+                  if (useDefault) {
+                    return CircleAvatar(
                       foregroundImage: FileImage(File(image)),
                       maxRadius: maxRadius,
-                    ),
-                  );
+                    );
+                  } else {
+                    return Badge(
+                      alignment: AlignmentDirectional.bottomEnd,
+                      label: GestureDetector(
+                        onTap: () {
+                          value.put(userImageKey, '');
+                        },
+                        child: Center(
+                          child: Icon(
+                            MdiIcons.delete,
+                            size: 8,
+                            color: context.onPrimary,
+                          ),
+                        ),
+                      ),
+                      backgroundColor: context.primary,
+                      child: CircleAvatar(
+                        foregroundImage: FileImage(File(image)),
+                        maxRadius: maxRadius,
+                      ),
+                    );
+                  }
                 }
-              }
-            },
-          ),
-        );
+              },
+            ),
+          );
+        } catch (er) {
+          return CircleAvatar(
+            backgroundColor: context.primary,
+            maxRadius: maxRadius,
+            child: Icon(
+              Icons.account_circle_outlined,
+              color: context.onPrimary,
+            ),
+          );
+        }
       },
     );
   }

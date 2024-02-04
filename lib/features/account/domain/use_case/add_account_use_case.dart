@@ -15,7 +15,6 @@ class AddAccountUseCase implements UseCase<void, AddAccountParams> {
     return accountRepository.addAccount(
       bankName: params!.bankName,
       holderName: params.holderName,
-      number: params.number,
       cardType: params.cardType,
       amount: params.amount,
       color: params.color,
@@ -27,7 +26,6 @@ class AddAccountParams extends Equatable {
   const AddAccountParams({
     required this.bankName,
     required this.holderName,
-    required this.number,
     required this.cardType,
     required this.amount,
     required this.color,
@@ -38,13 +36,11 @@ class AddAccountParams extends Equatable {
   final CardType cardType;
   final int color;
   final String holderName;
-  final String number;
 
   @override
   List<Object?> get props => [
         bankName,
         holderName,
-        number,
         cardType,
         amount,
         color,

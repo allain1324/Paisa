@@ -14,7 +14,6 @@ class AccountRepositoryImpl extends AccountRepository {
   Future<void> addAccount({
     required String bankName,
     required String holderName,
-    required String number,
     required CardType cardType,
     required double amount,
     required int color,
@@ -22,7 +21,6 @@ class AccountRepositoryImpl extends AccountRepository {
     return dataSource.add(AccountModel(
       name: holderName,
       bankName: bankName,
-      number: number,
       cardType: cardType,
       amount: amount,
       color: color,
@@ -47,7 +45,6 @@ class AccountRepositoryImpl extends AccountRepository {
     required int key,
     required String? bankName,
     required String? holderName,
-    required String? number,
     required CardType? cardType,
     required double? amount,
     required int? color,
@@ -55,7 +52,6 @@ class AccountRepositoryImpl extends AccountRepository {
     return dataSource.update(AccountModel(
       name: holderName,
       bankName: bankName,
-      number: number,
       cardType: cardType,
       amount: amount,
       superId: key,

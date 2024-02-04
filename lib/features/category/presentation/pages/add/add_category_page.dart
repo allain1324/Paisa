@@ -15,19 +15,19 @@ import 'package:responsive_builder/responsive_builder.dart';
 
 final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-class AddCategoryPage extends StatefulWidget {
-  const AddCategoryPage({
+class CategoryPage extends StatefulWidget {
+  const CategoryPage({
     Key? key,
     this.categoryId,
   }) : super(key: key);
 
-  final String? categoryId;
+  final int? categoryId;
 
   @override
-  State<AddCategoryPage> createState() => _AddCategoryPageState();
+  State<CategoryPage> createState() => _CategoryPageState();
 }
 
-class _AddCategoryPageState extends State<AddCategoryPage> {
+class _CategoryPageState extends State<CategoryPage> {
   final CategoryBloc categoryBloc = getIt.get();
   final budgetController = TextEditingController();
   final categoryController = TextEditingController();
@@ -211,7 +211,7 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
 }
 
 class DeleteCategoryWidget extends StatelessWidget {
-  final String? categoryId;
+  final int? categoryId;
 
   const DeleteCategoryWidget({super.key, this.categoryId});
   void onPressed(BuildContext context) {

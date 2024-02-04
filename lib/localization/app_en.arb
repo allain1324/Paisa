@@ -1009,5 +1009,20 @@
     "@appLanguage": {
         "description": "Text shown on settings page",
         "type": "text"
+    },
+    "back": "Back",
+    "@back": {
+        "description": "Text shown on the button on intro page",
+        "type": "text"
+    },
+    "recommendedAccounts": "Recommended accounts",
+    "@recommendedAccounts": {
+        "description": "Text shown on the add account section title",
+        "type": "text"
+    },
+    "recommendedCategories": "Recommended categories",
+    "@recommendedCategories": {
+        "description": "Text shown on the add category section title",
+        "type": "text"
     }
 }

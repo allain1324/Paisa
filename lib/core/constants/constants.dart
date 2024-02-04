@@ -14,7 +14,6 @@ const String userImageKey = 'user_image_key';
 const String userCategorySelectorKey = 'user_category_selector_key';
 const String userAccountSelectorKey = 'user_account_selector_key';
 const String userAuthKey = 'user_auth_key';
-const String userAccountsStyleKey = 'user_accounts_style_key';
 const String smallSizeFabKey = 'user_small_size_fab_key';
 const String userLanguageKey = 'user_language_key';
 const String userCountryKey = 'user_country_key';
@@ -31,7 +30,7 @@ const String appLanguageKey = "app_language_key";
 const String appFontChangerKey = "app_font_changer_key";
 const buyMeCoffeeUrl = 'https://www.buymeacoffee.com/h4h13';
 
-const loginPath = '/login';
+/* const loginPath = '/login';
 const loginName = 'login';
 
 const countrySelectorPath = '/country-selector';
@@ -113,4 +112,4 @@ const iconPickerName = 'icon-picker';
 const iconPickerPath = 'icon-picker';
 
 const userOnboardingName = 'onboarding';
-const userOnboardingPath = '/onboarding';
+const userOnboardingPath = '/onboarding'; */

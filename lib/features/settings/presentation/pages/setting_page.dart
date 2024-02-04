@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/core/enum/calendar_formats.dart';
 import 'package:paisa/core/widgets/choose_calendar_format_widget.dart';
 import 'package:paisa/core/widgets/choose_theme_mode_widget.dart';
+import 'package:paisa/core/widgets/paisa_divider.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/settings/data/authenticate.dart';
-import 'package:paisa/features/settings/presentation/widgets/accounts_style_widget.dart';
 import 'package:paisa/features/settings/presentation/widgets/app_font_changer.dart';
 import 'package:paisa/features/settings/presentation/widgets/app_language_changer.dart';
 import 'package:paisa/features/settings/presentation/widgets/biometrics_auth_widget.dart';
-import 'package:paisa/features/settings/presentation/widgets/country_change_widget.dart';
-import 'package:paisa/features/settings/presentation/widgets/expense_fix_widget.dart';
+import 'package:paisa/features/settings/presentation/widgets/currency_change_widget.dart';
 import 'package:paisa/features/settings/presentation/widgets/setting_option.dart';
 import 'package:paisa/features/settings/presentation/widgets/settings_color_picker_widget.dart';
 import 'package:paisa/features/settings/presentation/widgets/settings_group_card.dart';
@@ -50,7 +49,7 @@ class SettingsPage extends StatelessWidget {
               title: context.loc.colorsUI,
               options: [
                 const SettingsColorPickerWidget(),
-                const Divider(),
+                const PaisaDivider(),
                 SettingsOption(
                   icon: MdiIcons.brightness4,
                   title: context.loc.chooseTheme,
@@ -75,9 +74,7 @@ class SettingsPage extends StatelessWidget {
                     );
                   },
                 ),
-                const Divider(),
-                const AccountsStyleWidget(),
-                const Divider(),
+                const PaisaDivider(),
                 const SmallSizeFabWidget(),
               ],
             ),
@@ -88,9 +85,9 @@ class SettingsPage extends StatelessWidget {
                   authenticate: getIt.get<Authenticate>(),
                 ),
                 const AppLanguageChanger(),
-                const Divider(),
-                const CountryChangeWidget(),
-                const Divider(),
+                const PaisaDivider(),
+                const CurrencyChangeWidget(),
+                const PaisaDivider(),
                 SettingsOption(
                   icon: MdiIcons.calendar,
                   title: context.loc.calendarFormat,
@@ -115,17 +112,15 @@ class SettingsPage extends StatelessWidget {
                     );
                   },
                 ),
-                const Divider(),
+                const PaisaDivider(),
                 const AppFontChanger(),
-                const Divider(),
-                const FixExpenseWidget(),
-                const Divider(),
+                const PaisaDivider(),
                 SettingsOption(
                   icon: MdiIcons.backupRestore,
                   title: context.loc.backupAndRestoreTitle,
                   subtitle: context.loc.backupAndRestoreSubTitle,
                   onTap: () {
-                    context.goNamed(exportAndImportName);
+                    const ExportAndImportPageData().push(context);
                   },
                 ),
               ],
@@ -142,7 +137,7 @@ class SettingsPage extends StatelessWidget {
                     mode: LaunchMode.externalApplication,
                   ),
                 ),
-                const Divider(),
+                const PaisaDivider(),
                 SettingsOption(
                   icon: MdiIcons.star,
                   title: context.loc.appRate,
@@ -152,7 +147,7 @@ class SettingsPage extends StatelessWidget {
                     mode: LaunchMode.externalApplication,
                   ),
                 ),
-                const Divider(),
+                const PaisaDivider(),
                 SettingsOption(
                   icon: MdiIcons.github,
                   title: context.loc.github,
@@ -162,7 +157,7 @@ class SettingsPage extends StatelessWidget {
                     mode: LaunchMode.externalApplication,
                   ),
                 ),
-                const Divider(),
+                const PaisaDivider(),
                 SettingsOption(
                   icon: MdiIcons.send,
                   title: context.loc.telegram,
@@ -172,7 +167,7 @@ class SettingsPage extends StatelessWidget {
                     mode: LaunchMode.externalApplication,
                   ),
                 ),
-                const Divider(),
+                const PaisaDivider(),
                 SettingsOption(
                   icon: MdiIcons.note,
                   title: context.loc.privacyPolicy,
@@ -181,7 +176,7 @@ class SettingsPage extends StatelessWidget {
                     mode: LaunchMode.externalApplication,
                   ),
                 ),
-                const Divider(),
+                const PaisaDivider(),
                 const VersionWidget(),
               ],
             ),

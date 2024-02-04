@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
-import 'package:paisa/features/settings/domain/use_case/setting_use_case.dart';
+import 'package:paisa/core/use_case/use_case.dart';
+import 'package:paisa/features/intro/domain/use_case/get_selected_country_use_case.dart';
 import 'package:paisa/main.dart';
 
 class CurrencyChangeWidget extends StatelessWidget {
@@ -9,20 +11,20 @@ class CurrencyChangeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SettingsUseCase settingsUseCase = getIt.get();
-    final String currentSymbol =
-        settingsUseCase.get(userLanguageKey, defaultValue: '');
+    final GetSelectedCountryUseCase getSelectedCountryUseCase =
+        getIt<GetSelectedCountryUseCase>();
+    final String? currentSymbol =
+        getSelectedCountryUseCase(params: NoParams())?.code;
     return ListTile(
+      leading: Icon(
+        MdiIcons.currencySign,
+        color: context.onSurfaceVariant,
+      ),
       onTap: () {
-        context.pushNamed(
-          countrySelectorName,
-          queryParameters: {
-            'force_currency_selector': 'true',
-          },
-        );
+        UserOnboardingPageData(forceCountrySelector: true).push(context);
       },
       title: Text(context.loc.currencySign),
-      subtitle: Text(currentSymbol),
+      subtitle: Text(currentSymbol ?? ''),
     );
   }
 }

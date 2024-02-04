@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
+import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/core/enum/card_type.dart';
@@ -92,9 +92,8 @@ class _AccountPageViewWidgetState extends State<AccountPageViewWidget>
                             ),
                             confirmationButton: TextButton(
                               onPressed: () {
-                                BlocProvider.of<AccountBloc>(context).add(
-                                    DeleteAccountEvent(
-                                        account.superId!.toString()));
+                                BlocProvider.of<AccountBloc>(context)
+                                    .add(DeleteAccountEvent(account.superId!));
                                 Navigator.pop(context);
                               },
                               child: Text(context.loc.delete),
@@ -102,12 +101,9 @@ class _AccountPageViewWidgetState extends State<AccountPageViewWidget>
                           );
                         },
                         onTap: () {
-                          context.pushNamed(
-                            editAccountName,
-                            pathParameters: <String, String>{
-                              'aid': account.superId.toString()
-                            },
-                          );
+                          AccountPageData(
+                            accountId: account.superId,
+                          ).push(context);
                         },
                       );
                     } else {

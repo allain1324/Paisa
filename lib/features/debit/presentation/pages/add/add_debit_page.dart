@@ -13,19 +13,19 @@ import 'package:paisa/features/debit/presentation/cubit/debts_bloc.dart';
 import 'package:paisa/features/debit/presentation/widgets/debt_toggle_buttons_widget.dart';
 import 'package:paisa/main.dart';
 
-class AddOrEditDebitPage extends StatefulWidget {
-  const AddOrEditDebitPage({
+class DebitPage extends StatefulWidget {
+  const DebitPage({
     super.key,
     this.debtId,
   });
 
-  final String? debtId;
+  final int? debtId;
 
   @override
-  State<AddOrEditDebitPage> createState() => _AddOrEditDebitPageState();
+  State<DebitPage> createState() => _DebitPageState();
 }
 
-class _AddOrEditDebitPageState extends State<AddOrEditDebitPage> {
+class _DebitPageState extends State<DebitPage> {
   final TextEditingController amountController = TextEditingController();
   final DebitBloc debitBloc = getIt.get();
   final TextEditingController descController = TextEditingController();
@@ -107,8 +107,7 @@ class _AddOrEditDebitPageState extends State<AddOrEditDebitPage> {
                             padding: const EdgeInsets.symmetric(horizontal: 16),
                           ),
                           onPressed: () {
-                            debitBloc.add(DeleteDebtEvent(
-                                int.tryParse(widget.debtId!) ?? 0));
+                            debitBloc.add(DeleteDebtEvent(widget.debtId!));
                           },
                           child: const Text('Delete'),
                         ),
@@ -154,7 +153,7 @@ class _AddOrEditDebitPageState extends State<AddOrEditDebitPage> {
                       valueListenable:
                           getIt.get<Box<DebitTransactionsModel>>().listenable(),
                       builder: (context, value, child) {
-                        final int? parentId = int.tryParse(widget.debtId ?? '');
+                        final int? parentId = widget.debtId;
                         if (parentId == null) return const SizedBox.shrink();
                         final List<DebitTransaction> transactions =
                             value.getTransactionsFromId(parentId);

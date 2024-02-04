@@ -23,15 +23,15 @@ import '../widgets/transfer_widget.dart';
 class TransactionPage extends StatefulWidget {
   const TransactionPage({
     Key? key,
-    this.expenseId,
+    this.transactionId,
     this.transactionType,
     this.accountId,
     this.categoryId,
   }) : super(key: key);
 
-  final String? accountId;
-  final String? categoryId;
-  final String? expenseId;
+  final int? accountId;
+  final int? categoryId;
+  final int? transactionId;
   final TransactionType? transactionType;
 
   @override
@@ -42,7 +42,7 @@ class _TransactionPageState extends State<TransactionPage> {
   final TextEditingController amountController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
   final TransactionBloc transactionBloc = getIt.get();
-  late final bool isAddExpense = widget.expenseId == null;
+  late final bool isAddExpense = widget.transactionId == null;
   final TextEditingController nameController = TextEditingController();
 
   @override
@@ -59,7 +59,7 @@ class _TransactionPageState extends State<TransactionPage> {
     transactionBloc
       ..add(ChangeTransactionTypeEvent(
           widget.transactionType ?? TransactionType.expense))
-      ..add(FindTransactionFromIdEvent(widget.expenseId));
+      ..add(FindTransactionFromIdEvent(widget.transactionId));
   }
 
   @override
@@ -110,12 +110,12 @@ class _TransactionPageState extends State<TransactionPage> {
           },
           builder: (context, state) {
             if (widget.accountId != null) {
-              BlocProvider.of<TransactionBloc>(context).selectedAccountId =
-                  int.tryParse(widget.accountId!);
+              context.read<TransactionBloc>().selectedAccountId =
+                  widget.accountId;
             }
             if (widget.categoryId != null) {
-              BlocProvider.of<TransactionBloc>(context).selectedCategoryId =
-                  int.tryParse(widget.categoryId!);
+              context.read<TransactionBloc>().selectedCategoryId =
+                  widget.categoryId;
             }
             return ScreenTypeLayout.builder(
               mobile: (p0) => Scaffold(
@@ -136,7 +136,7 @@ class _TransactionPageState extends State<TransactionPage> {
                     ),
                   ),
                   actions: [
-                    TransactionDeleteWidget(expenseId: widget.expenseId),
+                    TransactionDeleteWidget(expenseId: widget.transactionId),
                   ],
                 ),
                 body: BlocBuilder<TransactionBloc, TransactionState>(
@@ -198,7 +198,7 @@ class _TransactionPageState extends State<TransactionPage> {
                         ?.copyWith(fontWeight: FontWeight.w700),
                   ),
                   actions: [
-                    TransactionDeleteWidget(expenseId: widget.expenseId),
+                    TransactionDeleteWidget(expenseId: widget.transactionId),
                     PaisaButton(
                       onPressed: () {
                         BlocProvider.of<TransactionBloc>(context)

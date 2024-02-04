@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/features/settings/data/authenticate.dart';
 import 'package:paisa/main.dart';
@@ -29,7 +28,9 @@ class _BiometricPageState extends State<BiometricPage> {
     if (canCheckBiometrics) {
       final bool result = await localAuth.authenticateWithBiometrics();
       if (result) {
-        if (context.mounted) context.go(landingPath);
+        if (context.mounted) {
+          const LandingPageData().push(context);
+        }
       } else {
         //SystemNavigator.pop();
       }

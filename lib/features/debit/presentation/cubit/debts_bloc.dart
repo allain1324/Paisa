@@ -141,7 +141,7 @@ class DebitBloc extends Bloc<DebtsEvent, DebtsState> {
     FetchDebtOrCreditFromIdEvent event,
     Emitter<DebtsState> emit,
   ) async {
-    final int? debitId = int.tryParse(event.id ?? '');
+    final int? debitId = event.id;
     if (debitId == null) {
       add(SelectedStartDateEvent(DateTime.now()));
       add(SelectedEndDateEvent(DateTime.now()));

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
 
@@ -16,10 +16,11 @@ class CategoryItemMobileWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: BorderRadius.circular(8),
-      onTap: () => context.pushNamed(
-        editCategoryName,
-        pathParameters: <String, String>{'cid': category.superId.toString()},
-      ),
+      onTap: () {
+        CategoryPageData(
+          categoryId: category.superId,
+        ).push(context);
+      },
       child: ListTile(
         leading: CircleAvatar(
           backgroundColor: Color(category.color ?? Colors.amber.shade100.value)

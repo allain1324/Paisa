@@ -10,7 +10,6 @@ extension AccountModelMapping on AccountModel {
         bankName: bankName,
         cardType: cardType,
         name: name,
-        number: number,
         superId: superId,
         color: color,
       );

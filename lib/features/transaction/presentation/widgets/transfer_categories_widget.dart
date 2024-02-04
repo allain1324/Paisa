@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
 import 'package:paisa/features/transaction/presentation/bloc/transaction_bloc.dart';
@@ -20,7 +20,7 @@ class TransferCategoriesWidget extends StatelessWidget {
           if (state.categories.isEmpty) {
             return ListTile(
               onTap: () async {
-                await context.pushNamed(addCategoryName);
+                await const CategoryPageData().push(context);
                 if (context.mounted) {
                   BlocProvider.of<TransactionBloc>(context)
                       .add(FetchDefaultCategoryEvent());
@@ -81,7 +81,9 @@ class SelectDefaultCategoryWidget extends StatelessWidget {
                 if (index == 0) {
                   return CategoryChip(
                     selected: false,
-                    onSelected: (p0) => context.pushNamed(addCategoryPath),
+                    onSelected: (p0) {
+                      const CategoryPageData().push(context);
+                    },
                     icon: MdiIcons.plus.codePoint,
                     title: context.loc.addNew,
                     iconColor: context.primary,

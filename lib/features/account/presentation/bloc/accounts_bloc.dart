@@ -38,7 +38,6 @@ class AccountBloc extends Bloc<AccountsEvent, AccountState> {
 
   String? accountHolderName;
   String? accountName;
-  String? accountNumber;
   final AddAccountUseCase addAccountUseCase;
   AccountEntity? currentAccount;
   final DeleteAccountUseCase deleteAccountUseCase;
@@ -55,7 +54,7 @@ class AccountBloc extends Bloc<AccountsEvent, AccountState> {
     FetchAccountFromIdEvent event,
     Emitter<AccountState> emit,
   ) async {
-    final int? accountId = int.tryParse(event.accountId ?? '');
+    final int? accountId = event.accountId;
     if (accountId == null) return;
 
     final AccountEntity? account =
@@ -63,7 +62,6 @@ class AccountBloc extends Bloc<AccountsEvent, AccountState> {
     if (account != null) {
       accountName = account.bankName;
       accountHolderName = account.name;
-      accountNumber = account.number;
       selectedType = account.cardType ?? CardType.cash;
       initialAmount = account.amount;
       currentAccount = account;
@@ -81,7 +79,6 @@ class AccountBloc extends Bloc<AccountsEvent, AccountState> {
   ) async {
     final String? bankName = accountName;
     final String? holderName = accountHolderName;
-    final String? number = accountNumber;
     final CardType cardType = selectedType;
     final double? amount = initialAmount;
     final int? color = selectedColor;
@@ -100,7 +97,6 @@ class AccountBloc extends Bloc<AccountsEvent, AccountState> {
           params: AddAccountParams(
         bankName: bankName,
         holderName: holderName,
-        number: number ?? '',
         cardType: cardType,
         amount: amount ?? 0,
         color: color,
@@ -112,7 +108,6 @@ class AccountBloc extends Bloc<AccountsEvent, AccountState> {
         currentAccount!.superId!,
         bankName: bankName,
         holderName: holderName,
-        number: number ?? '',
         cardType: cardType,
         amount: amount ?? 0,
         color: color,
@@ -125,7 +120,7 @@ class AccountBloc extends Bloc<AccountsEvent, AccountState> {
     DeleteAccountEvent event,
     Emitter<AccountState> emit,
   ) async {
-    final int accountId = int.parse(event.accountId);
+    final int accountId = event.accountId;
     await deleteExpensesFromAccountIdUseCase(
       params: DeleteTransactionsFromAccountIdParams(accountId),
     );
@@ -173,10 +168,7 @@ class AccountBloc extends Bloc<AccountsEvent, AccountState> {
     FetchAccountAndExpenseFromIdEvent event,
     Emitter<AccountState> emit,
   ) async {
-    final int? accountId = int.tryParse(event.accountId);
-    if (accountId == null) {
-      return;
-    }
+    final int accountId = event.accountId;
     final AccountEntity? account = getAccountUseCase(
       params: GetAccountParams(accountId),
     );

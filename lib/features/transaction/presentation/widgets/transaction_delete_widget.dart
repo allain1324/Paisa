@@ -10,7 +10,7 @@ import 'package:responsive_builder/responsive_builder.dart';
 class TransactionDeleteWidget extends StatelessWidget {
   const TransactionDeleteWidget({super.key, required this.expenseId});
 
-  final String? expenseId;
+  final int? expenseId;
 
   void onPressed(BuildContext context) {
     paisaAlertDialog(

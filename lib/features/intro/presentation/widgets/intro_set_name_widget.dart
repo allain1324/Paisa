@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
+import 'package:paisa/features/intro/presentation/widgets/intro_image_picker_widget.dart';
 
 class IntroSetNameWidget extends StatelessWidget {
   const IntroSetNameWidget({
@@ -16,27 +17,15 @@ class IntroSetNameWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: FractionallySizedBox(
-        widthFactor: 0.8,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 16),
-            ColorFiltered(
-              colorFilter: ColorFilter.mode(
-                context.primary,
-                BlendMode.srcIn,
-              ),
-              child: const Icon(
-                Icons.wallet,
-                size: 72,
-              ),
-            ),
-            const SizedBox(height: 16),
-            RichText(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          IntroTopWidget(
+            title: context.loc.image,
+            titleWidget: RichText(
               text: TextSpan(
-                style: context.headlineSmall?.copyWith(
+                style: context.titleLarge?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: context.onSurface,
                   letterSpacing: 0.8,
@@ -52,17 +41,12 @@ class IntroSetNameWidget extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 6),
-            Text(
-              context.loc.welcomeDesc,
-              style: context.titleMedium?.copyWith(
-                color:
-                    Theme.of(context).colorScheme.onSurface.withOpacity(0.75),
-                letterSpacing: 0.6,
-              ),
-            ),
-            const SizedBox(height: 16),
-            Form(
+            icon: Icons.wallet,
+            description: context.loc.welcomeDesc,
+          ),
+          FractionallySizedBox(
+            widthFactor: 0.8,
+            child: Form(
               key: formState,
               child: PaisaTextFormField(
                 key: const Key('user_name_textfield'),
@@ -79,8 +63,8 @@ class IntroSetNameWidget extends StatelessWidget {
                 },
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

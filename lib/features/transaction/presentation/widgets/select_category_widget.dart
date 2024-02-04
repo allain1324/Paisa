@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/features/category/data/model/category_model.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
@@ -24,7 +24,9 @@ class SelectCategoryIcon extends StatelessWidget {
 
         if (categories.isEmpty) {
           return ListTile(
-            onTap: () => context.pushNamed(addCategoryPath),
+            onTap: () {
+              const CategoryPageData().push(context);
+            },
             title: Text(context.loc.addCategoryEmptyTitle),
             subtitle: Text(context.loc.addCategoryEmptySubTitle),
             trailing: const Icon(Icons.keyboard_arrow_right),
@@ -92,7 +94,9 @@ class SelectedItem extends StatelessWidget {
                 if (index == 0) {
                   return CategoryChip(
                     selected: false,
-                    onSelected: (p0) => context.pushNamed(addCategoryPath),
+                    onSelected: (p0) {
+                      const CategoryPageData().push(context);
+                    },
                     icon: MdiIcons.plus.codePoint,
                     title: context.loc.addNew,
                     iconColor: context.primary,

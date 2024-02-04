@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/features/home/presentation/bloc/home/home_bloc.dart';
 import 'package:paisa/features/home/presentation/pages/home/home_page.dart';
@@ -59,7 +59,9 @@ class HomeTabletWidget extends StatelessWidget {
                       padding: const EdgeInsets.all(16.0),
                       child: IconButton(
                         tooltip: context.loc.settings,
-                        onPressed: () => context.pushNamed(settingsName),
+                        onPressed: () {
+                          const SettingsPageData().push(context);
+                        },
                         icon: Icon(MdiIcons.cog),
                       ),
                     ),

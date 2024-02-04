@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
+import 'package:paisa/config/routes.dart';
 
 import 'package:paisa/core/common.dart';
 import 'package:paisa/features/home/presentation/bloc/home/home_bloc.dart';
@@ -57,7 +57,7 @@ class HomeMobileWidget extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: ListTile(
                   onTap: () {
-                    context.pushNamed(settingsName);
+                    const SettingsPageData().push(context);
                     Navigator.pop(context);
                   },
                   leading: const Icon(Icons.settings),

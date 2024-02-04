@@ -3,6 +3,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/widgets/future_resolve.dart';
+import 'package:paisa/core/widgets/paisa_divider.dart';
 import 'package:paisa/features/settings/data/authenticate.dart';
 import 'package:paisa/features/settings/domain/use_case/setting_use_case.dart';
 import 'package:paisa/main.dart';
@@ -67,7 +68,7 @@ class _BiometricAuthWidgetState extends State<BiometricAuthWidget> {
                 },
                 value: isSelected,
               ),
-              const Divider(),
+              const PaisaDivider(),
             ],
           ),
         );

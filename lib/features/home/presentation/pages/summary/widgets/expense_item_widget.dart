@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/features/account/domain/entities/account.dart';
@@ -35,10 +35,7 @@ class ExpenseItemWidget extends StatelessWidget {
     return InkWell(
       borderRadius: BorderRadius.circular(24),
       onTap: () {
-        context.goNamed(
-          editTransactionsName,
-          pathParameters: <String, String>{'eid': expense.superId.toString()},
-        );
+        TransactionPageData(transactionId: expense.superId).push(context);
       },
       child: ListTile(
         title: Text(
@@ -97,10 +94,9 @@ class ExpenseTransferItemWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 4),
       child: InkWell(
         borderRadius: BorderRadius.circular(24),
-        onTap: () => context.goNamed(
-          editTransactionsName,
-          pathParameters: <String, String>{'eid': expense.superId.toString()},
-        ),
+        onTap: () {
+          TransactionPageData(transactionId: expense.superId).push(context);
+        },
         child: ListTile(
           title: Text(title),
           subtitle: Text(expense.time!.shortDayString),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
+import 'package:paisa/core/enum/transaction_type.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/account/presentation/bloc/accounts_bloc.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
@@ -17,7 +19,7 @@ class AccountTransactionsPage extends StatelessWidget {
     required this.summaryController,
   }) : super(key: key);
 
-  final String accountId;
+  final int accountId;
   final SummaryController summaryController;
 
   @override
@@ -34,10 +36,7 @@ class AccountTransactionsPage extends StatelessWidget {
             IconButton(
               tooltip: context.loc.edit,
               onPressed: () {
-                GoRouter.of(context).pushNamed(
-                  editAccountWithIdName,
-                  pathParameters: {'aid': accountId},
-                );
+                EditAccountPageData(accountId: accountId).push(context);
               },
               icon: const Icon(Icons.edit_rounded),
             ),
@@ -142,10 +141,10 @@ class AccountTransactionsPage extends StatelessWidget {
               children: [
                 PaisaIconButton(
                   onPressed: () {
-                    GoRouter.of(context).pushNamed(
-                      addTransactionsName,
-                      queryParameters: {'aid': accountId, 'type': '1'},
-                    );
+                    TransactionPageData(
+                      accountId: accountId,
+                      transactionType: TransactionType.income,
+                    ).push(context);
                   },
                   title: context.loc.income,
                   iconData: Icons.add_rounded,
@@ -155,10 +154,10 @@ class AccountTransactionsPage extends StatelessWidget {
                 ),
                 PaisaIconButton(
                   onPressed: () {
-                    GoRouter.of(context).pushNamed(
-                      addTransactionsName,
-                      queryParameters: {'aid': accountId, 'type': '0'},
-                    );
+                    TransactionPageData(
+                      accountId: accountId,
+                      transactionType: TransactionType.expense,
+                    ).push(context);
                   },
                   title: context.loc.expense,
                   iconData: Icons.add_rounded,

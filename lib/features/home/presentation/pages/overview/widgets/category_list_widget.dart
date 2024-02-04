@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
 import 'package:paisa/core/common.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction.dart';
@@ -27,10 +25,11 @@ class CategoryListWidget extends StatelessWidget {
             categoryGrouped[index];
         return InkWell(
           onTap: () {
-            context.pushNamed(
+            //TODO:
+            /* context.pushNamed(
               expensesByCategoryName,
               pathParameters: {'cid': map.key.superId.toString()},
-            );
+            ); */
           },
           child: Padding(
             padding: const EdgeInsets.all(8.0),

@@ -1,13 +1,30 @@
-import 'package:paisa/features/country_picker/data/models/country_model.dart';
-import 'package:paisa/features/country_picker/domain/entities/country.dart';
+import 'package:paisa/features/intro/data/models/country_model.dart';
+import 'package:paisa/features/intro/domain/entities/country.dart';
 
 extension CountryHelper on CountryModel {
-  Country toEntity() {
-    return Country(
+  CountryEntity toEntity() {
+    return CountryEntity(
       code: code,
       name: name,
       symbol: symbol,
-      flag: flag,
+      decimalDigits: decimalDigits,
+      number: number,
+      namePlural: namePlural,
+      thousandsSeparator: thousandsSeparator,
+      decimalSeparator: decimalSeparator,
+      spaceBetweenAmountAndSymbol: spaceBetweenAmountAndSymbol,
+      symbolOnLeft: symbolOnLeft,
+      pattern: pattern,
+    );
+  }
+}
+
+extension CountryEntityHelper on CountryEntity {
+  CountryModel toModel() {
+    return CountryModel(
+      code: code,
+      name: name,
+      symbol: symbol,
       decimalDigits: decimalDigits,
       number: number,
       namePlural: namePlural,

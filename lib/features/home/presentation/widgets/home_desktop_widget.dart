@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-
+import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/features/home/presentation/bloc/home/home_bloc.dart';
 import 'package:paisa/features/home/presentation/pages/home/home_page.dart';
@@ -55,7 +54,9 @@ class HomeDesktopWidget extends StatelessWidget {
                       .toList(),
                   const Divider(),
                   ListTile(
-                    onTap: () => context.pushNamed(settingsName),
+                    onTap: () {
+                      const SettingsPageData().push(context);
+                    },
                     leading: Icon(
                       Icons.settings,
                       color: context.primary,

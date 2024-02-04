@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 
 import 'package:paisa/core/widgets/paisa_widget.dart';
@@ -19,10 +19,11 @@ class CategoryItemTabletWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return PaisaFilledCard(
       child: InkWell(
-        onTap: () => context.pushNamed(
-          editCategoryName,
-          pathParameters: <String, String>{'cid': category.superId.toString()},
-        ),
+        onTap: () {
+          CategoryPageData(
+            categoryId: category.superId,
+          ).push(context);
+        },
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
