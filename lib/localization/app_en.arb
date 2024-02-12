@@ -475,6 +475,11 @@
         "description": "Subtitle text shown on the category color picker button",
         "type": "text"
     },
+    "pickColorAccountDesc": "Set color to your account",
+    "@pickColorAccountDesc": {
+        "description": "Subtitle text shown on the account color picker button",
+        "type": "text"
+    },
     "colors": "Colors",
     "@colors": {
         "description": "Section title on settings page for theme",
@@ -920,18 +925,23 @@
         "description": "Text shown on the add category section title",
         "type": "text"
     },
-    "defaultCategories": "Default categories",
-    "@defaultCategories": {
+    "back": "Back",
+    "@back": {
+        "description": "Text shown on the button on intro page",
+        "type": "text"
+    },
+    "recommendedCategories": "Recommended categories",
+    "@recommendedCategories": {
         "description": "Text shown on the add category section title",
         "type": "text"
     },
-    "addedAccounts": "Added accounts",
+    "addedAccounts": "Selected accounts",
     "@addedAccounts": {
         "description": "Text shown on the add account section title",
         "type": "text"
     },
-    "defaultAccounts": "Default accounts",
-    "@defaultAccounts": {
+    "recommendedAccounts": "Recommended accounts",
+    "@recommendedAccounts": {
         "description": "Text shown on the add account section title",
         "type": "text"
     },
@@ -1010,19 +1020,39 @@
         "description": "Text shown on settings page",
         "type": "text"
     },
-    "back": "Back",
-    "@back": {
-        "description": "Text shown on the button on intro page",
+    "excludeAccount": "Exclude account",
+    "@excludeAccount": {
+        "description": "Text shown on add account page for excluding the account from summing up",
         "type": "text"
     },
-    "recommendedAccounts": "Recommended accounts",
-    "@recommendedAccounts": {
-        "description": "Text shown on the add account section title",
+    "accountNotFound": "Account not found!",
+    "@accountNotFound": {
+        "description": "Text shown on snackbar when account not found",
         "type": "text"
     },
-    "recommendedCategories": "Recommended categories",
-    "@recommendedCategories": {
-        "description": "Text shown on the add category section title",
+    "bankNameError": "Set bank name",
+    "@bankNameError": {
+        "description": "Text shown on snackbar when adding account",
+        "type": "text"
+    },
+    "holderNameError": "Set account holder name",
+    "@holderNameError": {
+        "description": "Text shown on snackbar when adding account",
+        "type": "text"
+    },
+    "accountColorError": "Set account color name",
+    "@accountColorError": {
+        "description": "Text shown on snackbar when adding account",
+        "type": "text"
+    },
+    "emptySelectedAccountsInfo": "Select account from above to start",
+    "@accountsIntroInfo": {
+        "description": "Text shown on intro page accounts info",
+        "type": "text"
+    },
+    "emptyRecommendedAccountsInfo": "No accounts left to add",
+    "@emptyRecommendedAccountsInfo": {
+        "description": "Text shown on intro page accounts info",
         "type": "text"
     }
 }

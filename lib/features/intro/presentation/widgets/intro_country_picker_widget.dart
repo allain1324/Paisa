@@ -7,78 +7,58 @@ import 'package:paisa/features/intro/presentation/cubit/country_picker_cubit.dar
 import 'package:paisa/features/intro/presentation/widgets/intro_image_picker_widget.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-class IntroCountryPickerWidget extends StatefulWidget {
+class IntroCountryPickerWidget extends StatelessWidget {
   const IntroCountryPickerWidget({
     Key? key,
-    required this.forceCountrySelector,
-    required this.countryCubit,
   }) : super(key: key);
-
-  final bool forceCountrySelector;
-  final CountryPickerCubit countryCubit;
-
-  @override
-  State<IntroCountryPickerWidget> createState() =>
-      _IntroCountryPickerWidgetState();
-}
-
-class _IntroCountryPickerWidgetState extends State<IntroCountryPickerWidget> {
-  @override
-  void initState() {
-    super.initState();
-    widget.countryCubit.fetchCountry();
-  }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => widget.countryCubit,
-      child: PaisaAnnotatedRegionWidget(
-        color: context.background,
-        child: Scaffold(
-          body: SafeArea(
-            child: Column(
-              children: [
-                IntroTopWidget(
-                  title: context.loc.selectCurrency,
-                  icon: Icons.language_rounded,
+    return PaisaAnnotatedRegionWidget(
+      color: context.background,
+      child: Scaffold(
+        body: SafeArea(
+          child: Column(
+            children: [
+              IntroTopWidget(
+                title: context.loc.selectCurrency,
+                icon: Icons.language_rounded,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: PaisaTextFormField(
+                  hintText: context.loc.search,
+                  controller: TextEditingController(),
+                  keyboardType: TextInputType.name,
+                  onChanged: (value) {
+                    context.read<CountryPickerCubit>().filterCountry(value);
+                  },
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: PaisaTextFormField(
-                    hintText: context.loc.search,
-                    controller: TextEditingController(),
-                    keyboardType: TextInputType.name,
-                    onChanged: (value) =>
-                        widget.countryCubit.filterCountry(value),
-                  ),
+              ),
+              Expanded(
+                child: BlocBuilder<CountryPickerCubit, CountryPickerState>(
+                  builder: (context, state) {
+                    if (state is CountriesLoadedState) {
+                      return ScreenTypeLayout.builder(
+                        mobile: (p0) => CountriesWidget(
+                          countries: state.countries,
+                          crossAxisCount: 2,
+                        ),
+                        tablet: (p0) => CountriesWidget(
+                          countries: state.countries,
+                          crossAxisCount: 3,
+                        ),
+                        desktop: (p0) => CountriesWidget(
+                          countries: state.countries,
+                          crossAxisCount: 6,
+                        ),
+                      );
+                    }
+                    return Container();
+                  },
                 ),
-                Expanded(
-                  child: BlocBuilder<CountryPickerCubit, CountryPickerState>(
-                    builder: (context, state) {
-                      print(state.selectedCountry);
-                      if (state is CountriesLoadedState) {
-                        return ScreenTypeLayout.builder(
-                          mobile: (p0) => CountriesWidget(
-                            countries: state.countries,
-                            crossAxisCount: 2,
-                          ),
-                          tablet: (p0) => CountriesWidget(
-                            countries: state.countries,
-                            crossAxisCount: 3,
-                          ),
-                          desktop: (p0) => CountriesWidget(
-                            countries: state.countries,
-                            crossAxisCount: 6,
-                          ),
-                        );
-                      }
-                      return Container();
-                    },
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

@@ -1,0 +1,9 @@
+{
+    "editor.fontFamily": "Roboto Mono Medium",
+    "editor.inlayHints.fontFamily": "Roboto Mono Medium",
+    "debug.console.fontFamily": "Roboto Mono Medium",
+    "scm.inputFontFamily": "Roboto Mono Medium",
+    "notebook.output.fontFamily": "Roboto Mono Medium",
+    "chat.editor.fontFamily": "Roboto Mono Medium",
+    "gitlens.blame.fontFamily": "Roboto Mono Medium"
+}

@@ -18,7 +18,8 @@ class IntroImagePickerWidget extends StatelessWidget {
     final ImagePicker picker = ImagePicker();
     picker.pickImage(source: ImageSource.gallery).then((pickedFile) {
       if (pickedFile != null) {
-        Provider.of<Box<dynamic>>(context).put(userImageKey, pickedFile.path);
+        Provider.of<Box<dynamic>>(context, listen: false)
+            .put(userImageKey, pickedFile.path);
       }
     });
   }

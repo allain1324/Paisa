@@ -40,11 +40,10 @@ class CountryPickerCubit extends Cubit<CountryPickerState> {
                   element.code.toLowerCase().contains(value.toLowerCase()),
             )
             .toList();
-    /* emit(CountryPickerState.fetch(
+    emit(CountryPickerState.countries(
       countries: filterCountries,
-      navigateToLanding: state.navigateToLanding,
       selectedCountry: state.selectedCountry,
-    )); */
+    ));
   }
 
   void updateSelectedCountry(CountryEntity countryEntity) {

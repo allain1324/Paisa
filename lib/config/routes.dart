@@ -133,7 +133,6 @@ class UserOnboardingPageData extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return UserOnboardingPage(
-      countryPickerCubit: getIt<CountryPickerCubit>(),
       forceCountrySelector: forceCountrySelector,
     );
   }
