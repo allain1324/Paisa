@@ -24,10 +24,6 @@ mixin _$AccountModel {
   String? get name => throw _privateConstructorUsedError;
   @HiveField(0)
   set name(String? value) => throw _privateConstructorUsedError;
-  @HiveField(2)
-  CountryModel? get currencySymbol => throw _privateConstructorUsedError;
-  @HiveField(2)
-  set currencySymbol(CountryModel? value) => throw _privateConstructorUsedError;
   @HiveField(3)
   String? get bankName => throw _privateConstructorUsedError;
   @HiveField(3)
@@ -71,7 +67,6 @@ abstract class $AccountModelCopyWith<$Res> {
   @useResult
   $Res call(
       {@HiveField(0) String? name,
-      @HiveField(2) CountryModel? currencySymbol,
       @HiveField(3) String? bankName,
       @HiveField(6, defaultValue: CardType.bank) CardType? cardType,
       @HiveField(7) int? superId,
@@ -79,8 +74,6 @@ abstract class $AccountModelCopyWith<$Res> {
       @HiveField(9, defaultValue: 0xFFFFC107) int? color,
       @HiveField(4, defaultValue: false) bool isAccountDefault,
       @HiveField(21, defaultValue: false) bool? isAccountExcluded});
-
-  $CountryModelCopyWith<$Res>? get currencySymbol;
 }
 
 /// @nodoc
@@ -97,7 +90,6 @@ class _$AccountModelCopyWithImpl<$Res, $Val extends AccountModel>
   @override
   $Res call({
     Object? name = freezed,
-    Object? currencySymbol = freezed,
     Object? bankName = freezed,
     Object? cardType = freezed,
     Object? superId = freezed,
@@ -111,10 +103,6 @@ class _$AccountModelCopyWithImpl<$Res, $Val extends AccountModel>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      currencySymbol: freezed == currencySymbol
-          ? _value.currencySymbol
-          : currencySymbol // ignore: cast_nullable_to_non_nullable
-              as CountryModel?,
       bankName: freezed == bankName
           ? _value.bankName
           : bankName // ignore: cast_nullable_to_non_nullable
@@ -145,18 +133,6 @@ class _$AccountModelCopyWithImpl<$Res, $Val extends AccountModel>
               as bool?,
     ) as $Val);
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CountryModelCopyWith<$Res>? get currencySymbol {
-    if (_value.currencySymbol == null) {
-      return null;
-    }
-
-    return $CountryModelCopyWith<$Res>(_value.currencySymbol!, (value) {
-      return _then(_value.copyWith(currencySymbol: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -169,7 +145,6 @@ abstract class _$$AccountModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {@HiveField(0) String? name,
-      @HiveField(2) CountryModel? currencySymbol,
       @HiveField(3) String? bankName,
       @HiveField(6, defaultValue: CardType.bank) CardType? cardType,
       @HiveField(7) int? superId,
@@ -177,9 +152,6 @@ abstract class _$$AccountModelImplCopyWith<$Res>
       @HiveField(9, defaultValue: 0xFFFFC107) int? color,
       @HiveField(4, defaultValue: false) bool isAccountDefault,
       @HiveField(21, defaultValue: false) bool? isAccountExcluded});
-
-  @override
-  $CountryModelCopyWith<$Res>? get currencySymbol;
 }
 
 /// @nodoc
@@ -194,7 +166,6 @@ class __$$AccountModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = freezed,
-    Object? currencySymbol = freezed,
     Object? bankName = freezed,
     Object? cardType = freezed,
     Object? superId = freezed,
@@ -208,10 +179,6 @@ class __$$AccountModelImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      currencySymbol: freezed == currencySymbol
-          ? _value.currencySymbol
-          : currencySymbol // ignore: cast_nullable_to_non_nullable
-              as CountryModel?,
       bankName: freezed == bankName
           ? _value.bankName
           : bankName // ignore: cast_nullable_to_non_nullable
@@ -250,7 +217,6 @@ class __$$AccountModelImplCopyWithImpl<$Res>
 class _$AccountModelImpl extends _AccountModel {
   _$AccountModelImpl(
       {@HiveField(0) this.name,
-      @HiveField(2) this.currencySymbol,
       @HiveField(3) this.bankName,
       @HiveField(6, defaultValue: CardType.bank) this.cardType,
       @HiveField(7) this.superId,
@@ -266,9 +232,6 @@ class _$AccountModelImpl extends _AccountModel {
   @override
   @HiveField(0)
   String? name;
-  @override
-  @HiveField(2)
-  CountryModel? currencySymbol;
   @override
   @HiveField(3)
   String? bankName;
@@ -294,7 +257,7 @@ class _$AccountModelImpl extends _AccountModel {
 
   @override
   String toString() {
-    return 'AccountModel(name: $name, currencySymbol: $currencySymbol, bankName: $bankName, cardType: $cardType, superId: $superId, amount: $amount, color: $color, isAccountDefault: $isAccountDefault, isAccountExcluded: $isAccountExcluded)';
+    return 'AccountModel(name: $name, bankName: $bankName, cardType: $cardType, superId: $superId, amount: $amount, color: $color, isAccountDefault: $isAccountDefault, isAccountExcluded: $isAccountExcluded)';
   }
 
   @JsonKey(ignore: true)
@@ -314,7 +277,6 @@ class _$AccountModelImpl extends _AccountModel {
 abstract class _AccountModel extends AccountModel {
   factory _AccountModel(
           {@HiveField(0) String? name,
-          @HiveField(2) CountryModel? currencySymbol,
           @HiveField(3) String? bankName,
           @HiveField(6, defaultValue: CardType.bank) CardType? cardType,
           @HiveField(7) int? superId,
@@ -333,11 +295,6 @@ abstract class _AccountModel extends AccountModel {
   String? get name;
   @HiveField(0)
   set name(String? value);
-  @override
-  @HiveField(2)
-  CountryModel? get currencySymbol;
-  @HiveField(2)
-  set currencySymbol(CountryModel? value);
   @override
   @HiveField(3)
   String? get bankName;

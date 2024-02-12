@@ -1,19 +1,22 @@
 import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:paisa/core/enum/debt_type.dart';
 import 'package:paisa/core/use_case/use_case.dart';
 import 'package:paisa/features/debit/domain/repository/debit_repository.dart';
 
+part 'add_debit_use.case.freezed.dart';
+
 @singleton
-class AddDebitUseCase implements UseCase<Future<void>, AddDebit> {
+class AddDebitUseCase implements UseCase<Future<void>, ParamsAddDebit> {
   AddDebitUseCase({required this.debtRepository});
 
   final DebitRepository debtRepository;
 
   @override
-  Future<void> call({AddDebit? params}) {
+  Future<void> call(ParamsAddDebit params) {
     return debtRepository.addDebtOrCredit(
-      params!.description,
+      params.description,
       params.name,
       params.amount,
       params.currentDateTime,
@@ -23,30 +26,14 @@ class AddDebitUseCase implements UseCase<Future<void>, AddDebit> {
   }
 }
 
-class AddDebit extends Equatable {
-  const AddDebit({
-    required this.description,
-    required this.name,
-    required this.amount,
-    required this.currentDateTime,
-    required this.dueDateTime,
-    required this.debtType,
-  });
-
-  final double amount;
-  final DateTime currentDateTime;
-  final DebitType debtType;
-  final String description;
-  final DateTime dueDateTime;
-  final String name;
-
-  @override
-  List<Object?> get props => [
-        description,
-        name,
-        amount,
-        currentDateTime,
-        dueDateTime,
-        debtType,
-      ];
+@freezed
+class ParamsAddDebit with _$ParamsAddDebit {
+  const factory ParamsAddDebit({
+    required double amount,
+    required DateTime currentDateTime,
+    required DebitType debtType,
+    required String description,
+    required DateTime dueDateTime,
+    required String name,
+  }) = _ParamsAddDebit;
 }

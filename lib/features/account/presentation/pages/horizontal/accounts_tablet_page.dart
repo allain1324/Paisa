@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:paisa/features/account/domain/entities/account.dart';
+import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/account/presentation/bloc/accounts_bloc.dart';
 import 'package:paisa/features/account/presentation/widgets/account_summary_widget.dart';
 import 'package:paisa/features/account/presentation/widgets/account_transaction_widget.dart';

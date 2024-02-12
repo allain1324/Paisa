@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'country.dart';
+part of 'country_entity.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

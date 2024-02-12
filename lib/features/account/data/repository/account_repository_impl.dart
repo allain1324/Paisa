@@ -1,22 +1,28 @@
 import 'package:injectable/injectable.dart';
 import 'package:paisa/core/common_enum.dart';
-import 'package:paisa/features/account/data/data_sources/local/account_data_manager.dart';
+import 'package:paisa/core/common.dart';
+import 'package:paisa/features/account/data/data_sources/account_data_manager.dart';
 import 'package:paisa/features/account/data/model/account_model.dart';
+import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/account/domain/repository/account_repository.dart';
 
 @Singleton(as: AccountRepository)
 class AccountRepositoryImpl extends AccountRepository {
-  AccountRepositoryImpl({required this.dataSource});
+  AccountRepositoryImpl({
+    @Named('local-account') required this.dataSource,
+  });
 
-  final LocalAccountManager dataSource;
+  final AccountManager dataSource;
 
   @override
-  Future<void> addAccount({
+  Future<int> add({
     required String bankName,
     required String holderName,
     required CardType cardType,
-    required double amount,
-    required int color,
+    String? number,
+    double? amount,
+    int? color,
+    bool? isAccountExcluded,
   }) {
     return dataSource.add(AccountModel(
       name: holderName,
@@ -24,38 +30,51 @@ class AccountRepositoryImpl extends AccountRepository {
       cardType: cardType,
       amount: amount,
       color: color,
+      isAccountExcluded: isAccountExcluded,
     ));
   }
 
   @override
-  Future<void> clearAll() => dataSource.clear();
+  List<AccountEntity> all() {
+    return dataSource.accounts().toEntities();
+  }
 
   @override
-  Future<void> deleteAccount(int key) => dataSource.delete(key);
+  Future<void> clearAll() {
+    return dataSource.clear();
+  }
 
   @override
-  AccountModel? fetchAccountFromId(int? accountId) =>
-      dataSource.findById(accountId);
+  Future<void> delete(int key) {
+    return dataSource.delete(key);
+  }
 
   @override
-  List<AccountModel> getAccounts() => dataSource.accounts();
+  AccountEntity? fetchById(int? accountId) {
+    return dataSource.findById(accountId)?.toEntity();
+  }
 
   @override
-  Future<void> updateAccount({
+  Future<void> update({
     required int key,
     required String? bankName,
     required String? holderName,
-    required CardType? cardType,
-    required double? amount,
-    required int? color,
+    required CardType cardType,
+    String? number,
+    double? amount,
+    int? color,
+    bool? isAccountExcluded,
   }) {
-    return dataSource.update(AccountModel(
-      name: holderName,
-      bankName: bankName,
-      cardType: cardType,
-      amount: amount,
-      superId: key,
-      color: color,
-    ));
+    return dataSource.update(
+      AccountModel(
+        name: holderName,
+        bankName: bankName,
+        cardType: cardType,
+        amount: amount,
+        color: color,
+        isAccountExcluded: isAccountExcluded,
+        superId: key,
+      ),
+    );
   }
 }

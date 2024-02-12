@@ -8,7 +8,10 @@ import 'package:paisa/core/enum/debt_type.dart';
 import 'package:paisa/features/debit/data/models/debit_model.dart';
 import 'package:paisa/features/debit/domain/entities/debit.dart';
 import 'package:paisa/features/debit/domain/use_case/debit_use_case.dart';
-import 'package:paisa/features/debit/domain/use_case/delete_debit_transactions_by_debit_id_use_case.dart';
+import 'package:paisa/features/debit_transaction/domain/use_case/add_debit_transaction_use_case.dart';
+import 'package:paisa/features/debit_transaction/domain/use_case/delete_debit_transaction_use_case.dart';
+import 'package:paisa/features/debit_transaction/domain/use_case/delete_debit_transactions_by_debit_id_use_case.dart';
+import 'package:paisa/features/debit_transaction/domain/use_case/get_debit_transactions_use_case.dart';
 
 part 'debts_event.dart';
 part 'debts_state.dart';
@@ -40,14 +43,15 @@ class DebitBloc extends Bloc<DebtsEvent, DebtsState> {
   final AddDebitUseCase addDebtUseCase;
   final AddDebitTransactionUseCase addTransactionUseCase;
   double? currentAmount;
-  Debit? currentDebt;
+  DebitEntity? currentDebt;
   DebitType currentDebtType = DebitType.debit;
   String? currentDescription;
   String? currentName;
-  final DeleteDebitUseCase deleteDebtUseCase;
   final DeleteDebitTransactionUseCase deleteDebitTransactionUseCase;
   final DeleteDebitTransactionsByDebitIdUseCase
       deleteDebitTransactionsByDebitIdUseCase;
+
+  final DeleteDebitUseCase deleteDebtUseCase;
   DateTime? endDateTime;
   final GetDebitUseCase getDebtUseCase;
   final GetDebitTransactionsUseCase getTransactionsUseCase;
@@ -81,7 +85,7 @@ class DebitBloc extends Bloc<DebtsEvent, DebtsState> {
     }
     if (event.isUpdate) {
       await addDebtUseCase(
-        params: AddDebit(
+        ParamsAddDebit(
           description: description ?? '',
           name: name,
           amount: amount,
@@ -92,9 +96,8 @@ class DebitBloc extends Bloc<DebtsEvent, DebtsState> {
       );
     } else {
       if (currentDebt != null) {
-        await updateDebtUseCase(
-            params: UpdateDebitParams(
-          currentDebt!.key,
+        await updateDebtUseCase(UpdateDebitParams(
+          key: currentDebt!.superId!,
           description: description ?? '',
           name: name,
           amount: amount,
@@ -128,10 +131,10 @@ class DebitBloc extends Bloc<DebtsEvent, DebtsState> {
     Emitter<DebtsState> emit,
   ) async {
     await addTransactionUseCase(
-      params: AddDebitTransactionParams(
-        event.amount,
-        event.dateTime,
-        event.debt.superId!,
+      AddDebitTransactionParams(
+        amount: event.amount,
+        currentDateTime: event.dateTime,
+        parentId: event.debt.superId!,
       ),
     );
     emit(TransactionAddedState());
@@ -148,7 +151,7 @@ class DebitBloc extends Bloc<DebtsEvent, DebtsState> {
       return;
     }
 
-    final Debit? debt = getDebtUseCase(params: GetDebitParams(debitId));
+    final DebitEntity? debt = getDebtUseCase(GetDebitParams(debitId));
     if (debt != null) {
       currentAmount = debt.amount;
       currentName = debt.name;
@@ -182,9 +185,9 @@ class DebitBloc extends Bloc<DebtsEvent, DebtsState> {
     Emitter<DebtsState> emit,
   ) async {
     final int debitId = event.id;
-    await deleteDebtUseCase(params: DeleteDebitParams(debitId));
+    await deleteDebtUseCase(DeleteDebitParams(debitId));
     await deleteDebitTransactionsByDebitIdUseCase(
-        params: DeleteDebitTransactionsDebitIdParams(debitId));
+        DeleteDebitTransactionsDebitIdParams(debitId));
     emit(DeleteDebtsState());
   }
 
@@ -193,7 +196,7 @@ class DebitBloc extends Bloc<DebtsEvent, DebtsState> {
     Emitter<DebtsState> emit,
   ) async {
     await deleteDebitTransactionUseCase(
-      params: DeleteDebitTransactionParams(event.id),
+      DeleteDebitTransactionParams(event.id),
     );
     emit(DeleteDebtsState());
   }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
-import 'package:paisa/features/intro/domain/entities/country.dart';
+import 'package:paisa/features/intro/domain/entities/country_entity.dart';
 import 'package:paisa/features/intro/presentation/cubit/country_picker_cubit.dart';
 import 'package:paisa/features/intro/presentation/widgets/intro_image_picker_widget.dart';
 import 'package:responsive_builder/responsive_builder.dart';

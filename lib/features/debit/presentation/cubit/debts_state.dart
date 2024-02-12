@@ -30,7 +30,7 @@ class DebtsTabState extends DebtsState {
 class DebtsSuccessState extends DebtsState {
   const DebtsSuccessState(this.debt);
 
-  final DebitModel debt;
+  final DebitEntity debt;
 
   @override
   List<Object> get props => [debt];

@@ -1,5 +1,4 @@
 import 'package:injectable/injectable.dart';
-import 'package:paisa/core/common.dart';
 import 'package:paisa/core/use_case/use_case.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction.dart';
 import 'package:paisa/features/transaction/domain/repository/transaction_repository.dart';
@@ -12,10 +11,8 @@ class GetTransactionUseCase
   final TransactionRepository transactionRepository;
 
   @override
-  Future<TransactionEntity?> call({GetTransactionParams? params}) async =>
-      transactionRepository
-          .fetchExpenseFromId(params!.transactionId)
-          ?.toEntity();
+  Future<TransactionEntity?> call(GetTransactionParams params) async =>
+      transactionRepository.fetchExpenseFromId(params.transactionId);
 }
 
 class GetTransactionParams {

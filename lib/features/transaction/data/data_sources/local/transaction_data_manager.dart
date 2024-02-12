@@ -52,11 +52,6 @@ class LocalTransactionManagerImpl implements LocalTransactionManager {
   Future<void> clear() => transactionBox.clear();
 
   @override
-  Future<void> deleteById(int key) {
-    return transactionBox.delete(key);
-  }
-
-  @override
   Future<void> deleteByAccountId(int accountId) {
     final keys = transactionBox.values
         .where((element) => element.accountId == accountId)
@@ -73,26 +68,15 @@ class LocalTransactionManagerImpl implements LocalTransactionManager {
   }
 
   @override
+  Future<void> deleteById(int key) {
+    return transactionBox.delete(key);
+  }
+
+  @override
   List<TransactionModel> expenses() => transactionBox.values.toList();
 
   @override
   Iterable<TransactionModel> export() => transactionBox.values;
-
-  @override
-  TransactionModel? findById(int expenseId) => transactionBox.values
-      .firstWhereOrNull((element) => element.key == expenseId);
-
-  @override
-  List<TransactionModel> findByAccountId(int accountId) => transactionBox.values
-      .where((element) => element.accountId != -1 && element.categoryId != -1)
-      .where((element) => element.accountId == accountId)
-      .toList();
-
-  @override
-  List<TransactionModel> findByCategoryId(int category) => transactionBox.values
-      .where((element) => element.accountId != -1 && element.categoryId != -1)
-      .where((element) => element.categoryId == category)
-      .toList();
 
   @override
   List<TransactionModel> filterExpenses(SearchQuery query) {
@@ -110,6 +94,22 @@ class LocalTransactionManagerImpl implements LocalTransactionManager {
     }).toList();
     return filteredExpenses;
   }
+
+  @override
+  List<TransactionModel> findByAccountId(int accountId) => transactionBox.values
+      .where((element) => element.accountId != -1 && element.categoryId != -1)
+      .where((element) => element.accountId == accountId)
+      .toList();
+
+  @override
+  List<TransactionModel> findByCategoryId(int category) => transactionBox.values
+      .where((element) => element.accountId != -1 && element.categoryId != -1)
+      .where((element) => element.categoryId == category)
+      .toList();
+
+  @override
+  TransactionModel? findById(int expenseId) => transactionBox.values
+      .firstWhereOrNull((element) => element.key == expenseId);
 
   @override
   Future<void> update(TransactionModel expenseModel) {

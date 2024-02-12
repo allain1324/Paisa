@@ -1,7 +1,9 @@
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:paisa/core/use_case/use_case.dart';
 import 'package:paisa/features/category/domain/repository/category_repository.dart';
+
+part 'update_category_use_case.freezed.dart';
 
 @singleton
 class UpdateCategoryUseCase
@@ -11,9 +13,9 @@ class UpdateCategoryUseCase
   final CategoryRepository categoryRepository;
 
   @override
-  Future<void> call({UpdateCategoryParams? params}) {
+  Future<void> call(UpdateCategoryParams params) {
     return categoryRepository.update(
-      key: params!.key,
+      key: params.key,
       color: params.color!,
       icon: params.icon,
       name: params.name,
@@ -25,36 +27,16 @@ class UpdateCategoryUseCase
   }
 }
 
-class UpdateCategoryParams extends Equatable {
-  const UpdateCategoryParams(
-    this.key, {
-    this.budget,
-    this.color,
-    this.description,
-    this.icon,
-    this.isBudget = false,
-    this.isDefault = false,
-    this.name,
-  });
-
-  final double? budget;
-  final int? color;
-  final String? description;
-  final int? icon;
-  final bool isBudget;
-  final bool isDefault;
-  final int key;
-  final String? name;
-
-  @override
-  List<Object?> get props => [
-        key,
-        budget,
-        color,
-        description,
-        icon,
-        isBudget,
-        isDefault,
-        name,
-      ];
+@freezed
+class UpdateCategoryParams with _$UpdateCategoryParams {
+  const factory UpdateCategoryParams({
+    required int key,
+    double? budget,
+    int? color,
+    String? description,
+    int? icon,
+    @Default(false) bool isBudget,
+    @Default(false) bool isDefault,
+    String? name,
+  }) = _UpdateCategoryParams;
 }

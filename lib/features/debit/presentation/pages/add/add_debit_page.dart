@@ -5,12 +5,12 @@ import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:paisa/core/common.dart';
-import 'package:paisa/features/debit/data/models/debit_transactions_model.dart';
-import 'package:paisa/features/debit/domain/entities/debit_transaction.dart';
 
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/debit/presentation/cubit/debts_bloc.dart';
 import 'package:paisa/features/debit/presentation/widgets/debt_toggle_buttons_widget.dart';
+import 'package:paisa/features/debit_transaction/data/model/debit_transactions_model.dart';
+import 'package:paisa/features/debit_transaction/domain/entities/debit_transaction_entity.dart';
 import 'package:paisa/main.dart';
 
 class DebitPage extends StatefulWidget {
@@ -155,7 +155,7 @@ class _DebitPageState extends State<DebitPage> {
                       builder: (context, value, child) {
                         final int? parentId = widget.debtId;
                         if (parentId == null) return const SizedBox.shrink();
-                        final List<DebitTransaction> transactions =
+                        final List<DebitTransactionEntity> transactions =
                             value.getTransactionsFromId(parentId);
 
                         return ListView.builder(
@@ -163,7 +163,7 @@ class _DebitPageState extends State<DebitPage> {
                           physics: const NeverScrollableScrollPhysics(),
                           itemCount: transactions.length,
                           itemBuilder: (_, index) {
-                            final DebitTransaction transaction =
+                            final DebitTransactionEntity transaction =
                                 transactions[index];
                             return ListTile(
                               leading: IconButton(

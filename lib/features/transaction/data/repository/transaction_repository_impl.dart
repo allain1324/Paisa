@@ -1,11 +1,13 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
+import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/core/error/failures.dart';
 import 'package:paisa/features/transaction/data/data_sources/local/transaction_data_manager.dart';
 import 'package:paisa/features/transaction/data/model/transaction_model.dart';
 import 'package:paisa/features/transaction/data/model/search_query.dart';
+import 'package:paisa/features/transaction/domain/entities/transaction.dart';
 import 'package:paisa/features/transaction/domain/repository/transaction_repository.dart';
 
 @Singleton(as: TransactionRepository)
@@ -68,34 +70,37 @@ class ExpenseRepositoryImpl extends TransactionRepository {
   }
 
   @override
-  List<TransactionModel> expenses() => dataSource.expenses();
+  List<TransactionEntity> transactions({int? accountId}) =>
+      dataSource.expenses().toEntities();
 
   @override
-  TransactionModel? fetchExpenseFromId(int expenseId) {
-    return dataSource.findById(expenseId);
+  TransactionEntity? fetchExpenseFromId(int expenseId) {
+    return dataSource.findById(expenseId)?.toEntity();
   }
 
   @override
-  List<TransactionModel> fetchExpensesFromAccountId(int accountId) {
-    return dataSource.findByAccountId(accountId);
+  List<TransactionEntity> fetchExpensesFromAccountId(int accountId) {
+    return dataSource.findByAccountId(accountId).toEntities();
   }
 
   @override
-  List<TransactionModel> fetchExpensesFromCategoryId(int accountId) {
-    return dataSource.findByCategoryId(accountId);
+  List<TransactionEntity> fetchExpensesFromCategoryId(int accountId) {
+    return dataSource.findByCategoryId(accountId).toEntities();
   }
 
   @override
-  List<TransactionModel> filterExpenses(
+  List<TransactionEntity> filterExpenses(
     String query,
     List<int> accounts,
     List<int> categories,
   ) {
-    return dataSource.filterExpenses(SearchQuery(
-      query: query,
-      accounts: accounts,
-      categories: categories,
-    ));
+    return dataSource
+        .filterExpenses(SearchQuery(
+          query: query,
+          accounts: accounts,
+          categories: categories,
+        ))
+        .toEntities();
   }
 
   @override

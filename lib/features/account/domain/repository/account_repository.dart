@@ -1,29 +1,31 @@
 import 'package:paisa/core/common_enum.dart';
-import 'package:paisa/features/account/data/model/account_model.dart';
+import 'package:paisa/features/account/domain/entities/account_entity.dart';
 
 abstract class AccountRepository {
-  Future<void> addAccount({
+  Future<int> add({
     required String bankName,
     required String holderName,
     required CardType cardType,
-    required double amount,
-    required int color,
+    double? amount,
+    int? color,
+    bool? isAccountExcluded,
   });
 
-  Future<void> updateAccount({
+  Future<void> update({
     required int key,
-    required String? bankName,
-    required String? holderName,
-    required CardType? cardType,
-    required double? amount,
-    required int? color,
+    required String bankName,
+    required String holderName,
+    required CardType cardType,
+    double? amount,
+    int? color,
+    bool? isAccountExcluded,
   });
 
-  Future<void> deleteAccount(int key);
+  Future<void> delete(int key);
 
-  AccountModel? fetchAccountFromId(int? accountId);
+  AccountEntity? fetchById(int? accountId);
 
-  List<AccountModel> getAccounts();
+  List<AccountEntity> all();
 
   Future<void> clearAll();
 }

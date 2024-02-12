@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/features/intro/data/data_source/local_country_data.dart';
 import 'package:paisa/features/intro/data/models/country_model.dart';
-import 'package:paisa/features/intro/domain/entities/country.dart';
+import 'package:paisa/features/intro/domain/entities/country_entity.dart';
 import 'package:paisa/features/intro/domain/repository/country_repository.dart';
 
 @Singleton(as: CountryRepository)

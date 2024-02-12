@@ -17,8 +17,8 @@ extension DebitTypeHelper on DebitType {
 }
 
 extension AccountMapping on DebitModel {
-  Debit toEntity() {
-    return Debit(
+  DebitEntity toEntity() {
+    return DebitEntity(
       description: description,
       name: name,
       amount: amount,

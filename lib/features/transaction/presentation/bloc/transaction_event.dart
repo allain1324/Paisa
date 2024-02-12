@@ -1,73 +1,32 @@
 part of 'transaction_bloc.dart';
 
-@immutable
-abstract class ExpenseEvent extends Equatable {
-  const ExpenseEvent();
+@freezed
+class TransactionEvent with _$TransactionEvent {
+  const factory TransactionEvent.addOrUpdate(bool isAdding) =
+      _AddOrUpdateExpenseEvent;
 
-  @override
-  List<Object> get props => [];
+  const factory TransactionEvent.delete(String expenseId) = _ClearExpenseEvent;
+  const factory TransactionEvent.changeTransactionType(
+      TransactionType transactionType) = _ChangeTransactionTypeEvent;
+
+  const factory TransactionEvent.transferAccount(
+    AccountEntity account, {
+    @Default(false) bool isFromAccount,
+  }) = _TransferAccountEvent;
+
+  const factory TransactionEvent.addRecurring() = _AddRecurringEvent;
+
+  const factory TransactionEvent.changeAccount(AccountEntity account) =
+      _ChangeAccountEvent;
+
+  const factory TransactionEvent.changeCategory(CategoryEntity category) =
+      _ChangeCategoryEvent;
+
+  const factory TransactionEvent.defaultCategory() = _FetchDefaultCategoryEvent;
+
+  const factory TransactionEvent.findTransaction(String? expenseId) =
+      _FindTransactionFromIdEvent;
+
+  const factory TransactionEvent.updateDateTime(DateTime dateTime) =
+      _UpdateDateTimeEvent;
 }
-
-class FindTransactionFromIdEvent extends ExpenseEvent {
-  const FindTransactionFromIdEvent(this.expenseId);
-
-  final int? expenseId;
-}
-
-class AddOrUpdateExpenseEvent extends ExpenseEvent {
-  const AddOrUpdateExpenseEvent(this.isAdding);
-
-  final bool isAdding;
-}
-
-class ClearExpenseEvent extends ExpenseEvent {
-  const ClearExpenseEvent(this.expenseId);
-
-  final int expenseId;
-}
-
-class ChangeTransactionTypeEvent extends ExpenseEvent {
-  const ChangeTransactionTypeEvent(this.transactionType);
-
-  final TransactionType transactionType;
-}
-
-class AddRecurringEvent extends ExpenseEvent {
-  const AddRecurringEvent();
-}
-
-class ChangeCategoryEvent extends ExpenseEvent {
-  const ChangeCategoryEvent(this.category);
-
-  final CategoryEntity category;
-}
-
-class ChangeAccountEvent extends ExpenseEvent {
-  const ChangeAccountEvent(this.account);
-
-  final AccountEntity account;
-}
-
-class UpdateDateTimeEvent extends ExpenseEvent {
-  const UpdateDateTimeEvent(this.dateTime);
-
-  final DateTime dateTime;
-
-  @override
-  List<Object> get props => [dateTime];
-}
-
-class TransferAccountEvent extends ExpenseEvent {
-  const TransferAccountEvent(
-    this.account, {
-    this.isFromAccount = false,
-  });
-
-  final AccountEntity account;
-  final bool isFromAccount;
-
-  @override
-  List<Object> get props => [account, isFromAccount];
-}
-
-class FetchDefaultCategoryEvent extends ExpenseEvent {}

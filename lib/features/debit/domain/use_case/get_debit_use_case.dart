@@ -1,27 +1,25 @@
 import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/use_case/use_case.dart';
 import 'package:paisa/features/debit/domain/entities/debit.dart';
 import 'package:paisa/features/debit/domain/repository/debit_repository.dart';
+part 'get_debit_use_case.freezed.dart';
 
 @singleton
-class GetDebitUseCase implements UseCase<Debit?, GetDebitParams> {
+class GetDebitUseCase implements UseCase<DebitEntity?, GetDebitParams> {
   GetDebitUseCase({required this.debtRepository});
 
   final DebitRepository debtRepository;
 
   @override
-  Debit? call({GetDebitParams? params}) {
-    return debtRepository.fetchDebtOrCreditFromId(params!.debitId)?.toEntity();
+  DebitEntity? call(GetDebitParams params) {
+    return debtRepository.fetchDebtOrCreditFromId(params.debitId);
   }
 }
 
-class GetDebitParams extends Equatable {
-  const GetDebitParams(this.debitId);
-
-  final int debitId;
-
-  @override
-  List<Object?> get props => [debitId];
+@freezed
+class GetDebitParams with _$GetDebitParams {
+  const factory GetDebitParams(int debitId) = _GetDebitParams;
 }

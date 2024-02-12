@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:paisa/features/intro/domain/entities/country.dart';
+import 'package:paisa/features/intro/domain/entities/country_entity.dart';
 import 'package:provider/provider.dart';
 
 extension MappingOnDouble on double {

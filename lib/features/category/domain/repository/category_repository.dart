@@ -1,4 +1,5 @@
 import 'package:paisa/features/category/data/model/category_model.dart';
+import 'package:paisa/features/category/domain/entities/category.dart';
 
 abstract class CategoryRepository {
   Future<void> add({
@@ -28,5 +29,5 @@ abstract class CategoryRepository {
 
   Future<void> clear();
 
-  List<CategoryModel> defaultCategories();
+  List<CategoryEntity> defaultCategories();
 }

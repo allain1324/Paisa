@@ -1,6 +1,5 @@
 import 'package:paisa/core/enum/debt_type.dart';
-import 'package:paisa/features/debit/data/models/debit_model.dart';
-import 'package:paisa/features/debit/data/models/debit_transactions_model.dart';
+import 'package:paisa/features/debit/domain/entities/debit.dart';
 
 abstract class DebitRepository {
   Future<void> addDebtOrCredit(
@@ -22,19 +21,7 @@ abstract class DebitRepository {
     required int key,
   });
 
-  DebitModel? fetchDebtOrCreditFromId(int debtId);
+  DebitEntity? fetchDebtOrCreditFromId(int debtId);
 
   Future<void> deleteDebtOrCreditFromId(int debtId);
-
-  Future<void> deleteDebitTransactionsFromDebitId(int parentId);
-
-  Future<void> deleteDebitTransactionFromDebitId(int transactionId);
-
-  Future<void> addTransaction(
-    double amount,
-    DateTime currentDateTime,
-    int parentId,
-  );
-
-  Iterable<DebitTransactionsModel> fetchTransactionsFromId(int id);
 }

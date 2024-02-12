@@ -1,7 +1,10 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:paisa/core/enum/transaction_type.dart';
 import 'package:paisa/core/use_case/use_case.dart';
 import 'package:paisa/features/transaction/domain/repository/transaction_repository.dart';
+
+part 'update_expense_use_case.freezed.dart';
 
 @singleton
 class UpdateTransactionUseCase
@@ -9,39 +12,32 @@ class UpdateTransactionUseCase
   UpdateTransactionUseCase({required this.expenseRepository});
 
   final TransactionRepository expenseRepository;
+
   @override
-  Future<void> call({UpdateTransactionParams? params}) {
+  Future<void> call(UpdateTransactionParams params) {
     return expenseRepository.updateExpense(
-      params!.superId,
+      params.superId,
       params.name,
       params.currency,
       params.time,
       params.categoryId,
       params.accountId,
-      params.type ?? TransactionType.expense,
+      params.type,
       params.description,
     );
   }
 }
 
-class UpdateTransactionParams {
-  UpdateTransactionParams(
-    this.superId, {
-    this.accountId,
-    this.categoryId,
-    this.currency,
-    this.description,
-    this.name,
-    this.time,
-    this.type,
-  });
-
-  final int? accountId;
-  final int? categoryId;
-  final double? currency;
-  final String? description;
-  final String? name;
-  final int superId;
-  final DateTime? time;
-  final TransactionType? type;
+@freezed
+class UpdateTransactionParams with _$UpdateTransactionParams {
+  const factory UpdateTransactionParams({
+    int? accountId,
+    int? categoryId,
+    double? currency,
+    String? description,
+    String? name,
+    required int superId,
+    DateTime? time,
+    @Default(TransactionType.expense) TransactionType type,
+  }) = _UpdateTransactionParams;
 }

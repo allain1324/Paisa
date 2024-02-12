@@ -1,5 +1,7 @@
 import 'package:injectable/injectable.dart';
+import 'package:paisa/core/common.dart';
 import 'package:paisa/features/category/data/data_sources/local/category_data_source.dart';
+import 'package:paisa/features/category/domain/entities/category.dart';
 import 'package:paisa/features/category/domain/repository/category_repository.dart';
 
 import 'package:paisa/features/category/data/model/category_model.dart';
@@ -46,8 +48,8 @@ class CategoryRepositoryImpl extends CategoryRepository {
   CategoryModel? fetchById(int? categoryId) => dataSources.findById(categoryId);
 
   @override
-  List<CategoryModel> defaultCategories() {
-    return dataSources.defaultCategories();
+  List<CategoryEntity> defaultCategories() {
+    return dataSources.defaultCategories().toEntities();
   }
 
   @override

@@ -6,7 +6,7 @@ import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/features/account/data/model/account_model.dart';
-import 'package:paisa/features/account/domain/entities/account.dart';
+import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/transaction/presentation/bloc/transaction_bloc.dart';
 import 'package:paisa/features/transaction/presentation/widgets/selectable_item_widget.dart';
 import 'package:paisa/main.dart';

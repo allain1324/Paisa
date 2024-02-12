@@ -1,16 +1,16 @@
 import 'package:collection/collection.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:paisa/features/debit/data/models/debit_transactions_model.dart';
-import 'package:paisa/features/debit/domain/entities/debit_transaction.dart';
+import 'package:paisa/features/debit_transaction/data/model/debit_transactions_model.dart';
+import 'package:paisa/features/debit_transaction/domain/entities/debit_transaction_entity.dart';
 
 extension MappingOnTransactionsBox on Box<DebitTransactionsModel> {
-  List<DebitTransaction> getTransactionsFromId(int parentId) {
+  List<DebitTransactionEntity> getTransactionsFromId(int parentId) {
     return values.where((element) => element.parentId == parentId).toEntities();
   }
 }
 
 extension MappingOnTransaction on DebitTransactionsModel {
-  DebitTransaction toEntity() => DebitTransaction(
+  DebitTransactionEntity toEntity() => DebitTransactionEntity(
         amount: amount,
         now: now,
         parentId: parentId,
@@ -18,7 +18,7 @@ extension MappingOnTransaction on DebitTransactionsModel {
 }
 
 extension MappingOnTransactions on Iterable<DebitTransactionsModel> {
-  List<DebitTransaction> toEntities() => map((e) => e.toEntity())
+  List<DebitTransactionEntity> toEntities() => map((e) => e.toEntity())
       .sorted((a, b) => b.now.compareTo(a.now))
       .toList();
 }

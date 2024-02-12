@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:paisa/core/use_case/use_case.dart';
-import 'package:paisa/features/intro/domain/entities/country.dart';
+import 'package:paisa/features/intro/domain/entities/country_entity.dart';
 import 'package:paisa/features/intro/domain/use_case/get_contries_user_case.dart';
 import 'package:paisa/features/intro/domain/use_case/get_selected_country_use_case.dart';
 import 'package:paisa/features/intro/domain/use_case/save_selected_country_use_case.dart';
@@ -22,9 +22,9 @@ class CountryPickerCubit extends Cubit<CountryPickerState> {
   final SaveSelectedCountryUseCase saveSelectedCountryUseCase;
 
   void fetchCountry() {
-    final List<CountryEntity> countries = getCountryUseCase(params: NoParams());
+    final List<CountryEntity> countries = getCountryUseCase(NoParams());
     final CountryEntity? selectedCountry =
-        getSelectedCountryUseCase(params: NoParams());
+        getSelectedCountryUseCase(NoParams());
     emit(CountryPickerState.countries(
       countries: countries,
       selectedCountry: selectedCountry,
@@ -32,14 +32,13 @@ class CountryPickerCubit extends Cubit<CountryPickerState> {
   }
 
   void filterCountry(String value) {
-    final List<CountryEntity> filterCountries =
-        getCountryUseCase(params: NoParams())
-            .where(
-              (element) =>
-                  element.name.toLowerCase().contains(value.toLowerCase()) ||
-                  element.code.toLowerCase().contains(value.toLowerCase()),
-            )
-            .toList();
+    final List<CountryEntity> filterCountries = getCountryUseCase(NoParams())
+        .where(
+          (element) =>
+              element.name.toLowerCase().contains(value.toLowerCase()) ||
+              element.code.toLowerCase().contains(value.toLowerCase()),
+        )
+        .toList();
     emit(CountryPickerState.countries(
       countries: filterCountries,
       selectedCountry: state.selectedCountry,
@@ -48,7 +47,7 @@ class CountryPickerCubit extends Cubit<CountryPickerState> {
 
   void updateSelectedCountry(CountryEntity countryEntity) {
     saveSelectedCountryUseCase(
-      params: ParamsSaveCountry(countryEntity),
+      ParamsSaveCountry(countryEntity),
     );
     emit(state.copyWith(selectedCountry: countryEntity));
   }
@@ -61,5 +60,6 @@ class CountryPickerState with _$CountryPickerState {
     @Default([]) List<CountryEntity> countries,
     CountryEntity? selectedCountry,
   }) = CountriesLoadedState;
+
   //factory CountryPickerState.navigateToLanding() = NavigateToLanding;
 }

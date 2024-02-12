@@ -1,9 +1,10 @@
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:paisa/core/common.dart';
 import 'package:paisa/core/use_case/use_case.dart';
-import 'package:paisa/features/account/domain/entities/account.dart';
+import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/account/domain/repository/account_repository.dart';
+
+part 'get_account_use_case.freezed.dart';
 
 @singleton
 class GetAccountUseCase implements UseCase<AccountEntity?, GetAccountParams> {
@@ -12,16 +13,12 @@ class GetAccountUseCase implements UseCase<AccountEntity?, GetAccountParams> {
   final AccountRepository accountRepository;
 
   @override
-  AccountEntity? call({GetAccountParams? params}) {
-    return accountRepository.fetchAccountFromId(params!.accountId)?.toEntity();
+  AccountEntity? call(GetAccountParams params) {
+    return accountRepository.fetchById(params.accountId);
   }
 }
 
-class GetAccountParams extends Equatable {
-  const GetAccountParams(this.accountId);
-
-  final int? accountId;
-
-  @override
-  List<Object?> get props => [accountId];
+@freezed
+class GetAccountParams with _$GetAccountParams {
+  const factory GetAccountParams(int? accountId) = _GetAccountParams;
 }

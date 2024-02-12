@@ -6,9 +6,9 @@ import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/enum/debt_type.dart';
 import 'package:paisa/features/debit/data/models/debit_model.dart';
-import 'package:paisa/features/debit/data/models/debit_transactions_model.dart';
-import 'package:paisa/features/debit/domain/entities/debit_transaction.dart';
 import 'package:paisa/features/debit/presentation/cubit/debts_bloc.dart';
+import 'package:paisa/features/debit_transaction/data/model/debit_transactions_model.dart';
+import 'package:paisa/features/debit_transaction/domain/entities/debit_transaction_entity.dart';
 import 'package:paisa/main.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 
@@ -134,8 +134,8 @@ class DebtItemWidget extends StatelessWidget {
     return ValueListenableBuilder<Box<DebitTransactionsModel>>(
       valueListenable: getIt.get<Box<DebitTransactionsModel>>().listenable(),
       builder: (context, value, child) {
-        final List<DebitTransaction> transactions =
-            value.getTransactionsFromId(debt.superId ?? 0).toEntities();
+        final List<DebitTransactionEntity> transactions =
+            value.getTransactionsFromId(debt.superId ?? 0);
         final double amount = transactions.fold<double>(
             0, (previousValue, element) => previousValue + element.amount);
         return Padding(

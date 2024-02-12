@@ -18,7 +18,6 @@ class AccountModelAdapter extends TypeAdapter<_$AccountModelImpl> {
     };
     return _$AccountModelImpl(
       name: fields[0] as String?,
-      currencySymbol: fields[2] as CountryModel?,
       bankName: fields[3] as String?,
       cardType: fields[6] == null ? CardType.bank : fields[6] as CardType?,
       superId: fields[7] as int?,
@@ -32,11 +31,9 @@ class AccountModelAdapter extends TypeAdapter<_$AccountModelImpl> {
   @override
   void write(BinaryWriter writer, _$AccountModelImpl obj) {
     writer
-      ..writeByte(9)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.name)
-      ..writeByte(2)
-      ..write(obj.currencySymbol)
       ..writeByte(3)
       ..write(obj.bankName)
       ..writeByte(6)
@@ -71,10 +68,6 @@ class AccountModelAdapter extends TypeAdapter<_$AccountModelImpl> {
 _$AccountModelImpl _$$AccountModelImplFromJson(Map<String, dynamic> json) =>
     _$AccountModelImpl(
       name: json['name'] as String?,
-      currencySymbol: json['currencySymbol'] == null
-          ? null
-          : CountryModel.fromJson(
-              json['currencySymbol'] as Map<String, dynamic>),
       bankName: json['bankName'] as String?,
       cardType: $enumDecodeNullable(_$CardTypeEnumMap, json['cardType']),
       superId: json['superId'] as int?,
@@ -87,7 +80,6 @@ _$AccountModelImpl _$$AccountModelImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$AccountModelImplToJson(_$AccountModelImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'currencySymbol': instance.currencySymbol,
       'bankName': instance.bankName,
       'cardType': _$CardTypeEnumMap[instance.cardType],
       'superId': instance.superId,

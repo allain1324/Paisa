@@ -6,8 +6,8 @@ import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/enum/card_type.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
+import 'package:paisa/features/account/data/data_sources/account_data_manager.dart';
 import 'package:paisa/features/account/data/data_sources/default_account.dart';
-import 'package:paisa/features/account/data/data_sources/local/account_data_manager.dart';
 import 'package:paisa/features/account/data/model/account_model.dart';
 import 'package:paisa/features/intro/presentation/widgets/intro_image_picker_widget.dart';
 import 'package:paisa/main.dart';
@@ -25,8 +25,7 @@ class IntroAccountAddWidget extends StatefulWidget {
 
 class _IntroAccountAddWidgetState extends State<IntroAccountAddWidget>
     with AutomaticKeepAliveClientMixin {
-  final LocalAccountManager dataSource = getIt.get<LocalAccountManager>();
-
+  final AccountManager dataSource = getIt.get<AccountManager>();
   final List<AccountModel> defaultModels = defaultAccountsData();
 
   @override
