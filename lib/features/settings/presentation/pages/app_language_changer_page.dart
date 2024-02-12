@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:paisa/core/widgets/paisa_widgets/paisa_annotate_region_widget.dart';
 import 'package:provider/provider.dart';
@@ -9,10 +10,10 @@ import 'package:paisa/core/common.dart';
 class AppLanguageChangerPage extends StatefulWidget {
   const AppLanguageChangerPage({
     super.key,
-    required this.currentLanguage,
+    this.currentLanguage,
   });
 
-  final String currentLanguage;
+  final String? currentLanguage;
 
   @override
   State<AppLanguageChangerPage> createState() => _AppLanguageChangerPageState();
@@ -23,9 +24,9 @@ class _AppLanguageChangerPageState extends State<AppLanguageChangerPage> {
     (a, b) => a.value.compareTo(b.value),
   );
 
-  late String selectedLanguage = widget.currentLanguage;
+  late String? selectedLanguage = widget.currentLanguage;
 
-  Future<void> _save() async {
+  Future<void> _save(BuildContext context) async {
     await Provider.of<Box<dynamic>>(
       context,
       listen: false,
@@ -95,7 +96,7 @@ class _AppLanguageChangerPageState extends State<AppLanguageChangerPage> {
                       vertical: 12,
                     ),
                   ),
-                  onPressed: _save,
+                  onPressed: () => _save(context),
                   child: Text(context.loc.done),
                 ),
               ),

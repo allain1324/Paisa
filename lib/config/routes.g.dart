@@ -150,7 +150,7 @@ RouteBase get $landingPageData => GoRouteData.$route(
               factory: $FontPickerPageDataExtension._fromState,
             ),
             GoRouteData.$route(
-              path: 'language',
+              path: 'language-picker',
               factory: $AppLanguageChangerPageDataExtension._fromState,
             ),
           ],
@@ -253,13 +253,13 @@ extension $FontPickerPageDataExtension on FontPickerPageData {
 extension $AppLanguageChangerPageDataExtension on AppLanguageChangerPageData {
   static AppLanguageChangerPageData _fromState(GoRouterState state) =>
       AppLanguageChangerPageData(
-        currentLanguage: state.uri.queryParameters['current-language']!,
+        currentLanguage: state.uri.queryParameters['current-language'],
       );
 
   String get location => GoRouteData.$location(
-        '/landing/settings/language',
+        '/landing/settings/language-picker',
         queryParams: {
-          'current-language': currentLanguage,
+          if (currentLanguage != null) 'current-language': currentLanguage,
         },
       );
 

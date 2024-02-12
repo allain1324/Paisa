@@ -19,7 +19,6 @@ import 'package:paisa/features/settings/presentation/pages/export_and_import_pag
 import 'package:paisa/features/settings/presentation/pages/font_picker_page.dart';
 import 'package:paisa/features/settings/presentation/pages/setting_page.dart';
 import 'package:paisa/features/transaction/presentation/pages/transaction_page.dart';
-import 'package:paisa/main.dart';
 part 'routes.g.dart';
 
 final Box<dynamic> settings = Hive.box(BoxType.settings.name);
@@ -158,7 +157,7 @@ const settingsPageRoute = TypedGoRoute<SettingsPageData>(
       path: 'font-picker',
     ),
     TypedGoRoute<AppLanguageChangerPageData>(
-      path: 'language',
+      path: 'language-picker',
     ),
   ],
 );
@@ -327,9 +326,9 @@ class FontPickerPageData extends GoRouteData {
 }
 
 class AppLanguageChangerPageData extends GoRouteData {
-  const AppLanguageChangerPageData({required this.currentLanguage});
+  const AppLanguageChangerPageData({this.currentLanguage});
 
-  final String currentLanguage;
+  final String? currentLanguage;
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
