@@ -17,7 +17,7 @@ import 'package:path_provider/path_provider.dart';
 
 import 'model/data.dart';
 
-@Singleton()
+@LazySingleton()
 class FileHandler {
   FileHandler(
     this.deviceInfo,
@@ -26,10 +26,10 @@ class FileHandler {
     this.expenseDataManager,
   );
 
-  final AccountManager accountDataManager;
-  final LocalCategoryManager categoryDataManager;
+  final AccountDataSource accountDataManager;
+  final CategoryDataSource categoryDataManager;
   final DeviceInfoPlugin deviceInfo;
-  final LocalTransactionManager expenseDataManager;
+  final TransactionDataSource expenseDataManager;
 
   Future<bool> importDataFromFile() async {
     try {

@@ -5,11 +5,11 @@ import 'package:paisa/features/debit_transaction/data/model/debit_transactions_m
 import 'package:paisa/features/debit_transaction/domain/entities/debit_transaction_entity.dart';
 import 'package:paisa/features/debit_transaction/domain/repository/debit_transaction_repository.dart';
 
-@Singleton(as: DebitTransactionRepository)
+@LazySingleton(as: DebitTransactionRepository)
 class DebitTransactionRepoImpl implements DebitTransactionRepository {
   DebitTransactionRepoImpl({required this.dataStore});
 
-  final DebitTransactionDataStore dataStore;
+  final DebtTransactionDataSource dataStore;
 
   @override
   Future<void> addTransaction(

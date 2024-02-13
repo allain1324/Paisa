@@ -25,7 +25,13 @@ extension AccountMapping on DebitModel {
       dateTime: dateTime,
       expiryDateTime: expiryDateTime,
       debtType: debtType,
-      superId: superId,
+      superId: superId ?? -1,
     );
+  }
+}
+
+extension DebitModelsHelper on Iterable<DebitModel> {
+  List<Map<String, dynamic>> toJson() {
+    return map((e) => e.toJson()).toList();
   }
 }

@@ -3,7 +3,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:injectable/injectable.dart';
 import 'package:paisa/features/account/data/model/account_model.dart';
 
-abstract class AccountManager {
+abstract class AccountDataSource {
   Future<int> add(AccountModel account);
 
   Future<void> delete(int key);
@@ -19,8 +19,8 @@ abstract class AccountManager {
   Future<void> clear();
 }
 
-@Singleton(as: AccountManager)
-class AccountManagerImpl implements AccountManager {
+@LazySingleton(as: AccountDataSource)
+class AccountManagerImpl implements AccountDataSource {
   AccountManagerImpl({required this.accountBox});
 
   final Box<AccountModel> accountBox;

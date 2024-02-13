@@ -7,6 +7,10 @@ import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:paisa/features/account/data/data_sources/account_data_manager.dart';
 import 'package:paisa/features/category/data/data_sources/local/category_data_source.dart';
+import 'package:paisa/features/debit/data/data_sources/debit_local_data_source_impl.dart';
+import 'package:paisa/features/debit/data/models/debit_model.dart';
+import 'package:paisa/features/debit_transaction/data/data_source/debit_transactions_data_store.dart';
+import 'package:paisa/features/debit_transaction/data/model/debit_transactions_model.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'package:paisa/core/common.dart';
@@ -22,14 +26,18 @@ import 'package:paisa/features/transaction/data/model/transaction_model.dart';
 @LazySingleton(as: Export)
 class JSONExportImpl implements Export {
   JSONExportImpl(
-    this.accountDataManager,
-    this.categoryDataManager,
-    this.expenseDataManager,
+    this.accountDataSource,
+    this.categoryDataSource,
+    this.expenseDataSource,
+    this.debtDataSource,
+    this.debtTransactionDataSource,
   );
 
-  final AccountManager accountDataManager;
-  final LocalCategoryManager categoryDataManager;
-  final LocalTransactionManager expenseDataManager;
+  final AccountDataSource accountDataSource;
+  final DebtDataSource debtDataSource;
+  final CategoryDataSource categoryDataSource;
+  final TransactionDataSource expenseDataSource;
+  final DebtTransactionDataSource debtTransactionDataSource;
 
   @override
   Future<String> export() async {
@@ -45,15 +53,20 @@ class JSONExportImpl implements Export {
   }
 
   Future<List<int>> _fetchAllDataAndEncode() async {
-    final Iterable<TransactionModel> expenses = expenseDataManager.export();
-    final Iterable<AccountModel> accounts = accountDataManager.export();
-    final Iterable<CategoryModel> categories = categoryDataManager.export();
+    final Iterable<TransactionModel> expenses = expenseDataSource.export();
+    final Iterable<AccountModel> accounts = accountDataSource.export();
+    final Iterable<CategoryModel> categories = categoryDataSource.export();
+    final Iterable<DebitModel> debts = debtDataSource.export();
+    final Iterable<DebitTransactionsModel> debtTransactions =
+        debtTransactionDataSource.export();
 
     final Map<String, dynamic> data = {
       'version': 1,
       'expenses': expenses.toJson(),
       'accounts': accounts.toJson(),
       'categories': categories.toJson(),
+      'debts': debts.toJson(),
+      'transactions': debtTransactions.toJson(),
     };
     return utf8.encode(jsonEncode(data));
   }
@@ -64,15 +77,19 @@ class JSONExportImpl implements Export {
 class JSONImportImpl implements Import {
   JSONImportImpl(
     this.deviceInfo,
-    this.accountDataManager,
-    this.categoryDataManager,
-    this.expenseDataManager,
+    this.accountDataSource,
+    this.categoryDataSource,
+    this.expenseDataSource,
+    this.debtDataSource,
+    this.debitTransactionDataSource,
   );
 
-  final AccountManager accountDataManager;
-  final LocalCategoryManager categoryDataManager;
+  final AccountDataSource accountDataSource;
+  final DebtDataSource debtDataSource;
+  final CategoryDataSource categoryDataSource;
+  final TransactionDataSource expenseDataSource;
+  final DebtTransactionDataSource debitTransactionDataSource;
   final DeviceInfoPlugin deviceInfo;
-  final LocalTransactionManager expenseDataManager;
 
   @override
   Future<bool> import() async {
@@ -85,22 +102,29 @@ class JSONImportImpl implements Import {
       final jsonString = await _readJSONFromFile(result.files.first.path!);
       final Data data = Data.fromRawJson(jsonString);
 
-      await expenseDataManager.clear();
-      await categoryDataManager.clear();
-      await accountDataManager.clear();
+      await expenseDataSource.clear();
+      await categoryDataSource.clear();
+      await accountDataSource.clear();
+      await debtDataSource.clear();
 
       for (var element in data.accounts) {
-        await accountDataManager.update(element);
+        await accountDataSource.update(element);
       }
 
       for (var element in data.categories) {
-        await categoryDataManager.update(element);
+        await categoryDataSource.update(element);
       }
 
       for (var element in data.expenses) {
-        await expenseDataManager.update(element);
+        await expenseDataSource.update(element);
       }
 
+      for (var element in data.debts) {
+        await debtDataSource.update(element);
+      }
+      for (var element in data.debitTransactions) {
+        await debitTransactionDataSource.update(element);
+      }
       return true;
     } catch (err) {
       debugPrint(err.toString());

@@ -26,7 +26,7 @@ class IntroCategoryAddWidget extends StatefulWidget {
 
 class _IntroCategoryAddWidgetState extends State<IntroCategoryAddWidget>
     with AutomaticKeepAliveClientMixin {
-  final LocalCategoryManager dataSource = getIt.get();
+  final CategoryDataSource dataSource = getIt.get();
   final List<CategoryModel> defaultModels = defaultCategoriesData;
   final settings = getIt.get<Box<dynamic>>(instanceName: BoxType.settings.name);
 

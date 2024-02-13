@@ -22,7 +22,7 @@ mixin _$DebitEntity {
   DateTime get dateTime => throw _privateConstructorUsedError;
   DateTime get expiryDateTime => throw _privateConstructorUsedError;
   DebitType get debtType => throw _privateConstructorUsedError;
-  int? get superId => throw _privateConstructorUsedError;
+  int get superId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DebitEntityCopyWith<DebitEntity> get copyWith =>
@@ -42,7 +42,7 @@ abstract class $DebitEntityCopyWith<$Res> {
       DateTime dateTime,
       DateTime expiryDateTime,
       DebitType debtType,
-      int? superId});
+      int superId});
 }
 
 /// @nodoc
@@ -64,7 +64,7 @@ class _$DebitEntityCopyWithImpl<$Res, $Val extends DebitEntity>
     Object? dateTime = null,
     Object? expiryDateTime = null,
     Object? debtType = null,
-    Object? superId = freezed,
+    Object? superId = null,
   }) {
     return _then(_value.copyWith(
       description: null == description
@@ -91,10 +91,10 @@ class _$DebitEntityCopyWithImpl<$Res, $Val extends DebitEntity>
           ? _value.debtType
           : debtType // ignore: cast_nullable_to_non_nullable
               as DebitType,
-      superId: freezed == superId
+      superId: null == superId
           ? _value.superId
           : superId // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ) as $Val);
   }
 }
@@ -114,7 +114,7 @@ abstract class _$$DebitEntityImplCopyWith<$Res>
       DateTime dateTime,
       DateTime expiryDateTime,
       DebitType debtType,
-      int? superId});
+      int superId});
 }
 
 /// @nodoc
@@ -134,7 +134,7 @@ class __$$DebitEntityImplCopyWithImpl<$Res>
     Object? dateTime = null,
     Object? expiryDateTime = null,
     Object? debtType = null,
-    Object? superId = freezed,
+    Object? superId = null,
   }) {
     return _then(_$DebitEntityImpl(
       description: null == description
@@ -161,10 +161,10 @@ class __$$DebitEntityImplCopyWithImpl<$Res>
           ? _value.debtType
           : debtType // ignore: cast_nullable_to_non_nullable
               as DebitType,
-      superId: freezed == superId
+      superId: null == superId
           ? _value.superId
           : superId // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ));
   }
 }
@@ -179,7 +179,7 @@ class _$DebitEntityImpl implements _DebitEntity {
       required this.dateTime,
       required this.expiryDateTime,
       this.debtType = DebitType.credit,
-      this.superId});
+      required this.superId});
 
   @override
   final String description;
@@ -195,7 +195,7 @@ class _$DebitEntityImpl implements _DebitEntity {
   @JsonKey()
   final DebitType debtType;
   @override
-  final int? superId;
+  final int superId;
 
   @override
   String toString() {
@@ -239,7 +239,7 @@ abstract class _DebitEntity implements DebitEntity {
       required final DateTime dateTime,
       required final DateTime expiryDateTime,
       final DebitType debtType,
-      final int? superId}) = _$DebitEntityImpl;
+      required final int superId}) = _$DebitEntityImpl;
 
   @override
   String get description;
@@ -254,7 +254,7 @@ abstract class _DebitEntity implements DebitEntity {
   @override
   DebitType get debtType;
   @override
-  int? get superId;
+  int get superId;
   @override
   @JsonKey(ignore: true)
   _$$DebitEntityImplCopyWith<_$DebitEntityImpl> get copyWith =>

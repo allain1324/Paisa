@@ -3,19 +3,23 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:injectable/injectable.dart';
 import 'package:paisa/features/debit/data/models/debit_model.dart';
 
-abstract class LocalDebitDataSource {
+abstract class DebtDataSource {
   Future<void> addDebtOrCredit(DebitModel debt);
 
   DebitModel? fetchDebtOrCreditFromId(int debtId);
 
-  Future<void> updateDebt(DebitModel debtModel);
+  Future<void> update(DebitModel debtModel);
 
   Future<void> deleteDebtOrCreditFromId(int debtId);
+
+  Iterable<DebitModel> export();
+
+  Future<void> clear();
 }
 
-@Singleton(as: LocalDebitDataSource)
-class LocalDebitDataSourceImpl extends LocalDebitDataSource {
-  LocalDebitDataSourceImpl({
+@LazySingleton(as: DebtDataSource)
+class DebitDataSourceImpl extends DebtDataSource {
+  DebitDataSourceImpl({
     required this.debtBox,
   });
 
@@ -29,8 +33,18 @@ class LocalDebitDataSourceImpl extends LocalDebitDataSource {
   }
 
   @override
+  Future<void> clear() {
+    return debtBox.clear();
+  }
+
+  @override
   Future<void> deleteDebtOrCreditFromId(int debtId) {
     return debtBox.delete(debtId);
+  }
+
+  @override
+  Iterable<DebitModel> export() {
+    return debtBox.values;
   }
 
   @override
@@ -38,7 +52,7 @@ class LocalDebitDataSourceImpl extends LocalDebitDataSource {
       debtBox.values.firstWhereOrNull((element) => element.superId == debtId);
 
   @override
-  Future<void> updateDebt(DebitModel debtModel) {
+  Future<void> update(DebitModel debtModel) {
     return debtBox.put(debtModel.superId!, debtModel);
   }
 }

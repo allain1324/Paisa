@@ -22,10 +22,10 @@ class CSVExport extends Export {
     this.expenseDataManager,
   );
 
-  final AccountManager accountDataManager;
-  final LocalCategoryManager categoryDataManager;
+  final AccountDataSource accountDataManager;
+  final CategoryDataSource categoryDataManager;
   final DeviceInfoPlugin deviceInfo;
-  final LocalTransactionManager expenseDataManager;
+  final TransactionDataSource expenseDataManager;
 
   @override
   Future<String> export() async {

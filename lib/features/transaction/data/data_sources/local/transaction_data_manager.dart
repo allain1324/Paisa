@@ -6,7 +6,7 @@ import 'package:paisa/core/common.dart';
 import 'package:paisa/features/transaction/data/model/transaction_model.dart';
 import 'package:paisa/features/transaction/data/model/search_query.dart';
 
-abstract class LocalTransactionManager {
+abstract class TransactionDataSource {
   Future<int> add(TransactionModel transaction);
 
   Future<List<TransactionModel>> filteredExpenses(DateTimeRange dateTimeRange);
@@ -34,8 +34,8 @@ abstract class LocalTransactionManager {
   List<TransactionModel> filterExpenses(SearchQuery query);
 }
 
-@Injectable(as: LocalTransactionManager)
-class LocalTransactionManagerImpl implements LocalTransactionManager {
+@Injectable(as: TransactionDataSource)
+class LocalTransactionManagerImpl implements TransactionDataSource {
   LocalTransactionManagerImpl(this.transactionBox);
 
   final Box<TransactionModel> transactionBox;

@@ -7,15 +7,15 @@ import 'package:paisa/features/category/domain/repository/category_repository.da
 import 'package:paisa/features/category/data/model/category_model.dart';
 import 'package:paisa/features/transaction/data/data_sources/local/transaction_data_manager.dart';
 
-@Singleton(as: CategoryRepository)
+@LazySingleton(as: CategoryRepository)
 class CategoryRepositoryImpl extends CategoryRepository {
   CategoryRepositoryImpl({
     required this.dataSources,
     required this.expenseDataManager,
   });
 
-  final LocalCategoryManager dataSources;
-  final LocalTransactionManager expenseDataManager;
+  final CategoryDataSource dataSources;
+  final TransactionDataSource expenseDataManager;
 
   @override
   Future<void> add({

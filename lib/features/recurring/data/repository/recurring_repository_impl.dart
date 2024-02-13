@@ -7,12 +7,12 @@ import 'package:paisa/features/recurring/domain/repository/recurring_repository.
 import 'package:paisa/features/transaction/data/data_sources/local/transaction_data_manager.dart';
 import 'package:paisa/features/transaction/data/model/transaction_model.dart';
 
-@Singleton(as: RecurringRepository)
+@LazySingleton(as: RecurringRepository)
 class RecurringRepositoryImpl implements RecurringRepository {
   RecurringRepositoryImpl(this.dataManager, this.expenseDataManager);
 
   final LocalRecurringDataManager dataManager;
-  final LocalTransactionManager expenseDataManager;
+  final TransactionDataSource expenseDataManager;
 
   @override
   Future<void> addRecurringEvent(

@@ -10,13 +10,13 @@ import 'package:paisa/features/transaction/data/model/search_query.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'package:paisa/features/transaction/domain/repository/transaction_repository.dart';
 
-@Singleton(as: TransactionRepository)
+@LazySingleton(as: TransactionRepository)
 class ExpenseRepositoryImpl extends TransactionRepository {
   ExpenseRepositoryImpl({
     required this.dataSource,
   });
 
-  final LocalTransactionManager dataSource;
+  final TransactionDataSource dataSource;
 
   @override
   Future<Either<Failure, bool>> addExpense({

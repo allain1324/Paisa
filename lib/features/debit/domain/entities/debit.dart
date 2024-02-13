@@ -12,6 +12,6 @@ class DebitEntity with _$DebitEntity {
     required DateTime dateTime,
     required DateTime expiryDateTime,
     @Default(DebitType.credit) DebitType debtType,
-    int? superId,
+    required int superId,
   }) = _DebitEntity;
 }

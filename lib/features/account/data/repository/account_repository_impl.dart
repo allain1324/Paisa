@@ -6,11 +6,11 @@ import 'package:paisa/features/account/data/model/account_model.dart';
 import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/account/domain/repository/account_repository.dart';
 
-@Singleton(as: AccountRepository)
+@LazySingleton(as: AccountRepository)
 class AccountRepositoryImpl extends AccountRepository {
   AccountRepositoryImpl({required this.dataSource});
 
-  final AccountManager dataSource;
+  final AccountDataSource dataSource;
 
   @override
   Future<int> add({

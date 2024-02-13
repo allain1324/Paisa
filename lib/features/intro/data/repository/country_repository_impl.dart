@@ -6,7 +6,7 @@ import 'package:paisa/features/intro/data/models/country_model.dart';
 import 'package:paisa/features/intro/domain/entities/country_entity.dart';
 import 'package:paisa/features/intro/domain/repository/country_repository.dart';
 
-@Singleton(as: CountryRepository)
+@LazySingleton(as: CountryRepository)
 class CountryRepositoryImpl implements CountryRepository {
   CountryRepositoryImpl(
     @Named('settings') this.settings,

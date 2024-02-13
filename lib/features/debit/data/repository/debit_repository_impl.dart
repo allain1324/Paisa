@@ -6,11 +6,11 @@ import 'package:paisa/features/debit/data/models/debit_model.dart';
 import 'package:paisa/features/debit/domain/entities/debit.dart';
 import 'package:paisa/features/debit/domain/repository/debit_repository.dart';
 
-@Singleton(as: DebitRepository)
+@LazySingleton(as: DebitRepository)
 class DebtRepositoryImpl extends DebitRepository {
   DebtRepositoryImpl({required this.dataSource});
 
-  final LocalDebitDataSource dataSource;
+  final DebtDataSource dataSource;
 
   @override
   Future<void> addDebtOrCredit(
@@ -52,7 +52,7 @@ class DebtRepositoryImpl extends DebitRepository {
     required DebitType debtType,
     required int key,
   }) {
-    return dataSource.updateDebt(DebitModel(
+    return dataSource.update(DebitModel(
       description: description,
       name: name,
       amount: amount,

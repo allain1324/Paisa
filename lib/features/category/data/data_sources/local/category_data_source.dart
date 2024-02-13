@@ -3,7 +3,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:injectable/injectable.dart';
 import 'package:paisa/features/category/data/model/category_model.dart';
 
-abstract class LocalCategoryManager {
+abstract class CategoryDataSource {
   Future<void> add(CategoryModel category);
 
   Future<void> delete(int key);
@@ -21,8 +21,8 @@ abstract class LocalCategoryManager {
   List<CategoryModel> defaultCategories();
 }
 
-@Singleton(as: LocalCategoryManager)
-class LocalCategoryManagerDataSourceImpl implements LocalCategoryManager {
+@LazySingleton(as: CategoryDataSource)
+class LocalCategoryManagerDataSourceImpl implements CategoryDataSource {
   LocalCategoryManagerDataSourceImpl(this.categoryBox);
 
   final Box<CategoryModel> categoryBox;

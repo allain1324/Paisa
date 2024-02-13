@@ -21,4 +21,7 @@ extension MappingOnTransactions on Iterable<DebitTransactionsModel> {
   List<DebitTransactionEntity> toEntities() => map((e) => e.toEntity())
       .sorted((a, b) => b.now.compareTo(a.now))
       .toList();
+  List<Map<String, dynamic>> toJson() {
+    return map((e) => e.toJson()).toList();
+  }
 }

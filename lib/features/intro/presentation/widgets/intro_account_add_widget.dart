@@ -25,7 +25,7 @@ class IntroAccountAddWidget extends StatefulWidget {
 
 class _IntroAccountAddWidgetState extends State<IntroAccountAddWidget>
     with AutomaticKeepAliveClientMixin {
-  final AccountManager dataSource = getIt.get<AccountManager>();
+  final AccountDataSource dataSource = getIt.get<AccountDataSource>();
   final List<AccountModel> defaultModels = defaultAccountsData();
 
   @override

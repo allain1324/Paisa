@@ -1,49 +1,25 @@
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:paisa/core/enum/debt_type.dart';
 
 part 'debit_model.g.dart';
+part 'debit_model.freezed.dart';
 
-@HiveType(typeId: 4)
-class DebitModel extends HiveObject with EquatableMixin {
-  DebitModel({
-    required this.description,
-    required this.name,
-    required this.amount,
-    required this.dateTime,
-    required this.expiryDateTime,
-    required this.debtType,
-    this.superId,
-  });
+@unfreezed
+class DebitModel extends HiveObject with _$DebitModel {
+  @HiveType(typeId: 4, adapterName: 'DebitModelAdapter')
+  factory DebitModel({
+    @HiveField(2) required double amount,
+    @HiveField(3) required DateTime dateTime,
+    @HiveField(5) @Default(DebitType.debit) DebitType debtType,
+    @HiveField(1) required String description,
+    @HiveField(4) required DateTime expiryDateTime,
+    @HiveField(7, defaultValue: '') required String name,
+    @HiveField(6, defaultValue: 0) int? superId,
+  }) = _DebitModel;
 
-  @HiveField(2)
-  double amount;
+  DebitModel._();
 
-  @HiveField(3)
-  DateTime dateTime;
-
-  @HiveField(5, defaultValue: DebitType.debit)
-  DebitType debtType;
-
-  @HiveField(1)
-  String description;
-
-  @HiveField(4)
-  DateTime expiryDateTime;
-
-  @HiveField(7, defaultValue: '')
-  String name;
-
-  @HiveField(6, defaultValue: 0)
-  int? superId;
-
-  @override
-  List<Object?> get props => [
-        description,
-        amount,
-        name,
-        dateTime,
-        expiryDateTime,
-        debtType,
-      ];
+  factory DebitModel.fromJson(Map<String, dynamic> json) =>
+      _$DebitModelFromJson(json);
 }

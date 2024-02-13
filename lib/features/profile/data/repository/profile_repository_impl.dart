@@ -10,7 +10,7 @@ import 'package:paisa/core/error/failures.dart';
 import 'package:paisa/features/profile/domain/repository/profile_repository.dart';
 import 'package:path_provider/path_provider.dart';
 
-@Singleton(as: ProfileRepository)
+@LazySingleton(as: ProfileRepository)
 class ProfileRepositoryImpl implements ProfileRepository {
   ProfileRepositoryImpl(
     this.imagePicker,
