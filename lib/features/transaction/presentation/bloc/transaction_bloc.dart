@@ -13,7 +13,7 @@ import 'package:paisa/features/account/domain/use_case/account_use_case.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
 import 'package:paisa/features/category/domain/use_case/category_use_case.dart';
 import 'package:paisa/features/settings/domain/use_case/settings_use_case.dart';
-import 'package:paisa/features/transaction/domain/entities/transaction.dart';
+import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'package:paisa/features/transaction/domain/use_case/transaction_use_case.dart';
 
 part 'transaction_bloc.freezed.dart';
@@ -70,7 +70,7 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
     _FindTransactionFromIdEvent event,
     Emitter<TransactionState> emit,
   ) async {
-    final int? expenseId = int.tryParse(event.expenseId ?? '');
+    final int? expenseId = event.expenseId;
     if (expenseId == null) {
       selectedAccountId = settingsUseCase.get(defaultAccountIdKey);
       return;
@@ -89,7 +89,7 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
       } else {
         timeOfDay = TimeOfDay.fromDateTime(transaction.time!);
       }
-      transactionType = transaction.type ?? TransactionType.expense;
+      transactionType = transaction.type;
       currentDescription = transaction.description;
       currentExpense = transaction;
       emit(TransactionState.transaction(transaction));
@@ -166,7 +166,10 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
 
       if (event.isAdding) {
         await addTransactionUseCase(AddTransactionParams(
-          name: (name == null || name.isEmpty) ? selectedCategory?.name : name,
+          name: ((name == null || name.isEmpty)
+                  ? selectedCategory?.name
+                  : name) ??
+              '',
           amount: validAmount,
           time: dateTime,
           categoryId: categoryId,
@@ -182,7 +185,10 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
           categoryId: categoryId,
           currency: validAmount,
           description: description,
-          name: (name == null || name.isEmpty) ? selectedCategory?.name : name,
+          name: ((name == null || name.isEmpty)
+                  ? selectedCategory?.name
+                  : name) ??
+              '',
           time: dateTime,
           type: transactionType,
         ));
@@ -195,7 +201,7 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
     _ClearExpenseEvent event,
     Emitter<TransactionState> emit,
   ) async {
-    final int transactionId = int.parse(event.expenseId);
+    final int transactionId = event.expenseId;
     await deleteTransactionUseCase(
       DeleteTransactionParams(transactionId),
     );

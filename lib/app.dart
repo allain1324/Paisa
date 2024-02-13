@@ -21,10 +21,7 @@ import 'package:provider/provider.dart';
 class PaisaApp extends StatefulWidget {
   const PaisaApp({
     Key? key,
-    required this.settings,
   }) : super(key: key);
-
-  final Box<dynamic> settings;
 
   @override
   State<PaisaApp> createState() => _PaisaAppState();
@@ -50,12 +47,9 @@ class _PaisaAppState extends State<PaisaApp> {
         Provider(
           create: (context) => getIt.get<SummaryController>(),
         ),
-        Provider<Box<dynamic>>(
-          create: (context) => widget.settings,
-        ),
       ],
       child: ValueListenableBuilder<Box>(
-        valueListenable: widget.settings.listenable(
+        valueListenable: settings.listenable(
           keys: [
             appColorKey,
             dynamicThemeKey,

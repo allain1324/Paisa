@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:paisa/config/routes.dart';
 
 import 'package:paisa/core/common.dart';
 import 'package:provider/provider.dart';
@@ -18,12 +19,12 @@ class DynamicColorSwitchWidget extends StatelessWidget {
           title: context.loc.dynamicColor,
           trailing: Switch(
             activeColor: context.primary,
-            value: Provider.of<Box<dynamic>>(context).get(
+            value: settings.get(
               dynamicThemeKey,
               defaultValue: false,
             ),
             onChanged: (value) {
-              Provider.of<Box<dynamic>>(context).put(dynamicThemeKey, value);
+              settings.put(dynamicThemeKey, value);
               setState(() {});
             },
           ),

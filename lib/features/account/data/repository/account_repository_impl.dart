@@ -8,9 +8,7 @@ import 'package:paisa/features/account/domain/repository/account_repository.dart
 
 @Singleton(as: AccountRepository)
 class AccountRepositoryImpl extends AccountRepository {
-  AccountRepositoryImpl({
-    @Named('local-account') required this.dataSource,
-  });
+  AccountRepositoryImpl({required this.dataSource});
 
   final AccountManager dataSource;
 
@@ -19,7 +17,6 @@ class AccountRepositoryImpl extends AccountRepository {
     required String bankName,
     required String holderName,
     required CardType cardType,
-    String? number,
     double? amount,
     int? color,
     bool? isAccountExcluded,
@@ -60,7 +57,6 @@ class AccountRepositoryImpl extends AccountRepository {
     required String? bankName,
     required String? holderName,
     required CardType cardType,
-    String? number,
     double? amount,
     int? color,
     bool? isAccountExcluded,

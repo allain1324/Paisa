@@ -118,7 +118,7 @@ class AccountSelectedItem extends StatelessWidget {
                   title: account.name ?? '',
                   icon: account.cardType!.icon.codePoint,
                   onPressed: () => BlocProvider.of<TransactionBloc>(context)
-                      .add(ChangeAccountEvent(account)),
+                      .add(TransactionEvent.changeAccount(account)),
                   subtitle: account.bankName,
                 );
               }

@@ -11,7 +11,7 @@ class TransactionToggleButtons extends StatelessWidget {
 
   void _update(BuildContext context, TransactionType type) {
     BlocProvider.of<TransactionBloc>(context)
-        .add(ChangeTransactionTypeEvent(type));
+        .add(TransactionEvent.changeTransactionType(type));
   }
 
   @override

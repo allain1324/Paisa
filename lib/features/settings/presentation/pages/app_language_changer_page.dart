@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hive_flutter/adapters.dart';
+import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/widgets/paisa_widgets/paisa_annotate_region_widget.dart';
-import 'package:provider/provider.dart';
 
 import 'package:paisa/core/common.dart';
 
@@ -27,14 +26,11 @@ class _AppLanguageChangerPageState extends State<AppLanguageChangerPage> {
   late String? selectedLanguage = widget.currentLanguage;
 
   Future<void> _save(BuildContext context) async {
-    await Provider.of<Box<dynamic>>(
-      context,
-      listen: false,
-    ).put(appLanguageKey, selectedLanguage);
+    await settings.put(appLanguageKey, selectedLanguage);
     if (!mounted) {
       return;
     }
-    Navigator.pop(context);
+    context.pop();
   }
 
   @override

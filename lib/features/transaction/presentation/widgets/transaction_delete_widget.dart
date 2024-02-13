@@ -28,7 +28,7 @@ class TransactionDeleteWidget extends StatelessWidget {
         ),
         onPressed: () {
           BlocProvider.of<TransactionBloc>(context)
-              .add(ClearExpenseEvent(expenseId!));
+              .add(TransactionEvent.delete(expenseId!));
           Navigator.pop(context);
         },
         child: Text(context.loc.delete),

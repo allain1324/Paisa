@@ -9,7 +9,7 @@ import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/account/domain/use_case/account_use_case.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
 import 'package:paisa/features/category/domain/use_case/category_use_case.dart';
-import 'package:paisa/features/transaction/domain/entities/transaction.dart';
+import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'package:paisa/features/transaction/domain/use_case/transaction_use_case.dart';
 
 part 'home_event.dart';

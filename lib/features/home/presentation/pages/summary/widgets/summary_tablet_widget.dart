@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/expense_history_widget.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/expense_total_widget.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/welcome_name_widget.dart';
-import 'package:paisa/features/transaction/domain/entities/transaction.dart';
+import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 
 class SummaryTabletWidget extends StatelessWidget {
   const SummaryTabletWidget({

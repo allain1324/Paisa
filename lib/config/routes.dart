@@ -8,7 +8,6 @@ import 'package:paisa/features/category/presentation/pages/add/add_category_page
 import 'package:paisa/features/category/presentation/pages/category_icon_picker_page.dart';
 import 'package:paisa/features/debit/presentation/pages/add/add_debit_page.dart';
 import 'package:paisa/features/home/presentation/pages/home/home_page.dart';
-import 'package:paisa/features/intro/presentation/cubit/country_picker_cubit.dart';
 import 'package:paisa/features/intro/presentation/pages/biometric_page.dart';
 import 'package:paisa/features/intro/presentation/pages/intro_page.dart';
 import 'package:paisa/features/intro/presentation/pages/user_onboarding_page.dart';
@@ -150,31 +149,9 @@ class BiometricPageData extends GoRouteData {
   }
 }
 
-const settingsPageRoute = TypedGoRoute<SettingsPageData>(
-  path: 'settings',
-  routes: <TypedGoRoute<GoRouteData>>[
-    TypedGoRoute<FontPickerPageData>(
-      path: 'font-picker',
-    ),
-    TypedGoRoute<AppLanguageChangerPageData>(
-      path: 'language-picker',
-    ),
-  ],
-);
-
-const categoryPageRoute = TypedGoRoute<CategoryPageData>(
-  path: 'category',
-  routes: <TypedGoRoute<GoRouteData>>[
-    TypedGoRoute<CategoryIconPickerPageData>(
-      path: 'icon-picker',
-    ),
-  ],
-);
-
 @TypedGoRoute<LandingPageData>(
   path: '/landing',
   routes: <TypedGoRoute<GoRouteData>>[
-    settingsPageRoute,
     TypedGoRoute<SearchPageData>(
       path: 'search',
     ),
@@ -187,16 +164,31 @@ const categoryPageRoute = TypedGoRoute<CategoryPageData>(
     TypedGoRoute<AccountPageData>(
       path: 'account',
     ),
-    TypedGoRoute<EditAccountPageData>(
-      path: 'account/:accountId',
-    ),
     TypedGoRoute<RecurringPageData>(
       path: 'recurring',
     ),
     TypedGoRoute<ExportAndImportPageData>(
       path: 'export',
     ),
-    categoryPageRoute,
+    TypedGoRoute<SettingsPageData>(
+      path: 'settings',
+      routes: <TypedGoRoute<GoRouteData>>[
+        TypedGoRoute<FontPickerPageData>(
+          path: 'font-picker',
+        ),
+        TypedGoRoute<AppLanguageChangerPageData>(
+          path: 'language-picker',
+        ),
+      ],
+    ),
+    TypedGoRoute<CategoryPageData>(
+      path: 'category',
+      routes: <TypedGoRoute<GoRouteData>>[
+        TypedGoRoute<CategoryIconPickerPageData>(
+          path: 'icon-picker',
+        ),
+      ],
+    ),
   ],
 )
 class LandingPageData extends GoRouteData {
@@ -229,17 +221,6 @@ class TransactionPageData extends GoRouteData {
       categoryId: categoryId,
       transactionId: transactionId,
     );
-  }
-}
-
-class EditAccountPageData extends GoRouteData {
-  const EditAccountPageData({required this.accountId});
-
-  final int accountId;
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return AccountPage(accountId: accountId);
   }
 }
 

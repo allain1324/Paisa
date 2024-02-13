@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
 import 'package:paisa/features/home/presentation/bloc/home/home_bloc.dart';
-import 'package:paisa/features/transaction/domain/entities/transaction.dart';
+import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 
 import 'expense_item_widget.dart';
 

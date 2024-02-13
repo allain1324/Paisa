@@ -5,7 +5,7 @@ import 'package:paisa/core/enum/transaction_type.dart';
 import 'package:paisa/core/extensions/time_extension.dart';
 import 'package:paisa/features/transaction/data/model/transaction_model.dart';
 import 'package:paisa/features/transaction/data/model/search_query.dart';
-import 'package:paisa/features/transaction/domain/entities/transaction.dart';
+import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 
 extension ExpenseModelBoxMapping on Box<TransactionModel> {
   List<TransactionModel> get expenses =>
@@ -28,11 +28,13 @@ extension ExpenseModelBoxMapping on Box<TransactionModel> {
   Iterable<TransactionModel> get incomeList =>
       values.where((element) => element.type == TransactionType.income);
 
-  double get totalExpense => expenseList.map((e) => e.currency).fold<double>(
-      0, (previousValue, element) => previousValue + (element ?? 0));
+  double get totalExpense => expenseList
+      .map((e) => e.currency)
+      .fold<double>(0, (previousValue, element) => previousValue + (element));
 
-  double get totalIncome => incomeList.map((e) => e.currency).fold<double>(
-      0, (previousValue, element) => previousValue + (element ?? 0));
+  double get totalIncome => incomeList
+      .map((e) => e.currency)
+      .fold<double>(0, (previousValue, element) => previousValue + (element));
 
   Iterable<TransactionModel> search(SearchQuery query) {
     return values.where((element) {
@@ -94,23 +96,25 @@ extension ExpensesHelper on Iterable<TransactionEntity> {
 
   double get filterTotal => fold<double>(0, (previousValue, element) {
         if (element.type == TransactionType.expense) {
-          return previousValue - (element.currency ?? 0);
+          return previousValue - (element.currency);
         } else if (element.type == TransactionType.income) {
-          return previousValue + (element.currency ?? 0);
+          return previousValue + (element.currency);
         } else {
           return previousValue;
         }
       });
   double get fullTotal => totalIncome - totalExpense;
 
-  double get totalExpense => expenseList.map((e) => e.currency).fold<double>(
-      0, (previousValue, element) => previousValue + (element ?? 0));
+  double get totalExpense => expenseList
+      .map((e) => e.currency)
+      .fold<double>(0, (previousValue, element) => previousValue + (element));
 
-  double get totalIncome => incomeList.map((e) => e.currency).fold<double>(
-      0, (previousValue, element) => previousValue + (element ?? 0));
+  double get totalIncome => incomeList
+      .map((e) => e.currency)
+      .fold<double>(0, (previousValue, element) => previousValue + (element));
 
-  double get total => map((e) => e.currency).fold<double>(
-      0, (previousValue, element) => previousValue + (element ?? 0));
+  double get total => map((e) => e.currency)
+      .fold<double>(0, (previousValue, element) => previousValue + (element));
 
   double get thisMonthExpense =>
       where((element) => element.type == TransactionType.expense)
@@ -119,7 +123,7 @@ extension ExpensesHelper on Iterable<TransactionEntity> {
               element.time?.year == DateTime.now().year)
           .map((e) => e.currency)
           .fold<double>(
-              0, (previousValue, element) => previousValue + (element ?? 0));
+              0, (previousValue, element) => previousValue + (element));
 
   List<TransactionEntity> get thisMonthExpensesList =>
       where((element) => element.type == TransactionType.expense)
@@ -129,7 +133,7 @@ extension ExpensesHelper on Iterable<TransactionEntity> {
           .toList();
 
   List<double> get expenseDoubleList =>
-      thisMonthExpensesList.map((element) => (element.currency ?? 0)).toList();
+      thisMonthExpensesList.map((element) => (element.currency)).toList();
 
   List<TransactionEntity> get thisMonthIncomeList =>
       where((element) => element.type == TransactionType.income)
@@ -139,7 +143,7 @@ extension ExpensesHelper on Iterable<TransactionEntity> {
           .toList();
 
   List<double> get incomeDoubleList =>
-      thisMonthIncomeList.map((element) => (element.currency ?? 0)).toList();
+      thisMonthIncomeList.map((element) => (element.currency)).toList();
 
   double get thisMonthIncome =>
       where((element) => element.type == TransactionType.income)
@@ -148,7 +152,7 @@ extension ExpensesHelper on Iterable<TransactionEntity> {
               element.time?.year == DateTime.now().year)
           .map((e) => e.currency)
           .fold<double>(
-              0, (previousValue, element) => previousValue + (element ?? 0));
+              0, (previousValue, element) => previousValue + (element));
 }
 
 extension TransactionHelper on TransactionEntity {}

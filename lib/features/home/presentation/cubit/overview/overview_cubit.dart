@@ -8,7 +8,7 @@ import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/core/use_case/use_case.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
 import 'package:paisa/features/category/domain/use_case/category_use_case.dart';
-import 'package:paisa/features/transaction/domain/entities/transaction.dart';
+import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'package:paisa/features/transaction/domain/use_case/transaction_use_case.dart';
 
 @injectable

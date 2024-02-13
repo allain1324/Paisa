@@ -9,7 +9,7 @@ import 'package:paisa/features/account/presentation/bloc/accounts_bloc.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
 import 'package:paisa/features/home/presentation/bloc/home/home_bloc.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/expense_item_widget.dart';
-import 'package:paisa/features/transaction/domain/entities/transaction.dart';
+import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
 
 class AccountTransactionsPage extends StatelessWidget {
@@ -36,7 +36,7 @@ class AccountTransactionsPage extends StatelessWidget {
             IconButton(
               tooltip: context.loc.edit,
               onPressed: () {
-                EditAccountPageData(accountId: accountId).push(context);
+                AccountPageData(accountId: accountId).push(context);
               },
               icon: const Icon(Icons.edit_rounded),
             ),
@@ -114,7 +114,7 @@ class AccountTransactionsPage extends StatelessWidget {
                       final TransactionEntity expense = state.expenses[index];
                       final CategoryEntity? category =
                           BlocProvider.of<HomeBloc>(context)
-                              .fetchCategoryFromId(expense.categoryId!);
+                              .fetchCategoryFromId(expense.categoryId);
                       if (category == null) {
                         return const SizedBox.shrink();
                       } else {

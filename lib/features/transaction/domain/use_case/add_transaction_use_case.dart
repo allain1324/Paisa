@@ -1,9 +1,11 @@
 import 'package:dartz/dartz.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:paisa/core/enum/transaction_type.dart';
 import 'package:paisa/core/error/failures.dart';
 import 'package:paisa/core/use_case/use_case.dart';
 import 'package:paisa/features/transaction/domain/repository/transaction_repository.dart';
+part 'add_transaction_use_case.freezed.dart';
 
 @singleton
 class AddTransactionUseCase
@@ -14,33 +16,26 @@ class AddTransactionUseCase
   @override
   Future<Either<Failure, bool>> call(AddTransactionParams params) {
     return expenseRepository.addExpense(
-      params.name,
-      params.amount,
-      params.time,
-      params.categoryId,
-      params.accountId,
-      params.transactionType,
-      params.description,
+      name: params.name,
+      amount: params.amount,
+      time: params.time,
+      category: params.categoryId,
+      account: params.accountId,
+      transactionType: params.transactionType,
+      description: params.description,
     );
   }
 }
 
-class AddTransactionParams {
-  final String? name;
-  final double? amount;
-  final DateTime? time;
-  final int? categoryId;
-  final int? accountId;
-  final TransactionType? transactionType;
-  final String? description;
-
-  AddTransactionParams({
-    required this.name,
-    required this.amount,
-    required this.time,
-    required this.categoryId,
-    required this.accountId,
-    required this.transactionType,
-    required this.description,
-  });
+@freezed
+class AddTransactionParams with _$AddTransactionParams {
+  const factory AddTransactionParams({
+    required String name,
+    required DateTime time,
+    required double amount,
+    required int categoryId,
+    required int accountId,
+    String? description,
+    @Default(TransactionType.expense) TransactionType transactionType,
+  }) = _AddTransactionParams;
 }

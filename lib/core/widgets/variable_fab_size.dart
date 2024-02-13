@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
-
+import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
-import 'package:provider/provider.dart';
 
 class VariableFABSize extends StatelessWidget {
   const VariableFABSize({
@@ -17,11 +16,7 @@ class VariableFABSize extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<Box<dynamic>>(
-      valueListenable: Provider.of<Box<dynamic>>(context).listenable(
-        keys: [
-          smallSizeFabKey,
-        ],
-      ),
+      valueListenable: settings.listenable(keys: [smallSizeFabKey]),
       builder: (context, value, child) {
         final isSmallSize = value.get(smallSizeFabKey, defaultValue: false);
         if (isSmallSize) {

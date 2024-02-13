@@ -7,7 +7,7 @@ import 'package:paisa/core/error/failures.dart';
 import 'package:paisa/features/transaction/data/data_sources/local/transaction_data_manager.dart';
 import 'package:paisa/features/transaction/data/model/transaction_model.dart';
 import 'package:paisa/features/transaction/data/model/search_query.dart';
-import 'package:paisa/features/transaction/domain/entities/transaction.dart';
+import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'package:paisa/features/transaction/domain/repository/transaction_repository.dart';
 
 @Singleton(as: TransactionRepository)
@@ -19,15 +19,15 @@ class ExpenseRepositoryImpl extends TransactionRepository {
   final LocalTransactionManager dataSource;
 
   @override
-  Future<Either<Failure, bool>> addExpense(
-    String? name,
-    double? amount,
-    DateTime? time,
-    int? category,
-    int? account,
-    TransactionType? transactionType,
+  Future<Either<Failure, bool>> addExpense({
+    required double amount,
+    required int category,
+    required int account,
+    required TransactionType transactionType,
     String? description,
-  ) async {
+    DateTime? time,
+    String? name,
+  }) async {
     try {
       final int result = await dataSource.add(
         TransactionModel(
@@ -104,16 +104,16 @@ class ExpenseRepositoryImpl extends TransactionRepository {
   }
 
   @override
-  Future<void> updateExpense(
-    int key,
-    String? name,
-    double? currency,
-    DateTime? time,
-    int? categoryId,
-    int? accountId,
-    TransactionType? transactionType,
+  Future<void> updateExpense({
+    required int key,
+    required double currency,
+    required int categoryId,
+    required int accountId,
+    required TransactionType transactionType,
     String? description,
-  ) {
+    DateTime? time,
+    String? name,
+  }) {
     return dataSource.update(
       TransactionModel(
         name: name,

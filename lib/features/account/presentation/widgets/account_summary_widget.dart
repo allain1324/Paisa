@@ -4,7 +4,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/theme/custom_color.dart';
 import 'package:paisa/features/account/presentation/widgets/summary_month_card_widget.dart';
-import 'package:paisa/features/transaction/domain/entities/transaction.dart';
+import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 
 class AccountSummaryWidget extends StatelessWidget {
   const AccountSummaryWidget({

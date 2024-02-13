@@ -21,17 +21,17 @@ TransactionModel _$TransactionModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$TransactionModel {
   @HiveField(5)
-  int? get accountId => throw _privateConstructorUsedError;
+  int get accountId => throw _privateConstructorUsedError;
   @HiveField(5)
-  set accountId(int? value) => throw _privateConstructorUsedError;
+  set accountId(int value) => throw _privateConstructorUsedError;
   @HiveField(6)
-  int? get categoryId => throw _privateConstructorUsedError;
+  int get categoryId => throw _privateConstructorUsedError;
   @HiveField(6)
-  set categoryId(int? value) => throw _privateConstructorUsedError;
+  set categoryId(int value) => throw _privateConstructorUsedError;
   @HiveField(1)
-  double? get currency => throw _privateConstructorUsedError;
+  double get currency => throw _privateConstructorUsedError;
   @HiveField(1)
-  set currency(double? value) => throw _privateConstructorUsedError;
+  set currency(double value) => throw _privateConstructorUsedError;
   @HiveField(8)
   String? get description => throw _privateConstructorUsedError;
   @HiveField(8)
@@ -48,10 +48,10 @@ mixin _$TransactionModel {
   DateTime? get time => throw _privateConstructorUsedError;
   @HiveField(3)
   set time(DateTime? value) => throw _privateConstructorUsedError;
-  @HiveField(4, defaultValue: TransactionType.expense)
-  TransactionType? get type => throw _privateConstructorUsedError;
-  @HiveField(4, defaultValue: TransactionType.expense)
-  set type(TransactionType? value) => throw _privateConstructorUsedError;
+  @HiveField(4)
+  TransactionType get type => throw _privateConstructorUsedError;
+  @HiveField(4)
+  set type(TransactionType value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -66,15 +66,14 @@ abstract class $TransactionModelCopyWith<$Res> {
       _$TransactionModelCopyWithImpl<$Res, TransactionModel>;
   @useResult
   $Res call(
-      {@HiveField(5) int? accountId,
-      @HiveField(6) int? categoryId,
-      @HiveField(1) double? currency,
+      {@HiveField(5) int accountId,
+      @HiveField(6) int categoryId,
+      @HiveField(1) double currency,
       @HiveField(8) String? description,
       @HiveField(0) String? name,
       @HiveField(7) int? superId,
       @HiveField(3) DateTime? time,
-      @HiveField(4, defaultValue: TransactionType.expense)
-      TransactionType? type});
+      @HiveField(4) TransactionType type});
 }
 
 /// @nodoc
@@ -90,28 +89,28 @@ class _$TransactionModelCopyWithImpl<$Res, $Val extends TransactionModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? accountId = freezed,
-    Object? categoryId = freezed,
-    Object? currency = freezed,
+    Object? accountId = null,
+    Object? categoryId = null,
+    Object? currency = null,
     Object? description = freezed,
     Object? name = freezed,
     Object? superId = freezed,
     Object? time = freezed,
-    Object? type = freezed,
+    Object? type = null,
   }) {
     return _then(_value.copyWith(
-      accountId: freezed == accountId
+      accountId: null == accountId
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
-              as int?,
-      categoryId: freezed == categoryId
+              as int,
+      categoryId: null == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
-              as int?,
-      currency: freezed == currency
+              as int,
+      currency: null == currency
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as double,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -128,10 +127,10 @@ class _$TransactionModelCopyWithImpl<$Res, $Val extends TransactionModel>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      type: freezed == type
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as TransactionType?,
+              as TransactionType,
     ) as $Val);
   }
 }
@@ -145,15 +144,14 @@ abstract class _$$TransactionModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@HiveField(5) int? accountId,
-      @HiveField(6) int? categoryId,
-      @HiveField(1) double? currency,
+      {@HiveField(5) int accountId,
+      @HiveField(6) int categoryId,
+      @HiveField(1) double currency,
       @HiveField(8) String? description,
       @HiveField(0) String? name,
       @HiveField(7) int? superId,
       @HiveField(3) DateTime? time,
-      @HiveField(4, defaultValue: TransactionType.expense)
-      TransactionType? type});
+      @HiveField(4) TransactionType type});
 }
 
 /// @nodoc
@@ -167,28 +165,28 @@ class __$$TransactionModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? accountId = freezed,
-    Object? categoryId = freezed,
-    Object? currency = freezed,
+    Object? accountId = null,
+    Object? categoryId = null,
+    Object? currency = null,
     Object? description = freezed,
     Object? name = freezed,
     Object? superId = freezed,
     Object? time = freezed,
-    Object? type = freezed,
+    Object? type = null,
   }) {
     return _then(_$TransactionModelImpl(
-      accountId: freezed == accountId
+      accountId: null == accountId
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
-              as int?,
-      categoryId: freezed == categoryId
+              as int,
+      categoryId: null == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
-              as int?,
-      currency: freezed == currency
+              as int,
+      currency: null == currency
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as double,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -205,10 +203,10 @@ class __$$TransactionModelImplCopyWithImpl<$Res>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      type: freezed == type
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as TransactionType?,
+              as TransactionType,
     ));
   }
 }
@@ -218,29 +216,31 @@ class __$$TransactionModelImplCopyWithImpl<$Res>
 @HiveType(typeId: 0, adapterName: 'TransactionModelAdapter')
 class _$TransactionModelImpl extends _TransactionModel {
   _$TransactionModelImpl(
-      {@HiveField(5) this.accountId,
-      @HiveField(6) this.categoryId,
-      @HiveField(1) this.currency,
+      {@HiveField(5) this.accountId = -1,
+      @HiveField(6) this.categoryId = -1,
+      @HiveField(1) this.currency = 0,
       @HiveField(8) this.description,
       @HiveField(0) this.name,
       @HiveField(7) this.superId,
       @HiveField(3) this.time,
-      @HiveField(4, defaultValue: TransactionType.expense)
-      this.type = TransactionType.expense})
+      @HiveField(4) this.type = TransactionType.expense})
       : super._();
 
   factory _$TransactionModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$TransactionModelImplFromJson(json);
 
   @override
+  @JsonKey()
   @HiveField(5)
-  int? accountId;
+  int accountId;
   @override
+  @JsonKey()
   @HiveField(6)
-  int? categoryId;
+  int categoryId;
   @override
+  @JsonKey()
   @HiveField(1)
-  double? currency;
+  double currency;
   @override
   @HiveField(8)
   String? description;
@@ -255,8 +255,8 @@ class _$TransactionModelImpl extends _TransactionModel {
   DateTime? time;
   @override
   @JsonKey()
-  @HiveField(4, defaultValue: TransactionType.expense)
-  TransactionType? type;
+  @HiveField(4)
+  TransactionType type;
 
   @override
   String toString() {
@@ -280,15 +280,14 @@ class _$TransactionModelImpl extends _TransactionModel {
 
 abstract class _TransactionModel extends TransactionModel {
   factory _TransactionModel(
-      {@HiveField(5) int? accountId,
-      @HiveField(6) int? categoryId,
-      @HiveField(1) double? currency,
+      {@HiveField(5) int accountId,
+      @HiveField(6) int categoryId,
+      @HiveField(1) double currency,
       @HiveField(8) String? description,
       @HiveField(0) String? name,
       @HiveField(7) int? superId,
       @HiveField(3) DateTime? time,
-      @HiveField(4, defaultValue: TransactionType.expense)
-      TransactionType? type}) = _$TransactionModelImpl;
+      @HiveField(4) TransactionType type}) = _$TransactionModelImpl;
   _TransactionModel._() : super._();
 
   factory _TransactionModel.fromJson(Map<String, dynamic> json) =
@@ -296,19 +295,19 @@ abstract class _TransactionModel extends TransactionModel {
 
   @override
   @HiveField(5)
-  int? get accountId;
+  int get accountId;
   @HiveField(5)
-  set accountId(int? value);
+  set accountId(int value);
   @override
   @HiveField(6)
-  int? get categoryId;
+  int get categoryId;
   @HiveField(6)
-  set categoryId(int? value);
+  set categoryId(int value);
   @override
   @HiveField(1)
-  double? get currency;
+  double get currency;
   @HiveField(1)
-  set currency(double? value);
+  set currency(double value);
   @override
   @HiveField(8)
   String? get description;
@@ -330,10 +329,10 @@ abstract class _TransactionModel extends TransactionModel {
   @HiveField(3)
   set time(DateTime? value);
   @override
-  @HiveField(4, defaultValue: TransactionType.expense)
-  TransactionType? get type;
-  @HiveField(4, defaultValue: TransactionType.expense)
-  set type(TransactionType? value);
+  @HiveField(4)
+  TransactionType get type;
+  @HiveField(4)
+  set type(TransactionType value);
   @override
   @JsonKey(ignore: true)
   _$$TransactionModelImplCopyWith<_$TransactionModelImpl> get copyWith =>

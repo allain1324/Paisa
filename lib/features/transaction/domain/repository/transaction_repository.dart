@@ -1,19 +1,18 @@
 import 'package:dartz/dartz.dart';
 import 'package:paisa/core/enum/transaction_type.dart';
 import 'package:paisa/core/error/failures.dart';
-import 'package:paisa/features/transaction/data/model/transaction_model.dart';
-import 'package:paisa/features/transaction/domain/entities/transaction.dart';
+import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 
 abstract class TransactionRepository {
-  Future<Either<Failure, bool>> addExpense(
-    String? name,
-    double? amount,
-    DateTime? time,
-    int? category,
-    int? account,
-    TransactionType? transactionType,
+  Future<Either<Failure, bool>> addExpense({
+    required double amount,
+    required int category,
+    required int account,
+    required TransactionType transactionType,
+    required DateTime time,
+    required String name,
     String? description,
-  );
+  });
 
   Future<void> clearExpense(int expenseId);
 
@@ -29,16 +28,16 @@ abstract class TransactionRepository {
 
   Future<void> deleteExpensesByCategoryId(int categoryId);
 
-  Future<void> updateExpense(
-    int key,
-    String? name,
-    double? currency,
-    DateTime? time,
-    int? categoryId,
-    int? accountId,
-    TransactionType? transactionType,
+  Future<void> updateExpense({
+    required int key,
+    required double currency,
+    required int categoryId,
+    required int accountId,
+    required TransactionType transactionType,
+    required DateTime time,
+    required String name,
     String? description,
-  );
+  });
 
   Future<void> clearAll();
 

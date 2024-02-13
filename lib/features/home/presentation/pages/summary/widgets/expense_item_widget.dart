@@ -5,7 +5,7 @@ import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
-import 'package:paisa/features/transaction/domain/entities/transaction.dart';
+import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 
 class ExpenseItemWidget extends StatelessWidget {
   const ExpenseItemWidget({
@@ -63,9 +63,9 @@ class ExpenseItemWidget extends StatelessWidget {
           ),
         ),
         trailing: Text(
-          expense.currency!.toFormateCurrency(context),
+          expense.currency.toFormateCurrency(context),
           style: context.bodyMedium?.copyWith(
-            color: expense.type?.color(context),
+            color: expense.type.color(context),
           ),
         ),
       ),
@@ -108,9 +108,9 @@ class ExpenseTransferItemWidget extends StatelessWidget {
             ),
           ),
           trailing: Text(
-            '${expense.type?.sign}${expense.currency!.toFormateCurrency(context)}',
+            '${expense.type.sign}${expense.currency.toFormateCurrency(context)}',
             style: context.bodyLarge?.copyWith(
-              color: expense.type?.color(context),
+              color: expense.type.color(context),
             ),
           ),
         ),

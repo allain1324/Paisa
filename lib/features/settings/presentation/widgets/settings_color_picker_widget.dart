@@ -4,6 +4,7 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:paisa/config/routes.dart';
 
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/widgets/future_resolve.dart';
@@ -28,7 +29,7 @@ class SettingsColorPickerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<Box<dynamic>>(
-      valueListenable: Provider.of<Box<dynamic>>(context).listenable(
+      valueListenable: settings.listenable(
         keys: [
           appColorKey,
           dynamicThemeKey,
@@ -81,7 +82,7 @@ class ColorPickerDialogWidget extends StatelessWidget {
           final sdk = info.version.sdkInt;
           bool isAndroid12 = sdk >= 29;
           return ValueListenableBuilder<Box<dynamic>>(
-            valueListenable: Provider.of<Box<dynamic>>(context).listenable(),
+            valueListenable: settings.listenable(),
             builder: (context, value, _) {
               final bool isDynamic = value.get(
                 dynamicThemeKey,
@@ -145,7 +146,7 @@ class ColorPickerDialogWidget extends StatelessWidget {
         },
       );
     } else {
-      int selectedColor = Provider.of<Box<dynamic>>(context).get(
+      int selectedColor = settings.get(
         appColorKey,
         defaultValue: 0xFF795548,
       );
@@ -178,7 +179,7 @@ class ColorPickerDialogWidget extends StatelessWidget {
                     vertical: 12,
                   ),
                 ),
-                onPressed: () => Provider.of<Box<dynamic>>(context)
+                onPressed: () => settings
                     .put(appColorKey, selectedColor)
                     .then((value) => Navigator.pop(context)),
                 child: Text(context.loc.done),

@@ -16,14 +16,14 @@ class UpdateTransactionUseCase
   @override
   Future<void> call(UpdateTransactionParams params) {
     return expenseRepository.updateExpense(
-      params.superId,
-      params.name,
-      params.currency,
-      params.time,
-      params.categoryId,
-      params.accountId,
-      params.type,
-      params.description,
+      key: params.superId,
+      name: params.name,
+      currency: params.currency,
+      time: params.time,
+      categoryId: params.categoryId,
+      accountId: params.accountId,
+      transactionType: params.type,
+      description: params.description,
     );
   }
 }
@@ -31,13 +31,13 @@ class UpdateTransactionUseCase
 @freezed
 class UpdateTransactionParams with _$UpdateTransactionParams {
   const factory UpdateTransactionParams({
-    int? accountId,
-    int? categoryId,
-    double? currency,
-    String? description,
-    String? name,
+    required int accountId,
+    required int categoryId,
+    required double currency,
+    required String name,
     required int superId,
-    DateTime? time,
+    required DateTime time,
+    String? description,
     @Default(TransactionType.expense) TransactionType type,
   }) = _UpdateTransactionParams;
 }

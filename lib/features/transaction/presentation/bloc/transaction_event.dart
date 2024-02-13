@@ -5,7 +5,7 @@ class TransactionEvent with _$TransactionEvent {
   const factory TransactionEvent.addOrUpdate(bool isAdding) =
       _AddOrUpdateExpenseEvent;
 
-  const factory TransactionEvent.delete(String expenseId) = _ClearExpenseEvent;
+  const factory TransactionEvent.delete(int expenseId) = _ClearExpenseEvent;
   const factory TransactionEvent.changeTransactionType(
       TransactionType transactionType) = _ChangeTransactionTypeEvent;
 
@@ -24,7 +24,7 @@ class TransactionEvent with _$TransactionEvent {
 
   const factory TransactionEvent.defaultCategory() = _FetchDefaultCategoryEvent;
 
-  const factory TransactionEvent.findTransaction(String? expenseId) =
+  const factory TransactionEvent.findTransaction(int? expenseId) =
       _FindTransactionFromIdEvent;
 
   const factory TransactionEvent.updateDateTime(DateTime dateTime) =

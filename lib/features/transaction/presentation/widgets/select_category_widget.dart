@@ -108,8 +108,8 @@ class SelectedItem extends StatelessWidget {
                       category.superId == expenseBloc.selectedCategoryId;
                   return CategoryChip(
                     selected: selected,
-                    onSelected: (value) =>
-                        expenseBloc.add(ChangeCategoryEvent(category)),
+                    onSelected: (value) => expenseBloc
+                        .add(TransactionEvent.changeCategory(category)),
                     icon: category.icon ?? 0,
                     title: category.name ?? '',
                     titleColor: Color(category.color ?? context.primary.value),

@@ -57,9 +57,9 @@ class _TransactionPageState extends State<TransactionPage> {
   void initState() {
     super.initState();
     transactionBloc
-      ..add(ChangeTransactionTypeEvent(
+      ..add(TransactionEvent.changeTransactionType(
           widget.transactionType ?? TransactionType.expense))
-      ..add(FindTransactionFromIdEvent(widget.transactionId));
+      ..add(TransactionEvent.findTransaction(widget.transactionId));
   }
 
   @override
@@ -164,7 +164,7 @@ class _TransactionPageState extends State<TransactionPage> {
                     child: PaisaBigButton(
                       onPressed: () {
                         BlocProvider.of<TransactionBloc>(context)
-                            .add(AddOrUpdateExpenseEvent(isAddExpense));
+                            .add(TransactionEvent.addOrUpdate(isAddExpense));
                       },
                       title:
                           isAddExpense ? context.loc.add : context.loc.update,
@@ -202,7 +202,7 @@ class _TransactionPageState extends State<TransactionPage> {
                     PaisaButton(
                       onPressed: () {
                         BlocProvider.of<TransactionBloc>(context)
-                            .add(AddOrUpdateExpenseEvent(isAddExpense));
+                            .add(TransactionEvent.addOrUpdate(isAddExpense));
                       },
                       title:
                           isAddExpense ? context.loc.add : context.loc.update,

@@ -1,4 +1,3 @@
-import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:paisa/core/enum/debt_type.dart';

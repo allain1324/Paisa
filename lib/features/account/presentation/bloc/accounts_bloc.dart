@@ -8,7 +8,7 @@ import 'package:paisa/core/enum/card_type.dart';
 import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/account/domain/use_case/account_use_case.dart';
 import 'package:paisa/features/category/domain/use_case/get_category_use_case.dart';
-import 'package:paisa/features/transaction/domain/entities/transaction.dart';
+import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'package:paisa/features/transaction/domain/use_case/transaction_use_case.dart';
 
 part 'accounts_event.dart';

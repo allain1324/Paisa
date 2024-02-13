@@ -142,20 +142,6 @@ RouteBase get $landingPageData => GoRouteData.$route(
       factory: $LandingPageDataExtension._fromState,
       routes: [
         GoRouteData.$route(
-          path: 'settings',
-          factory: $SettingsPageDataExtension._fromState,
-          routes: [
-            GoRouteData.$route(
-              path: 'font-picker',
-              factory: $FontPickerPageDataExtension._fromState,
-            ),
-            GoRouteData.$route(
-              path: 'language-picker',
-              factory: $AppLanguageChangerPageDataExtension._fromState,
-            ),
-          ],
-        ),
-        GoRouteData.$route(
           path: 'search',
           factory: $SearchPageDataExtension._fromState,
         ),
@@ -172,16 +158,26 @@ RouteBase get $landingPageData => GoRouteData.$route(
           factory: $AccountPageDataExtension._fromState,
         ),
         GoRouteData.$route(
-          path: 'account/:accountId',
-          factory: $EditAccountPageDataExtension._fromState,
-        ),
-        GoRouteData.$route(
           path: 'recurring',
           factory: $RecurringPageDataExtension._fromState,
         ),
         GoRouteData.$route(
           path: 'export',
           factory: $ExportAndImportPageDataExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'settings',
+          factory: $SettingsPageDataExtension._fromState,
+          routes: [
+            GoRouteData.$route(
+              path: 'font-picker',
+              factory: $FontPickerPageDataExtension._fromState,
+            ),
+            GoRouteData.$route(
+              path: 'language-picker',
+              factory: $AppLanguageChangerPageDataExtension._fromState,
+            ),
+          ],
         ),
         GoRouteData.$route(
           path: 'category',
@@ -202,65 +198,6 @@ extension $LandingPageDataExtension on LandingPageData {
 
   String get location => GoRouteData.$location(
         '/landing',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-extension $SettingsPageDataExtension on SettingsPageData {
-  static SettingsPageData _fromState(GoRouterState state) =>
-      const SettingsPageData();
-
-  String get location => GoRouteData.$location(
-        '/landing/settings',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-extension $FontPickerPageDataExtension on FontPickerPageData {
-  static FontPickerPageData _fromState(GoRouterState state) =>
-      const FontPickerPageData();
-
-  String get location => GoRouteData.$location(
-        '/landing/settings/font-picker',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-extension $AppLanguageChangerPageDataExtension on AppLanguageChangerPageData {
-  static AppLanguageChangerPageData _fromState(GoRouterState state) =>
-      AppLanguageChangerPageData(
-        currentLanguage: state.uri.queryParameters['current-language'],
-      );
-
-  String get location => GoRouteData.$location(
-        '/landing/settings/language-picker',
-        queryParams: {
-          if (currentLanguage != null) 'current-language': currentLanguage,
-        },
       );
 
   void go(BuildContext context) => context.go(location);
@@ -378,26 +315,6 @@ extension $AccountPageDataExtension on AccountPageData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $EditAccountPageDataExtension on EditAccountPageData {
-  static EditAccountPageData _fromState(GoRouterState state) =>
-      EditAccountPageData(
-        accountId: int.parse(state.pathParameters['accountId']!),
-      );
-
-  String get location => GoRouteData.$location(
-        '/landing/account/${Uri.encodeComponent(accountId.toString())}',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
 extension $RecurringPageDataExtension on RecurringPageData {
   static RecurringPageData _fromState(GoRouterState state) =>
       const RecurringPageData();
@@ -422,6 +339,65 @@ extension $ExportAndImportPageDataExtension on ExportAndImportPageData {
 
   String get location => GoRouteData.$location(
         '/landing/export',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $SettingsPageDataExtension on SettingsPageData {
+  static SettingsPageData _fromState(GoRouterState state) =>
+      const SettingsPageData();
+
+  String get location => GoRouteData.$location(
+        '/landing/settings',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $FontPickerPageDataExtension on FontPickerPageData {
+  static FontPickerPageData _fromState(GoRouterState state) =>
+      const FontPickerPageData();
+
+  String get location => GoRouteData.$location(
+        '/landing/settings/font-picker',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $AppLanguageChangerPageDataExtension on AppLanguageChangerPageData {
+  static AppLanguageChangerPageData _fromState(GoRouterState state) =>
+      AppLanguageChangerPageData(
+        currentLanguage: state.uri.queryParameters['current-language'],
+      );
+
+  String get location => GoRouteData.$location(
+        '/landing/settings/language-picker',
+        queryParams: {
+          if (currentLanguage != null) 'current-language': currentLanguage,
+        },
       );
 
   void go(BuildContext context) => context.go(location);

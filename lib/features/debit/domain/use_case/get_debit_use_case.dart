@@ -1,7 +1,5 @@
-import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:paisa/core/common.dart';
 import 'package:paisa/core/use_case/use_case.dart';
 import 'package:paisa/features/debit/domain/entities/debit.dart';
 import 'package:paisa/features/debit/domain/repository/debit_repository.dart';

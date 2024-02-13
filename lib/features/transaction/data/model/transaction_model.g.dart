@@ -17,16 +17,14 @@ class TransactionModelAdapter extends TypeAdapter<_$TransactionModelImpl> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return _$TransactionModelImpl(
-      accountId: fields[5] as int?,
-      categoryId: fields[6] as int?,
-      currency: fields[1] as double?,
+      accountId: fields[5] as int,
+      categoryId: fields[6] as int,
+      currency: fields[1] as double,
       description: fields[8] as String?,
       name: fields[0] as String?,
       superId: fields[7] as int?,
       time: fields[3] as DateTime?,
-      type: fields[4] == null
-          ? TransactionType.expense
-          : fields[4] as TransactionType?,
+      type: fields[4] as TransactionType,
     );
   }
 
@@ -70,9 +68,9 @@ class TransactionModelAdapter extends TypeAdapter<_$TransactionModelImpl> {
 _$TransactionModelImpl _$$TransactionModelImplFromJson(
         Map<String, dynamic> json) =>
     _$TransactionModelImpl(
-      accountId: json['accountId'] as int?,
-      categoryId: json['categoryId'] as int?,
-      currency: (json['currency'] as num?)?.toDouble(),
+      accountId: json['accountId'] as int? ?? -1,
+      categoryId: json['categoryId'] as int? ?? -1,
+      currency: (json['currency'] as num?)?.toDouble() ?? 0,
       description: json['description'] as String?,
       name: json['name'] as String?,
       superId: json['superId'] as int?,
@@ -92,7 +90,7 @@ Map<String, dynamic> _$$TransactionModelImplToJson(
       'name': instance.name,
       'superId': instance.superId,
       'time': instance.time?.toIso8601String(),
-      'type': _$TransactionTypeEnumMap[instance.type],
+      'type': _$TransactionTypeEnumMap[instance.type]!,
     };
 
 const _$TransactionTypeEnumMap = {

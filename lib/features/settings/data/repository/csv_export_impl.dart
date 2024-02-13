@@ -22,7 +22,7 @@ class CSVExport extends Export {
     this.expenseDataManager,
   );
 
-  final LocalAccountManager accountDataManager;
+  final AccountManager accountDataManager;
   final LocalCategoryManager categoryDataManager;
   final DeviceInfoPlugin deviceInfo;
   final LocalTransactionManager expenseDataManager;
