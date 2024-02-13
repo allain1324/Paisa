@@ -1,7 +1,13 @@
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:provider/provider.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
@@ -9,10 +15,9 @@ import 'package:paisa/features/intro/presentation/cubit/country_picker_cubit.dar
 import 'package:paisa/features/intro/presentation/widgets/intro_account_add_widget.dart';
 import 'package:paisa/features/intro/presentation/widgets/intro_category_add_widget.dart';
 import 'package:paisa/features/intro/presentation/widgets/intro_country_picker_widget.dart';
-import 'package:paisa/features/intro/presentation/widgets/intro_set_name_widget.dart';
 import 'package:paisa/features/intro/presentation/widgets/intro_image_picker_widget.dart';
+import 'package:paisa/features/intro/presentation/widgets/intro_set_name_widget.dart';
 import 'package:paisa/main.dart';
-import 'package:provider/provider.dart';
 
 class UserOnboardingPage extends StatefulWidget {
   const UserOnboardingPage({

@@ -1,15 +1,19 @@
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/core/enum/card_type.dart';
+import 'package:paisa/core/widgets/lava/lava_clock.dart';
+import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/account/presentation/bloc/accounts_bloc.dart';
 import 'package:paisa/features/account/presentation/widgets/account_card.dart';
-import 'package:paisa/core/widgets/lava/lava_clock.dart';
-
-import 'package:paisa/core/widgets/paisa_widget.dart';
 
 class AccountPageViewWidget extends StatefulWidget {
   const AccountPageViewWidget({

@@ -1,12 +1,17 @@
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
 import 'package:hive_flutter/adapters.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/enum/debt_type.dart';
+import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/debit/data/models/debit_model.dart';
 import 'package:paisa/features/debit/presentation/widgets/debt_list_widget.dart';
 import 'package:paisa/main.dart';
-import 'package:paisa/core/widgets/paisa_widget.dart';
 
 class DebtsPage extends StatelessWidget {
   const DebtsPage({super.key});

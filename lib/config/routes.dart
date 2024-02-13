@@ -1,6 +1,11 @@
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/adapters.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/features/account/presentation/pages/add/add_account_page.dart';
@@ -18,6 +23,7 @@ import 'package:paisa/features/settings/presentation/pages/export_and_import_pag
 import 'package:paisa/features/settings/presentation/pages/font_picker_page.dart';
 import 'package:paisa/features/settings/presentation/pages/setting_page.dart';
 import 'package:paisa/features/transaction/presentation/pages/transaction_page.dart';
+
 part 'routes.g.dart';
 
 final Box<dynamic> settings = Hive.box(BoxType.settings.name);

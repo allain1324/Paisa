@@ -1,4 +1,7 @@
+// 📦 Package imports:
 import 'package:equatable/equatable.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/features/intro/domain/entities/country_entity.dart';
 

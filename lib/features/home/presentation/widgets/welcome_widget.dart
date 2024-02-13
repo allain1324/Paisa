@@ -1,11 +1,17 @@
+// 🎯 Dart imports:
 import 'dart:io';
 
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
 import 'package:hive_flutter/adapters.dart';
+import 'package:responsive_builder/responsive_builder.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/main.dart';
-import 'package:responsive_builder/responsive_builder.dart';
 
 class UserImageWidget extends StatelessWidget {
   const UserImageWidget({

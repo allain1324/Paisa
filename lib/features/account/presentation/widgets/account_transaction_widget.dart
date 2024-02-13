@@ -1,13 +1,17 @@
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/core/common.dart';
+import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/account/presentation/bloc/accounts_bloc.dart';
 import 'package:paisa/features/account/presentation/widgets/account_history_widget.dart';
 import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/transactions_header_widget.dart';
-
-import 'package:paisa/core/widgets/paisa_widget.dart';
-import 'package:provider/provider.dart';
 
 class AccountTransactionWidget extends StatelessWidget {
   const AccountTransactionWidget({

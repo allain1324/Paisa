@@ -1,6 +1,8 @@
+// 📦 Package imports:
 import 'package:dartz/dartz.dart';
-import 'package:paisa/core/error/failures.dart';
 
+// 🌎 Project imports:
+import 'package:paisa/core/error/failures.dart';
 import 'import_export.dart';
 
 abstract class SettingsRepository {

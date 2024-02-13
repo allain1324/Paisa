@@ -1,7 +1,12 @@
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
 import 'package:intl/intl.dart';
-import 'package:paisa/features/intro/domain/entities/country_entity.dart';
 import 'package:provider/provider.dart';
+
+// 🌎 Project imports:
+import 'package:paisa/features/intro/domain/entities/country_entity.dart';
 
 extension MappingOnDouble on double {
   String toFormateCurrency(BuildContext context) {

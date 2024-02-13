@@ -1,10 +1,15 @@
-import 'package:collection/collection.dart';
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
+import 'package:collection/collection.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/core/common.dart';
-import 'package:paisa/features/transaction/data/model/transaction_model.dart';
 import 'package:paisa/features/transaction/data/model/search_query.dart';
+import 'package:paisa/features/transaction/data/model/transaction_model.dart';
 
 abstract class TransactionDataSource {
   Future<int> add(TransactionModel transaction);

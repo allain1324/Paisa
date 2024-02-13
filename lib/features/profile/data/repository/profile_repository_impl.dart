@@ -1,14 +1,20 @@
+// 🎯 Dart imports:
 import 'dart:io';
 
-import 'package:dartz/dartz.dart';
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
+import 'package:dartz/dartz.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
+import 'package:path_provider/path_provider.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/error/failures.dart';
 import 'package:paisa/features/profile/domain/repository/profile_repository.dart';
-import 'package:path_provider/path_provider.dart';
 
 @LazySingleton(as: ProfileRepository)
 class ProfileRepositoryImpl implements ProfileRepository {

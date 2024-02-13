@@ -1,13 +1,18 @@
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
 import 'package:hive_flutter/adapters.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/core/common.dart';
+import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/account/data/model/account_model.dart';
 import 'package:paisa/features/account/presentation/widgets/account_summary_widget.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/expense_total_for_month_widget.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/total_balance_widget.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'package:paisa/main.dart';
-import 'package:paisa/core/widgets/paisa_widget.dart';
 
 class ExpenseTotalWidget extends StatelessWidget {
   const ExpenseTotalWidget({

@@ -1,12 +1,16 @@
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
 import 'package:hive_flutter/adapters.dart';
+
+// 🌎 Project imports:
+import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
+import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/account/data/model/account_model.dart';
 import 'package:paisa/features/account/domain/entities/account_entity.dart';
-
-import 'package:paisa/core/common.dart';
 import 'package:paisa/main.dart';
-import 'package:paisa/core/widgets/paisa_widget.dart';
 
 class PillsAccountWidget extends StatefulWidget {
   const PillsAccountWidget({

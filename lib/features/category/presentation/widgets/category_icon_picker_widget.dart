@@ -1,6 +1,11 @@
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/constants/constants.dart';
 import 'package:paisa/core/extensions/build_context_extension.dart';

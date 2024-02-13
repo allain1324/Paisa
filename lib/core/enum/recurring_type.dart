@@ -1,5 +1,10 @@
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
 import 'package:hive/hive.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/core/common.dart';
 
 part 'recurring_type.g.dart';

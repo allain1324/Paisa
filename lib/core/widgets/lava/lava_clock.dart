@@ -1,6 +1,8 @@
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:paisa/core/common.dart';
 
+// 🌎 Project imports:
+import 'package:paisa/core/common.dart';
 import 'lava_painter.dart';
 
 /// Lava clock.

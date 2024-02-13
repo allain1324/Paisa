@@ -1,12 +1,17 @@
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
 import 'package:hive_flutter/adapters.dart';
+import 'package:responsive_builder/responsive_builder.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/summary_desktop_widget.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/summary_mobile_widget.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/summary_tablet_widget.dart';
 import 'package:paisa/features/transaction/data/model/transaction_model.dart';
 import 'package:paisa/main.dart';
-import 'package:responsive_builder/responsive_builder.dart';
 
 class SummaryPage extends StatelessWidget {
   const SummaryPage({

@@ -1,3 +1,4 @@
+// 📦 Package imports:
 import 'package:hive/hive.dart';
 
 part 'filter_expense.g.dart';

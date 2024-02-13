@@ -1,7 +1,11 @@
+// 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/core/use_case/use_case.dart';
 import 'package:paisa/features/debit/domain/repository/debit_repository.dart';
+
 part 'delete_debit_use_case.freezed.dart';
 
 @singleton

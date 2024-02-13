@@ -1,6 +1,9 @@
+// 📦 Package imports:
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/features/search/domain/use_case/filter_expense_use_case.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 

@@ -1,6 +1,8 @@
 // ignore_for_file: invalid_annotation_target
 
+// 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'country.freezed.dart';
 part 'country.g.dart';
 

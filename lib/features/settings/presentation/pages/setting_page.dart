@@ -1,6 +1,12 @@
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
 import 'package:hive_flutter/adapters.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
@@ -20,7 +26,6 @@ import 'package:paisa/features/settings/presentation/widgets/settings_group_card
 import 'package:paisa/features/settings/presentation/widgets/small_size_fab_widget.dart';
 import 'package:paisa/features/settings/presentation/widgets/version_widget.dart';
 import 'package:paisa/main.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({

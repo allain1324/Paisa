@@ -1,3 +1,4 @@
+// 🌎 Project imports:
 import 'package:paisa/core/common_enum.dart';
 
 extension RecurringTypeHelper on RecurringType {

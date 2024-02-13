@@ -1,15 +1,20 @@
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:responsive_builder/responsive_builder.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/core/common_enum.dart';
+import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/home/presentation/bloc/home/home_bloc.dart';
 import 'package:paisa/features/home/presentation/widgets/home_desktop_widget.dart';
 import 'package:paisa/features/home/presentation/widgets/home_mobile_widget.dart';
 import 'package:paisa/features/home/presentation/widgets/home_tablet_widget.dart';
 import 'package:paisa/features/home/presentation/widgets/variable_size_fab.dart';
 import 'package:paisa/main.dart';
-import 'package:paisa/core/widgets/paisa_widget.dart';
-import 'package:responsive_builder/responsive_builder.dart';
 
 final destinations = [
   Destination(

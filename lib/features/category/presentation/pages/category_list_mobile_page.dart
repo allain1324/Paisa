@@ -1,4 +1,7 @@
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/features/category/domain/entities/category.dart';
 import 'package:paisa/features/category/presentation/widgets/category_item_mobile_widget.dart';
 

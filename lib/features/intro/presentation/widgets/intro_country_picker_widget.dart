@@ -1,11 +1,16 @@
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:responsive_builder/responsive_builder.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/intro/domain/entities/country_entity.dart';
 import 'package:paisa/features/intro/presentation/cubit/country_picker_cubit.dart';
 import 'package:paisa/features/intro/presentation/widgets/intro_image_picker_widget.dart';
-import 'package:responsive_builder/responsive_builder.dart';
 
 class IntroCountryPickerWidget extends StatelessWidget {
   const IntroCountryPickerWidget({

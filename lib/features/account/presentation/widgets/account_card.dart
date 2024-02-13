@@ -1,9 +1,13 @@
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:glassmorphism/glassmorphism.dart';
 
+// 📦 Package imports:
+import 'package:glassmorphism/glassmorphism.dart';
+import 'package:responsive_builder/responsive_builder.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
-import 'package:responsive_builder/responsive_builder.dart';
 
 class AccountCard extends StatefulWidget {
   const AccountCard({

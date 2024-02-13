@@ -1,5 +1,8 @@
+// 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/core/extensions/category_extension.dart';
 import 'package:paisa/core/use_case/use_case.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';

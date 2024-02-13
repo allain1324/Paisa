@@ -1,5 +1,10 @@
-import 'package:collection/collection.dart';
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
+import 'package:collection/collection.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/features/category/data/model/category_model.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
 

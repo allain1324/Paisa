@@ -1,6 +1,8 @@
+// 🐦 Flutter imports:
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+// 🌎 Project imports:
 import 'package:paisa/core/common.dart';
 
 class PaisaPillChip extends StatelessWidget {

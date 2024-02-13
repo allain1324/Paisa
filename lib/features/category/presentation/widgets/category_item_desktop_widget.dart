@@ -1,8 +1,11 @@
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
-import 'package:paisa/features/category/data/model/category_model.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
+import 'package:paisa/features/category/data/model/category_model.dart';
 
 class CategoryItemDesktopWidget extends StatelessWidget {
   const CategoryItemDesktopWidget({

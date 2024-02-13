@@ -1,5 +1,8 @@
+// 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/adapters.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/core/enum/debt_type.dart';
 
 part 'debit_model.g.dart';

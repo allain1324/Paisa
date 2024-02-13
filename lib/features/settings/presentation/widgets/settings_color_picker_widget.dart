@@ -1,17 +1,22 @@
+// 🎯 Dart imports:
 import 'dart:io';
 
-import 'package:device_info_plus/device_info_plus.dart';
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:paisa/config/routes.dart';
+import 'package:provider/provider.dart';
 
+// 🌎 Project imports:
+import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/widgets/future_resolve.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/settings/presentation/widgets/dynamic_color_switch_widget.dart';
 import 'package:paisa/features/settings/presentation/widgets/setting_option.dart';
-import 'package:provider/provider.dart';
 
 class SettingsColorPickerWidget extends StatelessWidget {
   const SettingsColorPickerWidget({

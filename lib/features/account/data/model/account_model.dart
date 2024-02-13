@@ -1,5 +1,8 @@
+// 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
+
+// 🌎 Project imports:
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/core/data/super_id.dart';
 

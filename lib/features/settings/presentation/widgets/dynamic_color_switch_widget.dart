@@ -1,9 +1,13 @@
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
-import 'package:paisa/config/routes.dart';
 
-import 'package:paisa/core/common.dart';
+// 📦 Package imports:
+import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
+
+// 🌎 Project imports:
+import 'package:paisa/config/routes.dart';
+import 'package:paisa/core/common.dart';
 import 'setting_option.dart';
 
 class DynamicColorSwitchWidget extends StatelessWidget {
