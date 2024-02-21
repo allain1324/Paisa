@@ -46,14 +46,13 @@ class ExpenseItemWidget extends StatelessWidget {
         title: Text(
           expense.name ?? '',
           style: context.bodyMedium?.copyWith(
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w500,
           ),
         ),
         subtitle: Text(
           getSubtitle(context),
-          style: context.bodySmall?.copyWith(
-            fontWeight: FontWeight.w600,
-          ),
+          style: context.bodySmall
+              ?.copyWith(color: context.bodySmall?.color?.withOpacity(0.55)),
         ),
         leading: CircleAvatar(
           backgroundColor:

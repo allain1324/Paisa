@@ -5,17 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
+import 'package:paisa/main.dart';
 
 class CategoryTransactionFilterWidget extends StatelessWidget {
   const CategoryTransactionFilterWidget({
     super.key,
-    required this.summaryController,
   });
-
-  final SummaryController summaryController;
 
   @override
   Widget build(BuildContext context) {
+    final SummaryController summaryController = getIt<SummaryController>();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: ValueListenableBuilder<TransactionType>(

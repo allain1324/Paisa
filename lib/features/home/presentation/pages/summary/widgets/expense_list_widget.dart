@@ -22,9 +22,10 @@ class ExpenseListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      separatorBuilder: (context, index) => const Divider(
+      separatorBuilder: (context, index) => Divider(
         indent: 72,
         height: 0,
+        color: Theme.of(context).dividerColor,
       ),
       shrinkWrap: true,
       padding: EdgeInsets.zero,

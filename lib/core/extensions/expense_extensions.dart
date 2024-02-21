@@ -161,3 +161,16 @@ extension ExpensesHelper on Iterable<TransactionEntity> {
 }
 
 extension TransactionHelper on TransactionEntity {}
+
+extension TransactionModelsHelper on List<TransactionModel> {
+  double get totalIncome =>
+      where((element) => element.type == TransactionType.income)
+          .map((e) => e.currency)
+          .fold<double>(
+              0, (previousValue, element) => previousValue + (element));
+  double get totalExpense =>
+      where((element) => element.type == TransactionType.expense)
+          .map((e) => e.currency)
+          .fold<double>(
+              0, (previousValue, element) => previousValue + (element));
+}

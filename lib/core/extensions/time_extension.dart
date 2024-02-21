@@ -12,6 +12,8 @@ import '../constants/constants.dart';
 import '../enum/calendar_formats.dart';
 
 extension DateUtils on DateTime {
+  String get toReadable => DateFormat('dd EEE').format(this);
+
   String get formattedDate {
     final selectedCalendarFormat = CalendarFormats.values[getIt
         .get<Box<dynamic>>(instanceName: BoxType.settings.name)

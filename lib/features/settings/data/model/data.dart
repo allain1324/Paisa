@@ -17,15 +17,15 @@ class Data {
     required this.expenses,
     required this.accounts,
     required this.categories,
-    required this.debts,
-    required this.debitTransactions,
+    this.debts,
+    this.debitTransactions,
   });
 
   final List<TransactionModel> expenses;
   final List<AccountModel> accounts;
   final List<CategoryModel> categories;
-  final List<DebitModel> debts;
-  final List<DebitTransactionsModel> debitTransactions;
+  final List<DebitModel>? debts;
+  final List<DebitTransactionsModel>? debitTransactions;
 
   factory Data.fromRawJson(String str) => Data.fromJson(json.decode(str));
 
@@ -36,10 +36,13 @@ class Data {
             json["accounts"].map((x) => AccountModel.fromJson(x))),
         categories: List<CategoryModel>.from(
             json["categories"].map((x) => CategoryModel.fromJson(x))),
-        debts: List<DebitModel>.from(
-            json["debts"].map((x) => DebitModel.fromJson(x))),
-        debitTransactions: List<DebitTransactionsModel>.from(
-            json["transactions"]
+        debts: json["debts"] == null
+            ? []
+            : List<DebitModel>.from(
+                json["debts"].map((x) => DebitModel.fromJson(x))),
+        debitTransactions: json["transactions"] == null
+            ? []
+            : List<DebitTransactionsModel>.from(json["transactions"]
                 .map((x) => DebitTransactionsModel.fromJson(x))),
       );
 }

@@ -30,7 +30,6 @@ class ContentWidget extends StatelessWidget {
       1: const AccountsPage(),
       2: const DebtsPage(),
       3: OverViewPage(
-        summaryController: Provider.of<SummaryController>(context),
         budgetCubit: BlocProvider.of<OverviewCubit>(context),
       ),
       4: const CategoryListPage(),

@@ -98,43 +98,38 @@ class JSONImportImpl implements Import {
 
   @override
   Future<bool> import() async {
-    try {
-      final FilePickerResult? result = await _pickFile();
-      if (result == null || result.files.isEmpty) {
-        throw FileNotFoundException();
-      }
-
-      final jsonString = await _readJSONFromFile(result.files.first.path!);
-      final Data data = Data.fromRawJson(jsonString);
-
-      await expenseDataSource.clear();
-      await categoryDataSource.clear();
-      await accountDataSource.clear();
-      await debtDataSource.clear();
-
-      for (var element in data.accounts) {
-        await accountDataSource.update(element);
-      }
-
-      for (var element in data.categories) {
-        await categoryDataSource.update(element);
-      }
-
-      for (var element in data.expenses) {
-        await expenseDataSource.update(element);
-      }
-
-      for (var element in data.debts) {
-        await debtDataSource.update(element);
-      }
-      for (var element in data.debitTransactions) {
-        await debitTransactionDataSource.update(element);
-      }
-      return true;
-    } catch (err) {
-      debugPrint(err.toString());
-      throw ErrorFileException();
+    final FilePickerResult? result = await _pickFile();
+    if (result == null || result.files.isEmpty) {
+      throw FileNotFoundException();
     }
+
+    final jsonString = await _readJSONFromFile(result.files.first.path!);
+    final Data data = Data.fromRawJson(jsonString);
+
+    await expenseDataSource.clear();
+    await categoryDataSource.clear();
+    await accountDataSource.clear();
+    await debtDataSource.clear();
+
+    for (var element in data.accounts) {
+      await accountDataSource.update(element);
+    }
+
+    for (var element in data.categories) {
+      await categoryDataSource.update(element);
+    }
+
+    for (var element in data.expenses) {
+      await expenseDataSource.update(element);
+    }
+
+    for (var element in data.debts ?? []) {
+      await debtDataSource.update(element);
+    }
+    for (var element in data.debitTransactions ?? []) {
+      await debitTransactionDataSource.update(element);
+    }
+    return true;
   }
 
   Future<FilePickerResult?> _pickFile() async {

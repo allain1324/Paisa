@@ -7,19 +7,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 // 🌎 Project imports:
 import 'package:paisa/core/widgets/filter_widget/paisa_filter_transaction_widget.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
-import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
 import 'package:paisa/features/home/presentation/cubit/overview/overview_cubit.dart';
 import 'package:paisa/features/home/presentation/pages/overview/widgets/category_transaction_filter_widget.dart';
 
 class OverviewTablet extends StatelessWidget {
   const OverviewTablet({
     super.key,
-    required this.summaryController,
     required this.budgetCubit,
   });
 
   final OverviewCubit budgetCubit;
-  final SummaryController summaryController;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +63,7 @@ class OverviewTablet extends StatelessWidget {
             },
           ),
         ),
-        CategoryTransactionFilterWidget(summaryController: summaryController),
+        const CategoryTransactionFilterWidget(),
       ],
     );
   }
