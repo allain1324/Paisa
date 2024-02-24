@@ -1,8 +1,8 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'custom_color.dart';
 
 ElevatedButtonThemeData elevatedButtonTheme(

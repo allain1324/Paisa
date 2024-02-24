@@ -1,17 +1,17 @@
-// 🎯 Dart imports:
+// Dart imports:
 import 'dart:convert';
 import 'dart:io';
 
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/foundation.dart';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/error/exceptions.dart';
 import 'package:paisa/features/account/data/data_sources/account_data_manager.dart';

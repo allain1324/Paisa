@@ -1,7 +1,7 @@
-// 📦 Package imports:
+// Package imports:
 import 'package:injectable/injectable.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/use_case/use_case.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'package:paisa/features/transaction/domain/repository/transaction_repository.dart';

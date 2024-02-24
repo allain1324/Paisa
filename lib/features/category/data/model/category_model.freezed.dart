@@ -21,21 +21,21 @@ CategoryModel _$CategoryModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CategoryModel {
   @HiveField(0)
-  String? get name => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   @HiveField(0)
-  set name(String? value) => throw _privateConstructorUsedError;
+  set name(String value) => throw _privateConstructorUsedError;
   @HiveField(1)
   String? get description => throw _privateConstructorUsedError;
   @HiveField(1)
   set description(String? value) => throw _privateConstructorUsedError;
   @HiveField(2)
-  int? get icon => throw _privateConstructorUsedError;
+  int get icon => throw _privateConstructorUsedError;
   @HiveField(2)
-  set icon(int? value) => throw _privateConstructorUsedError;
+  set icon(int value) => throw _privateConstructorUsedError;
   @HiveField(3, defaultValue: false)
-  bool? get isDefault => throw _privateConstructorUsedError;
+  bool get isDefault => throw _privateConstructorUsedError;
   @HiveField(3, defaultValue: false)
-  set isDefault(bool? value) => throw _privateConstructorUsedError;
+  set isDefault(bool value) => throw _privateConstructorUsedError;
   @HiveField(4, defaultValue: 0)
   int? get superId => throw _privateConstructorUsedError;
   @HiveField(4, defaultValue: 0)
@@ -45,9 +45,9 @@ mixin _$CategoryModel {
   @HiveField(6, defaultValue: 0)
   set budget(double? value) => throw _privateConstructorUsedError;
   @HiveField(7, defaultValue: false)
-  bool? get isBudget => throw _privateConstructorUsedError;
+  bool get isBudget => throw _privateConstructorUsedError;
   @HiveField(7, defaultValue: false)
-  set isBudget(bool? value) => throw _privateConstructorUsedError;
+  set isBudget(bool value) => throw _privateConstructorUsedError;
   @HiveField(8, defaultValue: 0xFFFFC107)
   int? get color => throw _privateConstructorUsedError;
   @HiveField(8, defaultValue: 0xFFFFC107)
@@ -66,13 +66,13 @@ abstract class $CategoryModelCopyWith<$Res> {
       _$CategoryModelCopyWithImpl<$Res, CategoryModel>;
   @useResult
   $Res call(
-      {@HiveField(0) String? name,
+      {@HiveField(0) String name,
       @HiveField(1) String? description,
-      @HiveField(2) int? icon,
-      @HiveField(3, defaultValue: false) bool? isDefault,
+      @HiveField(2) int icon,
+      @HiveField(3, defaultValue: false) bool isDefault,
       @HiveField(4, defaultValue: 0) int? superId,
       @HiveField(6, defaultValue: 0) double? budget,
-      @HiveField(7, defaultValue: false) bool? isBudget,
+      @HiveField(7, defaultValue: false) bool isBudget,
       @HiveField(8, defaultValue: 0xFFFFC107) int? color});
 }
 
@@ -89,32 +89,32 @@ class _$CategoryModelCopyWithImpl<$Res, $Val extends CategoryModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
     Object? description = freezed,
-    Object? icon = freezed,
-    Object? isDefault = freezed,
+    Object? icon = null,
+    Object? isDefault = null,
     Object? superId = freezed,
     Object? budget = freezed,
-    Object? isBudget = freezed,
+    Object? isBudget = null,
     Object? color = freezed,
   }) {
     return _then(_value.copyWith(
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      icon: freezed == icon
+      icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as int?,
-      isDefault: freezed == isDefault
+              as int,
+      isDefault: null == isDefault
           ? _value.isDefault
           : isDefault // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       superId: freezed == superId
           ? _value.superId
           : superId // ignore: cast_nullable_to_non_nullable
@@ -123,10 +123,10 @@ class _$CategoryModelCopyWithImpl<$Res, $Val extends CategoryModel>
           ? _value.budget
           : budget // ignore: cast_nullable_to_non_nullable
               as double?,
-      isBudget: freezed == isBudget
+      isBudget: null == isBudget
           ? _value.isBudget
           : isBudget // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       color: freezed == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -144,13 +144,13 @@ abstract class _$$CategoryModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@HiveField(0) String? name,
+      {@HiveField(0) String name,
       @HiveField(1) String? description,
-      @HiveField(2) int? icon,
-      @HiveField(3, defaultValue: false) bool? isDefault,
+      @HiveField(2) int icon,
+      @HiveField(3, defaultValue: false) bool isDefault,
       @HiveField(4, defaultValue: 0) int? superId,
       @HiveField(6, defaultValue: 0) double? budget,
-      @HiveField(7, defaultValue: false) bool? isBudget,
+      @HiveField(7, defaultValue: false) bool isBudget,
       @HiveField(8, defaultValue: 0xFFFFC107) int? color});
 }
 
@@ -165,32 +165,32 @@ class __$$CategoryModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
     Object? description = freezed,
-    Object? icon = freezed,
-    Object? isDefault = freezed,
+    Object? icon = null,
+    Object? isDefault = null,
     Object? superId = freezed,
     Object? budget = freezed,
-    Object? isBudget = freezed,
+    Object? isBudget = null,
     Object? color = freezed,
   }) {
     return _then(_$CategoryModelImpl(
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      icon: freezed == icon
+      icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as int?,
-      isDefault: freezed == isDefault
+              as int,
+      isDefault: null == isDefault
           ? _value.isDefault
           : isDefault // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       superId: freezed == superId
           ? _value.superId
           : superId // ignore: cast_nullable_to_non_nullable
@@ -199,10 +199,10 @@ class __$$CategoryModelImplCopyWithImpl<$Res>
           ? _value.budget
           : budget // ignore: cast_nullable_to_non_nullable
               as double?,
-      isBudget: freezed == isBudget
+      isBudget: null == isBudget
           ? _value.isBudget
           : isBudget // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       color: freezed == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -216,13 +216,13 @@ class __$$CategoryModelImplCopyWithImpl<$Res>
 @HiveType(typeId: 1, adapterName: 'CategoryModelAdapter')
 class _$CategoryModelImpl extends _CategoryModel {
   _$CategoryModelImpl(
-      {@HiveField(0) this.name,
+      {@HiveField(0) required this.name,
       @HiveField(1) this.description,
-      @HiveField(2) this.icon,
+      @HiveField(2) required this.icon,
       @HiveField(3, defaultValue: false) this.isDefault = false,
       @HiveField(4, defaultValue: 0) this.superId,
       @HiveField(6, defaultValue: 0) this.budget,
-      @HiveField(7, defaultValue: false) this.isBudget,
+      @HiveField(7, defaultValue: false) this.isBudget = false,
       @HiveField(8, defaultValue: 0xFFFFC107) this.color})
       : super._();
 
@@ -231,17 +231,17 @@ class _$CategoryModelImpl extends _CategoryModel {
 
   @override
   @HiveField(0)
-  String? name;
+  String name;
   @override
   @HiveField(1)
   String? description;
   @override
   @HiveField(2)
-  int? icon;
+  int icon;
   @override
   @JsonKey()
   @HiveField(3, defaultValue: false)
-  bool? isDefault;
+  bool isDefault;
   @override
   @HiveField(4, defaultValue: 0)
   int? superId;
@@ -249,8 +249,9 @@ class _$CategoryModelImpl extends _CategoryModel {
   @HiveField(6, defaultValue: 0)
   double? budget;
   @override
+  @JsonKey()
   @HiveField(7, defaultValue: false)
-  bool? isBudget;
+  bool isBudget;
   @override
   @HiveField(8, defaultValue: 0xFFFFC107)
   int? color;
@@ -276,13 +277,13 @@ class _$CategoryModelImpl extends _CategoryModel {
 
 abstract class _CategoryModel extends CategoryModel {
   factory _CategoryModel(
-          {@HiveField(0) String? name,
+          {@HiveField(0) required String name,
           @HiveField(1) String? description,
-          @HiveField(2) int? icon,
-          @HiveField(3, defaultValue: false) bool? isDefault,
+          @HiveField(2) required int icon,
+          @HiveField(3, defaultValue: false) bool isDefault,
           @HiveField(4, defaultValue: 0) int? superId,
           @HiveField(6, defaultValue: 0) double? budget,
-          @HiveField(7, defaultValue: false) bool? isBudget,
+          @HiveField(7, defaultValue: false) bool isBudget,
           @HiveField(8, defaultValue: 0xFFFFC107) int? color}) =
       _$CategoryModelImpl;
   _CategoryModel._() : super._();
@@ -292,9 +293,9 @@ abstract class _CategoryModel extends CategoryModel {
 
   @override
   @HiveField(0)
-  String? get name;
+  String get name;
   @HiveField(0)
-  set name(String? value);
+  set name(String value);
   @override
   @HiveField(1)
   String? get description;
@@ -302,14 +303,14 @@ abstract class _CategoryModel extends CategoryModel {
   set description(String? value);
   @override
   @HiveField(2)
-  int? get icon;
+  int get icon;
   @HiveField(2)
-  set icon(int? value);
+  set icon(int value);
   @override
   @HiveField(3, defaultValue: false)
-  bool? get isDefault;
+  bool get isDefault;
   @HiveField(3, defaultValue: false)
-  set isDefault(bool? value);
+  set isDefault(bool value);
   @override
   @HiveField(4, defaultValue: 0)
   int? get superId;
@@ -322,9 +323,9 @@ abstract class _CategoryModel extends CategoryModel {
   set budget(double? value);
   @override
   @HiveField(7, defaultValue: false)
-  bool? get isBudget;
+  bool get isBudget;
   @HiveField(7, defaultValue: false)
-  set isBudget(bool? value);
+  set isBudget(bool value);
   @override
   @HiveField(8, defaultValue: 0xFFFFC107)
   int? get color;

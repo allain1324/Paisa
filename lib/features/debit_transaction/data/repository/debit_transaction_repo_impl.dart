@@ -1,7 +1,7 @@
-// 📦 Package imports:
+// Package imports:
 import 'package:injectable/injectable.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/features/debit_transaction/data/data_source/debit_transactions_data_store.dart';
 import 'package:paisa/features/debit_transaction/data/model/debit_transactions_model.dart';

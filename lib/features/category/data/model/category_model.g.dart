@@ -17,13 +17,13 @@ class CategoryModelAdapter extends TypeAdapter<_$CategoryModelImpl> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return _$CategoryModelImpl(
-      name: fields[0] as String?,
+      name: fields[0] as String,
       description: fields[1] as String?,
-      icon: fields[2] as int?,
-      isDefault: fields[3] == null ? false : fields[3] as bool?,
+      icon: fields[2] as int,
+      isDefault: fields[3] == null ? false : fields[3] as bool,
       superId: fields[4] == null ? 0 : fields[4] as int?,
       budget: fields[6] == null ? 0 : fields[6] as double?,
-      isBudget: fields[7] == null ? false : fields[7] as bool?,
+      isBudget: fields[7] == null ? false : fields[7] as bool,
       color: fields[8] == null ? 4294951175 : fields[8] as int?,
     );
   }
@@ -67,13 +67,13 @@ class CategoryModelAdapter extends TypeAdapter<_$CategoryModelImpl> {
 
 _$CategoryModelImpl _$$CategoryModelImplFromJson(Map<String, dynamic> json) =>
     _$CategoryModelImpl(
-      name: json['name'] as String?,
+      name: json['name'] as String,
       description: json['description'] as String?,
-      icon: json['icon'] as int?,
+      icon: json['icon'] as int,
       isDefault: json['isDefault'] as bool? ?? false,
       superId: json['superId'] as int?,
       budget: (json['budget'] as num?)?.toDouble(),
-      isBudget: json['isBudget'] as bool?,
+      isBudget: json['isBudget'] as bool? ?? false,
       color: json['color'] as int?,
     );
 

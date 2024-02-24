@@ -1,10 +1,10 @@
 // ignore_for_file: invalid_annotation_target
 
-// 📦 Package imports:
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'country.freezed.dart';
-part 'country.g.dart';
+part 'country_entity.freezed.dart';
+part 'country_entity.g.dart';
 
 @freezed
 class CountryEntity with _$CountryEntity {

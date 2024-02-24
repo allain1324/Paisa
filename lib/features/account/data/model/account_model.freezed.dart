@@ -21,17 +21,17 @@ AccountModel _$AccountModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$AccountModel {
   @HiveField(0)
-  String? get name => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   @HiveField(0)
-  set name(String? value) => throw _privateConstructorUsedError;
+  set name(String value) => throw _privateConstructorUsedError;
   @HiveField(3)
-  String? get bankName => throw _privateConstructorUsedError;
+  String get bankName => throw _privateConstructorUsedError;
   @HiveField(3)
-  set bankName(String? value) => throw _privateConstructorUsedError;
+  set bankName(String value) => throw _privateConstructorUsedError;
   @HiveField(6, defaultValue: CardType.bank)
-  CardType? get cardType => throw _privateConstructorUsedError;
+  CardType get cardType => throw _privateConstructorUsedError;
   @HiveField(6, defaultValue: CardType.bank)
-  set cardType(CardType? value) => throw _privateConstructorUsedError;
+  set cardType(CardType value) => throw _privateConstructorUsedError;
   @HiveField(7)
   int? get superId => throw _privateConstructorUsedError;
   @HiveField(7)
@@ -66,9 +66,9 @@ abstract class $AccountModelCopyWith<$Res> {
       _$AccountModelCopyWithImpl<$Res, AccountModel>;
   @useResult
   $Res call(
-      {@HiveField(0) String? name,
-      @HiveField(3) String? bankName,
-      @HiveField(6, defaultValue: CardType.bank) CardType? cardType,
+      {@HiveField(0) String name,
+      @HiveField(3) String bankName,
+      @HiveField(6, defaultValue: CardType.bank) CardType cardType,
       @HiveField(7) int? superId,
       @HiveField(8, defaultValue: 0) double? amount,
       @HiveField(9, defaultValue: 0xFFFFC107) int? color,
@@ -89,9 +89,9 @@ class _$AccountModelCopyWithImpl<$Res, $Val extends AccountModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? bankName = freezed,
-    Object? cardType = freezed,
+    Object? name = null,
+    Object? bankName = null,
+    Object? cardType = null,
     Object? superId = freezed,
     Object? amount = freezed,
     Object? color = freezed,
@@ -99,18 +99,18 @@ class _$AccountModelCopyWithImpl<$Res, $Val extends AccountModel>
     Object? isAccountExcluded = freezed,
   }) {
     return _then(_value.copyWith(
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      bankName: freezed == bankName
+              as String,
+      bankName: null == bankName
           ? _value.bankName
           : bankName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      cardType: freezed == cardType
+              as String,
+      cardType: null == cardType
           ? _value.cardType
           : cardType // ignore: cast_nullable_to_non_nullable
-              as CardType?,
+              as CardType,
       superId: freezed == superId
           ? _value.superId
           : superId // ignore: cast_nullable_to_non_nullable
@@ -144,9 +144,9 @@ abstract class _$$AccountModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@HiveField(0) String? name,
-      @HiveField(3) String? bankName,
-      @HiveField(6, defaultValue: CardType.bank) CardType? cardType,
+      {@HiveField(0) String name,
+      @HiveField(3) String bankName,
+      @HiveField(6, defaultValue: CardType.bank) CardType cardType,
       @HiveField(7) int? superId,
       @HiveField(8, defaultValue: 0) double? amount,
       @HiveField(9, defaultValue: 0xFFFFC107) int? color,
@@ -165,9 +165,9 @@ class __$$AccountModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? bankName = freezed,
-    Object? cardType = freezed,
+    Object? name = null,
+    Object? bankName = null,
+    Object? cardType = null,
     Object? superId = freezed,
     Object? amount = freezed,
     Object? color = freezed,
@@ -175,18 +175,18 @@ class __$$AccountModelImplCopyWithImpl<$Res>
     Object? isAccountExcluded = freezed,
   }) {
     return _then(_$AccountModelImpl(
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      bankName: freezed == bankName
+              as String,
+      bankName: null == bankName
           ? _value.bankName
           : bankName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      cardType: freezed == cardType
+              as String,
+      cardType: null == cardType
           ? _value.cardType
           : cardType // ignore: cast_nullable_to_non_nullable
-              as CardType?,
+              as CardType,
       superId: freezed == superId
           ? _value.superId
           : superId // ignore: cast_nullable_to_non_nullable
@@ -216,9 +216,9 @@ class __$$AccountModelImplCopyWithImpl<$Res>
 @HiveType(typeId: 2, adapterName: 'AccountModelAdapter')
 class _$AccountModelImpl extends _AccountModel {
   _$AccountModelImpl(
-      {@HiveField(0) this.name,
-      @HiveField(3) this.bankName,
-      @HiveField(6, defaultValue: CardType.bank) this.cardType,
+      {@HiveField(0) required this.name,
+      @HiveField(3) required this.bankName,
+      @HiveField(6, defaultValue: CardType.bank) this.cardType = CardType.bank,
       @HiveField(7) this.superId,
       @HiveField(8, defaultValue: 0) this.amount,
       @HiveField(9, defaultValue: 0xFFFFC107) this.color,
@@ -231,13 +231,14 @@ class _$AccountModelImpl extends _AccountModel {
 
   @override
   @HiveField(0)
-  String? name;
+  String name;
   @override
   @HiveField(3)
-  String? bankName;
+  String bankName;
   @override
+  @JsonKey()
   @HiveField(6, defaultValue: CardType.bank)
-  CardType? cardType;
+  CardType cardType;
   @override
   @HiveField(7)
   int? superId;
@@ -276,9 +277,9 @@ class _$AccountModelImpl extends _AccountModel {
 
 abstract class _AccountModel extends AccountModel {
   factory _AccountModel(
-          {@HiveField(0) String? name,
-          @HiveField(3) String? bankName,
-          @HiveField(6, defaultValue: CardType.bank) CardType? cardType,
+          {@HiveField(0) required String name,
+          @HiveField(3) required String bankName,
+          @HiveField(6, defaultValue: CardType.bank) CardType cardType,
           @HiveField(7) int? superId,
           @HiveField(8, defaultValue: 0) double? amount,
           @HiveField(9, defaultValue: 0xFFFFC107) int? color,
@@ -292,19 +293,19 @@ abstract class _AccountModel extends AccountModel {
 
   @override
   @HiveField(0)
-  String? get name;
+  String get name;
   @HiveField(0)
-  set name(String? value);
+  set name(String value);
   @override
   @HiveField(3)
-  String? get bankName;
+  String get bankName;
   @HiveField(3)
-  set bankName(String? value);
+  set bankName(String value);
   @override
   @HiveField(6, defaultValue: CardType.bank)
-  CardType? get cardType;
+  CardType get cardType;
   @HiveField(6, defaultValue: CardType.bank)
-  set cardType(CardType? value);
+  set cardType(CardType value);
   @override
   @HiveField(7)
   int? get superId;

@@ -1,4 +1,4 @@
-// 🎯 Dart imports:
+// Dart imports:
 import 'dart:math';
 import 'dart:ui';
 

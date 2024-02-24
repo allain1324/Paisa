@@ -1,13 +1,13 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
-import 'package:paisa/features/home/presentation/bloc/home/home_bloc.dart';
+import 'package:paisa/features/home/presentation/pages/home/home_cubit.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'expense_item_widget.dart';
 
@@ -33,9 +33,9 @@ class ExpenseListWidget extends StatelessWidget {
       itemCount: expenses.length,
       itemBuilder: (_, index) {
         final TransactionEntity expense = expenses[index];
-        final AccountEntity? account = BlocProvider.of<HomeBloc>(context)
+        final AccountEntity? account = BlocProvider.of<HomeCubit>(context)
             .fetchAccountFromId(expense.accountId);
-        final CategoryEntity? category = BlocProvider.of<HomeBloc>(context)
+        final CategoryEntity? category = BlocProvider.of<HomeCubit>(context)
             .fetchCategoryFromId(expense.categoryId);
         if (account == null || category == null) {
           return const SizedBox.shrink();

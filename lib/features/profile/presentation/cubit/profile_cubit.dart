@@ -1,10 +1,10 @@
-// 📦 Package imports:
+// Package imports:
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:injectable/injectable.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/error/failures.dart';
 import 'package:paisa/features/profile/domain/use_case/profile_use_case.dart';

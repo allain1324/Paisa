@@ -1,7 +1,7 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/account/presentation/widgets/account_transaction_widget.dart';
 import 'package:paisa/features/account/presentation/widgets/accounts_page_view_widget.dart';

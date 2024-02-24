@@ -1,13 +1,11 @@
-// 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
-// 📦 Package imports:
-import 'package:equatable/equatable.dart';
+// Flutter imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:injectable/injectable.dart';
-import 'package:meta/meta.dart';
 
-// 🌎 Project imports:
+// Package imports:
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
+
+// Project imports:
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/account/domain/use_case/account_use_case.dart';
@@ -16,31 +14,26 @@ import 'package:paisa/features/category/domain/use_case/category_use_case.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'package:paisa/features/transaction/domain/use_case/transaction_use_case.dart';
 
-part 'home_event.dart';
-part 'home_state.dart';
+part 'home_cubit.freezed.dart';
 
 @injectable
-class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  HomeBloc(
+class HomeCubit extends Cubit<HomeState> {
+  HomeCubit(
     this.expensesUseCase,
     this.defaultCategoriesUseCase,
     this.getAccountUseCase,
     this.getCategoryUseCase,
     this.getExpensesFromCategoryIdUseCase,
-  ) : super(const CurrentIndexState(0)) {
-    on<HomeEvent>((event, emit) {});
-    on<CurrentIndexEvent>(_currentIndex);
-  }
+  ) : super(const HomeState.currentIndex(0));
 
-  int selectedIndex = 0;
   final GetTransactionsUseCase expensesUseCase;
   final GetDefaultCategoriesUseCase defaultCategoriesUseCase;
   final GetAccountUseCase getAccountUseCase;
   final GetCategoryUseCase getCategoryUseCase;
   final GetTransactionsByCategoryIdUseCase getExpensesFromCategoryIdUseCase;
 
-  PageType getPageFromIndex(int index) {
-    switch (index) {
+  PageType getPageFromIndex() {
+    switch (state.index) {
       case 1:
         return PageType.accounts;
       case 2:
@@ -59,17 +52,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     }
   }
 
-  void _currentIndex(
-    CurrentIndexEvent event,
-    Emitter<HomeState> emit,
-  ) {
-    if (selectedIndex != event.currentPage) {
-      selectedIndex = event.currentPage;
-      emit(CurrentIndexState(selectedIndex));
+  void setCurrentIndex(int index) {
+    if (state.index != index) {
+      emit(CurrentIndexState(index));
     }
   }
 
-  CategoryEntity? fetchCategoryFromId(int? categoryId) =>
+  CategoryEntity fetchCategoryFromId(int categoryId) =>
       getCategoryUseCase(GetCategoryParams(categoryId));
 
   AccountEntity? fetchAccountFromId(int? accountId) =>
@@ -78,4 +67,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   List<TransactionEntity> fetchExpensesFromCategoryId(int categoryId) =>
       getExpensesFromCategoryIdUseCase(
           ParamsGetTransactionsByCategoryId(categoryId));
+}
+
+@freezed
+class HomeState with _$HomeState {
+  const factory HomeState.currentIndex(int index) = CurrentIndexState;
 }

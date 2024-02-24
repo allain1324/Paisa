@@ -1,4 +1,4 @@
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/features/account/domain/entities/account_entity.dart';
 

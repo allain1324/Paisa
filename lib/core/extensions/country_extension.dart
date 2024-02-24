@@ -1,4 +1,4 @@
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/features/intro/data/models/country_model.dart';
 import 'package:paisa/features/intro/domain/entities/country_entity.dart';
 

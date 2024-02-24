@@ -1,13 +1,13 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import '../../../../core/common.dart';
 import '../../../../core/enum/transaction_type.dart';
 import '../../../../core/widgets/paisa_widget.dart';

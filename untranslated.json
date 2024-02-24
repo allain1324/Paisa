@@ -1,0 +1,197 @@
+{
+  "be": [
+    "defaultAccount",
+    "deletedCategory",
+    "pickColorAccountDesc",
+    "transactionsByCategory",
+    "enterCategory",
+    "back",
+    "fontStyle",
+    "fontStyleDescription",
+    "chooseFont",
+    "chooseAppLanguage",
+    "appLanguage",
+    "excludeAccount",
+    "accountNotFound",
+    "bankNameError",
+    "holderNameError",
+    "accountColorError",
+    "emptySelectedAccountsInfo",
+    "emptyRecommendedAccountsInfo"
+  ],
+
+  "de": [
+    "defaultAccount",
+    "deletedCategory",
+    "pickColorAccountDesc",
+    "back",
+    "emptySelectedAccountsInfo",
+    "emptyRecommendedAccountsInfo"
+  ],
+
+  "es": [
+    "pickColorAccountDesc",
+    "back",
+    "excludeAccount",
+    "accountNotFound",
+    "bankNameError",
+    "holderNameError",
+    "accountColorError",
+    "emptySelectedAccountsInfo",
+    "emptyRecommendedAccountsInfo"
+  ],
+
+  "fr": [
+    "deletedCategory",
+    "pickColorAccountDesc",
+    "back",
+    "excludeAccount",
+    "accountNotFound",
+    "bankNameError",
+    "holderNameError",
+    "accountColorError",
+    "emptySelectedAccountsInfo",
+    "emptyRecommendedAccountsInfo"
+  ],
+
+  "it": [
+    "defaultAccount",
+    "addAccountTooltip",
+    "deletedCategory",
+    "emptyCategoriesMessageTitle",
+    "pickColorAccountDesc",
+    "back",
+    "transferCategory",
+    "accountStyle",
+    "accountStyleDescription",
+    "supportMe",
+    "supportMeDescription",
+    "lockAppDescription",
+    "fontStyle",
+    "fontStyleDescription",
+    "chooseFont",
+    "chooseAppLanguage",
+    "appLanguage",
+    "excludeAccount",
+    "accountNotFound",
+    "bankNameError",
+    "holderNameError",
+    "accountColorError",
+    "emptySelectedAccountsInfo",
+    "emptyRecommendedAccountsInfo"
+  ],
+
+  "kn": [
+    "deletedCategory",
+    "pickColorAccountDesc",
+    "back",
+    "lockAppDescription",
+    "fontStyle",
+    "fontStyleDescription",
+    "chooseFont",
+    "chooseAppLanguage",
+    "appLanguage",
+    "excludeAccount",
+    "accountNotFound",
+    "bankNameError",
+    "holderNameError",
+    "accountColorError",
+    "emptySelectedAccountsInfo",
+    "emptyRecommendedAccountsInfo"
+  ],
+
+  "pl": [
+    "deletedCategory",
+    "pickColorAccountDesc",
+    "calendarFormat",
+    "back",
+    "excludeAccount",
+    "accountNotFound",
+    "bankNameError",
+    "holderNameError",
+    "accountColorError",
+    "emptySelectedAccountsInfo",
+    "emptyRecommendedAccountsInfo"
+  ],
+
+  "pt": [
+    "description",
+    "deletedCategory",
+    "pickColorAccountDesc",
+    "back",
+    "fontStyle",
+    "fontStyleDescription",
+    "chooseFont",
+    "chooseAppLanguage",
+    "appLanguage",
+    "excludeAccount",
+    "accountNotFound",
+    "bankNameError",
+    "holderNameError",
+    "accountColorError",
+    "emptySelectedAccountsInfo",
+    "emptyRecommendedAccountsInfo"
+  ],
+
+  "ru": [
+    "defaultAccount",
+    "deletedCategory",
+    "pickColorAccountDesc",
+    "transactionsByCategory",
+    "enterCategory",
+    "back",
+    "fontStyle",
+    "fontStyleDescription",
+    "chooseFont",
+    "chooseAppLanguage",
+    "appLanguage",
+    "excludeAccount",
+    "accountNotFound",
+    "bankNameError",
+    "holderNameError",
+    "accountColorError",
+    "emptySelectedAccountsInfo",
+    "emptyRecommendedAccountsInfo"
+  ],
+
+  "ta": [
+    "pickColorAccountDesc",
+    "emptyRecommendedAccountsInfo"
+  ],
+
+  "vi": [
+    "pickColorAccountDesc",
+    "emptyRecommendedAccountsInfo"
+  ],
+
+  "zh": [
+    "defaultAccount",
+    "deletedCategory",
+    "pickColorAccountDesc",
+    "transactionsByCategory",
+    "creatingBackupSuccess",
+    "restoringBackupSuccess",
+    "back",
+    "excludeAccount",
+    "accountNotFound",
+    "bankNameError",
+    "holderNameError",
+    "accountColorError",
+    "emptySelectedAccountsInfo",
+    "emptyRecommendedAccountsInfo"
+  ],
+
+  "zh_TW": [
+    "deletedCategory",
+    "pickColorAccountDesc",
+    "calendarFormat",
+    "back",
+    "excludeAccount",
+    "accountNotFound",
+    "bankNameError",
+    "holderNameError",
+    "accountColorError",
+    "emptySelectedAccountsInfo",
+    "emptyRecommendedAccountsInfo"
+  ]
+}

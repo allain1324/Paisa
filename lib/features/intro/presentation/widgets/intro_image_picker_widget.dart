@@ -1,13 +1,14 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:paisa/config/routes.dart';
 import 'package:provider/provider.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/profile/presentation/cubit/profile_cubit.dart';
@@ -22,8 +23,7 @@ class IntroImagePickerWidget extends StatelessWidget {
     final ImagePicker picker = ImagePicker();
     picker.pickImage(source: ImageSource.gallery).then((pickedFile) {
       if (pickedFile != null) {
-        Provider.of<Box<dynamic>>(context, listen: false)
-            .put(userImageKey, pickedFile.path);
+        settings.put(userImageKey, pickedFile.path);
       }
     });
   }

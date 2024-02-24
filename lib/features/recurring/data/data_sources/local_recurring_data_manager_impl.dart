@@ -1,8 +1,8 @@
-// 📦 Package imports:
+// Package imports:
 import 'package:hive_flutter/adapters.dart';
 import 'package:injectable/injectable.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/features/recurring/data/model/recurring.dart';
 import 'local_recurring_data_manager.dart';
 

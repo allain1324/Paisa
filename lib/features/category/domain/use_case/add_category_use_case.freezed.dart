@@ -16,11 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AddCategoryParams {
-  String? get name => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   double? get budget => throw _privateConstructorUsedError;
   int? get color => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  int? get icon => throw _privateConstructorUsedError;
+  int get icon => throw _privateConstructorUsedError;
   bool get isBudget => throw _privateConstructorUsedError;
   bool get isDefault => throw _privateConstructorUsedError;
 
@@ -36,11 +36,11 @@ abstract class $AddCategoryParamsCopyWith<$Res> {
       _$AddCategoryParamsCopyWithImpl<$Res, AddCategoryParams>;
   @useResult
   $Res call(
-      {String? name,
+      {String name,
       double? budget,
       int? color,
       String? description,
-      int? icon,
+      int icon,
       bool isBudget,
       bool isDefault});
 }
@@ -58,19 +58,19 @@ class _$AddCategoryParamsCopyWithImpl<$Res, $Val extends AddCategoryParams>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
     Object? budget = freezed,
     Object? color = freezed,
     Object? description = freezed,
-    Object? icon = freezed,
+    Object? icon = null,
     Object? isBudget = null,
     Object? isDefault = null,
   }) {
     return _then(_value.copyWith(
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       budget: freezed == budget
           ? _value.budget
           : budget // ignore: cast_nullable_to_non_nullable
@@ -83,10 +83,10 @@ class _$AddCategoryParamsCopyWithImpl<$Res, $Val extends AddCategoryParams>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      icon: freezed == icon
+      icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       isBudget: null == isBudget
           ? _value.isBudget
           : isBudget // ignore: cast_nullable_to_non_nullable
@@ -108,11 +108,11 @@ abstract class _$$AddCategoryParamsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? name,
+      {String name,
       double? budget,
       int? color,
       String? description,
-      int? icon,
+      int icon,
       bool isBudget,
       bool isDefault});
 }
@@ -128,19 +128,19 @@ class __$$AddCategoryParamsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
+    Object? name = null,
     Object? budget = freezed,
     Object? color = freezed,
     Object? description = freezed,
-    Object? icon = freezed,
+    Object? icon = null,
     Object? isBudget = null,
     Object? isDefault = null,
   }) {
     return _then(_$AddCategoryParamsImpl(
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       budget: freezed == budget
           ? _value.budget
           : budget // ignore: cast_nullable_to_non_nullable
@@ -153,10 +153,10 @@ class __$$AddCategoryParamsImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      icon: freezed == icon
+      icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       isBudget: null == isBudget
           ? _value.isBudget
           : isBudget // ignore: cast_nullable_to_non_nullable
@@ -173,16 +173,16 @@ class __$$AddCategoryParamsImplCopyWithImpl<$Res>
 
 class _$AddCategoryParamsImpl implements _AddCategoryParams {
   const _$AddCategoryParamsImpl(
-      {this.name,
+      {required this.name,
       this.budget,
       this.color,
       this.description,
-      this.icon,
+      required this.icon,
       this.isBudget = false,
       this.isDefault = false});
 
   @override
-  final String? name;
+  final String name;
   @override
   final double? budget;
   @override
@@ -190,7 +190,7 @@ class _$AddCategoryParamsImpl implements _AddCategoryParams {
   @override
   final String? description;
   @override
-  final int? icon;
+  final int icon;
   @override
   @JsonKey()
   final bool isBudget;
@@ -234,16 +234,16 @@ class _$AddCategoryParamsImpl implements _AddCategoryParams {
 
 abstract class _AddCategoryParams implements AddCategoryParams {
   const factory _AddCategoryParams(
-      {final String? name,
+      {required final String name,
       final double? budget,
       final int? color,
       final String? description,
-      final int? icon,
+      required final int icon,
       final bool isBudget,
       final bool isDefault}) = _$AddCategoryParamsImpl;
 
   @override
-  String? get name;
+  String get name;
   @override
   double? get budget;
   @override
@@ -251,7 +251,7 @@ abstract class _AddCategoryParams implements AddCategoryParams {
   @override
   String? get description;
   @override
-  int? get icon;
+  int get icon;
   @override
   bool get isBudget;
   @override

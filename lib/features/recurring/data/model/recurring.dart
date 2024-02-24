@@ -1,8 +1,8 @@
-// 📦 Package imports:
+// Package imports:
 import 'package:equatable/equatable.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/common_enum.dart';
 
 part 'recurring.g.dart';

@@ -1,7 +1,7 @@
-// 📦 Package imports:
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/common_enum.dart';
 
 part 'transaction_entity.freezed.dart';
@@ -13,9 +13,9 @@ class TransactionEntity with _$TransactionEntity {
     required int categoryId,
     required double currency,
     String? description,
-    String? name,
+    required String name,
     int? superId,
-    DateTime? time,
+    required DateTime time,
     @Default(TransactionType.expense) TransactionType type,
   }) = _TransactionEntity;
 }

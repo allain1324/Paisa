@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$GetCategoryParams {
-  int? get categoryId => throw _privateConstructorUsedError;
+  int get categoryId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $GetCategoryParamsCopyWith<GetCategoryParams> get copyWith =>
@@ -29,7 +29,7 @@ abstract class $GetCategoryParamsCopyWith<$Res> {
           GetCategoryParams value, $Res Function(GetCategoryParams) then) =
       _$GetCategoryParamsCopyWithImpl<$Res, GetCategoryParams>;
   @useResult
-  $Res call({int? categoryId});
+  $Res call({int categoryId});
 }
 
 /// @nodoc
@@ -45,13 +45,13 @@ class _$GetCategoryParamsCopyWithImpl<$Res, $Val extends GetCategoryParams>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? categoryId = freezed,
+    Object? categoryId = null,
   }) {
     return _then(_value.copyWith(
-      categoryId: freezed == categoryId
+      categoryId: null == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ) as $Val);
   }
 }
@@ -64,7 +64,7 @@ abstract class _$$GetCategoryParamsImplCopyWith<$Res>
       __$$GetCategoryParamsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? categoryId});
+  $Res call({int categoryId});
 }
 
 /// @nodoc
@@ -78,13 +78,13 @@ class __$$GetCategoryParamsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? categoryId = freezed,
+    Object? categoryId = null,
   }) {
     return _then(_$GetCategoryParamsImpl(
-      freezed == categoryId
+      null == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ));
   }
 }
@@ -95,7 +95,7 @@ class _$GetCategoryParamsImpl implements _GetCategoryParams {
   const _$GetCategoryParamsImpl(this.categoryId);
 
   @override
-  final int? categoryId;
+  final int categoryId;
 
   @override
   String toString() {
@@ -123,11 +123,11 @@ class _$GetCategoryParamsImpl implements _GetCategoryParams {
 }
 
 abstract class _GetCategoryParams implements GetCategoryParams {
-  const factory _GetCategoryParams(final int? categoryId) =
+  const factory _GetCategoryParams(final int categoryId) =
       _$GetCategoryParamsImpl;
 
   @override
-  int? get categoryId;
+  int get categoryId;
   @override
   @JsonKey(ignore: true)
   _$$GetCategoryParamsImplCopyWith<_$GetCategoryParamsImpl> get copyWith =>

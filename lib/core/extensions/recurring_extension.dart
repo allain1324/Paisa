@@ -1,7 +1,7 @@
-// 📦 Package imports:
+// Package imports:
 import 'package:hive_flutter/adapters.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/features/recurring/data/model/recurring.dart';
 import 'package:paisa/features/transaction/data/model/transaction_model.dart';
 

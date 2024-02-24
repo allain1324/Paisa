@@ -1,7 +1,7 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/services.dart';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:injectable/injectable.dart';
 import 'package:local_auth/local_auth.dart';
 

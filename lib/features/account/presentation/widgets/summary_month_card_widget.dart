@@ -1,10 +1,10 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:chart_sparkline/chart_sparkline.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/widgets/paisa_widgets/paisa_card.dart';
 

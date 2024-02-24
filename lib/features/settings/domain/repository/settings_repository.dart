@@ -1,7 +1,7 @@
-// 📦 Package imports:
+// Package imports:
 import 'package:dartz/dartz.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/error/failures.dart';
 import 'import_export.dart';
 

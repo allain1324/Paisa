@@ -1,7 +1,7 @@
-// 📦 Package imports:
+// Package imports:
 import 'package:dartz/dartz.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/enum/transaction_type.dart';
 import 'package:paisa/core/error/failures.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
@@ -9,11 +9,11 @@ import 'package:paisa/features/transaction/domain/entities/transaction_entity.da
 abstract class TransactionRepository {
   Future<Either<Failure, bool>> addExpense({
     required double amount,
-    required int category,
-    required int account,
-    required TransactionType transactionType,
+    required int categoryId,
+    required int accountId,
     required DateTime time,
     required String name,
+    TransactionType transactionType = TransactionType.expense,
     String? description,
   });
 
@@ -33,12 +33,12 @@ abstract class TransactionRepository {
 
   Future<void> updateExpense({
     required int key,
-    required double currency,
+    required double amount,
     required int categoryId,
     required int accountId,
-    required TransactionType transactionType,
     required DateTime time,
     required String name,
+    TransactionType transactionType = TransactionType.expense,
     String? description,
   });
 

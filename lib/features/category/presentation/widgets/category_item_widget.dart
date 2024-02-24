@@ -1,10 +1,10 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:responsive_builder/responsive_builder.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/features/category/domain/entities/category.dart';
 import 'category_item_mobile_widget.dart';
 import 'category_item_tablet_widget.dart';

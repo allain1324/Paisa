@@ -1,10 +1,10 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/features/category/data/model/category_model.dart';
 
 final List<CategoryModel> defaultCategoriesData = [

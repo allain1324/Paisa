@@ -1,11 +1,11 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/core/error/failures.dart';
@@ -26,12 +26,12 @@ class ExpenseRepositoryImpl extends TransactionRepository {
   @override
   Future<Either<Failure, bool>> addExpense({
     required double amount,
-    required int category,
-    required int account,
-    required TransactionType transactionType,
+    required int categoryId,
+    required int accountId,
+    required DateTime time,
+    required String name,
+    TransactionType transactionType = TransactionType.expense,
     String? description,
-    DateTime? time,
-    String? name,
   }) async {
     try {
       final int result = await dataSource.add(
@@ -39,8 +39,8 @@ class ExpenseRepositoryImpl extends TransactionRepository {
           name: name,
           currency: amount,
           time: time,
-          categoryId: category,
-          accountId: account,
+          categoryId: categoryId,
+          accountId: accountId,
           type: transactionType,
           description: description,
         ),
@@ -111,18 +111,18 @@ class ExpenseRepositoryImpl extends TransactionRepository {
   @override
   Future<void> updateExpense({
     required int key,
-    required double currency,
+    required double amount,
     required int categoryId,
     required int accountId,
-    required TransactionType transactionType,
+    required DateTime time,
+    required String name,
+    TransactionType transactionType = TransactionType.expense,
     String? description,
-    DateTime? time,
-    String? name,
   }) {
     return dataSource.update(
       TransactionModel(
         name: name,
-        currency: currency,
+        currency: amount,
         time: time,
         categoryId: categoryId,
         accountId: accountId,

@@ -1,11 +1,11 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/common_enum.dart';
 import '../../main.dart';
 import '../constants/constants.dart';
@@ -73,6 +73,23 @@ extension DateUtils on DateTime {
     return woy;
   }
 
+  String readableGraph(FilterExpense filterBudget) {
+    switch (filterBudget) {
+      case FilterExpense.daily:
+        return year == DateTime.now().year
+            ? DateFormat('EEEE dd MMM').format(this)
+            : DateFormat('EEEE dd MMM, yy').format(this);
+      case FilterExpense.weekly:
+        return "Week $weekOfYear of ${DateFormat('yy').format(this)}";
+      case FilterExpense.monthly:
+        return DateFormat('MMM yy').format(this);
+      case FilterExpense.yearly:
+        return DateFormat('yyyy').format(this);
+      case FilterExpense.all:
+        return 'All';
+    }
+  }
+
   String formatted(FilterExpense filterBudget) {
     switch (filterBudget) {
       case FilterExpense.daily:
@@ -80,11 +97,11 @@ extension DateUtils on DateTime {
             ? DateFormat('EEEE dd MMM').format(this)
             : DateFormat('EEEE dd MMM, yyyy').format(this);
       case FilterExpense.weekly:
-        return "Week $weekOfYear of ${DateFormat('yyyy').format(this)}";
+        return "Week $weekOfYear of ${DateFormat('yy').format(this)}";
       case FilterExpense.monthly:
         return DateFormat('MMMM yyyy').format(this);
       case FilterExpense.yearly:
-        return DateFormat('yyyy').format(this);
+        return DateFormat('yy').format(this);
       case FilterExpense.all:
         return 'All';
     }

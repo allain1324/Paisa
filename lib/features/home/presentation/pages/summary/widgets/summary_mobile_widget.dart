@@ -1,7 +1,7 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/expense_history_widget.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/expense_total_widget.dart';

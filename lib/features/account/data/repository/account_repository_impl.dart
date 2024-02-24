@@ -1,7 +1,7 @@
-// 📦 Package imports:
+// Package imports:
 import 'package:injectable/injectable.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/features/account/data/data_sources/account_data_manager.dart';
@@ -57,8 +57,8 @@ class AccountRepositoryImpl extends AccountRepository {
   @override
   Future<void> update({
     required int key,
-    required String? bankName,
-    required String? holderName,
+    required String bankName,
+    required String holderName,
     required CardType cardType,
     double? amount,
     int? color,

@@ -1,8 +1,8 @@
-// 📦 Package imports:
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/use_case/use_case.dart';
 import 'package:paisa/features/category/domain/repository/category_repository.dart';
 
@@ -31,11 +31,11 @@ class AddCategoryUseCase implements UseCase<void, AddCategoryParams> {
 @freezed
 class AddCategoryParams with _$AddCategoryParams {
   const factory AddCategoryParams({
-    String? name,
+    required String name,
     double? budget,
     int? color,
     String? description,
-    int? icon,
+    required int icon,
     @Default(false) bool isBudget,
     @Default(false) bool isDefault,
   }) = _AddCategoryParams;

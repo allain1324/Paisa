@@ -1,4 +1,4 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 
 extension ColorHelper on BuildContext {

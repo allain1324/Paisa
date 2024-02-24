@@ -18,12 +18,12 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$UpdateCategoryParams {
   int get key => throw _privateConstructorUsedError;
   double? get budget => throw _privateConstructorUsedError;
-  int? get color => throw _privateConstructorUsedError;
+  int get color => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  int? get icon => throw _privateConstructorUsedError;
+  int get icon => throw _privateConstructorUsedError;
   bool get isBudget => throw _privateConstructorUsedError;
   bool get isDefault => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UpdateCategoryParamsCopyWith<UpdateCategoryParams> get copyWith =>
@@ -39,12 +39,12 @@ abstract class $UpdateCategoryParamsCopyWith<$Res> {
   $Res call(
       {int key,
       double? budget,
-      int? color,
+      int color,
       String? description,
-      int? icon,
+      int icon,
       bool isBudget,
       bool isDefault,
-      String? name});
+      String name});
 }
 
 /// @nodoc
@@ -63,12 +63,12 @@ class _$UpdateCategoryParamsCopyWithImpl<$Res,
   $Res call({
     Object? key = null,
     Object? budget = freezed,
-    Object? color = freezed,
+    Object? color = null,
     Object? description = freezed,
-    Object? icon = freezed,
+    Object? icon = null,
     Object? isBudget = null,
     Object? isDefault = null,
-    Object? name = freezed,
+    Object? name = null,
   }) {
     return _then(_value.copyWith(
       key: null == key
@@ -79,18 +79,18 @@ class _$UpdateCategoryParamsCopyWithImpl<$Res,
           ? _value.budget
           : budget // ignore: cast_nullable_to_non_nullable
               as double?,
-      color: freezed == color
+      color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      icon: freezed == icon
+      icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       isBudget: null == isBudget
           ? _value.isBudget
           : isBudget // ignore: cast_nullable_to_non_nullable
@@ -99,10 +99,10 @@ class _$UpdateCategoryParamsCopyWithImpl<$Res,
           ? _value.isDefault
           : isDefault // ignore: cast_nullable_to_non_nullable
               as bool,
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -118,12 +118,12 @@ abstract class _$$UpdateCategoryParamsImplCopyWith<$Res>
   $Res call(
       {int key,
       double? budget,
-      int? color,
+      int color,
       String? description,
-      int? icon,
+      int icon,
       bool isBudget,
       bool isDefault,
-      String? name});
+      String name});
 }
 
 /// @nodoc
@@ -139,12 +139,12 @@ class __$$UpdateCategoryParamsImplCopyWithImpl<$Res>
   $Res call({
     Object? key = null,
     Object? budget = freezed,
-    Object? color = freezed,
+    Object? color = null,
     Object? description = freezed,
-    Object? icon = freezed,
+    Object? icon = null,
     Object? isBudget = null,
     Object? isDefault = null,
-    Object? name = freezed,
+    Object? name = null,
   }) {
     return _then(_$UpdateCategoryParamsImpl(
       key: null == key
@@ -155,18 +155,18 @@ class __$$UpdateCategoryParamsImplCopyWithImpl<$Res>
           ? _value.budget
           : budget // ignore: cast_nullable_to_non_nullable
               as double?,
-      color: freezed == color
+      color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      icon: freezed == icon
+      icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       isBudget: null == isBudget
           ? _value.isBudget
           : isBudget // ignore: cast_nullable_to_non_nullable
@@ -175,10 +175,10 @@ class __$$UpdateCategoryParamsImplCopyWithImpl<$Res>
           ? _value.isDefault
           : isDefault // ignore: cast_nullable_to_non_nullable
               as bool,
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -189,23 +189,23 @@ class _$UpdateCategoryParamsImpl implements _UpdateCategoryParams {
   const _$UpdateCategoryParamsImpl(
       {required this.key,
       this.budget,
-      this.color,
+      required this.color,
       this.description,
-      this.icon,
+      required this.icon,
       this.isBudget = false,
       this.isDefault = false,
-      this.name});
+      required this.name});
 
   @override
   final int key;
   @override
   final double? budget;
   @override
-  final int? color;
+  final int color;
   @override
   final String? description;
   @override
-  final int? icon;
+  final int icon;
   @override
   @JsonKey()
   final bool isBudget;
@@ -213,7 +213,7 @@ class _$UpdateCategoryParamsImpl implements _UpdateCategoryParams {
   @JsonKey()
   final bool isDefault;
   @override
-  final String? name;
+  final String name;
 
   @override
   String toString() {
@@ -255,29 +255,29 @@ abstract class _UpdateCategoryParams implements UpdateCategoryParams {
   const factory _UpdateCategoryParams(
       {required final int key,
       final double? budget,
-      final int? color,
+      required final int color,
       final String? description,
-      final int? icon,
+      required final int icon,
       final bool isBudget,
       final bool isDefault,
-      final String? name}) = _$UpdateCategoryParamsImpl;
+      required final String name}) = _$UpdateCategoryParamsImpl;
 
   @override
   int get key;
   @override
   double? get budget;
   @override
-  int? get color;
+  int get color;
   @override
   String? get description;
   @override
-  int? get icon;
+  int get icon;
   @override
   bool get isBudget;
   @override
   bool get isDefault;
   @override
-  String? get name;
+  String get name;
   @override
   @JsonKey(ignore: true)
   _$$UpdateCategoryParamsImplCopyWith<_$UpdateCategoryParamsImpl>

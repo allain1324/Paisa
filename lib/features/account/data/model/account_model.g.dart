@@ -17,9 +17,9 @@ class AccountModelAdapter extends TypeAdapter<_$AccountModelImpl> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return _$AccountModelImpl(
-      name: fields[0] as String?,
-      bankName: fields[3] as String?,
-      cardType: fields[6] == null ? CardType.bank : fields[6] as CardType?,
+      name: fields[0] as String,
+      bankName: fields[3] as String,
+      cardType: fields[6] == null ? CardType.bank : fields[6] as CardType,
       superId: fields[7] as int?,
       amount: fields[8] == null ? 0 : fields[8] as double?,
       color: fields[9] == null ? 4294951175 : fields[9] as int?,
@@ -67,9 +67,10 @@ class AccountModelAdapter extends TypeAdapter<_$AccountModelImpl> {
 
 _$AccountModelImpl _$$AccountModelImplFromJson(Map<String, dynamic> json) =>
     _$AccountModelImpl(
-      name: json['name'] as String?,
-      bankName: json['bankName'] as String?,
-      cardType: $enumDecodeNullable(_$CardTypeEnumMap, json['cardType']),
+      name: json['name'] as String,
+      bankName: json['bankName'] as String,
+      cardType: $enumDecodeNullable(_$CardTypeEnumMap, json['cardType']) ??
+          CardType.bank,
       superId: json['superId'] as int?,
       amount: (json['amount'] as num?)?.toDouble(),
       color: json['color'] as int?,
@@ -81,7 +82,7 @@ Map<String, dynamic> _$$AccountModelImplToJson(_$AccountModelImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'bankName': instance.bankName,
-      'cardType': _$CardTypeEnumMap[instance.cardType],
+      'cardType': _$CardTypeEnumMap[instance.cardType]!,
       'superId': instance.superId,
       'amount': instance.amount,
       'color': instance.color,

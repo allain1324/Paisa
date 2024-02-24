@@ -1,18 +1,18 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/enum/transaction_type.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/account/presentation/bloc/accounts_bloc.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
-import 'package:paisa/features/home/presentation/bloc/home/home_bloc.dart';
+import 'package:paisa/features/home/presentation/pages/home/home_cubit.dart';
 import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/expense_item_widget.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
@@ -118,7 +118,7 @@ class AccountTransactionsPage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final TransactionEntity expense = state.expenses[index];
                       final CategoryEntity? category =
-                          BlocProvider.of<HomeBloc>(context)
+                          BlocProvider.of<HomeCubit>(context)
                               .fetchCategoryFromId(expense.categoryId);
                       if (category == null) {
                         return const SizedBox.shrink();

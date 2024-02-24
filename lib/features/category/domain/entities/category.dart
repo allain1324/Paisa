@@ -1,4 +1,4 @@
-// 📦 Package imports:
+// Package imports:
 import 'package:equatable/equatable.dart';
 
 class CategoryEntity extends Equatable {

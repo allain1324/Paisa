@@ -1,14 +1,14 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
-import 'package:paisa/features/home/presentation/bloc/home/home_bloc.dart';
+import 'package:paisa/features/home/presentation/pages/home/home_cubit.dart';
 import 'package:paisa/features/home/presentation/pages/home/home_page.dart';
 import 'package:paisa/features/home/presentation/widgets/content_widget.dart';
 import 'package:paisa/features/home/presentation/widgets/paisa_search_button.dart';
@@ -28,7 +28,6 @@ class HomeMobileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final HomeBloc homeBloc = BlocProvider.of<HomeBloc>(context);
     return Scaffold(
       key: _scaffoldStateKey,
       appBar: AppBar(
@@ -39,13 +38,13 @@ class HomeMobileWidget extends StatelessWidget {
           SizedBox(width: 8),
         ],
       ),
-      drawer: BlocBuilder<HomeBloc, HomeState>(
+      drawer: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
           return NavigationDrawer(
-            selectedIndex: homeBloc.selectedIndex,
+            selectedIndex: context.watch<HomeCubit>().state.index,
             onDestinationSelected: (index) {
               _scaffoldStateKey.currentState?.closeDrawer();
-              homeBloc.add(CurrentIndexEvent(index));
+              context.read<HomeCubit>().setCurrentIndex(index);
             },
             children: [
               const PaisaIconTitle(),
@@ -77,13 +76,11 @@ class HomeMobileWidget extends StatelessWidget {
       ),
       body: const ContentWidget(),
       floatingActionButton: floatingActionButton,
-      bottomNavigationBar: BlocBuilder<HomeBloc, HomeState>(
+      bottomNavigationBar: BlocBuilder<HomeCubit, HomeState>(
         buildWhen: (previous, current) => current is CurrentIndexState,
         builder: (context, state) {
           if (state is CurrentIndexState &&
-              (state.currentPage == 4 ||
-                  state.currentPage == 6 ||
-                  state.currentPage == 5)) {
+              (state.index == 4 || state.index == 6 || state.index == 5)) {
             return const SizedBox.shrink();
           }
           return Theme(
@@ -93,9 +90,9 @@ class HomeMobileWidget extends StatelessWidget {
             child: NavigationBar(
               elevation: 1,
               backgroundColor: context.surface,
-              selectedIndex: homeBloc.selectedIndex,
+              selectedIndex: context.read<HomeCubit>().state.index,
               onDestinationSelected: (index) =>
-                  homeBloc.add(CurrentIndexEvent(index)),
+                  context.read<HomeCubit>().setCurrentIndex(index),
               destinations: destinations
                   .sublist(0, 4)
                   .map((e) => NavigationDestination(

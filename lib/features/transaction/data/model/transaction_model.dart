@@ -1,8 +1,8 @@
-// 📦 Package imports:
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/core/data/super_id.dart';
 
@@ -15,14 +15,14 @@ class TransactionModel extends HiveObject
     implements SuperId {
   @HiveType(typeId: 0, adapterName: 'TransactionModelAdapter')
   factory TransactionModel({
-    @HiveField(5) @Default(-1) int accountId,
-    @HiveField(6) @Default(-1) int categoryId,
+    @HiveField(5) required int accountId,
+    @HiveField(6) required int categoryId,
     @HiveField(1) @Default(0) double currency,
     @HiveField(8) String? description,
-    @HiveField(0) String? name,
+    @HiveField(0) required String name,
     @HiveField(7) int? superId,
-    @HiveField(3) DateTime? time,
-    @Default(TransactionType.expense) @HiveField(4) TransactionType type,
+    @HiveField(3) required DateTime time,
+    @HiveField(4) @Default(TransactionType.expense) TransactionType type,
   }) = _TransactionModel;
 
   TransactionModel._();

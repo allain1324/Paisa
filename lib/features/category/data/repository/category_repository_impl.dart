@@ -1,7 +1,7 @@
-// 📦 Package imports:
+// Package imports:
 import 'package:injectable/injectable.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/features/category/data/data_sources/local/category_data_source.dart';
 import 'package:paisa/features/category/data/model/category_model.dart';
@@ -21,13 +21,13 @@ class CategoryRepositoryImpl extends CategoryRepository {
 
   @override
   Future<void> add({
-    required String? name,
-    required int? icon,
+    required String name,
+    required int icon,
     required int? color,
     required String? desc,
-    required bool? isBudget,
+    bool isBudget = false,
     required double? budget,
-    required bool? isDefault,
+    bool isDefault = false,
   }) {
     return dataSources.add(CategoryModel(
       description: desc ?? '',
@@ -44,26 +44,26 @@ class CategoryRepositoryImpl extends CategoryRepository {
   Future<void> clear() => dataSources.clear();
 
   @override
-  Future<void> delete(int key) => dataSources.delete(key);
-
-  @override
-  CategoryModel? fetchById(int? categoryId) => dataSources.findById(categoryId);
-
-  @override
   List<CategoryEntity> defaultCategories() {
     return dataSources.defaultCategories().toEntities();
   }
 
   @override
+  Future<void> delete(int key) => dataSources.delete(key);
+
+  @override
+  CategoryModel fetchById(int categoryId) => dataSources.findById(categoryId);
+
+  @override
   Future<void> update({
     required int? key,
-    required String? name,
-    required int? icon,
+    required String name,
+    required int icon,
     required int? color,
     required String? desc,
+    bool isBudget = false,
     required double? budget,
-    required bool isBudget,
-    required bool isDefault,
+    bool isDefault = false,
   }) {
     return dataSources.update(CategoryModel(
       description: desc,

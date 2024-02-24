@@ -1,9 +1,9 @@
-// 📦 Package imports:
+// Package imports:
 import 'package:collection/collection.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:injectable/injectable.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/features/account/data/model/account_model.dart';
 
 abstract class AccountDataSource {
@@ -23,8 +23,8 @@ abstract class AccountDataSource {
 }
 
 @LazySingleton(as: AccountDataSource)
-class AccountManagerImpl implements AccountDataSource {
-  AccountManagerImpl({required this.accountBox});
+class AccountDataSourceImpl implements AccountDataSource {
+  AccountDataSourceImpl({required this.accountBox});
 
   final Box<AccountModel> accountBox;
 

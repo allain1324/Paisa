@@ -1,9 +1,8 @@
-// 📦 Package imports:
-import 'package:collection/collection.dart';
+// Package imports:
 import 'package:hive_flutter/adapters.dart';
 import 'package:injectable/injectable.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/features/category/data/model/category_model.dart';
 
 abstract class CategoryDataSource {
@@ -13,7 +12,7 @@ abstract class CategoryDataSource {
 
   List<CategoryModel> categories();
 
-  CategoryModel? findById(int? categoryId);
+  CategoryModel findById(int categoryId);
 
   Iterable<CategoryModel> export();
 
@@ -39,10 +38,7 @@ class LocalCategoryManagerDataSourceImpl implements CategoryDataSource {
 
   @override
   List<CategoryModel> categories() {
-    return categoryBox.values
-        .where((element) => element.isDefault != null)
-        .where((element) => !element.isDefault!)
-        .toList();
+    return categoryBox.values.where((element) => !element.isDefault).toList();
   }
 
   @override
@@ -50,10 +46,7 @@ class LocalCategoryManagerDataSourceImpl implements CategoryDataSource {
 
   @override
   List<CategoryModel> defaultCategories() {
-    return categoryBox.values
-        .where((element) => element.isDefault != null)
-        .where((element) => element.isDefault!)
-        .toList();
+    return categoryBox.values.where((element) => element.isDefault).toList();
   }
 
   @override
@@ -65,10 +58,8 @@ class LocalCategoryManagerDataSourceImpl implements CategoryDataSource {
   Iterable<CategoryModel> export() => categoryBox.values;
 
   @override
-  CategoryModel? findById(int? categoryId) =>
-      categoryBox.values.firstWhereOrNull(
-        (element) => element.superId == categoryId,
-      );
+  CategoryModel findById(int categoryId) =>
+      categoryBox.values.firstWhere((element) => element.superId == categoryId);
 
   @override
   Future<void> update(CategoryModel categoryModel) {

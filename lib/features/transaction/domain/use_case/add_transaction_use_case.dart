@@ -1,9 +1,9 @@
-// 📦 Package imports:
+// Package imports:
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/enum/transaction_type.dart';
 import 'package:paisa/core/error/failures.dart';
 import 'package:paisa/core/use_case/use_case.dart';
@@ -23,8 +23,8 @@ class AddTransactionUseCase
       name: params.name,
       amount: params.amount,
       time: params.time,
-      category: params.categoryId,
-      account: params.accountId,
+      categoryId: params.categoryId,
+      accountId: params.accountId,
       transactionType: params.transactionType,
       description: params.description,
     );

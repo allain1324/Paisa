@@ -1,7 +1,7 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/features/transaction/presentation/widgets/select_account_widget.dart';
 import 'package:paisa/features/transaction/presentation/widgets/select_category_widget.dart';
 import 'package:paisa/features/transaction/presentation/widgets/transaction_amount_widget.dart';

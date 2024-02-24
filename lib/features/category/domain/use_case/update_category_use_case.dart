@@ -1,8 +1,8 @@
-// 📦 Package imports:
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/use_case/use_case.dart';
 import 'package:paisa/features/category/domain/repository/category_repository.dart';
 
@@ -19,7 +19,7 @@ class UpdateCategoryUseCase
   Future<void> call(UpdateCategoryParams params) {
     return categoryRepository.update(
       key: params.key,
-      color: params.color!,
+      color: params.color,
       icon: params.icon,
       name: params.name,
       budget: params.budget,
@@ -35,11 +35,11 @@ class UpdateCategoryParams with _$UpdateCategoryParams {
   const factory UpdateCategoryParams({
     required int key,
     double? budget,
-    int? color,
+    required int color,
     String? description,
-    int? icon,
+    required int icon,
     @Default(false) bool isBudget,
     @Default(false) bool isDefault,
-    String? name,
+    required String name,
   }) = _UpdateCategoryParams;
 }

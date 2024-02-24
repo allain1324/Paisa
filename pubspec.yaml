@@ -112,8 +112,3 @@ msix_config:
   certificate_password: +h4Hem@nth$13+
   store: true
   
-import_sorter:
-  emojis: true # Optional, defaults to false
-  comments: false # Optional, defaults to true
-  ignored_files: # Optional, defaults to []
-    - \/lib\/*

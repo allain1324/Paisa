@@ -1,7 +1,7 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/widgets/color_palette.dart';
 import 'package:paisa/features/home/presentation/widgets/welcome_widget.dart';
 import 'package:paisa/features/profile/presentation/cubit/profile_cubit.dart';

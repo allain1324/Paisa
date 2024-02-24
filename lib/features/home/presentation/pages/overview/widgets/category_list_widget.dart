@@ -1,7 +1,7 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
@@ -20,8 +20,7 @@ class CategoryListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       shrinkWrap: true,
-      physics: const ClampingScrollPhysics(),
-      padding: const EdgeInsets.only(bottom: 124),
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: categoryGrouped.length,
       itemBuilder: (context, index) {
         final MapEntry<CategoryEntity, List<TransactionEntity>> map =
@@ -35,20 +34,26 @@ class CategoryListWidget extends StatelessWidget {
             ); */
           },
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(vertical: 8),
             child: Column(
               children: [
                 Row(
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Icon(
-                        color:
-                            Color(map.key.color ?? Colors.amber.shade100.value),
-                        IconData(
-                          map.key.icon ?? 0,
-                          fontFamily: fontFamilyName,
-                          fontPackage: fontFamilyPackageName,
+                      child: CircleAvatar(
+                        backgroundColor:
+                            Color(map.key.color ?? Colors.amber.shade100.value)
+                                .withOpacity(0.12),
+                        child: Icon(
+                          size: 18,
+                          color: Color(
+                              map.key.color ?? Colors.amber.shade100.value),
+                          IconData(
+                            map.key.icon ?? 0,
+                            fontFamily: fontFamilyName,
+                            fontPackage: fontFamilyPackageName,
+                          ),
                         ),
                       ),
                     ),

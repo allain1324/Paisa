@@ -1,8 +1,8 @@
-// 📦 Package imports:
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/core/data/super_id.dart';
 
@@ -13,9 +13,11 @@ part 'account_model.g.dart';
 class AccountModel extends HiveObject with _$AccountModel implements SuperId {
   @HiveType(typeId: 2, adapterName: 'AccountModelAdapter')
   factory AccountModel({
-    @HiveField(0) String? name,
-    @HiveField(3) String? bankName,
-    @HiveField(6, defaultValue: CardType.bank) CardType? cardType,
+    @HiveField(0) required String name,
+    @HiveField(3) required String bankName,
+    @HiveField(6, defaultValue: CardType.bank)
+    @Default(CardType.bank)
+    CardType cardType,
     @HiveField(7) int? superId,
     @HiveField(8, defaultValue: 0) double? amount,
     @HiveField(9, defaultValue: 0xFFFFC107) int? color,

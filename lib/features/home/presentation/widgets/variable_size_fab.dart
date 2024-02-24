@@ -1,13 +1,13 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/widgets/variable_fab_size.dart';
-import 'package:paisa/features/home/presentation/bloc/home/home_bloc.dart';
+import 'package:paisa/features/home/presentation/pages/home/home_cubit.dart';
 import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
 
 class HomeFloatingActionButtonWidget extends StatelessWidget {
@@ -71,12 +71,12 @@ class HomeFloatingActionButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc, HomeState>(
+    return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
-        if (state is CurrentIndexState && state.currentPage != 5) {
+        if (state is CurrentIndexState && state.index != 5) {
           return VariableFABSize(
-            onPressed: () => _handleClick(context, state.currentPage),
-            icon: state.currentPage != 3 ? Icons.add : Icons.date_range,
+            onPressed: () => _handleClick(context, state.index),
+            icon: state.index != 3 ? Icons.add : Icons.date_range,
           );
         } else {
           return const SizedBox.shrink();

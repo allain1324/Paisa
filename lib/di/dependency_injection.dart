@@ -1,14 +1,14 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/foundation.dart';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:quick_actions/quick_actions.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/enum/transaction_type.dart';
 import 'dependency_injection.config.dart';

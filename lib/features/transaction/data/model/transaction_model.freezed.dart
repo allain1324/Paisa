@@ -37,17 +37,17 @@ mixin _$TransactionModel {
   @HiveField(8)
   set description(String? value) => throw _privateConstructorUsedError;
   @HiveField(0)
-  String? get name => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   @HiveField(0)
-  set name(String? value) => throw _privateConstructorUsedError;
+  set name(String value) => throw _privateConstructorUsedError;
   @HiveField(7)
   int? get superId => throw _privateConstructorUsedError;
   @HiveField(7)
   set superId(int? value) => throw _privateConstructorUsedError;
   @HiveField(3)
-  DateTime? get time => throw _privateConstructorUsedError;
+  DateTime get time => throw _privateConstructorUsedError;
   @HiveField(3)
-  set time(DateTime? value) => throw _privateConstructorUsedError;
+  set time(DateTime value) => throw _privateConstructorUsedError;
   @HiveField(4)
   TransactionType get type => throw _privateConstructorUsedError;
   @HiveField(4)
@@ -70,9 +70,9 @@ abstract class $TransactionModelCopyWith<$Res> {
       @HiveField(6) int categoryId,
       @HiveField(1) double currency,
       @HiveField(8) String? description,
-      @HiveField(0) String? name,
+      @HiveField(0) String name,
       @HiveField(7) int? superId,
-      @HiveField(3) DateTime? time,
+      @HiveField(3) DateTime time,
       @HiveField(4) TransactionType type});
 }
 
@@ -93,9 +93,9 @@ class _$TransactionModelCopyWithImpl<$Res, $Val extends TransactionModel>
     Object? categoryId = null,
     Object? currency = null,
     Object? description = freezed,
-    Object? name = freezed,
+    Object? name = null,
     Object? superId = freezed,
-    Object? time = freezed,
+    Object? time = null,
     Object? type = null,
   }) {
     return _then(_value.copyWith(
@@ -115,18 +115,18 @@ class _$TransactionModelCopyWithImpl<$Res, $Val extends TransactionModel>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       superId: freezed == superId
           ? _value.superId
           : superId // ignore: cast_nullable_to_non_nullable
               as int?,
-      time: freezed == time
+      time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -148,9 +148,9 @@ abstract class _$$TransactionModelImplCopyWith<$Res>
       @HiveField(6) int categoryId,
       @HiveField(1) double currency,
       @HiveField(8) String? description,
-      @HiveField(0) String? name,
+      @HiveField(0) String name,
       @HiveField(7) int? superId,
-      @HiveField(3) DateTime? time,
+      @HiveField(3) DateTime time,
       @HiveField(4) TransactionType type});
 }
 
@@ -169,9 +169,9 @@ class __$$TransactionModelImplCopyWithImpl<$Res>
     Object? categoryId = null,
     Object? currency = null,
     Object? description = freezed,
-    Object? name = freezed,
+    Object? name = null,
     Object? superId = freezed,
-    Object? time = freezed,
+    Object? time = null,
     Object? type = null,
   }) {
     return _then(_$TransactionModelImpl(
@@ -191,18 +191,18 @@ class __$$TransactionModelImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       superId: freezed == superId
           ? _value.superId
           : superId // ignore: cast_nullable_to_non_nullable
               as int?,
-      time: freezed == time
+      time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -216,13 +216,13 @@ class __$$TransactionModelImplCopyWithImpl<$Res>
 @HiveType(typeId: 0, adapterName: 'TransactionModelAdapter')
 class _$TransactionModelImpl extends _TransactionModel {
   _$TransactionModelImpl(
-      {@HiveField(5) this.accountId = -1,
-      @HiveField(6) this.categoryId = -1,
+      {@HiveField(5) required this.accountId,
+      @HiveField(6) required this.categoryId,
       @HiveField(1) this.currency = 0,
       @HiveField(8) this.description,
-      @HiveField(0) this.name,
+      @HiveField(0) required this.name,
       @HiveField(7) this.superId,
-      @HiveField(3) this.time,
+      @HiveField(3) required this.time,
       @HiveField(4) this.type = TransactionType.expense})
       : super._();
 
@@ -230,11 +230,9 @@ class _$TransactionModelImpl extends _TransactionModel {
       _$$TransactionModelImplFromJson(json);
 
   @override
-  @JsonKey()
   @HiveField(5)
   int accountId;
   @override
-  @JsonKey()
   @HiveField(6)
   int categoryId;
   @override
@@ -246,13 +244,13 @@ class _$TransactionModelImpl extends _TransactionModel {
   String? description;
   @override
   @HiveField(0)
-  String? name;
+  String name;
   @override
   @HiveField(7)
   int? superId;
   @override
   @HiveField(3)
-  DateTime? time;
+  DateTime time;
   @override
   @JsonKey()
   @HiveField(4)
@@ -280,13 +278,13 @@ class _$TransactionModelImpl extends _TransactionModel {
 
 abstract class _TransactionModel extends TransactionModel {
   factory _TransactionModel(
-      {@HiveField(5) int accountId,
-      @HiveField(6) int categoryId,
+      {@HiveField(5) required int accountId,
+      @HiveField(6) required int categoryId,
       @HiveField(1) double currency,
       @HiveField(8) String? description,
-      @HiveField(0) String? name,
+      @HiveField(0) required String name,
       @HiveField(7) int? superId,
-      @HiveField(3) DateTime? time,
+      @HiveField(3) required DateTime time,
       @HiveField(4) TransactionType type}) = _$TransactionModelImpl;
   _TransactionModel._() : super._();
 
@@ -315,9 +313,9 @@ abstract class _TransactionModel extends TransactionModel {
   set description(String? value);
   @override
   @HiveField(0)
-  String? get name;
+  String get name;
   @HiveField(0)
-  set name(String? value);
+  set name(String value);
   @override
   @HiveField(7)
   int? get superId;
@@ -325,9 +323,9 @@ abstract class _TransactionModel extends TransactionModel {
   set superId(int? value);
   @override
   @HiveField(3)
-  DateTime? get time;
+  DateTime get time;
   @HiveField(3)
-  set time(DateTime? value);
+  set time(DateTime value);
   @override
   @HiveField(4)
   TransactionType get type;

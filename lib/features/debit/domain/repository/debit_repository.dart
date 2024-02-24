@@ -1,4 +1,4 @@
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/enum/debt_type.dart';
 import 'package:paisa/features/debit/domain/entities/debit.dart';
 

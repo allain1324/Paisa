@@ -1,11 +1,11 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:collection/collection.dart';
 import 'package:hive_flutter/adapters.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/enum/transaction_type.dart';
 import 'package:paisa/core/extensions/time_extension.dart';
 import 'package:paisa/features/transaction/data/model/search_query.dart';

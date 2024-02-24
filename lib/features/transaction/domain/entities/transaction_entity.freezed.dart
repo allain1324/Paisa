@@ -20,9 +20,9 @@ mixin _$TransactionEntity {
   int get categoryId => throw _privateConstructorUsedError;
   double get currency => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   int? get superId => throw _privateConstructorUsedError;
-  DateTime? get time => throw _privateConstructorUsedError;
+  DateTime get time => throw _privateConstructorUsedError;
   TransactionType get type => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -41,9 +41,9 @@ abstract class $TransactionEntityCopyWith<$Res> {
       int categoryId,
       double currency,
       String? description,
-      String? name,
+      String name,
       int? superId,
-      DateTime? time,
+      DateTime time,
       TransactionType type});
 }
 
@@ -64,9 +64,9 @@ class _$TransactionEntityCopyWithImpl<$Res, $Val extends TransactionEntity>
     Object? categoryId = null,
     Object? currency = null,
     Object? description = freezed,
-    Object? name = freezed,
+    Object? name = null,
     Object? superId = freezed,
-    Object? time = freezed,
+    Object? time = null,
     Object? type = null,
   }) {
     return _then(_value.copyWith(
@@ -86,18 +86,18 @@ class _$TransactionEntityCopyWithImpl<$Res, $Val extends TransactionEntity>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       superId: freezed == superId
           ? _value.superId
           : superId // ignore: cast_nullable_to_non_nullable
               as int?,
-      time: freezed == time
+      time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -119,9 +119,9 @@ abstract class _$$TransactionEntityImplCopyWith<$Res>
       int categoryId,
       double currency,
       String? description,
-      String? name,
+      String name,
       int? superId,
-      DateTime? time,
+      DateTime time,
       TransactionType type});
 }
 
@@ -140,9 +140,9 @@ class __$$TransactionEntityImplCopyWithImpl<$Res>
     Object? categoryId = null,
     Object? currency = null,
     Object? description = freezed,
-    Object? name = freezed,
+    Object? name = null,
     Object? superId = freezed,
-    Object? time = freezed,
+    Object? time = null,
     Object? type = null,
   }) {
     return _then(_$TransactionEntityImpl(
@@ -162,18 +162,18 @@ class __$$TransactionEntityImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       superId: freezed == superId
           ? _value.superId
           : superId // ignore: cast_nullable_to_non_nullable
               as int?,
-      time: freezed == time
+      time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -190,9 +190,9 @@ class _$TransactionEntityImpl implements _TransactionEntity {
       required this.categoryId,
       required this.currency,
       this.description,
-      this.name,
+      required this.name,
       this.superId,
-      this.time,
+      required this.time,
       this.type = TransactionType.expense});
 
   @override
@@ -204,11 +204,11 @@ class _$TransactionEntityImpl implements _TransactionEntity {
   @override
   final String? description;
   @override
-  final String? name;
+  final String name;
   @override
   final int? superId;
   @override
-  final DateTime? time;
+  final DateTime time;
   @override
   @JsonKey()
   final TransactionType type;
@@ -255,9 +255,9 @@ abstract class _TransactionEntity implements TransactionEntity {
       required final int categoryId,
       required final double currency,
       final String? description,
-      final String? name,
+      required final String name,
       final int? superId,
-      final DateTime? time,
+      required final DateTime time,
       final TransactionType type}) = _$TransactionEntityImpl;
 
   @override
@@ -269,11 +269,11 @@ abstract class _TransactionEntity implements TransactionEntity {
   @override
   String? get description;
   @override
-  String? get name;
+  String get name;
   @override
   int? get superId;
   @override
-  DateTime? get time;
+  DateTime get time;
   @override
   TransactionType get type;
   @override

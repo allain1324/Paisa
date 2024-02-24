@@ -1,15 +1,15 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
-import 'package:paisa/features/home/presentation/bloc/home/home_bloc.dart';
+import 'package:paisa/features/home/presentation/pages/home/home_cubit.dart';
 import 'package:paisa/features/home/presentation/widgets/home_desktop_widget.dart';
 import 'package:paisa/features/home/presentation/widgets/home_mobile_widget.dart';
 import 'package:paisa/features/home/presentation/widgets/home_tablet_widget.dart';
@@ -61,34 +61,29 @@ class LandingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final HomeBloc homeBloc = BlocProvider.of<HomeBloc>(context);
-
     final actionButton =
         HomeFloatingActionButtonWidget(summaryController: getIt.get());
     return PaisaAnnotatedRegionWidget(
-      child: BlocProvider(
-        create: (context) => homeBloc,
-        child: WillPopScope(
-          onWillPop: () async {
-            if (homeBloc.selectedIndex == 0) {
-              return true;
-            }
-            homeBloc.add(const CurrentIndexEvent(0));
-            return false;
-          },
-          child: ScreenTypeLayout.builder(
-            mobile: (p0) => HomeMobileWidget(
-              floatingActionButton: actionButton,
-              destinations: destinations,
-            ),
-            tablet: (p0) => HomeTabletWidget(
-              floatingActionButton: actionButton,
-              destinations: destinations,
-            ),
-            desktop: (p0) => HomeDesktopWidget(
-              floatingActionButton: actionButton,
-              destinations: destinations,
-            ),
+      child: WillPopScope(
+        onWillPop: () async {
+          if (context.read<HomeCubit>().state.index == 0) {
+            return true;
+          }
+          context.read<HomeCubit>().setCurrentIndex(0);
+          return false;
+        },
+        child: ScreenTypeLayout.builder(
+          mobile: (p0) => HomeMobileWidget(
+            floatingActionButton: actionButton,
+            destinations: destinations,
+          ),
+          tablet: (p0) => HomeTabletWidget(
+            floatingActionButton: actionButton,
+            destinations: destinations,
+          ),
+          desktop: (p0) => HomeDesktopWidget(
+            floatingActionButton: actionButton,
+            destinations: destinations,
           ),
         ),
       ),

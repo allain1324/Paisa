@@ -1,10 +1,10 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:collection/collection.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/features/category/data/model/category_model.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
 
@@ -28,13 +28,10 @@ extension CategoryModelsHelper on Iterable<CategoryModel> {
     return map((e) => e.toJson()).toList();
   }
 
-  Iterable<CategoryModel> sort() =>
-      sorted((a, b) => a.name!.compareTo(b.name!));
+  Iterable<CategoryModel> sort() => sorted((a, b) => a.name.compareTo(b.name));
 
   Iterable<CategoryModel> get filterDefault {
-    return sort()
-        .where((element) => element.isDefault != null)
-        .where((element) => !element.isDefault!);
+    return sort().where((element) => !element.isDefault);
   }
 
   List<CategoryEntity> toEntities() =>

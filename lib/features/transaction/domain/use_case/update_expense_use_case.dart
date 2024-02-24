@@ -1,8 +1,8 @@
-// 📦 Package imports:
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/enum/transaction_type.dart';
 import 'package:paisa/core/use_case/use_case.dart';
 import 'package:paisa/features/transaction/domain/repository/transaction_repository.dart';
@@ -21,7 +21,7 @@ class UpdateTransactionUseCase
     return expenseRepository.updateExpense(
       key: params.superId,
       name: params.name,
-      currency: params.currency,
+      amount: params.currency,
       time: params.time,
       categoryId: params.categoryId,
       accountId: params.accountId,

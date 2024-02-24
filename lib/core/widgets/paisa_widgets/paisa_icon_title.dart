@@ -1,13 +1,13 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
-import 'package:paisa/features/home/presentation/bloc/home/home_bloc.dart';
+import 'package:paisa/features/home/presentation/pages/home/home_cubit.dart';
 
 class PaisaIconTitle extends StatelessWidget {
   const PaisaIconTitle({super.key});
@@ -41,17 +41,11 @@ class PaisaTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc, HomeState>(
+    return BlocBuilder<HomeCubit, HomeState>(
       buildWhen: (previous, current) => current is CurrentIndexState,
       builder: (context, state) {
-        String title = PageType.home.name(context);
-        if (state is CurrentIndexState) {
-          title = BlocProvider.of<HomeBloc>(context)
-              .getPageFromIndex(state.currentPage)
-              .name(context);
-        }
         return Text(
-          title,
+          context.read<HomeCubit>().getPageFromIndex().name(context),
           style: context.titleLarge?.copyWith(
             fontWeight: FontWeight.w600,
             color: context.onBackground,

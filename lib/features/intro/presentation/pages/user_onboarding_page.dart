@@ -1,13 +1,13 @@
-// 🐦 Flutter imports:
+// Flutter imports:
 import 'package:flutter/material.dart';
 
-// 📦 Package imports:
+// Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
 
-// 🌎 Project imports:
+// Project imports:
 import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
@@ -60,12 +60,9 @@ class _UserOnboardingPageState extends State<UserOnboardingPage> {
   }
 
   Future<void> saveImage() async {
-    final String image = Provider.of<Box<dynamic>>(context, listen: false)
-        .get(userImageKey, defaultValue: '');
+    final String image = settings.get(userImageKey, defaultValue: '');
     if (image.isEmpty) {
-      Provider.of<Box<dynamic>>(context, listen: false)
-          .put(userImageKey, 'no-image')
-          .then((value) => changePage(2));
+      settings.put(userImageKey, 'no-image').then((value) => changePage(2));
     } else {
       changePage(2);
     }
@@ -73,9 +70,7 @@ class _UserOnboardingPageState extends State<UserOnboardingPage> {
 
   void saveName() {
     if (_formState.currentState!.validate()) {
-      Provider.of<Box<dynamic>>(context, listen: false)
-          .put(userNameKey, _nameController.text)
-          .then((value) {
+      settings.put(userNameKey, _nameController.text).then((value) {
         changePage(1);
       });
     }
