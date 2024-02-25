@@ -35,6 +35,13 @@ class OverviewTransactionWidget extends StatelessWidget {
               getIt<SummaryController>().dateTimeRangeNotifier,
           expenses: expenseBox.values.toEntities(),
           builder: (expenses) {
+            if (expenses.isEmpty) {
+              return EmptyWidget(
+                icon: Icons.paid,
+                title: context.loc.emptyOverviewMessageTitle,
+                description: context.loc.emptyOverviewMessageSubtitle,
+              );
+            }
             return builder(expenses);
           },
         );

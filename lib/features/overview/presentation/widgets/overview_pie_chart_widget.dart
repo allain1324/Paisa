@@ -4,52 +4,38 @@ import 'package:paisa/core/common.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
 import 'package:paisa/features/overview/presentation/widgets/category_list_widget.dart';
 import 'package:paisa/features/overview/presentation/widgets/overview_category_widget.dart';
-import 'package:paisa/features/overview/presentation/widgets/overview_transaction_widget.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'package:collection/collection.dart';
 
 class OverviewPieChartWidget extends StatelessWidget {
-  const OverviewPieChartWidget({super.key});
+  const OverviewPieChartWidget({
+    super.key,
+    required this.transactions,
+  });
+
+  final Iterable<TransactionEntity> transactions;
 
   @override
   Widget build(BuildContext context) {
-    return OverviewTransactionWidget(
-      builder: (transactions) {
-        return OverviewCategoryWidget(
-          builder: (categoryModels) {
-            final Map<CategoryEntity?, List<TransactionEntity>>
-                categoryGroupedExpenses = groupBy(transactions, (entity) {
-              final CategoryEntity? categoryEntity =
-                  categoryModels.firstWhereOrNull(
-                      (element) => element.superId == entity.categoryId);
-              return categoryEntity;
-            });
-            final List<MapEntry<CategoryEntity, List<TransactionEntity>>>
-                mapExpenses = [];
-            for (var element in categoryGroupedExpenses.entries) {
-              if (element.key != null) {
-                mapExpenses.add(MapEntry(element.key!, element.value));
-              }
-            }
-
-            mapExpenses.sorted((a, b) {
-              return b.value.total.compareTo(a.value.total);
-            });
-
-            final double total = transactions.total;
-            return Column(
-              children: [
-                PieChartWidget(
-                  map: mapExpenses,
-                  total: total,
-                ),
-                CategoryListWidget(
-                  categoryGrouped: mapExpenses,
-                  totalExpense: total,
-                )
-              ],
-            );
-          },
+    return OverviewCategoryWidget(
+      builder: (categoryModels) {
+        final Map<CategoryEntity?, List<TransactionEntity>>
+            categoryGroupedExpenses =
+            transactions.toCategoryGrouped(categoryModels);
+        final List<MapEntry<CategoryEntity, List<TransactionEntity>>>
+            mapExpenses = categoryGroupedExpenses.toNonNull();
+        final double total = transactions.total;
+        return Column(
+          children: [
+            PieChartWidget(
+              map: mapExpenses,
+              total: total,
+            ),
+            CategoryListWidget(
+              categoryGrouped: mapExpenses,
+              totalExpense: total,
+            )
+          ],
         );
       },
     );
@@ -140,5 +126,32 @@ class Indicator extends StatelessWidget {
         )
       ],
     );
+  }
+}
+
+extension TransactionsHelper on Iterable<TransactionEntity> {
+  Map<CategoryEntity?, List<TransactionEntity>> toCategoryGrouped(
+      Iterable<CategoryEntity> categoryModels) {
+    return groupBy(this, (entity) {
+      final CategoryEntity? categoryEntity = categoryModels
+          .firstWhereOrNull((element) => element.superId == entity.categoryId);
+      return categoryEntity;
+    });
+  }
+}
+
+extension MapTransactionsHelper
+    on Map<CategoryEntity?, List<TransactionEntity>> {
+  List<MapEntry<CategoryEntity, List<TransactionEntity>>> toNonNull() {
+    final List<MapEntry<CategoryEntity, List<TransactionEntity>>> mapExpenses =
+        [];
+    for (var element in entries) {
+      if (element.key != null) {
+        mapExpenses.add(MapEntry(element.key!, element.value));
+      }
+    }
+    return mapExpenses.sorted((a, b) {
+      return b.value.total.compareTo(a.value.total);
+    });
   }
 }

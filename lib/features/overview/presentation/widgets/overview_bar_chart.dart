@@ -11,11 +11,17 @@ import 'package:paisa/core/widgets/paisa_widgets/paisa_card.dart';
 import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
 import 'package:paisa/features/intro/domain/entities/country_entity.dart';
 import 'package:paisa/features/overview/presentation/widgets/filter_tabs_widget.dart';
+import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'package:paisa/main.dart';
 import 'package:provider/provider.dart';
 
 class OverViewBarChartWidget extends StatelessWidget {
-  const OverViewBarChartWidget({super.key});
+  const OverViewBarChartWidget({
+    super.key,
+    required this.transactions,
+  });
+
+  final Iterable<TransactionEntity> transactions;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +29,7 @@ class OverViewBarChartWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: FilterTabsWidget(
+          transactions: transactions,
           builder: (groupedTransactions) {
             final list = groupedTransactions.entries.map((e) {
               final double total = e.value.fold<double>(0,
@@ -56,12 +63,12 @@ class BarChartSample extends StatefulWidget {
     required this.minMax,
   });
 
+  final List<OverviewBarChartData> values;
+
   @override
   State<StatefulWidget> createState() => BarChartSampleState();
 
   final (double, double) minMax;
-
-  final List<OverviewBarChartData> values;
 }
 
 class BarChartSampleState extends State<BarChartSample> {

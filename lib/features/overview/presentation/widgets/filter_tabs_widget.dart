@@ -10,7 +10,6 @@ import 'package:paisa/core/common.dart';
 import 'package:paisa/core/enum/filter_expense.dart';
 import 'package:paisa/core/widgets/paisa_widgets/paisa_pill_chip.dart';
 import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
-import 'package:paisa/features/overview/presentation/widgets/overview_transaction_widget.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'package:paisa/main.dart';
 
@@ -18,26 +17,25 @@ class FilterTabsWidget extends StatelessWidget {
   const FilterTabsWidget({
     super.key,
     required this.builder,
+    required this.transactions,
   });
 
   final Widget Function(
     Map<String, List<TransactionEntity>> groupedTransactions,
   ) builder;
 
+  final Iterable<TransactionEntity> transactions;
+
   @override
   Widget build(BuildContext context) {
-    return OverviewTransactionWidget(
-      builder: (transactions) {
-        return FilterTabs(
-          builder: (filterExpense) {
-            final Map<String, List<TransactionEntity>> groupedTransactions =
-                groupByTime(
-              models: transactions,
-              filterExpense: filterExpense,
-            );
-            return builder(groupedTransactions);
-          },
+    return FilterTabs(
+      builder: (filterExpense) {
+        final Map<String, List<TransactionEntity>> groupedTransactions =
+            groupByTime(
+          models: transactions,
+          filterExpense: filterExpense,
         );
+        return builder(groupedTransactions);
       },
     );
   }
@@ -45,6 +43,7 @@ class FilterTabsWidget extends StatelessWidget {
 
 class FilterTabs extends StatelessWidget {
   const FilterTabs({super.key, required this.builder});
+
   final Widget Function(FilterExpense filterExpense) builder;
 
   @override
@@ -95,13 +94,13 @@ Map<String, List<TransactionEntity>> groupByTime({
 }
 
 class OverviewBarChartData {
-  final String xLabel;
-  final double expense;
-  final double income;
-
   OverviewBarChartData({
     required this.xLabel,
     required this.expense,
     required this.income,
   });
+
+  final double expense;
+  final double income;
+  final String xLabel;
 }
