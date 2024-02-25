@@ -89,12 +89,8 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
       expenseName = transaction.name;
       selectedCategoryId = transaction.categoryId;
       selectedAccountId = transaction.accountId;
-      selectedDate = transaction.time ?? DateTime.now();
-      if (transaction.time == null) {
-        timeOfDay = TimeOfDay.now();
-      } else {
-        timeOfDay = TimeOfDay.fromDateTime(transaction.time!);
-      }
+      selectedDate = transaction.time;
+      timeOfDay = TimeOfDay.fromDateTime(transaction.time);
       transactionType = transaction.type;
       currentDescription = transaction.description;
       currentExpense = transaction;

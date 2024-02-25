@@ -52,7 +52,8 @@ class CategoryRepositoryImpl extends CategoryRepository {
   Future<void> delete(int key) => dataSources.delete(key);
 
   @override
-  CategoryModel fetchById(int categoryId) => dataSources.findById(categoryId);
+  CategoryEntity? fetchById(int categoryId) =>
+      dataSources.findById(categoryId)?.toEntity();
 
   @override
   Future<void> update({

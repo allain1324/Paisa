@@ -7,6 +7,7 @@ import 'package:collection/collection.dart';
 // Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
+import 'package:paisa/core/widgets/paisa_divider.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/expense_month_card.dart';
@@ -34,10 +35,10 @@ class AccountHistoryWidget extends StatelessWidget {
       return ValueListenableBuilder<FilterExpense>(
         valueListenable: summaryController.sortHomeExpenseNotifier,
         builder: (_, value, __) {
-          final maps = groupBy(expenses,
-              (TransactionEntity element) => element.time!.formatted(value));
+          final Map<String, List<TransactionEntity>> maps = groupBy(expenses,
+              (TransactionEntity element) => element.time.formatted(value));
           return ListView.separated(
-            separatorBuilder: (context, index) => const Divider(),
+            separatorBuilder: (context, index) => const PaisaDivider(),
             shrinkWrap: true,
             padding: EdgeInsets.zero,
             physics: const NeverScrollableScrollPhysics(),

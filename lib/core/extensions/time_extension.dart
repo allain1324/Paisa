@@ -73,24 +73,8 @@ extension DateUtils on DateTime {
     return woy;
   }
 
-  String readableGraph(FilterExpense filterBudget) {
-    switch (filterBudget) {
-      case FilterExpense.daily:
-        return year == DateTime.now().year
-            ? DateFormat('EEEE dd MMM').format(this)
-            : DateFormat('EEEE dd MMM, yy').format(this);
-      case FilterExpense.weekly:
-        return "Week $weekOfYear of ${DateFormat('yy').format(this)}";
-      case FilterExpense.monthly:
-        return DateFormat('MMM yy').format(this);
-      case FilterExpense.yearly:
-        return DateFormat('yyyy').format(this);
-      case FilterExpense.all:
-        return 'All';
-    }
-  }
-
-  String formatted(FilterExpense filterBudget) {
+  String formatted(FilterExpense filterBudget,
+      {String monthFormat = "MMMM yyyy"}) {
     switch (filterBudget) {
       case FilterExpense.daily:
         return year == DateTime.now().year
@@ -99,9 +83,9 @@ extension DateUtils on DateTime {
       case FilterExpense.weekly:
         return "Week $weekOfYear of ${DateFormat('yy').format(this)}";
       case FilterExpense.monthly:
-        return DateFormat('MMMM yyyy').format(this);
+        return DateFormat(monthFormat).format(this);
       case FilterExpense.yearly:
-        return DateFormat('yy').format(this);
+        return DateFormat('yyyy').format(this);
       case FilterExpense.all:
         return 'All';
     }

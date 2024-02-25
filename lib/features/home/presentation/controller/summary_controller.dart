@@ -17,6 +17,9 @@ class SummaryController {
   final ValueNotifier<DateTimeRange?> dateTimeRangeNotifier =
       ValueNotifier<DateTimeRange?>(null);
 
+  final ValueNotifier<FilterExpense> filterNotifier =
+      ValueNotifier(FilterExpense.weekly);
+
   late final FilterExpense filterExpense = settingsUseCase.get<FilterExpense>(
     selectedFilterExpenseKey,
     defaultValue: FilterExpense.daily,

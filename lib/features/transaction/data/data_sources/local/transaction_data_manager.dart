@@ -92,10 +92,10 @@ class LocalTransactionManagerImpl implements TransactionDataSource {
   Future<List<TransactionModel>> filteredExpenses(
       DateTimeRange dateTimeRange) async {
     final List<TransactionModel> expenses =
-        transactionBox.values.sortedBy<DateTime>((element) => element.time!);
+        transactionBox.values.sortedBy<DateTime>((element) => element.time);
     final filteredExpenses = expenses.takeWhile((value) {
-      return value.time!.isAfter(dateTimeRange.start) &&
-          value.time!.isBefore(dateTimeRange.end);
+      return value.time.isAfter(dateTimeRange.start) &&
+          value.time.isBefore(dateTimeRange.end);
     }).toList();
     return filteredExpenses;
   }

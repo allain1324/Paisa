@@ -91,15 +91,15 @@ class CSVExport extends Export {
   }) {
     return [
       '$index',
-      expense.name ?? '',
+      expense.name,
       '${expense.currency}',
-      expense.time?.toIso8601String() ?? '',
+      expense.time.toIso8601String(),
       expense.description ?? '',
       category?.name ?? '',
       category?.description ?? '',
       account?.name ?? '',
       account?.bankName ?? '',
-      account?.cardType?.name ?? 'bank',
+      account?.cardType.name ?? 'bank',
     ];
   }
 }

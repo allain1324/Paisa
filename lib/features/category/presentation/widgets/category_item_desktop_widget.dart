@@ -36,7 +36,7 @@ class CategoryItemDesktopWidget extends StatelessWidget {
                 children: [
                   Icon(
                     IconData(
-                      category.icon ?? 0,
+                      category.icon,
                       fontFamily: fontFamilyName,
                       fontPackage: fontFamilyPackageName,
                     ),
@@ -62,7 +62,7 @@ class CategoryItemDesktopWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    category.name ?? '',
+                    category.name,
                     style: context.titleLarge?.copyWith(
                       color: context.onSurface,
                     ),

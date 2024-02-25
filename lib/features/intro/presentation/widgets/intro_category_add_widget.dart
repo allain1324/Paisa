@@ -117,9 +117,9 @@ class _IntroCategoryAddWidgetState extends State<IntroCategoryAddWidget>
                     spacing: 12.0,
                     runSpacing: 12.0,
                     children: defaultModels
-                        .sorted((a, b) => a.name!.compareTo(b.name!))
+                        .sorted((a, b) => a.name.compareTo(b.name))
                         .map((model) => FilterChip(
-                              label: Text(model.name ?? ''),
+                              label: Text(model.name),
                               onSelected: (value) {
                                 dataSource.add(model);
                                 setState(() {
@@ -140,7 +140,7 @@ class _IntroCategoryAddWidgetState extends State<IntroCategoryAddWidget>
                               padding: const EdgeInsets.all(12),
                               avatar: Icon(
                                 IconData(
-                                  model.icon ?? 0,
+                                  model.icon,
                                   fontFamily: fontFamilyName,
                                   fontPackage: fontFamilyPackageName,
                                 ),
@@ -179,13 +179,13 @@ class CategoryItemWidget extends StatelessWidget {
         onTap: onPress,
         leading: Icon(
           IconData(
-            model.icon ?? 0,
+            model.icon,
             fontFamily: fontFamilyName,
             fontPackage: fontFamilyPackageName,
           ),
           color: Color(model.color ?? Colors.brown.shade200.value),
         ),
-        title: Text(model.name ?? ''),
+        title: Text(model.name),
         trailing: Icon(MdiIcons.delete),
       ),
       tablet: (p0) => PaisaCard(
@@ -199,7 +199,7 @@ class CategoryItemWidget extends StatelessWidget {
                   padding: const EdgeInsets.only(right: 16.0),
                   child: Icon(
                     IconData(
-                      model.icon ?? 0,
+                      model.icon,
                       fontFamily: fontFamilyName,
                       fontPackage: fontFamilyPackageName,
                     ),
@@ -208,7 +208,7 @@ class CategoryItemWidget extends StatelessWidget {
                 ),
                 Expanded(
                   child: Text(
-                    model.name ?? '',
+                    model.name,
                     style: context.titleMedium,
                   ),
                 ),

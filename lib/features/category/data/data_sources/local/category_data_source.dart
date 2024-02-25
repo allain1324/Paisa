@@ -1,4 +1,5 @@
 // Package imports:
+import 'package:collection/collection.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:injectable/injectable.dart';
 
@@ -12,7 +13,7 @@ abstract class CategoryDataSource {
 
   List<CategoryModel> categories();
 
-  CategoryModel findById(int categoryId);
+  CategoryModel? findById(int categoryId);
 
   Iterable<CategoryModel> export();
 
@@ -58,8 +59,8 @@ class LocalCategoryManagerDataSourceImpl implements CategoryDataSource {
   Iterable<CategoryModel> export() => categoryBox.values;
 
   @override
-  CategoryModel findById(int categoryId) =>
-      categoryBox.values.firstWhere((element) => element.superId == categoryId);
+  CategoryModel? findById(int categoryId) => categoryBox.values
+      .firstWhereOrNull((element) => element.superId == categoryId);
 
   @override
   Future<void> update(CategoryModel categoryModel) {

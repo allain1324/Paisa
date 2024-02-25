@@ -1,29 +1,34 @@
-import 'package:collection/collection.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+
+// Package imports:
+import 'package:collection/collection.dart';
+
+// Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/enum/filter_expense.dart';
 import 'package:paisa/core/widgets/paisa_widgets/paisa_pill_chip.dart';
-import 'package:paisa/features/home/presentation/pages/overview/widgets/overview_transaction_widget.dart';
+import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
+import 'package:paisa/features/overview/presentation/widgets/overview_transaction_widget.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
+import 'package:paisa/main.dart';
 
-final ValueNotifier<FilterExpense> filterNotifier =
-    ValueNotifier(FilterExpense.monthly);
-
-class FilterTimeRangeWidget extends StatelessWidget {
-  const FilterTimeRangeWidget({
+class FilterTabsWidget extends StatelessWidget {
+  const FilterTabsWidget({
     super.key,
     required this.builder,
   });
 
   final Widget Function(
-      Map<String, List<TransactionEntity>> groupedTransactions) builder;
+    Map<String, List<TransactionEntity>> groupedTransactions,
+  ) builder;
 
   @override
   Widget build(BuildContext context) {
     return OverviewTransactionWidget(
       builder: (transactions) {
-        return FilterTabsWidget(
+        return FilterTabs(
           builder: (filterExpense) {
             final Map<String, List<TransactionEntity>> groupedTransactions =
                 groupByTime(
@@ -38,8 +43,8 @@ class FilterTimeRangeWidget extends StatelessWidget {
   }
 }
 
-class FilterTabsWidget extends StatelessWidget {
-  const FilterTabsWidget({super.key, required this.builder});
+class FilterTabs extends StatelessWidget {
+  const FilterTabs({super.key, required this.builder});
   final Widget Function(FilterExpense filterExpense) builder;
 
   @override
@@ -50,7 +55,7 @@ class FilterTabsWidget extends StatelessWidget {
       FilterExpense.yearly,
     ];
     return ValueListenableBuilder<FilterExpense>(
-      valueListenable: filterNotifier,
+      valueListenable: getIt<SummaryController>().filterNotifier,
       builder: (context, snapshot, child) {
         return Column(
           mainAxisSize: MainAxisSize.max,
@@ -66,7 +71,7 @@ class FilterTabsWidget extends StatelessWidget {
                     .map((e) => PaisaPillChip(
                           title: e.stringValue(context),
                           onPressed: () {
-                            filterNotifier.value = e;
+                            getIt<SummaryController>().filterNotifier.value = e;
                           },
                           isSelected: e == snapshot,
                         ))
@@ -86,7 +91,7 @@ Map<String, List<TransactionEntity>> groupByTime({
   FilterExpense filterExpense = FilterExpense.monthly,
 }) {
   return groupBy(models.sorted((a, b) => a.time.compareTo(b.time)),
-      (p0) => p0.time.readableGraph(filterExpense));
+      (p0) => p0.time.formatted(filterExpense, monthFormat: "MMM yy"));
 }
 
 class OverviewBarChartData {

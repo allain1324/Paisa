@@ -98,9 +98,9 @@ class _TransactionPageState extends State<TransactionPage> {
                 color: context.onErrorContainer,
               );
             } else if (state is TransactionFoundState) {
-              nameController.text = state.transaction.name ?? '';
+              nameController.text = state.transaction.name;
               nameController.selection = TextSelection.collapsed(
-                offset: state.transaction.name?.length ?? 0,
+                offset: state.transaction.name.length,
               );
               amountController.text = state.transaction.currency.toString();
               amountController.selection = TextSelection.collapsed(

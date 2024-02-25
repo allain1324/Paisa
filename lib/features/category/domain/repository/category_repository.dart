@@ -1,5 +1,4 @@
 // Project imports:
-import 'package:paisa/features/category/data/model/category_model.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
 
 abstract class CategoryRepository {
@@ -15,7 +14,7 @@ abstract class CategoryRepository {
 
   Future<void> delete(int key);
 
-  CategoryModel fetchById(int categoryId);
+  CategoryEntity? fetchById(int categoryId);
 
   Future<void> update({
     required int? key,

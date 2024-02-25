@@ -8,8 +8,10 @@ import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/core/theme/custom_color.dart';
 import 'package:paisa/core/widgets/paisa_widgets/paisa_card.dart';
-import 'package:paisa/features/home/presentation/pages/overview/widgets/filter_time_range.dart';
+import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
 import 'package:paisa/features/intro/domain/entities/country_entity.dart';
+import 'package:paisa/features/overview/presentation/widgets/filter_tabs_widget.dart';
+import 'package:paisa/main.dart';
 import 'package:provider/provider.dart';
 
 class OverViewBarChartWidget extends StatelessWidget {
@@ -20,7 +22,7 @@ class OverViewBarChartWidget extends StatelessWidget {
     return PaisaCard(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: FilterTimeRangeWidget(
+        child: FilterTabsWidget(
           builder: (groupedTransactions) {
             final list = groupedTransactions.entries.map((e) {
               final double total = e.value.fold<double>(0,
@@ -140,7 +142,10 @@ class BarChartSampleState extends State<BarChartSample> {
               scrollDirection: Axis.horizontal,
               child: SizedBox(
                 width: widget.values.length *
-                    (filterNotifier.value == FilterExpense.monthly ? 56 : 86),
+                    (getIt<SummaryController>().filterNotifier.value ==
+                            FilterExpense.monthly
+                        ? 82
+                        : 112),
                 child: BarChart(
                   BarChartData(
                     barTouchData: BarTouchData(

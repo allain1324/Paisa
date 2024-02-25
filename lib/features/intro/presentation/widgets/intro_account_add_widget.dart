@@ -114,7 +114,7 @@ class _IntroAccountAddWidgetState extends State<IntroAccountAddWidget>
                       runSpacing: 12.0,
                       children: [
                         ...defaultModels
-                            .sorted((a, b) => a.name!.compareTo(b.name!))
+                            .sorted((a, b) => a.name.compareTo(b.name))
                             .map((model) => FilterChip(
                                   onSelected: (value) {
                                     dataSource.add(model.copyWith(
@@ -136,11 +136,11 @@ class _IntroAccountAddWidgetState extends State<IntroAccountAddWidget>
                                   showCheckmark: false,
                                   materialTapTargetSize:
                                       MaterialTapTargetSize.shrinkWrap,
-                                  label: Text(model.bankName ?? ''),
+                                  label: Text(model.bankName),
                                   labelStyle: context.titleMedium,
                                   padding: const EdgeInsets.all(12),
                                   avatar: Icon(
-                                    model.cardType!.icon,
+                                    model.cardType.icon,
                                     color: context.primary,
                                   ),
                                 ))
@@ -197,11 +197,11 @@ class AccountItemWidget extends StatelessWidget {
       mobile: (p0) => ListTile(
         onTap: onPress,
         leading: Icon(
-          model.cardType!.icon,
+          model.cardType.icon,
           color: Color(model.color ?? Colors.brown.shade200.value),
         ),
-        title: Text(model.bankName ?? ''),
-        subtitle: Text(model.name ?? ''),
+        title: Text(model.bankName),
+        subtitle: Text(model.name),
         trailing: Icon(MdiIcons.delete),
       ),
       tablet: (p0) => PaisaCard(
@@ -214,7 +214,7 @@ class AccountItemWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 16.0),
                   child: Icon(
-                    model.cardType!.icon,
+                    model.cardType.icon,
                     color: Color(model.color ?? Colors.brown.shade200.value),
                   ),
                 ),
@@ -224,11 +224,11 @@ class AccountItemWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        model.name ?? '',
+                        model.name,
                         style: context.titleMedium,
                       ),
                       Text(
-                        model.bankName ?? '',
+                        model.bankName,
                         style: context.titleMedium,
                       ),
                     ],

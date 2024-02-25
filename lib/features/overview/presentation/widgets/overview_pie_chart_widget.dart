@@ -2,9 +2,9 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
-import 'package:paisa/features/home/presentation/pages/overview/widgets/category_list_widget.dart';
-import 'package:paisa/features/home/presentation/pages/overview/widgets/overview_category_widget.dart';
-import 'package:paisa/features/home/presentation/pages/overview/widgets/overview_transaction_widget.dart';
+import 'package:paisa/features/overview/presentation/widgets/category_list_widget.dart';
+import 'package:paisa/features/overview/presentation/widgets/overview_category_widget.dart';
+import 'package:paisa/features/overview/presentation/widgets/overview_transaction_widget.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'package:collection/collection.dart';
 
@@ -17,14 +17,25 @@ class OverviewPieChartWidget extends StatelessWidget {
       builder: (transactions) {
         return OverviewCategoryWidget(
           builder: (categoryModels) {
-            final categoryGroupedExpenses = groupBy(transactions, (entity) {
-              final CategoryEntity categoryEntity = categoryModels.firstWhere(
-                  (element) => element.superId == entity.categoryId);
+            final Map<CategoryEntity?, List<TransactionEntity>>
+                categoryGroupedExpenses = groupBy(transactions, (entity) {
+              final CategoryEntity? categoryEntity =
+                  categoryModels.firstWhereOrNull(
+                      (element) => element.superId == entity.categoryId);
               return categoryEntity;
             });
             final List<MapEntry<CategoryEntity, List<TransactionEntity>>>
-                mapExpenses = categoryGroupedExpenses.entries
-                    .sorted((a, b) => b.value.total.compareTo(a.value.total));
+                mapExpenses = [];
+            for (var element in categoryGroupedExpenses.entries) {
+              if (element.key != null) {
+                mapExpenses.add(MapEntry(element.key!, element.value));
+              }
+            }
+
+            mapExpenses.sorted((a, b) {
+              return b.value.total.compareTo(a.value.total);
+            });
+
             final double total = transactions.total;
             return Column(
               children: [

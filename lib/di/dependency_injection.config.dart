@@ -9,6 +9,8 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+
+// Package imports:
 import 'package:device_info_plus/device_info_plus.dart' as _i16;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:hive_flutter/adapters.dart' as _i4;
@@ -17,43 +19,18 @@ import 'package:image_picker/image_picker.dart' as _i19;
 import 'package:in_app_review/in_app_review.dart' as _i20;
 import 'package:injectable/injectable.dart' as _i2;
 
+// Project imports:
 import '../core/in_app.dart' as _i75;
-import '../features/account/data/data_sources/account_data_manager.dart'
-    as _i36;
 import '../features/account/data/model/account_model.dart' as _i6;
-import '../features/account/data/repository/account_repository_impl.dart'
-    as _i38;
 import '../features/account/domain/repository/account_repository.dart' as _i37;
 import '../features/account/domain/use_case/account_use_case.dart' as _i73;
 import '../features/account/domain/use_case/add_account_use_case.dart' as _i39;
-import '../features/account/domain/use_case/delete_account_use_case.dart'
-    as _i48;
 import '../features/account/domain/use_case/get_account_use_case.dart' as _i60;
 import '../features/account/domain/use_case/get_accounts_use_case.dart' as _i61;
-import '../features/account/domain/use_case/update_account_use_case.dart'
-    as _i84;
 import '../features/account/presentation/bloc/accounts_bloc.dart' as _i87;
-import '../features/category/data/data_sources/local/category_data_source.dart'
-    as _i11;
 import '../features/category/data/model/category_model.dart' as _i7;
-import '../features/category/data/repository/category_repository_impl.dart'
-    as _i42;
-import '../features/category/domain/repository/category_repository.dart'
-    as _i41;
-import '../features/category/domain/use_case/add_category_use_case.dart'
-    as _i88;
 import '../features/category/domain/use_case/category_use_case.dart' as _i72;
-import '../features/category/domain/use_case/delete_category_use_case.dart'
-    as _i49;
-import '../features/category/domain/use_case/get_category_use_case.dart'
-    as _i62;
-import '../features/category/domain/use_case/get_default_categories_use_case.dart'
-    as _i65;
-import '../features/category/domain/use_case/update_category_use_case.dart'
-    as _i85;
 import '../features/category/presentation/bloc/category_bloc.dart' as _i93;
-import '../features/debit/data/data_sources/debit_local_data_source_impl.dart'
-    as _i14;
 import '../features/debit/data/models/debit_model.dart' as _i8;
 import '../features/debit/data/repository/debit_repository_impl.dart' as _i45;
 import '../features/debit/domain/repository/debit_repository.dart' as _i44;
@@ -63,6 +40,56 @@ import '../features/debit/domain/use_case/delete_debit_use_case.dart' as _i52;
 import '../features/debit/domain/use_case/get_debit_use_case.dart' as _i64;
 import '../features/debit/domain/use_case/update_debit_use.case.dart' as _i86;
 import '../features/debit/presentation/cubit/debts_bloc.dart' as _i94;
+import '../features/home/presentation/pages/home/home_cubit.dart' as _i70;
+import '../features/intro/data/repository/country_repository_impl.dart' as _i13;
+import '../features/intro/domain/repository/country_repository.dart' as _i12;
+import '../features/intro/domain/use_case/get_contries_user_case.dart' as _i17;
+import '../features/intro/presentation/cubit/country_picker_cubit.dart' as _i43;
+import '../features/profile/domain/repository/profile_repository.dart' as _i23;
+import '../features/profile/domain/use_case/image_picker_use_case.dart' as _i74;
+import '../features/profile/domain/use_case/profile_use_case.dart' as _i79;
+import '../features/profile/presentation/cubit/profile_cubit.dart' as _i78;
+import '../features/recurring/data/model/recurring.dart' as _i10;
+import '../features/recurring/domain/use_case/recurring_use_case.dart' as _i97;
+import '../features/recurring/presentation/cubit/recurring_cubit.dart' as _i96;
+import '../features/search/presentation/cubit/search_cubit.dart' as _i98;
+import '../features/settings/data/authenticate.dart' as _i3;
+import '../features/settings/data/file_handler.dart' as _i59;
+import '../features/settings/data/repository/csv_export_impl.dart' as _i58;
+import '../features/settings/domain/repository/import_export.dart' as _i56;
+import '../features/settings/domain/use_case/setting_use_case.dart' as _i30;
+import '../features/settings/domain/use_case/settings_use_case.dart' as _i28;
+import '../features/settings/presentation/cubit/settings_cubit.dart' as _i99;
+import '../features/transaction/data/model/transaction_model.dart' as _i5;
+import 'module/hive_module.dart' as _i100;
+import 'module/service_module.dart' as _i101;
+
+import '../features/account/data/data_sources/account_data_manager.dart'
+    as _i36;
+import '../features/account/data/repository/account_repository_impl.dart'
+    as _i38;
+import '../features/account/domain/use_case/delete_account_use_case.dart'
+    as _i48;
+import '../features/account/domain/use_case/update_account_use_case.dart'
+    as _i84;
+import '../features/category/data/data_sources/local/category_data_source.dart'
+    as _i11;
+import '../features/category/data/repository/category_repository_impl.dart'
+    as _i42;
+import '../features/category/domain/repository/category_repository.dart'
+    as _i41;
+import '../features/category/domain/use_case/add_category_use_case.dart'
+    as _i88;
+import '../features/category/domain/use_case/delete_category_use_case.dart'
+    as _i49;
+import '../features/category/domain/use_case/get_category_use_case.dart'
+    as _i62;
+import '../features/category/domain/use_case/get_default_categories_use_case.dart'
+    as _i65;
+import '../features/category/domain/use_case/update_category_use_case.dart'
+    as _i85;
+import '../features/debit/data/data_sources/debit_local_data_source_impl.dart'
+    as _i14;
 import '../features/debit_transaction/data/data_source/debit_transactions_data_store.dart'
     as _i15;
 import '../features/debit_transaction/data/model/debit_transactions_model.dart'
@@ -81,45 +108,28 @@ import '../features/debit_transaction/domain/use_case/get_debit_transactions_use
     as _i63;
 import '../features/home/presentation/controller/summary_controller.dart'
     as _i29;
-import '../features/home/presentation/pages/home/home_cubit.dart' as _i70;
-import '../features/intro/data/repository/country_repository_impl.dart' as _i13;
-import '../features/intro/domain/repository/country_repository.dart' as _i12;
-import '../features/intro/domain/use_case/get_contries_user_case.dart' as _i17;
 import '../features/intro/domain/use_case/get_selected_country_use_case.dart'
     as _i18;
 import '../features/intro/domain/use_case/save_selected_country_use_case.dart'
     as _i25;
-import '../features/intro/presentation/cubit/country_picker_cubit.dart' as _i43;
 import '../features/profile/data/repository/profile_repository_impl.dart'
     as _i24;
-import '../features/profile/domain/repository/profile_repository.dart' as _i23;
-import '../features/profile/domain/use_case/image_picker_use_case.dart' as _i74;
-import '../features/profile/domain/use_case/profile_use_case.dart' as _i79;
-import '../features/profile/presentation/cubit/profile_cubit.dart' as _i78;
 import '../features/recurring/data/data_sources/local_recurring_data_manager.dart'
     as _i21;
 import '../features/recurring/data/data_sources/local_recurring_data_manager_impl.dart'
     as _i22;
-import '../features/recurring/data/model/recurring.dart' as _i10;
 import '../features/recurring/data/repository/recurring_repository_impl.dart'
     as _i81;
 import '../features/recurring/domain/repository/recurring_repository.dart'
     as _i80;
 import '../features/recurring/domain/use_case/add_recurring_use_case.dart'
     as _i91;
-import '../features/recurring/domain/use_case/recurring_use_case.dart' as _i97;
-import '../features/recurring/presentation/cubit/recurring_cubit.dart' as _i96;
 import '../features/search/domain/use_case/filter_expense_use_case.dart'
     as _i82;
-import '../features/search/presentation/cubit/search_cubit.dart' as _i98;
-import '../features/settings/data/authenticate.dart' as _i3;
-import '../features/settings/data/file_handler.dart' as _i59;
-import '../features/settings/data/repository/csv_export_impl.dart' as _i58;
 import '../features/settings/data/repository/json_export_import_impl.dart'
     as _i57;
 import '../features/settings/data/repository/settings_repository_impl.dart'
     as _i27;
-import '../features/settings/domain/repository/import_export.dart' as _i56;
 import '../features/settings/domain/repository/settings_repository.dart'
     as _i26;
 import '../features/settings/domain/use_case/csv_file_export_use_case.dart'
@@ -128,12 +138,8 @@ import '../features/settings/domain/use_case/json_file_export_use_case.dart'
     as _i76;
 import '../features/settings/domain/use_case/json_file_import_use_case.dart'
     as _i77;
-import '../features/settings/domain/use_case/setting_use_case.dart' as _i30;
-import '../features/settings/domain/use_case/settings_use_case.dart' as _i28;
-import '../features/settings/presentation/cubit/settings_cubit.dart' as _i99;
 import '../features/transaction/data/data_sources/local/transaction_data_manager.dart'
     as _i31;
-import '../features/transaction/data/model/transaction_model.dart' as _i5;
 import '../features/transaction/data/repository/transaction_repository_impl.dart'
     as _i34;
 import '../features/transaction/domain/repository/transaction_repository.dart'
@@ -160,8 +166,6 @@ import '../features/transaction/domain/use_case/update_expense_use_case.dart'
     as _i35;
 import '../features/transaction/presentation/bloc/transaction_bloc.dart'
     as _i83;
-import 'module/hive_module.dart' as _i100;
-import 'module/service_module.dart' as _i101;
 
 // initializes the registration of main-scope dependencies inside of GetIt
 Future<_i1.GetIt> init(

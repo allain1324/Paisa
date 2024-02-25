@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
 import 'package:paisa/core/common.dart';
-import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/features/home/presentation/pages/home/home_cubit.dart';
 
 class PaisaIconTitle extends StatelessWidget {

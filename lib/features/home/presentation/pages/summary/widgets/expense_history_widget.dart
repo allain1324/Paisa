@@ -31,7 +31,7 @@ class ExpenseHistoryWidget extends StatelessWidget {
       final maps = groupBy(
           expenses,
           (TransactionEntity element) =>
-              element.time!.formatted(FilterExpense.monthly));
+              element.time.formatted(FilterExpense.monthly));
       return ListView.separated(
         separatorBuilder: (context, index) => const Divider(),
         shrinkWrap: true,

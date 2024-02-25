@@ -26,11 +26,11 @@ class ExpenseItemWidget extends StatelessWidget {
 
   String getSubtitle(BuildContext context) {
     if (expense.type == TransactionType.transfer) {
-      return expense.time!.shortDayString;
+      return expense.time.shortDayString;
     } else {
       return context.loc.transactionSubTittleText(
         account.bankName ?? '',
-        expense.time!.shortDayString,
+        expense.time.shortDayString,
       );
     }
   }
@@ -44,7 +44,7 @@ class ExpenseItemWidget extends StatelessWidget {
       },
       child: ListTile(
         title: Text(
-          expense.name ?? '',
+          expense.name,
           style: context.bodyMedium?.copyWith(
             fontWeight: FontWeight.w500,
           ),
@@ -103,7 +103,7 @@ class ExpenseTransferItemWidget extends StatelessWidget {
         },
         child: ListTile(
           title: Text(title),
-          subtitle: Text(expense.time!.shortDayString),
+          subtitle: Text(expense.time.shortDayString),
           leading: CircleAvatar(
             backgroundColor: context.primary.withOpacity(0.2),
             child: Icon(

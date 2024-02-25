@@ -3,11 +3,9 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-// Package imports:
-import 'package:paisa/features/home/presentation/pages/overview/widgets/overview_bar_chart.dart';
-
 // Project imports:
-import 'package:paisa/features/home/presentation/pages/overview/widgets/overview_pie_chart_widget.dart';
+import 'package:paisa/features/overview/presentation/widgets/overview_bar_chart.dart';
+import 'package:paisa/features/overview/presentation/widgets/overview_pie_chart_widget.dart';
 
 class OverViewPage extends StatelessWidget {
   const OverViewPage({

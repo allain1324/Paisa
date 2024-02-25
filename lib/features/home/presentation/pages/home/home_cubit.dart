@@ -1,7 +1,5 @@
-// Flutter imports:
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 // Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -58,7 +56,7 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-  CategoryEntity fetchCategoryFromId(int categoryId) =>
+  CategoryEntity? fetchCategoryFromId(int categoryId) =>
       getCategoryUseCase(GetCategoryParams(categoryId));
 
   AccountEntity? fetchAccountFromId(int? accountId) =>
