@@ -87,7 +87,7 @@ class BarChartSampleState extends State<BarChartSample> {
     return SideTitleWidget(
       axisSide: meta.axisSide,
       space: 6,
-      fitInside: SideTitleFitInsideData.disable(),
+      fitInside: SideTitleFitInsideData.fromTitleMeta(meta),
       child: Text(
         value.toCompact(context),
         style: context.bodySmall,
@@ -107,7 +107,7 @@ class BarChartSampleState extends State<BarChartSample> {
 
     return SideTitleWidget(
       axisSide: meta.axisSide,
-      space: 12,
+      space: 16,
       fitInside: SideTitleFitInsideData.fromTitleMeta(meta),
       child: text,
     );
@@ -148,11 +148,7 @@ class BarChartSampleState extends State<BarChartSample> {
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: SizedBox(
-                width: widget.values.length *
-                    (getIt<SummaryController>().filterNotifier.value ==
-                            FilterExpense.monthly
-                        ? 82
-                        : 112),
+                width: widget.values.length * 128,
                 child: BarChart(
                   BarChartData(
                     barTouchData: BarTouchData(
