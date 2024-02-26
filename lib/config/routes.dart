@@ -16,6 +16,7 @@ import 'package:paisa/features/home/presentation/pages/home/home_page.dart';
 import 'package:paisa/features/intro/presentation/pages/biometric_page.dart';
 import 'package:paisa/features/intro/presentation/pages/intro_page.dart';
 import 'package:paisa/features/intro/presentation/pages/user_onboarding_page.dart';
+import 'package:paisa/features/overview/presentation/transactions_by_category_list_page.dart';
 import 'package:paisa/features/recurring/presentation/page/recurring_page.dart';
 import 'package:paisa/features/search/presentation/pages/search_page.dart';
 import 'package:paisa/features/settings/presentation/pages/app_language_changer_page.dart';
@@ -195,6 +196,9 @@ class BiometricPageData extends GoRouteData {
         ),
       ],
     ),
+    TypedGoRoute<TransactionsByCategoryPageData>(
+      path: 'transactions/:categoryId',
+    ),
   ],
 )
 class LandingPageData extends GoRouteData {
@@ -332,8 +336,19 @@ class ExportAndImportPageData extends GoRouteData {
   }
 }
 
-class TransactionsByAccountEditPageData extends GoRouteData {
-  const TransactionsByAccountEditPageData(this.accountId);
+class TransactionsByCategoryPageData extends GoRouteData {
+  const TransactionsByCategoryPageData(this.categoryId);
+
+  final int categoryId;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return TransactionByCategoryPage(categoryId: categoryId);
+  }
+}
+
+class TransactionsByAccountPageData extends GoRouteData {
+  const TransactionsByAccountPageData(this.accountId);
 
   final int accountId;
 

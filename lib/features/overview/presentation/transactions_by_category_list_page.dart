@@ -9,26 +9,22 @@ import 'package:paisa/core/common.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
-import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
 import 'package:paisa/features/home/presentation/pages/home/home_cubit.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/expense_item_widget.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 
-class TransactionByCategoryListPage extends StatelessWidget {
-  const TransactionByCategoryListPage({
+class TransactionByCategoryPage extends StatelessWidget {
+  const TransactionByCategoryPage({
     super.key,
     required this.categoryId,
-    required this.summaryController,
   });
 
-  final String categoryId;
-  final SummaryController summaryController;
+  final int categoryId;
 
   @override
   Widget build(BuildContext context) {
-    final int cid = int.parse(categoryId);
     final List<TransactionEntity> expenses =
-        BlocProvider.of<HomeCubit>(context).fetchExpensesFromCategoryId(cid);
+        context.read<HomeCubit>().fetchExpensesFromCategoryId(categoryId);
 
     return PaisaAnnotatedRegionWidget(
       color: Colors.transparent,
@@ -44,7 +40,7 @@ class TransactionByCategoryListPage extends StatelessWidget {
                     ?.copyWith(color: context.onSurfaceVariant),
               ),
               subtitle: Text(
-                expenses.total.toFormateCurrency(context),
+                expenses.fullTotal.toFormateCurrency(context),
                 style: context.titleMedium?.copyWith(
                   color: context.onSurfaceVariant,
                   fontWeight: FontWeight.bold,

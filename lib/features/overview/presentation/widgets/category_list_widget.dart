@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:paisa/config/routes.dart';
 
 // Project imports:
 import 'package:paisa/core/common.dart';
@@ -25,13 +26,10 @@ class CategoryListWidget extends StatelessWidget {
       itemBuilder: (context, index) {
         final MapEntry<CategoryEntity, List<TransactionEntity>> map =
             categoryGrouped[index];
+        final Color color = Color(map.key.color ?? Colors.amber.shade100.value);
         return InkWell(
           onTap: () {
-            //TODO:
-            /* context.pushNamed(
-              expensesByCategoryName,
-              pathParameters: {'cid': map.key.superId.toString()},
-            ); */
+            TransactionsByCategoryPageData(map.key.superId!).push(context);
           },
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
@@ -42,13 +40,10 @@ class CategoryListWidget extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: CircleAvatar(
-                        backgroundColor:
-                            Color(map.key.color ?? Colors.amber.shade100.value)
-                                .withOpacity(0.12),
+                        backgroundColor: color.withOpacity(0.12),
                         child: Icon(
                           size: 18,
-                          color: Color(
-                              map.key.color ?? Colors.amber.shade100.value),
+                          color: color,
                           IconData(
                             map.key.icon ?? 0,
                             fontFamily: fontFamilyName,
@@ -76,8 +71,7 @@ class CategoryListWidget extends StatelessWidget {
                             borderRadius: BorderRadius.circular(8),
                             child: LinearProgressIndicator(
                               value: map.value.total / totalExpense,
-                              color: Color(
-                                  map.key.color ?? Colors.amber.shade100.value),
+                              color: color,
                             ),
                           ),
                         ),

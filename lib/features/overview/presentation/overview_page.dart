@@ -2,6 +2,7 @@
 
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:paisa/core/common.dart';
 
 // Project imports:
 import 'package:paisa/features/overview/presentation/widgets/overview_bar_chart.dart';
@@ -9,9 +10,7 @@ import 'package:paisa/features/overview/presentation/widgets/overview_pie_chart_
 import 'package:paisa/features/overview/presentation/widgets/overview_transaction_widget.dart';
 
 class OverViewPage extends StatelessWidget {
-  const OverViewPage({
-    Key? key,
-  }) : super(key: key);
+  const OverViewPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,7 @@ class OverViewPage extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           children: [
             OverViewBarChartWidget(transactions: transactions),
-            OverviewPieChartWidget(transactions: transactions),
+            OverviewPieChartWidget(transactions: transactions.expenseList),
           ],
         );
       }),

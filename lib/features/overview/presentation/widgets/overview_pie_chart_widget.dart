@@ -54,16 +54,15 @@ class PieChartWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const shadows = [Shadow(color: Colors.black, blurRadius: 2)];
     final List<PieChartSectionData> sections = map.map((e) {
+      final Color color = Color(e.key.color ?? Colors.amber.value);
       return PieChartSectionData(
-        color: Color(e.key.color ?? Colors.amber.value).withOpacity(0.5),
+        color: color.withOpacity(0.3),
         value: e.value.total / total,
         title: '${((e.value.total / total) * 100).toStringAsFixed(0)}%',
         titleStyle: TextStyle(
           fontWeight: FontWeight.bold,
-          color: Color(e.key.color ?? Colors.amber.value),
-          shadows: shadows,
+          color: color,
         ),
       );
     }).toList();

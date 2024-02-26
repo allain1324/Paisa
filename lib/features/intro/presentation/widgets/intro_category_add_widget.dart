@@ -9,7 +9,6 @@ import 'package:responsive_builder/responsive_builder.dart';
 
 // Project imports:
 import 'package:paisa/core/constants/constants.dart';
-import 'package:paisa/core/enum/box_types.dart';
 import 'package:paisa/core/extensions/build_context_extension.dart';
 import 'package:paisa/core/extensions/category_extension.dart';
 import 'package:paisa/core/extensions/color_extension.dart';
@@ -30,9 +29,8 @@ class IntroCategoryAddWidget extends StatefulWidget {
 
 class _IntroCategoryAddWidgetState extends State<IntroCategoryAddWidget>
     with AutomaticKeepAliveClientMixin {
-  final CategoryDataSource dataSource = getIt.get();
-  final List<CategoryModel> defaultModels = defaultCategoriesData;
-  final settings = getIt.get<Box<dynamic>>(instanceName: BoxType.settings.name);
+  final CategoryDataSource dataSource = getIt<CategoryDataSource>();
+  final List<CategoryModel> defaultModels = defaultCategoriesData();
 
   @override
   void initState() {

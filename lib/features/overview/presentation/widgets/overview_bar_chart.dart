@@ -25,7 +25,7 @@ class OverViewBarChartWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PaisaCard(
+    return PaisaFilledCard(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: FilterTabsWidget(

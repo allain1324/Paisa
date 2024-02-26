@@ -189,6 +189,10 @@ RouteBase get $landingPageData => GoRouteData.$route(
             ),
           ],
         ),
+        GoRouteData.$route(
+          path: 'transactions/:categoryId',
+          factory: $TransactionsByCategoryPageDataExtension._fromState,
+        ),
       ],
     );
 
@@ -439,6 +443,27 @@ extension $CategoryIconPickerPageDataExtension on CategoryIconPickerPageData {
 
   String get location => GoRouteData.$location(
         '/landing/category/icon-picker',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $TransactionsByCategoryPageDataExtension
+    on TransactionsByCategoryPageData {
+  static TransactionsByCategoryPageData _fromState(GoRouterState state) =>
+      TransactionsByCategoryPageData(
+        int.parse(state.pathParameters['categoryId']!),
+      );
+
+  String get location => GoRouteData.$location(
+        '/landing/transactions/${Uri.encodeComponent(categoryId.toString())}',
       );
 
   void go(BuildContext context) => context.go(location);
