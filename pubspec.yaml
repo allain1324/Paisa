@@ -15,7 +15,7 @@ dependencies:
   csv: ^5.0.1
   dartz: ^0.10.1
   date_picker_timeline: ^1.2.3
-  device_info_plus:
+  device_info_plus: ^9.1.2
   dynamic_color: ^1.6.5
   equatable: ^2.0.5
   file_picker: ^6.1.1
