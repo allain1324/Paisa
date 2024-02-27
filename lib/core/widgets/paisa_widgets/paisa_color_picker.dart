@@ -22,43 +22,42 @@ Future<int> paisaColorPicker(
       maxWidth:
           MediaQuery.of(context).size.width >= 700 ? 700 : double.infinity,
     ),
-    builder: (context) => Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          ListTile(
-            title: Text(
-              context.loc.pickColor,
-              style: context.titleLarge,
-            ),
-          ),
-          ColorPickerGridWidget(
-            onSelected: (color) => selectedColor = color,
-            selectedColor: selectedColor,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 16.0, bottom: 16),
-            child: TextButton(
-              style: TextButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
+    builder: (context) => SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            ListTile(
+              title: Text(
+                context.loc.pickColor,
+                style: context.titleLarge,
+              ),
+              trailing: TextButton(
+                style: TextButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 12,
+                  ),
                 ),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 24,
-                  vertical: 12,
+                onPressed: () {
+                  Navigator.pop(context, selectedColor);
+                },
+                child: Text(
+                  context.loc.done,
                 ),
               ),
-              onPressed: () {
-                Navigator.pop(context, selectedColor);
-              },
-              child: Text(
-                context.loc.done,
-              ),
             ),
-          ),
-        ],
+            ColorPickerGridWidget(
+              onSelected: (color) => selectedColor = color,
+              selectedColor: selectedColor,
+            ),
+          ],
+        ),
       ),
     ),
   );

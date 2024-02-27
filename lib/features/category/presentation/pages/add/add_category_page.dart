@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 // Project imports:
@@ -32,8 +33,8 @@ class CategoryPage extends StatefulWidget {
 }
 
 class _CategoryPageState extends State<CategoryPage> {
-  final CategoryBloc categoryBloc = getIt.get();
   final budgetController = TextEditingController();
+  final CategoryBloc categoryBloc = getIt.get();
   final categoryController = TextEditingController();
   final descController = TextEditingController();
   late final bool isAddCategory = widget.categoryId == null;
@@ -215,9 +216,10 @@ class _CategoryPageState extends State<CategoryPage> {
 }
 
 class DeleteCategoryWidget extends StatelessWidget {
+  const DeleteCategoryWidget({super.key, this.categoryId});
+
   final int? categoryId;
 
-  const DeleteCategoryWidget({super.key, this.categoryId});
   void onPressed(BuildContext context) {
     paisaAlertDialog(
       context,
@@ -326,6 +328,11 @@ class _TransferCategoryWidgetState extends State<TransferCategoryWidget> {
     return BlocBuilder<CategoryBloc, CategoryState>(
       builder: (context, state) {
         return SwitchListTile(
+          secondary: Icon(
+            MdiIcons.swapHorizontal,
+            color: context.primary,
+          ),
+          subtitle: Text(context.loc.transferCategorySubtitle),
           title: Text(context.loc.transferCategory),
           value: BlocProvider.of<CategoryBloc>(context).isDefault ?? false,
           onChanged: (value) {

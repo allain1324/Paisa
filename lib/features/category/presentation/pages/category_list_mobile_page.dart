@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:paisa/core/widgets/paisa_divider.dart';
 
 // Project imports:
 import 'package:paisa/features/category/domain/entities/category.dart';
@@ -16,9 +17,7 @@ class CategoryListMobileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      separatorBuilder: (context, index) => const Divider(
-        indent: 72,
-      ),
+      separatorBuilder: (context, index) => const PaisaDivider(indent: 72),
       physics: const BouncingScrollPhysics(),
       padding: const EdgeInsets.only(bottom: 124),
       itemCount: categories.length,

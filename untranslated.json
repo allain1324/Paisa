@@ -17,7 +17,8 @@
     "holderNameError",
     "accountColorError",
     "emptySelectedAccountsInfo",
-    "emptyRecommendedAccountsInfo"
+    "emptyRecommendedAccountsInfo",
+    "transferCategorySubtitle"
   ],
 
   "de": [
@@ -26,7 +27,8 @@
     "pickColorAccountDesc",
     "back",
     "emptySelectedAccountsInfo",
-    "emptyRecommendedAccountsInfo"
+    "emptyRecommendedAccountsInfo",
+    "transferCategorySubtitle"
   ],
 
   "es": [
@@ -38,7 +40,8 @@
     "holderNameError",
     "accountColorError",
     "emptySelectedAccountsInfo",
-    "emptyRecommendedAccountsInfo"
+    "emptyRecommendedAccountsInfo",
+    "transferCategorySubtitle"
   ],
 
   "fr": [
@@ -51,7 +54,8 @@
     "holderNameError",
     "accountColorError",
     "emptySelectedAccountsInfo",
-    "emptyRecommendedAccountsInfo"
+    "emptyRecommendedAccountsInfo",
+    "transferCategorySubtitle"
   ],
 
   "it": [
@@ -78,7 +82,8 @@
     "holderNameError",
     "accountColorError",
     "emptySelectedAccountsInfo",
-    "emptyRecommendedAccountsInfo"
+    "emptyRecommendedAccountsInfo",
+    "transferCategorySubtitle"
   ],
 
   "kn": [
@@ -97,7 +102,8 @@
     "holderNameError",
     "accountColorError",
     "emptySelectedAccountsInfo",
-    "emptyRecommendedAccountsInfo"
+    "emptyRecommendedAccountsInfo",
+    "transferCategorySubtitle"
   ],
 
   "pl": [
@@ -111,7 +117,8 @@
     "holderNameError",
     "accountColorError",
     "emptySelectedAccountsInfo",
-    "emptyRecommendedAccountsInfo"
+    "emptyRecommendedAccountsInfo",
+    "transferCategorySubtitle"
   ],
 
   "pt": [
@@ -130,7 +137,8 @@
     "holderNameError",
     "accountColorError",
     "emptySelectedAccountsInfo",
-    "emptyRecommendedAccountsInfo"
+    "emptyRecommendedAccountsInfo",
+    "transferCategorySubtitle"
   ],
 
   "ru": [
@@ -151,17 +159,20 @@
     "holderNameError",
     "accountColorError",
     "emptySelectedAccountsInfo",
-    "emptyRecommendedAccountsInfo"
+    "emptyRecommendedAccountsInfo",
+    "transferCategorySubtitle"
   ],
 
   "ta": [
     "pickColorAccountDesc",
-    "emptyRecommendedAccountsInfo"
+    "emptyRecommendedAccountsInfo",
+    "transferCategorySubtitle"
   ],
 
   "vi": [
     "pickColorAccountDesc",
-    "emptyRecommendedAccountsInfo"
+    "emptyRecommendedAccountsInfo",
+    "transferCategorySubtitle"
   ],
 
   "zh": [
@@ -178,7 +189,8 @@
     "holderNameError",
     "accountColorError",
     "emptySelectedAccountsInfo",
-    "emptyRecommendedAccountsInfo"
+    "emptyRecommendedAccountsInfo",
+    "transferCategorySubtitle"
   ],
 
   "zh_TW": [
@@ -192,6 +204,7 @@
     "holderNameError",
     "accountColorError",
     "emptySelectedAccountsInfo",
-    "emptyRecommendedAccountsInfo"
+    "emptyRecommendedAccountsInfo",
+    "transferCategorySubtitle"
   ]
 }
