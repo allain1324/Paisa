@@ -48,7 +48,7 @@ dependencies:
   path_provider: ^2.0.11
   permission_handler: ^11.0.0
   provider: ^6.0.5
-  quick_actions: ^1.0.2
+  quick_actions: ^1.0.7
   responsive_builder: ^0.7.0
   share_plus: ^7.0.2
   url_launcher: ^6.1.7

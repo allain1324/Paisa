@@ -44,6 +44,7 @@ Future<GetIt> configInjector(
 Future<void> initAppShortcuts() async {
   const QuickActions quickActions = QuickActions();
   await quickActions.initialize((String shortcutType) {
+    goRouter.go(const LandingPageData().location);
     goRouter.push(TransactionPageData(
       transactionType: shortcutType == 'ic_expense'
           ? TransactionType.expense
