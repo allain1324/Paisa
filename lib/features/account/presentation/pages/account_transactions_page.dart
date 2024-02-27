@@ -19,10 +19,10 @@ import 'package:paisa/features/transaction/domain/entities/transaction_entity.da
 
 class AccountTransactionsPage extends StatelessWidget {
   const AccountTransactionsPage({
-    Key? key,
+    super.key,
     required this.accountId,
     required this.summaryController,
-  }) : super(key: key);
+  });
 
   final int accountId;
   final SummaryController summaryController;

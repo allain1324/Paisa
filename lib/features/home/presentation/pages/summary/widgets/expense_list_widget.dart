@@ -13,9 +13,9 @@ import 'expense_item_widget.dart';
 
 class ExpenseListWidget extends StatelessWidget {
   const ExpenseListWidget({
-    Key? key,
+    super.key,
     required this.expenses,
-  }) : super(key: key);
+  });
 
   final List<TransactionEntity> expenses;
 

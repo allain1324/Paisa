@@ -7,9 +7,9 @@ import 'package:paisa/features/category/presentation/widgets/category_item_mobil
 
 class CategoryListMobileWidget extends StatelessWidget {
   const CategoryListMobileWidget({
-    Key? key,
+    super.key,
     required this.categories,
-  }) : super(key: key);
+  });
 
   final List<CategoryEntity> categories;
 

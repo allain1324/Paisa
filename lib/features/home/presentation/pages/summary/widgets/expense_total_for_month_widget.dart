@@ -7,10 +7,10 @@ import 'package:paisa/core/theme/custom_color.dart';
 
 class ExpenseTotalForMonthWidget extends StatelessWidget {
   const ExpenseTotalForMonthWidget({
-    Key? key,
+    super.key,
     required this.income,
     required this.outcome,
-  }) : super(key: key);
+  });
 
   final double income;
   final double outcome;

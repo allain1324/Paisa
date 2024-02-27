@@ -6,10 +6,10 @@ import 'package:paisa/core/common.dart';
 
 class TotalBalanceWidget extends StatelessWidget {
   const TotalBalanceWidget({
-    Key? key,
+    super.key,
     required this.title,
     required this.amount,
-  }) : super(key: key);
+  });
 
   final double amount;
   final String title;

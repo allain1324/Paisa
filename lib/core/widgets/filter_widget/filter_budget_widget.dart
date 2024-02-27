@@ -9,9 +9,9 @@ import 'package:paisa/features/home/presentation/controller/summary_controller.d
 
 class FilterBudgetToggleWidget extends StatelessWidget {
   const FilterBudgetToggleWidget({
-    Key? key,
+    super.key,
     required this.summaryController,
-  }) : super(key: key);
+  });
 
   final SummaryController summaryController;
 

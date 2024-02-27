@@ -11,7 +11,7 @@ import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/transaction/presentation/bloc/transaction_bloc.dart';
 
 class TransactionToggleButtons extends StatelessWidget {
-  const TransactionToggleButtons({Key? key}) : super(key: key);
+  const TransactionToggleButtons({super.key});
 
   void _update(BuildContext context, TransactionType type) {
     BlocProvider.of<TransactionBloc>(context)

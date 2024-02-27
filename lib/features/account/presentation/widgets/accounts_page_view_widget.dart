@@ -17,9 +17,9 @@ import 'package:paisa/features/account/presentation/widgets/account_card.dart';
 
 class AccountPageViewWidget extends StatefulWidget {
   const AccountPageViewWidget({
-    Key? key,
+    super.key,
     required this.accounts,
-  }) : super(key: key);
+  });
 
   final List<AccountEntity> accounts;
 

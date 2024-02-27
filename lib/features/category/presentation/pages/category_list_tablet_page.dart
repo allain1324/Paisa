@@ -10,11 +10,11 @@ import 'package:paisa/features/category/presentation/widgets/category_item_table
 
 class CategoryListTabletWidget extends StatelessWidget {
   const CategoryListTabletWidget({
-    Key? key,
+    super.key,
     required this.addCategoryBloc,
     this.crossAxisCount = 1,
     required this.categories,
-  }) : super(key: key);
+  });
 
   final CategoryBloc addCategoryBloc;
   final List<CategoryEntity> categories;

@@ -11,9 +11,9 @@ import 'package:paisa/features/category/domain/entities/category.dart';
 
 class CategoryItemMobileWidget extends StatelessWidget {
   const CategoryItemMobileWidget({
-    Key? key,
+    super.key,
     required this.category,
-  }) : super(key: key);
+  });
 
   final CategoryEntity category;
 

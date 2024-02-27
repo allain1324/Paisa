@@ -16,7 +16,7 @@ import 'package:paisa/features/transaction/presentation/bloc/transaction_bloc.da
 import 'package:paisa/main.dart';
 
 class SelectCategoryIcon extends StatelessWidget {
-  const SelectCategoryIcon({Key? key}) : super(key: key);
+  const SelectCategoryIcon({super.key});
 
   @override
   Widget build(BuildContext context) {

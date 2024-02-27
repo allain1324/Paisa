@@ -10,8 +10,8 @@ import 'setting_option.dart';
 
 class DynamicColorSwitchWidget extends StatelessWidget {
   const DynamicColorSwitchWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

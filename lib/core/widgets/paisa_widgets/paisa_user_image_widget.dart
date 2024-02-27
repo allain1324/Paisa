@@ -15,11 +15,11 @@ import 'package:paisa/features/profile/presentation/cubit/profile_cubit.dart';
 
 class PaisaUserImageWidget extends StatelessWidget {
   const PaisaUserImageWidget({
-    Key? key,
+    super.key,
     required this.pickImage,
     this.maxRadius,
     this.useDefault = false,
-  }) : super(key: key);
+  });
 
   final double? maxRadius;
   final VoidCallback pickImage;

@@ -80,9 +80,9 @@ class SelectedAccount extends StatelessWidget {
 
 class AccountSelectedItem extends StatelessWidget {
   const AccountSelectedItem({
-    Key? key,
+    super.key,
     required this.accounts,
-  }) : super(key: key);
+  });
 
   final List<AccountEntity> accounts;
 

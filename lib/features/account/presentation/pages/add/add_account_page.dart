@@ -19,9 +19,9 @@ final GlobalKey<FormState> _form = GlobalKey<FormState>();
 
 class AccountPage extends StatefulWidget {
   const AccountPage({
-    Key? key,
+    super.key,
     this.accountId,
-  }) : super(key: key);
+  });
 
   final int? accountId;
 

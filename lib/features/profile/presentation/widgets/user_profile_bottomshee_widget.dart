@@ -12,10 +12,10 @@ import 'package:paisa/features/settings/domain/use_case/setting_use_case.dart';
 
 class UserProfileBottomSheetWidget extends StatelessWidget {
   const UserProfileBottomSheetWidget({
-    Key? key,
+    super.key,
     required this.settingsUseCase,
     required this.profileCubit,
-  }) : super(key: key);
+  });
 
   final SettingsUseCase settingsUseCase;
   final ProfileCubit profileCubit;

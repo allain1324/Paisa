@@ -10,7 +10,7 @@ import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/main.dart';
 
 class WelcomeNameWidget extends StatelessWidget {
-  const WelcomeNameWidget({Key? key}) : super(key: key);
+  const WelcomeNameWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

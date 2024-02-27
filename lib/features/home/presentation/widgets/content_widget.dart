@@ -19,8 +19,8 @@ import 'package:paisa/features/recurring/presentation/page/recurring_page.dart';
 
 class ContentWidget extends StatelessWidget {
   const ContentWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

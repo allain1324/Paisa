@@ -15,9 +15,9 @@ import 'package:paisa/main.dart';
 
 class UserImageWidget extends StatelessWidget {
   const UserImageWidget({
-    Key? key,
+    super.key,
     this.onPressed,
-  }) : super(key: key);
+  });
 
   final VoidCallback? onPressed;
 

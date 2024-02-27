@@ -68,11 +68,10 @@ Future<IconData> paisaIconPicker({
 
 class _IconPickerWidget extends StatefulWidget {
   const _IconPickerWidget({
-    Key? key,
     required this.iconKeys,
     required this.selectedIcon,
     required this.onSelectedIcon,
-  }) : super(key: key);
+  });
 
   final List<String> iconKeys;
   final Function(IconData icon) onSelectedIcon;

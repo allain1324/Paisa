@@ -7,13 +7,13 @@ import 'paisa_button.dart';
 
 class EmptyWidget extends StatelessWidget {
   const EmptyWidget({
-    Key? key,
+    super.key,
     required this.title,
     required this.icon,
     required this.description,
     this.onActionPressed,
     this.actionTitle,
-  }) : super(key: key);
+  });
 
   final String? actionTitle;
   final String description;

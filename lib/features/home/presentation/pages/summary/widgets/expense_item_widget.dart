@@ -14,11 +14,11 @@ import 'package:paisa/features/transaction/domain/entities/transaction_entity.da
 
 class ExpenseItemWidget extends StatelessWidget {
   const ExpenseItemWidget({
-    Key? key,
+    super.key,
     required this.expense,
     required this.account,
     required this.category,
-  }) : super(key: key);
+  });
 
   final AccountEntity account;
   final CategoryEntity category;
@@ -79,11 +79,11 @@ class ExpenseItemWidget extends StatelessWidget {
 
 class ExpenseTransferItemWidget extends StatelessWidget {
   const ExpenseTransferItemWidget({
-    Key? key,
+    super.key,
     required this.expense,
     required this.fromAccount,
     required this.toAccount,
-  }) : super(key: key);
+  });
 
   final TransactionEntity expense;
   final AccountEntity fromAccount, toAccount;

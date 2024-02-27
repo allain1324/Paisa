@@ -15,8 +15,8 @@ import 'package:paisa/main.dart';
 
 class SummaryPage extends StatelessWidget {
   const SummaryPage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

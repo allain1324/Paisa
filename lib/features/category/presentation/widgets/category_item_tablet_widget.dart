@@ -9,10 +9,10 @@ import 'package:paisa/features/category/domain/entities/category.dart';
 
 class CategoryItemTabletWidget extends StatelessWidget {
   const CategoryItemTabletWidget({
-    Key? key,
+    super.key,
     required this.category,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   final CategoryEntity category;
   final VoidCallback onPressed;

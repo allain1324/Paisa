@@ -4,6 +4,7 @@
 /// Link: https://github.com/Daniel-Ioannou/flutter_currency_picker/blob/master/lib/src/currencies.dart
 ///
 ///////////////////////////////////////////////////////////////////////////////
+library;
 
 const List<Map<String, dynamic>> localCountriesData = [
   {

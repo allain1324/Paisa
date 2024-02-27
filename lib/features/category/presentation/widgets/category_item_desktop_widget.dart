@@ -9,10 +9,10 @@ import 'package:paisa/features/category/data/model/category_model.dart';
 
 class CategoryItemDesktopWidget extends StatelessWidget {
   const CategoryItemDesktopWidget({
-    Key? key,
+    super.key,
     required this.category,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   final CategoryModel category;
   final VoidCallback onPressed;

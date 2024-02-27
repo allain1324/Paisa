@@ -26,8 +26,8 @@ class IntroPage extends StatelessWidget {
 
 class IntroBigScreenWidget extends StatelessWidget {
   const IntroBigScreenWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -165,8 +165,8 @@ class IntroBigScreenWidget extends StatelessWidget {
 
 class IntoMobileWidget extends StatelessWidget {
   const IntoMobileWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

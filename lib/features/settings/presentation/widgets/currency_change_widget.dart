@@ -12,7 +12,7 @@ import 'package:paisa/features/intro/domain/use_case/get_selected_country_use_ca
 import 'package:paisa/main.dart';
 
 class CurrencyChangeWidget extends StatelessWidget {
-  const CurrencyChangeWidget({Key? key}) : super(key: key);
+  const CurrencyChangeWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

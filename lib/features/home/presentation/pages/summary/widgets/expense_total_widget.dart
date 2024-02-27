@@ -16,9 +16,9 @@ import 'package:paisa/main.dart';
 
 class ExpenseTotalWidget extends StatelessWidget {
   const ExpenseTotalWidget({
-    Key? key,
+    super.key,
     required this.expenses,
-  }) : super(key: key);
+  });
 
   final List<TransactionEntity> expenses;
 

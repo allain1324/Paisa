@@ -6,10 +6,10 @@ import 'package:paisa/core/common.dart';
 
 class SettingsGroup extends StatelessWidget {
   const SettingsGroup({
-    Key? key,
+    super.key,
     required this.title,
     required this.options,
-  }) : super(key: key);
+  });
 
   final List<Widget> options;
   final String title;

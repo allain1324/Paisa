@@ -12,9 +12,9 @@ import 'package:paisa/features/debit/presentation/cubit/debts_bloc.dart';
 
 class DebtToggleButtonsWidget extends StatelessWidget {
   const DebtToggleButtonsWidget({
-    Key? key,
+    super.key,
     required this.debtsBloc,
-  }) : super(key: key);
+  });
 
   final DebitBloc debtsBloc;
 

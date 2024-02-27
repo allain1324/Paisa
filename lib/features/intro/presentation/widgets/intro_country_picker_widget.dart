@@ -14,8 +14,8 @@ import 'package:paisa/features/intro/presentation/widgets/intro_image_picker_wid
 
 class IntroCountryPickerWidget extends StatelessWidget {
   const IntroCountryPickerWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

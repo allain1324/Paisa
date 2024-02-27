@@ -144,7 +144,7 @@ class _IntroAccountAddWidgetState extends State<IntroAccountAddWidget>
                                     color: context.primary,
                                   ),
                                 ))
-                            .toList(),
+                            ,
                         FilterChip(
                           selected: false,
                           onSelected: (value) {

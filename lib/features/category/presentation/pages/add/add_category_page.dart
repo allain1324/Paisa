@@ -21,9 +21,9 @@ final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
 class CategoryPage extends StatefulWidget {
   const CategoryPage({
-    Key? key,
+    super.key,
     this.categoryId,
-  }) : super(key: key);
+  });
 
   final int? categoryId;
 

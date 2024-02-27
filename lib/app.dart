@@ -24,8 +24,8 @@ import 'package:paisa/main.dart';
 
 class PaisaApp extends StatefulWidget {
   const PaisaApp({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<PaisaApp> createState() => _PaisaAppState();

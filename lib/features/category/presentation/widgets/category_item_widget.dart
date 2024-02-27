@@ -11,10 +11,10 @@ import 'category_item_tablet_widget.dart';
 
 class CategoryItemWidget extends StatelessWidget {
   const CategoryItemWidget({
-    Key? key,
+    super.key,
     required this.category,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   final CategoryEntity category;
   final VoidCallback onPressed;

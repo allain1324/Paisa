@@ -14,8 +14,8 @@ import 'package:paisa/main.dart';
 
 class IntroImagePickerWidget extends StatelessWidget {
   const IntroImagePickerWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   void _pickImage(BuildContext context) {
     final ImagePicker picker = ImagePicker();

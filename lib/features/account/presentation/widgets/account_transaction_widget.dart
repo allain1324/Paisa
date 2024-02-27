@@ -15,9 +15,9 @@ import 'package:paisa/features/home/presentation/pages/summary/widgets/transacti
 
 class AccountTransactionWidget extends StatelessWidget {
   const AccountTransactionWidget({
-    Key? key,
+    super.key,
     this.isScroll = false,
-  }) : super(key: key);
+  });
 
   final bool isScroll;
 

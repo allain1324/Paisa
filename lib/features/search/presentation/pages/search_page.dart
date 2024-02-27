@@ -19,7 +19,7 @@ import 'package:paisa/features/search/presentation/cubit/search_cubit.dart';
 import 'package:paisa/main.dart';
 
 class SearchPage extends StatefulWidget {
-  const SearchPage({Key? key}) : super(key: key);
+  const SearchPage({super.key});
 
   @override
   State<SearchPage> createState() => _SearchPageState();

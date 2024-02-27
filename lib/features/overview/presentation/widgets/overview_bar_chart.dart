@@ -5,14 +5,11 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:paisa/core/common.dart';
-import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/core/theme/custom_color.dart';
 import 'package:paisa/core/widgets/paisa_widgets/paisa_card.dart';
-import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
 import 'package:paisa/features/intro/domain/entities/country_entity.dart';
 import 'package:paisa/features/overview/presentation/widgets/filter_tabs_widget.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
-import 'package:paisa/main.dart';
 import 'package:provider/provider.dart';
 
 class OverViewBarChartWidget extends StatelessWidget {

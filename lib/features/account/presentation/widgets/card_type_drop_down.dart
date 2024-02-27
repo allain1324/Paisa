@@ -11,7 +11,7 @@ import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/account/presentation/bloc/accounts_bloc.dart';
 
 class CardTypeButtons extends StatelessWidget {
-  const CardTypeButtons({Key? key}) : super(key: key);
+  const CardTypeButtons({super.key});
 
   void _update(BuildContext context, CardType type) {
     BlocProvider.of<AccountBloc>(context).add(UpdateCardTypeEvent(type));

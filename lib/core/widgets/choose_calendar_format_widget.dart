@@ -12,9 +12,9 @@ import 'package:paisa/main.dart';
 
 class ChooseCalendarFormatWidget extends StatefulWidget {
   const ChooseCalendarFormatWidget({
-    Key? key,
+    super.key,
     this.currentFormat,
-  }) : super(key: key);
+  });
 
   final CalendarFormats? currentFormat;
 
@@ -59,7 +59,7 @@ class ChooseCalendarFormatWidgetState
                   ),
                 ),
               )
-              .toList(),
+              ,
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [

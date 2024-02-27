@@ -19,8 +19,8 @@ import 'package:paisa/features/settings/presentation/widgets/setting_option.dart
 
 class SettingsColorPickerWidget extends StatelessWidget {
   const SettingsColorPickerWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   int _extractColorValue(BuildContext context, dynamic value) {
     final isDynamic = value.get(dynamicThemeKey, defaultValue: false);
@@ -74,8 +74,8 @@ class SettingsColorPickerWidget extends StatelessWidget {
 
 class ColorPickerDialogWidget extends StatelessWidget {
   const ColorPickerDialogWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

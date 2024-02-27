@@ -29,8 +29,8 @@ import 'package:paisa/main.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

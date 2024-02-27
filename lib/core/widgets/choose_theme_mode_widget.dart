@@ -11,9 +11,9 @@ import 'package:paisa/main.dart';
 
 class ChooseThemeModeWidget extends StatefulWidget {
   const ChooseThemeModeWidget({
-    Key? key,
+    super.key,
     required this.currentTheme,
-  }) : super(key: key);
+  });
 
   final ThemeMode currentTheme;
 
@@ -55,7 +55,7 @@ class ChooseThemeModeWidgetState extends State<ChooseThemeModeWidget> {
                   ),
                 ),
               )
-              .toList(),
+              ,
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [

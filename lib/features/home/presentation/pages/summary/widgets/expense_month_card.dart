@@ -9,11 +9,11 @@ import 'package:paisa/features/transaction/domain/entities/transaction_entity.da
 
 class ExpenseMonthCardWidget extends StatelessWidget {
   const ExpenseMonthCardWidget({
-    Key? key,
+    super.key,
     required this.title,
     required this.total,
     required this.expenses,
-  }) : super(key: key);
+  });
 
   final List<TransactionEntity> expenses;
   final String title;

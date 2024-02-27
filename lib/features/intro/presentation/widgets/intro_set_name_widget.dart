@@ -8,10 +8,10 @@ import 'package:paisa/features/intro/presentation/widgets/intro_image_picker_wid
 
 class IntroSetNameWidget extends StatelessWidget {
   const IntroSetNameWidget({
-    Key? key,
+    super.key,
     required this.formState,
     required this.nameController,
-  }) : super(key: key);
+  });
 
   final GlobalKey<FormState> formState;
   final TextEditingController nameController;

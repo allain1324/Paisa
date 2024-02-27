@@ -11,7 +11,7 @@ import 'package:paisa/core/common_enum.dart';
 
 class AccountCard extends StatefulWidget {
   const AccountCard({
-    Key? key,
+    super.key,
     required this.totalBalance,
     required this.cardHolder,
     required this.bankName,
@@ -20,7 +20,7 @@ class AccountCard extends StatefulWidget {
     required this.expense,
     this.onDelete,
     this.onTap,
-  }) : super(key: key);
+  });
 
   final String bankName;
   final String cardHolder;
@@ -75,7 +75,7 @@ class _AccountCardState extends State<AccountCard>
 
 class MobileAccountCard extends StatelessWidget {
   const MobileAccountCard({
-    Key? key,
+    super.key,
     required this.totalBalance,
     required this.cardHolder,
     required this.bankName,
@@ -84,7 +84,7 @@ class MobileAccountCard extends StatelessWidget {
     this.onTap,
     required this.income,
     required this.expense,
-  }) : super(key: key);
+  });
 
   final String bankName;
   final String cardHolder;
@@ -214,7 +214,7 @@ class AccountSummaryTail extends StatelessWidget {
 
 class TabletAccountCard extends StatelessWidget {
   const TabletAccountCard({
-    Key? key,
+    super.key,
     required this.cardNumber,
     required this.cardHolder,
     required this.bankName,
@@ -223,7 +223,7 @@ class TabletAccountCard extends StatelessWidget {
     this.onTap,
     required this.income,
     required this.expense,
-  }) : super(key: key);
+  });
 
   final String bankName;
   final String cardHolder;
@@ -369,7 +369,7 @@ class TabletAccountCard extends StatelessWidget {
 
 class DesktopAccountCard extends StatelessWidget {
   const DesktopAccountCard({
-    Key? key,
+    super.key,
     required this.cardNumber,
     required this.cardHolder,
     required this.bankName,
@@ -378,7 +378,7 @@ class DesktopAccountCard extends StatelessWidget {
     this.onTap,
     required this.income,
     required this.expense,
-  }) : super(key: key);
+  });
 
   final String bankName;
   final String cardHolder;

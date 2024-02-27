@@ -10,7 +10,7 @@ import 'package:paisa/core/common.dart';
 import 'setting_option.dart';
 
 class VersionWidget extends StatefulWidget {
-  const VersionWidget({Key? key}) : super(key: key);
+  const VersionWidget({super.key});
 
   @override
   State<VersionWidget> createState() => _VersionWidgetState();

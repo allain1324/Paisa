@@ -6,13 +6,13 @@ import 'package:paisa/core/common.dart';
 
 class SettingsOption extends StatelessWidget {
   const SettingsOption({
-    Key? key,
+    super.key,
     required this.title,
     this.icon,
     this.trailing,
     this.subtitle,
     this.onTap,
-  }) : super(key: key);
+  });
 
   final IconData? icon;
   final VoidCallback? onTap;

@@ -107,9 +107,9 @@ class _AddRecurringPageState extends State<AddRecurringPage> {
 
 class TransactionToggleButtons extends StatelessWidget {
   const TransactionToggleButtons({
-    Key? key,
+    super.key,
     required this.recurringCubit,
-  }) : super(key: key);
+  });
 
   final RecurringCubit recurringCubit;
 
@@ -199,10 +199,10 @@ class SelectedAccount extends StatelessWidget {
 
 class AccountSelectedWidget extends StatefulWidget {
   const AccountSelectedWidget({
-    Key? key,
+    super.key,
     required this.accounts,
     required this.onSelected,
-  }) : super(key: key);
+  });
 
   final List<AccountEntity> accounts;
   final Function(int selectedId) onSelected;
@@ -261,7 +261,7 @@ class _AccountSelectedWidgetState extends State<AccountSelectedWidget> {
 }
 
 class SelectCategory extends StatelessWidget {
-  const SelectCategory({Key? key}) : super(key: key);
+  const SelectCategory({super.key});
 
   @override
   Widget build(BuildContext context) {

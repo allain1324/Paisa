@@ -26,12 +26,12 @@ import '../widgets/transfer_widget.dart';
 
 class TransactionPage extends StatefulWidget {
   const TransactionPage({
-    Key? key,
+    super.key,
     this.transactionId,
     this.transactionType,
     this.accountId,
     this.categoryId,
-  }) : super(key: key);
+  });
 
   final int? accountId;
   final int? categoryId;
