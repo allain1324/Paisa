@@ -100,7 +100,6 @@ class AccountSelectedItem extends StatelessWidget {
               right: 16,
             ),
             scrollDirection: Axis.horizontal,
-            shrinkWrap: false,
             itemCount: accounts.length + 1,
             itemBuilder: (_, index) {
               if (index == 0) {

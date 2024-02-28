@@ -33,7 +33,6 @@ class PaisaPillChip extends StatelessWidget {
               borderRadius: BorderRadius.circular(28),
               color: bgColor,
               border: Border.all(
-                strokeAlign: BorderSide.strokeAlignInside,
                 width: 1.5,
                 color: borderColor ?? Colors.white.withOpacity(0),
               ),

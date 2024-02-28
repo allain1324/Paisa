@@ -105,7 +105,6 @@ class PaisaFilterChip extends StatelessWidget {
                   borderRadius: BorderRadius.circular(50),
                 ),
           child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),

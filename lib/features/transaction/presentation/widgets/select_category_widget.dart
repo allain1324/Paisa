@@ -164,7 +164,6 @@ class CategoryChip extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(28),
         side: BorderSide(
-          width: 1,
           color: context.primary,
         ),
       ),

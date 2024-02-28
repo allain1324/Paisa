@@ -7,7 +7,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 // Project imports:
 import 'package:paisa/core/common.dart';
-import 'setting_option.dart';
+import 'package:paisa/features/settings/presentation/widgets/setting_option.dart';
 
 class VersionWidget extends StatefulWidget {
   const VersionWidget({super.key});

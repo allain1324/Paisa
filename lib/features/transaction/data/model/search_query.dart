@@ -1,7 +1,7 @@
 class SearchQuery {
   final String? query;
-  final List<int>? accounts;
-  final List<int>? categories;
+  final List<int?> accounts;
+  final List<int?> categories;
 
   SearchQuery({
     required this.query,

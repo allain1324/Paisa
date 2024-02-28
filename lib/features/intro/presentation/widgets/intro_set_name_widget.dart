@@ -20,8 +20,6 @@ class IntroSetNameWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           IntroTopWidget(
             title: context.loc.image,

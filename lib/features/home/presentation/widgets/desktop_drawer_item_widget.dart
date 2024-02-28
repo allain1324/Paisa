@@ -26,7 +26,6 @@ class NavigationBarItem extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
       decoration: isSelected
           ? BoxDecoration(
-              shape: BoxShape.rectangle,
               borderRadius: BorderRadius.circular(32),
               color: context.primaryContainer,
             )

@@ -42,7 +42,7 @@ class PaisaTextFormField extends StatelessWidget {
       keyboardType: keyboardType,
       textCapitalization: textCapitalization,
       decoration: InputDecoration(
-        counterText: "",
+        counterText: '',
         hintText: hintText,
         label: label != null ? Text(label!) : null,
       ),

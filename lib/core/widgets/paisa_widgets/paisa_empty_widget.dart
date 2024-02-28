@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:paisa/core/common.dart';
-import 'paisa_button.dart';
+import 'package:paisa/core/widgets/paisa_widgets/paisa_button.dart';
 
 class EmptyWidget extends StatelessWidget {
   const EmptyWidget({

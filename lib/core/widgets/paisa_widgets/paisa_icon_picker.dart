@@ -105,7 +105,6 @@ class _IconPickerWidgetState extends State<_IconPickerWidget> {
           child: GridView.builder(
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 70,
-              childAspectRatio: 1 / 1,
             ),
             shrinkWrap: true,
             itemCount: iconKeys.length,

@@ -27,7 +27,6 @@ class CategoryItemDesktopWidget extends StatelessWidget {
           ).push(context);
         },
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
@@ -58,7 +57,6 @@ class CategoryItemDesktopWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(

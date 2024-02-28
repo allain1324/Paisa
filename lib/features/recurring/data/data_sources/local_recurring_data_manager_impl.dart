@@ -4,7 +4,7 @@ import 'package:injectable/injectable.dart';
 
 // Project imports:
 import 'package:paisa/features/recurring/data/model/recurring.dart';
-import 'local_recurring_data_manager.dart';
+import 'package:paisa/features/recurring/data/data_sources/local_recurring_data_manager.dart';
 
 @Injectable(as: LocalRecurringDataManager)
 class LocalRecurringDataManagerImpl implements LocalRecurringDataManager {

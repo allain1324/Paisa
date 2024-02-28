@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 // Project imports:
-import 'custom_color.dart';
+import 'package:paisa/core/theme/custom_color.dart';
 
 ElevatedButtonThemeData elevatedButtonTheme(
   BuildContext context,

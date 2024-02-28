@@ -56,7 +56,7 @@ _addDummyData() async {
     );
   }
   final random = Random();
-  final startDate = DateTime(2010, 1, 1);
+  final startDate = DateTime(2010);
   final endDate = DateTime.now();
 
   for (int i = 0; i < 100; i++) {

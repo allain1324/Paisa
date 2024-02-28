@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 
 // Project imports:
 import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
-import 'filter_budget_widget.dart';
+import 'package:paisa/core/widgets/filter_widget/filter_budget_widget.dart';
 
 class PaisaFilterTransactionWidget extends StatelessWidget {
   const PaisaFilterTransactionWidget({super.key});

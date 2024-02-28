@@ -20,7 +20,7 @@ import 'package:paisa/features/category/data/data_sources/local/category_data_so
 import 'package:paisa/features/category/data/model/category_model.dart';
 import 'package:paisa/features/transaction/data/data_sources/local/transaction_data_manager.dart';
 import 'package:paisa/features/transaction/data/model/transaction_model.dart';
-import 'model/data.dart';
+import 'package:paisa/features/settings/data/model/data.dart';
 
 @LazySingleton()
 class FileHandler {
@@ -75,7 +75,6 @@ class FileHandler {
       return FilePicker.platform.pickFiles(
         type: androidInfo.version.sdkInt < 29 ? FileType.any : FileType.custom,
         allowedExtensions: androidInfo.version.sdkInt < 29 ? null : ['json'],
-        allowMultiple: false,
       );
     } else {
       return FilePicker.platform.pickFiles();

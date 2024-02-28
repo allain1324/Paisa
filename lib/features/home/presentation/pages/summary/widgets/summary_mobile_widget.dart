@@ -34,7 +34,6 @@ class SummaryMobileWidget extends StatelessWidget {
             return ListTile(
               contentPadding: const EdgeInsets.symmetric(
                 horizontal: 16,
-                vertical: 0,
               ),
               title: Text(
                 context.loc.transactions,

@@ -32,8 +32,6 @@ class IntroImagePickerWidget extends StatelessWidget {
       create: (context) => getIt.get<ProfileCubit>(),
       child: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             IntroTopWidget(
               title: context.loc.image,
@@ -73,7 +71,6 @@ class IntroTopWidget extends StatelessWidget {
     return FractionallySizedBox(
       widthFactor: 0.8,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 16),

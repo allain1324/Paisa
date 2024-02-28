@@ -45,11 +45,15 @@ extension ExpenseModelBoxMapping on Box<TransactionModel> {
       final String text = query.query?.toLowerCase() ?? '';
       final String desc = (element.description ?? '').toLowerCase();
       final String name = element.name.toLowerCase();
-      final List<int> accounts = query.accounts ?? [];
-      final List<int> categories = query.categories ?? [];
-      return (name.contains(text) || desc.contains(text)) &&
-          (accounts.contains(element.accountId) &&
-              categories.contains(element.categoryId));
+      final List<int?> accounts = query.accounts;
+      final List<int?> categories = query.categories;
+      final bool result = (name.contains(text) || desc.contains(text));
+      if (accounts.isNotEmpty || categories.isNotEmpty) {
+        return result &&
+            (accounts.contains(element.accountId) ||
+                categories.contains(element.categoryId));
+      }
+      return (name.contains(text) || desc.contains(text));
     });
   }
 }

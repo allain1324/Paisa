@@ -68,10 +68,9 @@ class _CategoryIconPickerPageState extends State<CategoryIconPickerPage> {
                 ListTile(
                   contentPadding: const EdgeInsets.symmetric(
                     horizontal: 16,
-                    vertical: 0,
                   ),
                   visualDensity:
-                      const VisualDensity(horizontal: 0, vertical: -3),
+                      const VisualDensity(vertical: -3),
                   title: Text(
                     iconData.key,
                     style: context.titleMedium?.copyWith(
@@ -87,7 +86,6 @@ class _CategoryIconPickerPageState extends State<CategoryIconPickerPage> {
                   shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 70,
-                    childAspectRatio: 1 / 1,
                   ),
                   itemBuilder: (context, index) {
                     final bool isSelected =
@@ -129,7 +127,7 @@ class _CategoryIconPickerPageState extends State<CategoryIconPickerPage> {
 }
 
 final paisaIconMap = {
-  "Animal": [
+  'Animal': [
     MdiIcons.butterfly,
     MdiIcons.cat,
     MdiIcons.cow,
@@ -150,7 +148,7 @@ final paisaIconMap = {
     MdiIcons.turtle,
     MdiIcons.turkey,
   ],
-  "Brands": [
+  'Brands': [
     MdiIcons.android,
     MdiIcons.angular,
     MdiIcons.apple,
@@ -202,7 +200,7 @@ final paisaIconMap = {
     MdiIcons.wordpress,
     MdiIcons.youtube,
   ],
-  "Computer": [
+  'Computer': [
     MdiIcons.album,
     MdiIcons.audioVideo,
     MdiIcons.earbuds,
@@ -224,7 +222,7 @@ final paisaIconMap = {
     MdiIcons.webcam,
     MdiIcons.camera,
   ],
-  "Food": [
+  'Food': [
     MdiIcons.carrot,
     MdiIcons.chiliMild,
     MdiIcons.corn,
@@ -233,7 +231,7 @@ final paisaIconMap = {
     MdiIcons.fruitGrapes,
     MdiIcons.fruitCherries,
   ],
-  "Health": [
+  'Health': [
     MdiIcons.pillMultiple,
     MdiIcons.needle,
     MdiIcons.motherNurse,
@@ -242,7 +240,7 @@ final paisaIconMap = {
     MdiIcons.hospitalBuilding,
     MdiIcons.emoticonSick,
   ],
-  "Shopping": [
+  'Shopping': [
     MdiIcons.basket,
     MdiIcons.cart,
     MdiIcons.cash,
@@ -253,7 +251,7 @@ final paisaIconMap = {
     MdiIcons.cashRegister,
     MdiIcons.cartVariant,
   ],
-  "Transportation": [
+  'Transportation': [
     MdiIcons.airplane,
     MdiIcons.car,
     MdiIcons.ferry,
@@ -262,7 +260,7 @@ final paisaIconMap = {
     MdiIcons.train,
     MdiIcons.bus,
   ],
-  "Other": [
+  'Other': [
     MdiIcons.circle,
     MdiIcons.circleHalf,
     MdiIcons.heart,

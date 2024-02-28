@@ -59,7 +59,7 @@ class ChooseCalendarFormatWidgetState
                   ),
                 ),
               )
-              .toList(),
+              ,
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [

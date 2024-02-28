@@ -24,7 +24,6 @@ class SettingsGroup extends StatelessWidget {
         borderRadius: BorderRadius.circular(12), // if you need this
         side: BorderSide(
           color: Colors.grey.withOpacity(0.2),
-          width: 1,
         ),
       ),
       child: ListView(

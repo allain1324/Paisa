@@ -31,18 +31,18 @@ class Data {
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
         expenses: List<TransactionModel>.from(
-            json["expenses"].map((x) => TransactionModel.fromJson(x))),
+            json['expenses'].map((x) => TransactionModel.fromJson(x))),
         accounts: List<AccountModel>.from(
-            json["accounts"].map((x) => AccountModel.fromJson(x))),
+            json['accounts'].map((x) => AccountModel.fromJson(x))),
         categories: List<CategoryModel>.from(
-            json["categories"].map((x) => CategoryModel.fromJson(x))),
-        debts: json["debts"] == null
+            json['categories'].map((x) => CategoryModel.fromJson(x))),
+        debts: json['debts'] == null
             ? []
             : List<DebitModel>.from(
-                json["debts"].map((x) => DebitModel.fromJson(x))),
-        debitTransactions: json["transactions"] == null
+                json['debts'].map((x) => DebitModel.fromJson(x))),
+        debitTransactions: json['transactions'] == null
             ? []
-            : List<DebitTransactionsModel>.from(json["transactions"]
+            : List<DebitTransactionsModel>.from(json['transactions']
                 .map((x) => DebitTransactionsModel.fromJson(x))),
       );
 }

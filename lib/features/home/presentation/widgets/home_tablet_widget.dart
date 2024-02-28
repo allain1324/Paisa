@@ -8,6 +8,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 // Project imports:
 import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
+import 'package:paisa/core/widgets/paisa_divider.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/home/presentation/pages/home/home_cubit.dart';
 import 'package:paisa/features/home/presentation/pages/home/home_page.dart';
@@ -38,7 +39,6 @@ class HomeTabletWidget extends StatelessWidget {
         actions: const [PaisaUserWidget()],
       ),
       body: Row(
-        mainAxisSize: MainAxisSize.max,
         children: [
           BlocBuilder<HomeCubit, HomeState>(
             builder: (context, state) {
@@ -81,7 +81,7 @@ class HomeTabletWidget extends StatelessWidget {
               );
             },
           ),
-          const VerticalDivider(thickness: 1, width: 1),
+          const PaisaVerticalDivider(thickness: 1, width: 1),
           const Expanded(
             child: ContentWidget(),
           ),

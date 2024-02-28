@@ -138,7 +138,6 @@ class JSONImportImpl implements Import {
       return FilePicker.platform.pickFiles(
         type: androidInfo.version.sdkInt < 29 ? FileType.any : FileType.custom,
         allowedExtensions: androidInfo.version.sdkInt < 29 ? null : ['json'],
-        allowMultiple: false,
       );
     } else {
       return FilePicker.platform.pickFiles();

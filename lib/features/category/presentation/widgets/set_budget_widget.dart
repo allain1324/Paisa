@@ -87,7 +87,7 @@ class CategoryBudgetWidget extends StatelessWidget {
       },
       keyboardType: TextInputType.number,
       inputFormatters: <TextInputFormatter>[
-        FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+        FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
         TextInputFormatter.withFunction((oldValue, newValue) {
           try {
             final text = newValue.text;

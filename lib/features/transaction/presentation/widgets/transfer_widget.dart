@@ -7,10 +7,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 // Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/features/transaction/presentation/bloc/transaction_bloc.dart';
-import 'pill_accounts_widget.dart';
-import 'transaction_amount_widget.dart';
-import 'transaction_date_picker_widget.dart';
-import 'transfer_categories_widget.dart';
+import 'package:paisa/features/transaction/presentation/widgets/pill_accounts_widget.dart';
+import 'package:paisa/features/transaction/presentation/widgets/transaction_amount_widget.dart';
+import 'package:paisa/features/transaction/presentation/widgets/transaction_date_picker_widget.dart';
+import 'package:paisa/features/transaction/presentation/widgets/transfer_categories_widget.dart';
 
 class TransferWidget extends StatelessWidget {
   const TransferWidget({

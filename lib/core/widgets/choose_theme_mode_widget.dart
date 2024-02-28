@@ -55,7 +55,7 @@ class ChooseThemeModeWidgetState extends State<ChooseThemeModeWidget> {
                   ),
                 ),
               )
-              .toList(),
+              ,
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [

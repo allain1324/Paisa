@@ -9,7 +9,7 @@ import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
-import 'expense_month_card.dart';
+import 'package:paisa/features/home/presentation/pages/summary/widgets/expense_month_card.dart';
 
 class ExpenseHistoryWidget extends StatelessWidget {
   const ExpenseHistoryWidget({

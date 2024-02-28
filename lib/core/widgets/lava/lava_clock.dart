@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:paisa/core/common.dart';
-import 'lava_painter.dart';
+import 'package:paisa/core/widgets/lava/lava_painter.dart';
 
 /// Lava clock.
 class LavaAnimation extends StatefulWidget {

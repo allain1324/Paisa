@@ -7,9 +7,9 @@ import 'package:intl/intl.dart';
 
 // Project imports:
 import 'package:paisa/core/common_enum.dart';
-import '../../main.dart';
-import '../constants/constants.dart';
-import '../enum/calendar_formats.dart';
+import 'package:paisa/main.dart';
+import 'package:paisa/core/constants/constants.dart';
+import 'package:paisa/core/enum/calendar_formats.dart';
 
 extension DateUtils on DateTime {
   String get toReadable => DateFormat('dd EEE').format(this);
@@ -66,7 +66,7 @@ extension DateUtils on DateTime {
       return DateTime(year - 1, 12, 28).weekOfYear;
     }
     if (woy == 53 &&
-        DateTime(year, 1, 1).weekday != DateTime.thursday &&
+        DateTime(year).weekday != DateTime.thursday &&
         DateTime(year, 12, 31).weekday != DateTime.thursday) {
       return 1;
     }
@@ -74,7 +74,7 @@ extension DateUtils on DateTime {
   }
 
   String formatted(FilterExpense filterBudget,
-      {String monthFormat = "MMMM yyyy"}) {
+      {String monthFormat = 'MMMM yyyy'}) {
     switch (filterBudget) {
       case FilterExpense.daily:
         return year == DateTime.now().year

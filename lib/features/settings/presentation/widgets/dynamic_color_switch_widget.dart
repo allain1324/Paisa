@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 // Project imports:
 import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
-import 'setting_option.dart';
+import 'package:paisa/features/settings/presentation/widgets/setting_option.dart';
 
 class DynamicColorSwitchWidget extends StatelessWidget {
   const DynamicColorSwitchWidget({

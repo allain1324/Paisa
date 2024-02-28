@@ -49,7 +49,6 @@ class PaisaOutlineCard extends StatelessWidget {
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(24),
             side: BorderSide(
-              width: 1,
               color: context.outline,
             ),
           ),

@@ -5,7 +5,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'ball.dart';
+import 'package:paisa/core/widgets/lava/ball.dart';
 
 class LavaPainter extends CustomPainter {
   LavaPainter(this.lava, {required this.color});
@@ -16,7 +16,7 @@ class LavaPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     if (lava.size != size) lava.updateSize(size);
-    lava.draw(canvas, size, color, debug: false);
+    lava.draw(canvas, size, color);
   }
 
   @override

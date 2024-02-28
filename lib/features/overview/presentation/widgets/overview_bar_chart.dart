@@ -163,12 +163,11 @@ class BarChartSampleState extends State<BarChartSample> {
                       ),
                     ),
                     titlesData: FlTitlesData(
-                      show: true,
                       rightTitles: const AxisTitles(
-                        sideTitles: SideTitles(showTitles: false),
+                        
                       ),
                       topTitles: const AxisTitles(
-                        sideTitles: SideTitles(showTitles: false),
+                        
                       ),
                       leftTitles: AxisTitles(
                         sideTitles: SideTitles(

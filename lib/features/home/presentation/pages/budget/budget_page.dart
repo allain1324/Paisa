@@ -112,7 +112,6 @@ class BudgetItem extends StatelessWidget {
                       )
                     ],
                   ),
-                  textAlign: TextAlign.start,
                 ),
                 RichText(
                   text: TextSpan(
@@ -127,7 +126,6 @@ class BudgetItem extends StatelessWidget {
                       )
                     ],
                   ),
-                  textAlign: TextAlign.start,
                 ),
                 RichText(
                   text: TextSpan(
@@ -143,7 +141,6 @@ class BudgetItem extends StatelessWidget {
                       )
                     ],
                   ),
-                  textAlign: TextAlign.start,
                 ),
               ],
             ),

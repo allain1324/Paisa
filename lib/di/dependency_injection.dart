@@ -11,8 +11,8 @@ import 'package:quick_actions/quick_actions.dart';
 // Project imports:
 import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/enum/transaction_type.dart';
-import 'dependency_injection.config.dart';
-import 'module/hive_module.dart';
+import 'package:paisa/di/dependency_injection.config.dart';
+import 'package:paisa/di/module/hive_module.dart';
 
 @InjectableInit(
   asExtension: false,

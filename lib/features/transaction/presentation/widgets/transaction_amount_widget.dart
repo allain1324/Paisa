@@ -30,7 +30,7 @@ class TransactionAmountWidget extends StatelessWidget {
         maxLines: 1,
         counterText: '',
         inputFormatters: <TextInputFormatter>[
-          FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+          FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
           TextInputFormatter.withFunction((oldValue, newValue) {
             try {
               final text = newValue.text;

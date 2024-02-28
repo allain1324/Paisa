@@ -30,9 +30,8 @@ class AccountSummaryWidget extends StatelessWidget {
           ListTile(
             contentPadding: const EdgeInsets.symmetric(
               horizontal: 16,
-              vertical: 0,
             ),
-            visualDensity: const VisualDensity(horizontal: 0, vertical: -3),
+            visualDensity: const VisualDensity(vertical: -3),
             title: Text(
               context.loc.thisMonth,
               style: context.titleMedium?.copyWith(
@@ -43,7 +42,6 @@ class AccountSummaryWidget extends StatelessWidget {
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Expanded(
                 child: SummaryMonthCardWidget(

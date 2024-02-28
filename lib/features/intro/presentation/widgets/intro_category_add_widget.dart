@@ -127,7 +127,6 @@ class _IntroCategoryAddWidgetState extends State<IntroCategoryAddWidget>
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(28),
                                 side: BorderSide(
-                                  width: 1,
                                   color: context.primary,
                                 ),
                               ),

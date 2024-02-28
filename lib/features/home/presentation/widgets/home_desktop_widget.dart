@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 // Project imports:
 import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
+import 'package:paisa/core/widgets/paisa_divider.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/home/presentation/pages/home/home_cubit.dart';
 import 'package:paisa/features/home/presentation/pages/home/home_page.dart';
@@ -49,14 +50,12 @@ class HomeDesktopWidget extends StatelessWidget {
                   context.read<HomeCubit>().setCurrentIndex(index);
                 },
                 children: [
-                  ...destinations
-                      .map((e) => NavigationDrawerDestination(
-                            icon: e.icon,
-                            selectedIcon: e.selectedIcon,
-                            label: Text(e.pageType.name(context)),
-                          ))
-                      ,
-                  const Divider(),
+                  ...destinations.map((e) => NavigationDrawerDestination(
+                        icon: e.icon,
+                        selectedIcon: e.selectedIcon,
+                        label: Text(e.pageType.name(context)),
+                      )),
+                  const PaisaDivider(),
                   ListTile(
                     onTap: () {
                       const SettingsPageData().push(context);
@@ -77,7 +76,7 @@ class HomeDesktopWidget extends StatelessWidget {
               );
             },
           ),
-          const VerticalDivider(thickness: 1, width: 1),
+          const PaisaVerticalDivider(thickness: 1, width: 1),
           const Expanded(
             child: SafeArea(
               child: ContentWidget(),

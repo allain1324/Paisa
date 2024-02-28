@@ -132,7 +132,6 @@ class _SearchPageState extends State<SearchPage> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const Icon(
                     Icons.search,
@@ -147,7 +146,6 @@ class _SearchPageState extends State<SearchPage> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const Icon(
                     Icons.sentiment_satisfied_rounded,
@@ -243,7 +241,6 @@ class _FilterWidgetState extends State<FilterWidget> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(28),
                         side: BorderSide(
-                          width: 1,
                           color: context.primary,
                         ),
                       ),
@@ -316,7 +313,6 @@ class _FilterWidgetState extends State<FilterWidget> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(28),
                         side: BorderSide(
-                          width: 1,
                           color: context.primary,
                         ),
                       ),

@@ -386,7 +386,7 @@ class AmountWidget extends StatelessWidget {
         BlocProvider.of<DebitBloc>(context).currentAmount = amount;
       },
       inputFormatters: [
-        FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+        FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
         TextInputFormatter.withFunction((oldValue, newValue) {
           try {
             final text = newValue.text;

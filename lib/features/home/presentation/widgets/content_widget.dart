@@ -48,7 +48,6 @@ class ContentWidget extends StatelessWidget {
             secondaryAnimation: secondaryAnimation,
             child: child,
           ),
-          duration: const Duration(milliseconds: 300),
           child: pages[state.index],
         );
       },

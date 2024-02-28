@@ -17,7 +17,6 @@ List<AccountModel> defaultAccountsData() {
     AccountModel(
       name: 'User name',
       bankName: 'Bank',
-      cardType: CardType.bank,
       amount: 0.0,
       color: Colors.primaries[1].value,
     ),

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 // Project imports:
-import 'paisa_theme.dart';
+import 'package:paisa/core/theme/paisa_theme.dart';
 
 ThemeData appTheme(
   BuildContext context,

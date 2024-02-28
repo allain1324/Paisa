@@ -45,8 +45,6 @@ class _AccountPageViewWidgetState extends State<AccountPageViewWidget>
           child: SizedBox(
             height: 256,
             child: PageView.builder(
-              padEnds: true,
-              pageSnapping: true,
               key: const Key('accounts_page_view'),
               controller: _controller,
               itemCount: widget.accounts.length,

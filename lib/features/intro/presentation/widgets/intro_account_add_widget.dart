@@ -129,7 +129,6 @@ class _IntroAccountAddWidgetState extends State<IntroAccountAddWidget>
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(28),
                                     side: BorderSide(
-                                      width: 1,
                                       color: context.primary,
                                     ),
                                   ),
@@ -146,14 +145,12 @@ class _IntroAccountAddWidgetState extends State<IntroAccountAddWidget>
                                 ))
                             ,
                         FilterChip(
-                          selected: false,
                           onSelected: (value) {
                             const AccountPageData().push(context);
                           },
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(28),
                             side: BorderSide(
-                              width: 1,
                               color: context.primary,
                             ),
                           ),

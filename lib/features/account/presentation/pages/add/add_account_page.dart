@@ -477,7 +477,7 @@ class AccountInitialAmountWidget extends StatelessWidget {
       hintText: context.loc.enterAmount,
       keyboardType: TextInputType.number,
       inputFormatters: [
-        FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+        FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
         TextInputFormatter.withFunction((oldValue, newValue) {
           try {
             final text = newValue.text;

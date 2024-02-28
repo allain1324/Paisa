@@ -57,14 +57,12 @@ class FilterTabs extends StatelessWidget {
       valueListenable: getIt<SummaryController>().filterNotifier,
       builder: (context, snapshot, child) {
         return Column(
-          mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: filters
                     .map((e) => PaisaPillChip(
@@ -90,7 +88,7 @@ Map<String, List<TransactionEntity>> groupByTime({
   FilterExpense filterExpense = FilterExpense.monthly,
 }) {
   return groupBy(models.sorted((a, b) => a.time.compareTo(b.time)),
-      (p0) => p0.time.formatted(filterExpense, monthFormat: "MMM yy"));
+      (p0) => p0.time.formatted(filterExpense, monthFormat: 'MMM yy'));
 }
 
 class OverviewBarChartData {

@@ -225,7 +225,6 @@ class _AccountSelectedWidgetState extends State<AccountSelectedWidget> {
           right: 16,
         ),
         scrollDirection: Axis.horizontal,
-        shrinkWrap: false,
         itemCount: widget.accounts.length + 1,
         itemBuilder: (_, index) {
           if (index == 0) {
@@ -352,7 +351,6 @@ class _CategorySelectWidgetState extends State<CategorySelectWidget> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(28),
                     side: BorderSide(
-                      width: 1,
                       color: context.primary,
                     ),
                   ),
@@ -396,7 +394,6 @@ class _CategorySelectWidgetState extends State<CategorySelectWidget> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(28),
                     side: BorderSide(
-                      width: 1,
                       color: context.primary,
                     ),
                   ),
@@ -472,7 +469,7 @@ class RecurringAmountWidget extends StatelessWidget {
         maxLines: 1,
         counterText: '',
         inputFormatters: <TextInputFormatter>[
-          FilteringTextInputFormatter.allow(RegExp(r"[0-9.]")),
+          FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
           TextInputFormatter.withFunction((oldValue, newValue) {
             try {
               final text = newValue.text;

@@ -27,7 +27,6 @@ class CategoryItemTabletWidget extends StatelessWidget {
           ).push(context);
         },
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
               padding: const EdgeInsets.all(16.0),

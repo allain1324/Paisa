@@ -8,7 +8,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
-import 'filter_home_expenses_widget.dart';
+import 'package:paisa/features/home/presentation/pages/summary/widgets/filter_home_expenses_widget.dart';
 
 class TransactionsHeaderWidget extends StatelessWidget {
   const TransactionsHeaderWidget({
@@ -23,7 +23,6 @@ class TransactionsHeaderWidget extends StatelessWidget {
     return ListTile(
       contentPadding: const EdgeInsets.symmetric(
         horizontal: 16,
-        vertical: 0,
       ),
       title: Text(
         context.loc.transactions,

@@ -130,7 +130,6 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
         time: selectedDate,
         categoryId: categoryId,
         accountId: fromAccount!.superId!,
-        transactionType: TransactionType.expense,
         description: '',
       ));
 
