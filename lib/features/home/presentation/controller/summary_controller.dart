@@ -14,11 +14,9 @@ import 'package:paisa/features/settings/domain/use_case/setting_use_case.dart';
 class SummaryController {
   SummaryController(this.settingsUseCase);
 
+  final ValueNotifier<String> dateNotifier = ValueNotifier<String>('');
   final ValueNotifier<DateTimeRange?> dateTimeRangeNotifier =
       ValueNotifier<DateTimeRange?>(null);
-
-  final ValueNotifier<FilterExpense> filterNotifier =
-      ValueNotifier(FilterExpense.weekly);
 
   late final FilterExpense filterExpense = settingsUseCase.get<FilterExpense>(
     selectedFilterExpenseKey,
@@ -27,6 +25,9 @@ class SummaryController {
 
   late final ValueNotifier<FilterExpense> filterExpenseNotifier =
       ValueNotifier<FilterExpense>(filterExpense);
+
+  final ValueNotifier<FilterExpense> notifyFilterExpense =
+      ValueNotifier(FilterExpense.daily);
 
   final SettingsUseCase settingsUseCase;
   late final FilterExpense sortHomeExpense = settingsUseCase.get<FilterExpense>(

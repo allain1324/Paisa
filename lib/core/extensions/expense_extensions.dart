@@ -80,14 +80,13 @@ extension ExpenseModelsHelper on Iterable<TransactionModel> {
     return map((expenseModel) => expenseModel.toEntity())
         .sorted((a, b) => b.time.compareTo(a.time));
   }
-
-  List<TransactionEntity> budgetOverView(TransactionType transactionType) =>
-      sorted((a, b) => b.time.compareTo(a.time))
-          .where((element) => element.type == transactionType)
-          .toEntities();
 }
 
 extension ExpensesHelper on Iterable<TransactionEntity> {
+  List<TransactionEntity> budgetOverView(TransactionType transactionType) =>
+      sorted((a, b) => b.time.compareTo(a.time))
+          .where((element) => element.type == transactionType)
+          .toList();
   List<TransactionEntity> sortByTime() =>
       sorted((a, b) => b.time.compareTo(a.time));
 

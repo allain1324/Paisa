@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
@@ -117,32 +118,37 @@ class _PaisaAppState extends State<PaisaApp> {
                   );
                 }
 
-                return MaterialApp.router(
-                  locale: locale,
-                  routerConfig: goRouter,
-                  debugShowCheckedModeBanner: false,
-                  themeMode: themeMode,
-                  localizationsDelegates:
-                      AppLocalizations.localizationsDelegates,
-                  supportedLocales: AppLocalizations.supportedLocales,
-                  onGenerateTitle: (BuildContext context) {
-                    return context.loc.appTitle;
-                  },
-                  theme: appTheme(
-                    context,
-                    lightColorScheme,
-                    fontPreference,
-                    lightTextTheme,
-                    ThemeData.light().dividerColor,
-                    SystemUiOverlayStyle.dark,
-                  ),
-                  darkTheme: appTheme(
-                    context,
-                    darkColorScheme,
-                    fontPreference,
-                    darkTextTheme,
-                    ThemeData.dark().dividerColor,
-                    SystemUiOverlayStyle.light,
+                return ScreenUtilInit(
+                  designSize: MediaQuery.of(context).size,
+                  minTextAdapt: true,
+                  splitScreenMode: true,
+                  child: MaterialApp.router(
+                    locale: locale,
+                    routerConfig: goRouter,
+                    debugShowCheckedModeBanner: false,
+                    themeMode: themeMode,
+                    localizationsDelegates:
+                        AppLocalizations.localizationsDelegates,
+                    supportedLocales: AppLocalizations.supportedLocales,
+                    onGenerateTitle: (BuildContext context) {
+                      return context.loc.appTitle;
+                    },
+                    theme: appTheme(
+                      context,
+                      lightColorScheme,
+                      fontPreference,
+                      lightTextTheme,
+                      ThemeData.light().dividerColor,
+                      SystemUiOverlayStyle.dark,
+                    ),
+                    darkTheme: appTheme(
+                      context,
+                      darkColorScheme,
+                      fontPreference,
+                      darkTextTheme,
+                      ThemeData.dark().dividerColor,
+                      SystemUiOverlayStyle.light,
+                    ),
                   ),
                 );
               },

@@ -30,7 +30,7 @@ class ExpenseIncomeWidget extends StatelessWidget {
         const SizedBox(height: 16),
         TransactionAmountWidget(controller: amountController),
         const SizedBox(height: 16),
-        ExpenseDescriptionWidget(
+        TransactionDescriptionWidget(
           controller: descriptionController,
         ),
         const SizedBox(height: 16),

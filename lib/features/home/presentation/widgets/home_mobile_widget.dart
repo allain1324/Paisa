@@ -48,13 +48,11 @@ class HomeMobileWidget extends StatelessWidget {
             },
             children: [
               const PaisaIconTitle(),
-              ...destinations
-                  .map((e) => NavigationDrawerDestination(
-                        icon: e.icon,
-                        selectedIcon: e.selectedIcon,
-                        label: Text(e.pageType.name(context)),
-                      ))
-                  ,
+              ...destinations.map((e) => NavigationDrawerDestination(
+                    icon: e.icon,
+                    selectedIcon: e.selectedIcon,
+                    label: Text(e.pageType.name(context)),
+                  )),
               const Divider(),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),

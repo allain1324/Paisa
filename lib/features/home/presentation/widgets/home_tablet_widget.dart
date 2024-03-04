@@ -8,7 +8,6 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 // Project imports:
 import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
-import 'package:paisa/core/widgets/paisa_divider.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/home/presentation/pages/home/home_cubit.dart';
 import 'package:paisa/features/home/presentation/pages/home/home_page.dart';
@@ -28,66 +27,66 @@ class HomeTabletWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 14.0),
-          child: PaisaIconTitle(),
+    return PaisaAnnotatedRegionWidget(
+      color: context.background,
+      child: Scaffold(
+        appBar: AppBar(
+          leading: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 14.0),
+            child: PaisaIconTitle(),
+          ),
+          leadingWidth: 180,
+          title: const HomeSearchBar(),
+          actions: const [PaisaUserWidget()],
         ),
-        leadingWidth: 180,
-        title: const HomeSearchBar(),
-        actions: const [PaisaUserWidget()],
-      ),
-      body: Row(
-        children: [
-          BlocBuilder<HomeCubit, HomeState>(
-            builder: (context, state) {
-              return NavigationRail(
-                elevation: 1,
-                selectedLabelTextStyle: context.bodyLarge?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-                unselectedLabelTextStyle: context.bodyLarge,
-                labelType: NavigationRailLabelType.all,
-                backgroundColor: context.surface,
-                selectedIndex: context.read<HomeCubit>().state.index,
-                onDestinationSelected: (index) =>
-                    context.read<HomeCubit>().setCurrentIndex(index),
-                minWidth: 55,
-                useIndicator: true,
-                groupAlignment: 1,
-                trailing: Expanded(
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: IconButton(
-                        tooltip: context.loc.settings,
-                        onPressed: () {
-                          const SettingsPageData().push(context);
-                        },
-                        icon: Icon(MdiIcons.cog),
+        body: Row(
+          children: [
+            BlocBuilder<HomeCubit, HomeState>(
+              builder: (context, state) {
+                return NavigationRail(
+                  elevation: 1,
+                  selectedLabelTextStyle: context.bodyMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                  unselectedLabelTextStyle: context.bodyMedium,
+                  labelType: NavigationRailLabelType.all,
+                  backgroundColor: context.surface,
+                  selectedIndex: context.read<HomeCubit>().state.index,
+                  onDestinationSelected: (index) =>
+                      context.read<HomeCubit>().setCurrentIndex(index),
+                  minWidth: 55,
+                  useIndicator: true,
+                  groupAlignment: -1,
+                  trailing: Expanded(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: IconButton(
+                          tooltip: context.loc.settings,
+                          onPressed: () {
+                            const SettingsPageData().push(context);
+                          },
+                          icon: Icon(MdiIcons.cog),
+                        ),
                       ),
                     ),
                   ),
-                ),
-                destinations: destinations
-                    .map((e) => NavigationRailDestination(
+                  destinations: [
+                    ...destinations.map((e) => NavigationRailDestination(
                           icon: e.icon,
                           selectedIcon: e.selectedIcon,
                           label: Text(e.pageType.name(context)),
-                        ))
-                    .toList(),
-              );
-            },
-          ),
-          const PaisaVerticalDivider(thickness: 1, width: 1),
-          const Expanded(
-            child: ContentWidget(),
-          ),
-        ],
+                        )),
+                  ],
+                );
+              },
+            ),
+            const Expanded(child: ContentWidget()),
+          ],
+        ),
+        floatingActionButton: floatingActionButton,
       ),
-      floatingActionButton: floatingActionButton,
     );
   }
 }

@@ -9,8 +9,8 @@ import 'package:paisa/core/common.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/transaction/presentation/bloc/transaction_bloc.dart';
 
-class ExpenseDescriptionWidget extends StatelessWidget {
-  const ExpenseDescriptionWidget({
+class TransactionDescriptionWidget extends StatelessWidget {
+  const TransactionDescriptionWidget({
     super.key,
     required this.controller,
   });

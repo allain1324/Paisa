@@ -34,7 +34,6 @@ class TransactionNameWidget extends StatelessWidget {
             maxLines: 1,
             controller: controller,
             hintText: hintName,
-            keyboardType: TextInputType.name,
             inputFormatters: [
               FilteringTextInputFormatter.singleLineFormatter,
             ],

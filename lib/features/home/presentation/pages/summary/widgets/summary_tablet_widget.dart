@@ -1,11 +1,14 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
 
 // Project imports:
 import 'package:paisa/features/home/presentation/pages/summary/widgets/expense_history_widget.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/expense_total_widget.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/welcome_name_widget.dart';
+import 'package:paisa/features/overview/presentation/widgets/filter_tabs_widget.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
+import 'package:paisa/main.dart';
 
 class SummaryTabletWidget extends StatelessWidget {
   const SummaryTabletWidget({
@@ -34,8 +37,18 @@ class SummaryTabletWidget extends StatelessWidget {
             ),
             Expanded(
               child: ListView(
+                shrinkWrap: true,
                 padding: const EdgeInsets.only(bottom: 124),
-                children: [ExpenseHistoryWidget(expenses: expenses)],
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: FilterTabs(
+                      valueNotifier:
+                          getIt<SummaryController>().notifyFilterExpense,
+                    ),
+                  ),
+                  ExpenseHistoryWidget(expenses: expenses),
+                ],
               ),
             ),
           ],

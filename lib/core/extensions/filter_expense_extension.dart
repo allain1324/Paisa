@@ -21,3 +21,19 @@ extension FilterExpenseHelper on FilterExpense {
     }
   }
 }
+
+extension Filter on String {
+  FilterExpense toFilterExpense(BuildContext context) {
+    if (this == context.loc.yearly) {
+      return FilterExpense.yearly;
+    } else if (this == context.loc.daily) {
+      return FilterExpense.daily;
+    } else if (this == context.loc.weekly) {
+      return FilterExpense.weekly;
+    } else if (this == context.loc.monthly) {
+      return FilterExpense.monthly;
+    } else {
+      return FilterExpense.all;
+    }
+  }
+}

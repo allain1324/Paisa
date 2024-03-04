@@ -76,11 +76,8 @@ class HomeDesktopWidget extends StatelessWidget {
               );
             },
           ),
-          const PaisaVerticalDivider(thickness: 1, width: 1),
           const Expanded(
-            child: SafeArea(
-              child: ContentWidget(),
-            ),
+            child: SafeArea(child: ContentWidget()),
           ),
         ],
       ),

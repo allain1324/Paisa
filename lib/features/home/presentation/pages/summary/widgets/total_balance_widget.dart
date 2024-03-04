@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
 import 'package:paisa/core/common.dart';
@@ -22,10 +23,8 @@ class TotalBalanceWidget extends StatelessWidget {
         Text(
           title,
           style: context.titleMedium?.copyWith(
-            color: Theme.of(context)
-                .colorScheme
-                .onPrimaryContainer
-                .withOpacity(0.85),
+            fontSize: 13.sp,
+            color: context.onPrimaryContainer.withOpacity(0.85),
           ),
         ),
         const SizedBox(height: 8),

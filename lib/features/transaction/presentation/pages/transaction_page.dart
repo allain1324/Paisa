@@ -133,7 +133,7 @@ class _TransactionPageState extends State<TransactionPage> {
                         ?.copyWith(fontWeight: FontWeight.bold),
                   ),
                   bottom: const PreferredSize(
-                    preferredSize: Size.fromHeight(32),
+                    preferredSize: Size.fromHeight(kToolbarHeight),
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: TransactionToggleButtons(),
@@ -228,7 +228,7 @@ class _TransactionPageState extends State<TransactionPage> {
                               const SizedBox(height: 16),
                               TransactionNameWidget(controller: nameController),
                               const SizedBox(height: 16),
-                              ExpenseDescriptionWidget(
+                              TransactionDescriptionWidget(
                                   controller: descriptionController),
                               const SizedBox(height: 16),
                               TransactionAmountWidget(

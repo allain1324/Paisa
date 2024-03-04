@@ -78,8 +78,8 @@ extension DateUtils on DateTime {
     switch (filterBudget) {
       case FilterExpense.daily:
         return year == DateTime.now().year
-            ? DateFormat('EEEE dd MMM').format(this)
-            : DateFormat('EEEE dd MMM, yyyy').format(this);
+            ? DateFormat('EE dd MMM').format(this)
+            : DateFormat('EE dd MMM, yy').format(this);
       case FilterExpense.weekly:
         return "Week $weekOfYear of ${DateFormat('yy').format(this)}";
       case FilterExpense.monthly:

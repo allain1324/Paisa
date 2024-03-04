@@ -19,8 +19,8 @@ class PaisaPillChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bgColor = context.primaryContainer;
-    final textColor = context.primary;
+    final bgColor = context.tertiaryContainer;
+    final textColor = context.onTertiaryContainer;
     final borderColor = isSelected ? context.primary : null;
 
     return Row(
@@ -30,7 +30,7 @@ class PaisaPillChip extends StatelessWidget {
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 300),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(28),
+              borderRadius: BorderRadius.circular(32),
               color: bgColor,
               border: Border.all(
                 width: 1.5,
@@ -52,7 +52,6 @@ class PaisaPillChip extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(width: 8)
       ],
     );
   }

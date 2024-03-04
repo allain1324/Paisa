@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
 import 'package:paisa/core/common.dart';
@@ -23,10 +24,7 @@ class ExpenseTotalForMonthWidget extends StatelessWidget {
         Text(
           context.loc.total,
           style: context.titleMedium?.copyWith(
-            color: Theme.of(context)
-                .colorScheme
-                .onPrimaryContainer
-                .withOpacity(0.85),
+            color: context.onPrimaryContainer.withOpacity(0.85),
           ),
         ),
         const SizedBox(height: 8),
@@ -46,10 +44,8 @@ class ExpenseTotalForMonthWidget extends StatelessWidget {
                       children: [
                         TextSpan(
                           text: context.loc.income,
-                          style: TextStyle(
-                            color: Theme.of(context)
-                                .colorScheme
-                                .onPrimaryContainer,
+                          style: context.bodySmall?.copyWith(
+                            color: context.onPrimaryContainer,
                           ),
                         )
                       ],
@@ -58,7 +54,8 @@ class ExpenseTotalForMonthWidget extends StatelessWidget {
                   Text(
                     '+${income.toFormateCurrency(context)}',
                     style: context.titleLarge?.copyWith(
-                      color: Theme.of(context).colorScheme.onPrimaryContainer,
+                      color: context.onPrimaryContainer,
+                      fontSize: 17.sp,
                     ),
                   ),
                 ],
@@ -77,10 +74,8 @@ class ExpenseTotalForMonthWidget extends StatelessWidget {
                       children: [
                         TextSpan(
                           text: context.loc.expense,
-                          style: TextStyle(
-                            color: Theme.of(context)
-                                .colorScheme
-                                .onPrimaryContainer,
+                          style: context.bodySmall?.copyWith(
+                            color: context.onPrimaryContainer,
                           ),
                         )
                       ],
@@ -89,7 +84,8 @@ class ExpenseTotalForMonthWidget extends StatelessWidget {
                   Text(
                     '-${outcome.toFormateCurrency(context)}',
                     style: context.titleLarge?.copyWith(
-                      color: Theme.of(context).colorScheme.onPrimaryContainer,
+                      color: context.onPrimaryContainer,
+                      fontSize: 17.sp,
                     ),
                   ),
                 ],

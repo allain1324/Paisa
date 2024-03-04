@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:collection/collection.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -8,83 +6,49 @@ import 'package:paisa/core/common.dart';
 import 'package:paisa/core/theme/custom_color.dart';
 import 'package:paisa/core/widgets/paisa_widgets/paisa_card.dart';
 import 'package:paisa/features/intro/domain/entities/country_entity.dart';
-import 'package:paisa/features/overview/presentation/widgets/filter_tabs_widget.dart';
+import 'package:paisa/features/overview/presentation/widgets/overview_transaction_widget.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'package:provider/provider.dart';
 
 class OverViewBarChartWidget extends StatelessWidget {
   const OverViewBarChartWidget({
     super.key,
-    required this.transactions,
+    required this.groupedTransactions,
   });
 
-  final Iterable<TransactionEntity> transactions;
+  final Map<String, List<TransactionEntity>> groupedTransactions;
 
   @override
   Widget build(BuildContext context) {
     return PaisaFilledCard(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: FilterTabsWidget(
-          transactions: transactions,
-          builder: (groupedTransactions) {
-            final list = groupedTransactions.entries.map((e) {
-              final double total = e.value.fold<double>(0,
-                  (previousValue, element) => previousValue + element.currency);
-              return total;
-            }).toList();
-            double maximum = list.reduce((a, b) => max(a, b));
-
-            final List<OverviewBarChartData> maps =
-                groupedTransactions.entries.map((e) {
-              return OverviewBarChartData(
-                  xLabel: e.key,
-                  expense: e.value.totalExpense,
-                  income: e.value.totalIncome);
-            }).toList();
-            return BarChartSample(
-              values: maps,
-              minMax: (maximum / 2, maximum),
-            );
-          },
-        ),
+        child: BarChartSample(groupedTransactions: groupedTransactions),
       ),
     );
   }
 }
 
-class BarChartSample extends StatefulWidget {
-  const BarChartSample({
+class BarChartSample extends StatelessWidget {
+  BarChartSample({
     super.key,
-    required this.values,
-    required this.minMax,
+    required this.groupedTransactions,
   });
 
-  final List<OverviewBarChartData> values;
-
-  @override
-  State<StatefulWidget> createState() => BarChartSampleState();
-
-  final (double, double) minMax;
-}
-
-class BarChartSampleState extends State<BarChartSample> {
+  final Map<String, List<TransactionEntity>> groupedTransactions;
   final double width = 12;
 
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  Widget leftTitleWidgets(double value, TitleMeta meta) {
+  Widget leftTitleWidgets(BuildContext context, double value, TitleMeta meta) {
     if (value % 1 != 0) {
       return Container();
     }
-
+    if (meta.max == value) {
+      return Container();
+    }
     return SideTitleWidget(
       axisSide: meta.axisSide,
       space: 6,
-      fitInside: SideTitleFitInsideData.fromTitleMeta(meta),
+      fitInside: SideTitleFitInsideData.disable(),
       child: Text(
         value.toCompact(context),
         style: context.bodySmall,
@@ -93,9 +57,9 @@ class BarChartSampleState extends State<BarChartSample> {
     );
   }
 
-  Widget bottomTitles(double value, TitleMeta meta) {
+  Widget bottomTitles(BuildContext context, double value, TitleMeta meta) {
     final Widget text = Text(
-      widget.values[value.toInt()].xLabel,
+      barDataList[value.toInt()].xLabel,
       textAlign: TextAlign.center,
       style: context.bodySmall?.copyWith(
         fontWeight: FontWeight.bold,
@@ -105,12 +69,13 @@ class BarChartSampleState extends State<BarChartSample> {
     return SideTitleWidget(
       axisSide: meta.axisSide,
       space: 16,
-      fitInside: SideTitleFitInsideData.fromTitleMeta(meta),
+      fitInside: SideTitleFitInsideData.disable(),
       child: text,
     );
   }
 
-  BarChartGroupData makeGroupData(int x, double y1, double y2) {
+  BarChartGroupData makeGroupData(
+      BuildContext context, int x, double y1, double y2) {
     return BarChartGroupData(
       barsSpace: 4,
       x: x,
@@ -129,11 +94,20 @@ class BarChartSampleState extends State<BarChartSample> {
     );
   }
 
+  final List<OverviewBarChartData> barDataList = [];
   @override
   Widget build(BuildContext context) {
+    barDataList.addAll(groupedTransactions.entries.map((e) {
+      return OverviewBarChartData(
+        xLabel: e.key,
+        expense: e.value.totalExpense,
+        income: e.value.totalIncome,
+      );
+    }));
+
     final List<BarChartGroupData> showingBarGroups =
-        widget.values.mapIndexed((index, element) {
-      return makeGroupData(index, element.expense, element.income);
+        barDataList.mapIndexed((index, element) {
+      return makeGroupData(context, index, element.expense, element.income);
     }).toList();
     return AspectRatio(
       aspectRatio: (16 / 9),
@@ -145,11 +119,10 @@ class BarChartSampleState extends State<BarChartSample> {
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: SizedBox(
-                width: widget.values.length * 128,
+                width: barDataList.length * 106,
                 child: BarChart(
                   BarChartData(
                     barTouchData: BarTouchData(
-                      enabled: true,
                       touchTooltipData: BarTouchTooltipData(
                         tooltipBgColor: context.primary,
                         getTooltipItem: (group, groupIndex, rod, rodIndex) {
@@ -163,23 +136,21 @@ class BarChartSampleState extends State<BarChartSample> {
                       ),
                     ),
                     titlesData: FlTitlesData(
-                      rightTitles: const AxisTitles(
-                        
-                      ),
-                      topTitles: const AxisTitles(
-                        
-                      ),
+                      rightTitles: const AxisTitles(),
+                      topTitles: const AxisTitles(),
                       leftTitles: AxisTitles(
                         sideTitles: SideTitles(
                           showTitles: true,
                           reservedSize: 46,
-                          getTitlesWidget: leftTitleWidgets,
+                          getTitlesWidget: (value, meta) =>
+                              leftTitleWidgets(context, value, meta),
                         ),
                       ),
                       bottomTitles: AxisTitles(
                         sideTitles: SideTitles(
                           showTitles: true,
-                          getTitlesWidget: bottomTitles,
+                          getTitlesWidget: (value, meta) =>
+                              bottomTitles(context, value, meta),
                           reservedSize: 42,
                         ),
                       ),

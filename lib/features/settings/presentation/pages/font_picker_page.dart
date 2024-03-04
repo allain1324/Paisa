@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hive_flutter/adapters.dart';
-import 'package:provider/provider.dart';
+import 'package:paisa/config/routes.dart';
 
 // Project imports:
 import 'package:paisa/core/common.dart';
@@ -30,10 +29,7 @@ class _FontPickerPageState extends State<FontPickerPage> {
   final ValueNotifier<String> valueNotifier = ValueNotifier('');
 
   Future<void> _save() async {
-    await Provider.of<Box<dynamic>>(
-      context,
-      listen: false,
-    ).put(appFontChangerKey, selectedFont);
+    await settings.put(appFontChangerKey, selectedFont);
     if (!mounted) {
       return;
     }

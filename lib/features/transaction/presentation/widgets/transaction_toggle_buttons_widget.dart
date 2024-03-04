@@ -20,47 +20,32 @@ class TransactionToggleButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final filters = [
+      TransactionType.expense,
+      TransactionType.income,
+      TransactionType.transfer
+    ];
     return BlocBuilder<TransactionBloc, TransactionState>(
       buildWhen: (previous, current) => current is ChangeTransactionTypeState,
       builder: (context, state) {
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
-          child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                PaisaPillChip(
-                  title: TransactionType.expense.stringName(context),
-                  isSelected: BlocProvider.of<TransactionBloc>(context)
-                          .transactionType ==
-                      TransactionType.expense,
-                  onPressed: () => _update(
-                    context,
-                    TransactionType.expense,
-                  ),
-                ),
-                PaisaPillChip(
-                  title: TransactionType.income.stringName(context),
-                  isSelected: BlocProvider.of<TransactionBloc>(context)
-                          .transactionType ==
-                      TransactionType.income,
-                  onPressed: () => _update(
-                    context,
-                    TransactionType.income,
-                  ),
-                ),
-                PaisaPillChip(
-                  title: TransactionType.transfer.stringName(context),
-                  isSelected: BlocProvider.of<TransactionBloc>(context)
-                          .transactionType ==
-                      TransactionType.transfer,
-                  onPressed: () => _update(
-                    context,
-                    TransactionType.transfer,
-                  ),
-                ),
-              ],
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: SizedBox(
+            height: 56,
+            child: ListView.separated(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              separatorBuilder: (context, index) => const SizedBox(width: 6),
+              itemCount: filters.length,
+              itemBuilder: (context, index) {
+                final e = filters[index];
+                return PaisaPillChip(
+                  title: e.stringName(context),
+                  isSelected:
+                      context.read<TransactionBloc>().transactionType == e,
+                  onPressed: () => _update(context, e),
+                );
+              },
             ),
           ),
         );

@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:paisa/core/common.dart';
+import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/expense_history_widget.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/expense_total_widget.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/welcome_name_widget.dart';
+import 'package:paisa/features/overview/presentation/widgets/filter_tabs_widget.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
+import 'package:paisa/main.dart';
 
 class SummaryMobileWidget extends StatelessWidget {
   const SummaryMobileWidget({
@@ -23,7 +26,7 @@ class SummaryMobileWidget extends StatelessWidget {
       body: ListView.builder(
         physics: const BouncingScrollPhysics(),
         shrinkWrap: true,
-        itemCount: 4,
+        itemCount: 5,
         padding: const EdgeInsets.only(bottom: 124),
         itemBuilder: (context, index) {
           if (index == 0) {
@@ -44,6 +47,13 @@ class SummaryMobileWidget extends StatelessWidget {
               ),
             );
           } else if (index == 3) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: FilterTabs(
+                valueNotifier: getIt<SummaryController>().notifyFilterExpense,
+              ),
+            );
+          } else if (index == 4) {
             return ExpenseHistoryWidget(expenses: expenses);
           }
           return const SizedBox.shrink();
