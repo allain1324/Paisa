@@ -5,6 +5,9 @@ import 'package:flutter/services.dart';
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:paisa/config/routes.dart';
+import 'package:paisa/core/error/account_error.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 // Project imports:
@@ -49,7 +52,9 @@ class AccountPageState extends State<AccountPage> {
   @override
   void initState() {
     super.initState();
-    accountsBloc.add(FetchAccountFromIdEvent(widget.accountId));
+    if (widget.accountId != null) {
+      accountsBloc.add(FetchAccountFromIdEvent(widget.accountId!));
+    }
   }
 
   void _showInfo() => showModalBottomSheet(
@@ -130,7 +135,7 @@ class AccountPageState extends State<AccountPage> {
               context.pop();
             } else if (state is AccountErrorState) {
               context.showMaterialSnackBar(
-                state.errorString,
+                state.accountErrors.errorString(context),
                 backgroundColor: context.errorContainer,
                 color: context.onErrorContainer,
               );
@@ -199,10 +204,13 @@ class AccountPageState extends State<AccountPage> {
                                 controller: accountInitialAmountController,
                               ),
                               const SizedBox(height: 16),
+                              const AccountColorPickerWidget(),
                               AccountDefaultSwitchWidget(
                                 accountId: widget.accountId ?? -1,
                               ),
-                              const AccountColorPickerWidget()
+                              AccountExcludedSwitchWidget(
+                                accountId: widget.accountId ?? -1,
+                              ),
                             ],
                           ),
                         ),
@@ -531,6 +539,51 @@ class _AccountDefaultSwitchWidgetState
         setState(() {
           isAccountDefault = value;
         });
+      },
+    );
+  }
+}
+
+class AccountExcludedSwitchWidget extends StatefulWidget {
+  const AccountExcludedSwitchWidget({
+    super.key,
+    required this.accountId,
+  });
+
+  final int accountId;
+
+  @override
+  State<AccountExcludedSwitchWidget> createState() =>
+      _AccountExcludedSwitchWidgetState();
+}
+
+class _AccountExcludedSwitchWidgetState
+    extends State<AccountExcludedSwitchWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder<Box<dynamic>>(
+      valueListenable: settings.listenable(),
+      builder: (context, value, child) {
+        final List<int> excludedAccounts = value.get(
+          excludedAccountIdKey,
+          defaultValue: <int>[],
+        );
+        return SwitchListTile(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 8),
+          title: Text(context.loc.excludeAccount),
+          value: excludedAccounts.contains(widget.accountId),
+          onChanged: (isEnable) {
+            if (isEnable && !excludedAccounts.contains(widget.accountId)) {
+              excludedAccounts.add(widget.accountId);
+            } else {
+              excludedAccounts.remove(widget.accountId);
+            }
+            value.put(excludedAccountIdKey, excludedAccounts);
+          },
+        );
       },
     );
   }

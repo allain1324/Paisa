@@ -26,7 +26,7 @@ class AccountTransactionWidget extends StatelessWidget {
     return BlocBuilder<AccountBloc, AccountState>(
       builder: (context, state) {
         if (state is AccountSelectedState) {
-          if (state.expenses.isEmpty) {
+          if (state.transactions.isEmpty) {
             return EmptyWidget(
               title: context.loc.emptyExpensesMessageTitle,
               icon: Icons.money_off_rounded,
@@ -41,7 +41,7 @@ class AccountTransactionWidget extends StatelessWidget {
                 summaryController: Provider.of<SummaryController>(context),
               ),
               AccountHistoryWidget(
-                expenses: state.expenses,
+                expenses: state.transactions,
                 summaryController: Provider.of<SummaryController>(context),
               )
             ],

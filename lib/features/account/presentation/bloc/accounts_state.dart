@@ -1,96 +1,38 @@
 part of 'accounts_bloc.dart';
 
-@immutable
-abstract class AccountState extends Equatable {
-  const AccountState();
+@freezed
+class AccountState with _$AccountState {
+  const factory AccountState.accountState(AccountEntity account) =
+      AccountSuccessState;
 
-  @override
-  List<Object> get props => [];
-}
+  const factory AccountState.accountsState(List<AccountEntity> account) =
+      AccountListState;
 
-class AccountsInitial extends AccountState {}
+  const factory AccountState.addAccountState(bool isAddOrUpdate) =
+      AccountAddedState;
 
-class AccountListState extends AccountState {
-  const AccountListState(this.accounts);
+  const factory AccountState.colorSelected(int color) =
+      AccountColorSelectedState;
 
-  final List<AccountEntity> accounts;
+  const factory AccountState.countries(List<CountryEntity> countries) =
+      CountriesState;
 
-  @override
-  List<Object> get props => [accounts];
-}
+  const factory AccountState.deleteAccountState() = AccountDeletedState;
 
-class AccountAddedState extends AccountState {
-  const AccountAddedState({this.isAddOrUpdate = false});
+  const factory AccountState.errorAccountState(AccountErrors accountErrors) =
+      AccountErrorState;
 
-  final bool isAddOrUpdate;
+  const factory AccountState.idle() = AccountsInitial;
 
-  @override
-  List<Object> get props => [isAddOrUpdate];
-}
+  const factory AccountState.updateAccountExcluded({
+    @Default(false) bool isAccountExcluded,
+  }) = UpdateAccountExcludeState;
 
-class AccountDeletedState extends AccountState {}
+  const factory AccountState.updateCardType(CardType cardType) =
+      UpdateCardTypeState;
 
-class AccountSelectedState extends AccountState {
-  const AccountSelectedState(this.account, this.expenses);
-
-  final AccountEntity account;
-  final List<TransactionEntity> expenses;
-
-  @override
-  List<Object> get props => [account, expenses];
-}
-
-class AccountErrorState extends AccountState {
-  const AccountErrorState(this.errorString);
-
-  final String errorString;
-
-  @override
-  List<Object> get props => [errorString];
-}
-
-class AccountSuccessState extends AccountState {
-  const AccountSuccessState(this.account);
-
-  final AccountEntity account;
-
-  @override
-  List<Object> get props => [account];
-}
-
-class UpdateCardTypeState extends AccountState {
-  const UpdateCardTypeState(this.cardType);
-
-  final CardType cardType;
-
-  @override
-  List<Object> get props => [cardType];
-}
-
-class ExpensesFromAccountIdState extends AccountState {
-  const ExpensesFromAccountIdState(this.expenses);
-
-  final List<TransactionEntity> expenses;
-
-  @override
-  List<Object> get props => [expenses];
-}
-
-class AccountColorSelectedState extends AccountState {
-  const AccountColorSelectedState(this.categoryColor);
-
-  final int categoryColor;
-
-  @override
-  List<Object> get props => [categoryColor, identityHashCode(this)];
-}
-
-class AccountAndExpensesState extends AccountState {
-  const AccountAndExpensesState(this.account, this.expenses);
-
-  final AccountEntity account;
-  final List<TransactionEntity> expenses;
-
-  @override
-  List<Object> get props => [account, expenses];
+  const factory AccountState.selectedAccount(
+    AccountEntity accountEntity,
+    List<TransactionEntity> transactions,
+  ) = AccountSelectedState;
 }

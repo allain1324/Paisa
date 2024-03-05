@@ -31,7 +31,7 @@ class AccountsPage extends StatelessWidget {
               description: context.loc.emptyAccountMessageSubTitle,
             );
           }
-          return AccountMobileHorizontalPage(accounts: accounts);
+          return AccountHorizontalPage(accounts: accounts);
         },
       ),
     );

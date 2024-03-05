@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:collection/collection.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:paisa/config/routes.dart';
+import 'package:paisa/core/common.dart';
 
 // Project imports:
 import 'package:paisa/core/enum/transaction_type.dart';
@@ -74,6 +76,16 @@ extension ExpenseModelHelper on TransactionModel {
 extension ExpenseModelsHelper on Iterable<TransactionModel> {
   List<Map<String, dynamic>> toJson() {
     return map((e) => e.toJson()).toList();
+  }
+
+  List<TransactionEntity> toExcludeAccounts() {
+    final accounts = settings.get(
+      excludedAccountIdKey,
+      defaultValue: <int>[],
+    );
+    return map((expenseModel) => expenseModel.toEntity())
+        .where((element) => !accounts.contains(element.accountId))
+        .sorted((a, b) => b.time.compareTo(a.time));
   }
 
   List<TransactionEntity> toEntities() {

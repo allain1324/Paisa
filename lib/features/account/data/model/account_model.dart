@@ -21,7 +21,6 @@ class AccountModel extends HiveObject with _$AccountModel implements SuperId {
     @HiveField(7) int? superId,
     @HiveField(8, defaultValue: 0) double? amount,
     @HiveField(9, defaultValue: 0xFFFFC107) int? color,
-    @Default(false) @HiveField(4, defaultValue: false) bool isAccountDefault,
     @HiveField(21, defaultValue: false) bool? isAccountExcluded,
   }) = _AccountModel;
 

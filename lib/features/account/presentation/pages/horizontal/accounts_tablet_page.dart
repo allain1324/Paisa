@@ -32,7 +32,7 @@ class AccountsHorizontalTabletPage extends StatelessWidget {
               BlocBuilder<AccountBloc, AccountState>(
                 builder: (context, state) {
                   if (state is AccountSelectedState) {
-                    return AccountSummaryWidget(expenses: state.expenses);
+                    return AccountSummaryWidget(expenses: state.transactions);
                   } else {
                     return const SizedBox.shrink();
                   }

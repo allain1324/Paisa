@@ -23,7 +23,6 @@ class AccountModelAdapter extends TypeAdapter<_$AccountModelImpl> {
       superId: fields[7] as int?,
       amount: fields[8] == null ? 0 : fields[8] as double?,
       color: fields[9] == null ? 4294951175 : fields[9] as int?,
-      isAccountDefault: fields[4] == null ? false : fields[4] as bool,
       isAccountExcluded: fields[21] == null ? false : fields[21] as bool?,
     );
   }
@@ -31,7 +30,7 @@ class AccountModelAdapter extends TypeAdapter<_$AccountModelImpl> {
   @override
   void write(BinaryWriter writer, _$AccountModelImpl obj) {
     writer
-      ..writeByte(8)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(3)
@@ -44,8 +43,6 @@ class AccountModelAdapter extends TypeAdapter<_$AccountModelImpl> {
       ..write(obj.amount)
       ..writeByte(9)
       ..write(obj.color)
-      ..writeByte(4)
-      ..write(obj.isAccountDefault)
       ..writeByte(21)
       ..write(obj.isAccountExcluded);
   }
@@ -74,7 +71,6 @@ _$AccountModelImpl _$$AccountModelImplFromJson(Map<String, dynamic> json) =>
       superId: json['superId'] as int?,
       amount: (json['amount'] as num?)?.toDouble(),
       color: json['color'] as int?,
-      isAccountDefault: json['isAccountDefault'] as bool? ?? false,
       isAccountExcluded: json['isAccountExcluded'] as bool?,
     );
 
@@ -86,7 +82,6 @@ Map<String, dynamic> _$$AccountModelImplToJson(_$AccountModelImpl instance) =>
       'superId': instance.superId,
       'amount': instance.amount,
       'color': instance.color,
-      'isAccountDefault': instance.isAccountDefault,
       'isAccountExcluded': instance.isAccountExcluded,
     };
 

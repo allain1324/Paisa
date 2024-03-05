@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:hive_flutter/adapters.dart';
+import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 // Project imports:
@@ -23,11 +24,12 @@ class SummaryPage extends StatelessWidget {
     return ValueListenableBuilder<Box<TransactionModel>>(
       valueListenable: getIt.get<Box<TransactionModel>>().listenable(),
       builder: (_, value, child) {
-        final expenses = value.values.toEntities();
+        final List<TransactionEntity> transactions =
+            value.values.toExcludeAccounts();
         return ScreenTypeLayout.builder(
-          mobile: (p0) => SummaryMobileWidget(expenses: expenses),
-          tablet: (p0) => SummaryTabletWidget(expenses: expenses),
-          desktop: (p0) => SummaryDesktopWidget(expenses: expenses),
+          mobile: (p0) => SummaryMobileWidget(expenses: transactions),
+          tablet: (p0) => SummaryTabletWidget(expenses: transactions),
+          desktop: (p0) => SummaryDesktopWidget(expenses: transactions),
         );
       },
     );

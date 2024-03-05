@@ -21,7 +21,7 @@ class AccountColorPickerWidget extends StatelessWidget {
       builder: (context, state) {
         int color = Colors.red.value;
         if (state is AccountColorSelectedState) {
-          color = state.categoryColor;
+          color = state.color;
         }
         if (state is AccountSuccessState) {
           color = state.account.color ?? Colors.red.value;

@@ -30,7 +30,8 @@ class AccountTransactionsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ScrollController scrollController = ScrollController();
-    BlocProvider.of<AccountBloc>(context)
+    context
+        .read<AccountBloc>()
         .add(FetchAccountAndExpenseFromIdEvent(accountId));
     return PaisaAnnotatedRegionWidget(
       color: context.background,
@@ -55,14 +56,14 @@ class AccountTransactionsPage extends StatelessWidget {
                   ),
                   child: BlocBuilder<AccountBloc, AccountState>(
                     builder: (context, state) {
-                      if (state is AccountAndExpensesState) {
+                      if (state is AccountSelectedState) {
                         return RichText(
                           text: TextSpan(
                             text: context.loc.deleteAccount,
                             style: context.bodyMedium,
                             children: [
                               TextSpan(
-                                text: state.account.name,
+                                text: state.accountEntity.name,
                                 style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -101,8 +102,8 @@ class AccountTransactionsPage extends StatelessWidget {
             }
           },
           builder: (context, state) {
-            if (state is AccountAndExpensesState) {
-              if (state.expenses.isEmpty) {
+            if (state is AccountSelectedState) {
+              if (state.transactions.isEmpty) {
                 return EmptyWidget(
                   icon: Icons.credit_card,
                   title: context.loc.noTransaction,
@@ -114,9 +115,10 @@ class AccountTransactionsPage extends StatelessWidget {
                   child: ListView.builder(
                     controller: scrollController,
                     shrinkWrap: true,
-                    itemCount: state.expenses.length,
+                    itemCount: state.transactions.length,
                     itemBuilder: (context, index) {
-                      final TransactionEntity expense = state.expenses[index];
+                      final TransactionEntity expense =
+                          state.transactions[index];
                       final CategoryEntity? category =
                           BlocProvider.of<HomeCubit>(context)
                               .fetchCategoryFromId(expense.categoryId);
@@ -125,7 +127,7 @@ class AccountTransactionsPage extends StatelessWidget {
                       } else {
                         return ExpenseItemWidget(
                           expense: expense,
-                          account: state.account,
+                          account: state.accountEntity,
                           category: category,
                         );
                       }

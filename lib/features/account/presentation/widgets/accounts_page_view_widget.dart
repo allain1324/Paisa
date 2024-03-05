@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
 import 'package:paisa/config/routes.dart';
@@ -35,34 +36,44 @@ class _AccountPageViewWidgetState extends State<AccountPageViewWidget>
   bool get wantKeepAlive => true;
 
   @override
+  void initState() {
+    super.initState();
+    if (widget.accounts.isNotEmpty) {
+      context.read<AccountBloc>().add(
+            FetchAccountAndExpenseFromIdEvent(widget.accounts.first.superId!),
+          );
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     super.build(context);
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         LavaAnimation(
           child: SizedBox(
-            height: 256,
+            height: 256.h,
             child: PageView.builder(
               key: const Key('accounts_page_view'),
               controller: _controller,
               itemCount: widget.accounts.length,
               onPageChanged: (index) {
-                BlocProvider.of<AccountBloc>(context)
-                    .add(AccountSelectedEvent(widget.accounts[index]));
+                context.read<AccountBloc>().add(
+                    FetchAccountAndExpenseFromIdEvent(
+                        widget.accounts[index].superId!));
               },
               itemBuilder: (_, index) {
                 return BlocBuilder<AccountBloc, AccountState>(
                   builder: (context, state) {
                     if (state is AccountSelectedState) {
                       final AccountEntity account = widget.accounts[index];
-                      final String expense = state.expenses.totalExpense
+                      final String expense = state.transactions.totalExpense
                           .toFormateCurrency(context);
-                      final String income =
-                          state.expenses.totalIncome.toFormateCurrency(context);
+                      final String income = state.transactions.totalIncome
+                          .toFormateCurrency(context);
                       final String totalBalance =
-                          (state.expenses.fullTotal + account.initialAmount)
+                          (state.transactions.fullTotal + account.initialAmount)
                               .toFormateCurrency(context);
                       return AccountCard(
                         key: ValueKey(account.hashCode),
@@ -168,7 +179,7 @@ class AccountPageViewDotsIndicator extends StatelessWidget {
                   },
                   child: _indicator(
                     context,
-                    accounts[index] == state.account,
+                    accounts[index] == state.accountEntity,
                   ),
                 );
               }),

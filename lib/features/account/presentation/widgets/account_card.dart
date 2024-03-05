@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Package imports:
 import 'package:glassmorphism/glassmorphism.dart';
@@ -101,7 +102,7 @@ class MobileAccountCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: GlassmorphicContainer(
-          height: 260,
+          height: 256.h,
           width: MediaQuery.of(context).size.width,
           borderRadius: 24,
           blur: 25,

@@ -14,7 +14,7 @@ class CardTypeButtons extends StatelessWidget {
   const CardTypeButtons({super.key});
 
   void _update(BuildContext context, CardType type) {
-    BlocProvider.of<AccountBloc>(context).add(UpdateCardTypeEvent(type));
+    context.read<AccountBloc>().add(UpdateCardTypeEvent(type));
   }
 
   @override
@@ -22,27 +22,23 @@ class CardTypeButtons extends StatelessWidget {
     return BlocBuilder<AccountBloc, AccountState>(
       buildWhen: (previous, current) => current is UpdateCardTypeState,
       builder: (context, state) {
-        return Row(
-          children: [
-            PaisaPillChip(
-              title: CardType.cash.stringValue(context),
-              isSelected: BlocProvider.of<AccountBloc>(context).selectedType ==
-                  CardType.cash,
-              onPressed: () => _update(context, CardType.cash),
+        return SizedBox(
+          height: 46,
+          child: ListView.separated(
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              final CardType type = CardType.values[index];
+              return PaisaPillChip(
+                title: type.stringValue(context),
+                isSelected: context.read<AccountBloc>().selectedType == type,
+                onPressed: () => _update(context, type),
+              );
+            },
+            separatorBuilder: (context, index) => const SizedBox(
+              width: 8,
             ),
-            PaisaPillChip(
-              title: CardType.bank.stringValue(context),
-              isSelected: BlocProvider.of<AccountBloc>(context).selectedType ==
-                  CardType.bank,
-              onPressed: () => _update(context, CardType.bank),
-            ),
-            PaisaPillChip(
-              title: CardType.wallet.stringValue(context),
-              isSelected: BlocProvider.of<AccountBloc>(context).selectedType ==
-                  CardType.wallet,
-              onPressed: () => _update(context, CardType.wallet),
-            ),
-          ],
+            itemCount: CardType.values.length,
+          ),
         );
       },
     );
