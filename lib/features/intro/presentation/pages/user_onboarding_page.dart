@@ -15,7 +15,6 @@ import 'package:paisa/features/intro/presentation/widgets/intro_category_add_wid
 import 'package:paisa/features/intro/presentation/widgets/intro_country_picker_widget.dart';
 import 'package:paisa/features/intro/presentation/widgets/intro_image_picker_widget.dart';
 import 'package:paisa/features/intro/presentation/widgets/intro_set_name_widget.dart';
-import 'package:paisa/main.dart';
 
 class UserOnboardingPage extends StatefulWidget {
   const UserOnboardingPage({
@@ -166,7 +165,7 @@ class _UserOnboardingPageState extends State<UserOnboardingPage> {
     if (context.read<CountryPickerCubit>().state.selectedCountry != null) {
       const LandingPageData().go(context);
     } else {
-      context.showMaterialSnackBar('Please select country');
+      context.showMaterialSnackBar(context.loc.currencySelectorError);
     }
   }
 }

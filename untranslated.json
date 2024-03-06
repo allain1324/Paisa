@@ -18,7 +18,8 @@
     "accountColorError",
     "emptySelectedAccountsInfo",
     "emptyRecommendedAccountsInfo",
-    "transferCategorySubtitle"
+    "transferCategorySubtitle",
+    "currencySelectorError"
   ],
 
   "de": [
@@ -28,7 +29,8 @@
     "back",
     "emptySelectedAccountsInfo",
     "emptyRecommendedAccountsInfo",
-    "transferCategorySubtitle"
+    "transferCategorySubtitle",
+    "currencySelectorError"
   ],
 
   "es": [
@@ -41,7 +43,8 @@
     "accountColorError",
     "emptySelectedAccountsInfo",
     "emptyRecommendedAccountsInfo",
-    "transferCategorySubtitle"
+    "transferCategorySubtitle",
+    "currencySelectorError"
   ],
 
   "fr": [
@@ -55,7 +58,8 @@
     "accountColorError",
     "emptySelectedAccountsInfo",
     "emptyRecommendedAccountsInfo",
-    "transferCategorySubtitle"
+    "transferCategorySubtitle",
+    "currencySelectorError"
   ],
 
   "it": [
@@ -83,7 +87,8 @@
     "accountColorError",
     "emptySelectedAccountsInfo",
     "emptyRecommendedAccountsInfo",
-    "transferCategorySubtitle"
+    "transferCategorySubtitle",
+    "currencySelectorError"
   ],
 
   "kn": [
@@ -103,7 +108,8 @@
     "accountColorError",
     "emptySelectedAccountsInfo",
     "emptyRecommendedAccountsInfo",
-    "transferCategorySubtitle"
+    "transferCategorySubtitle",
+    "currencySelectorError"
   ],
 
   "pl": [
@@ -118,7 +124,8 @@
     "accountColorError",
     "emptySelectedAccountsInfo",
     "emptyRecommendedAccountsInfo",
-    "transferCategorySubtitle"
+    "transferCategorySubtitle",
+    "currencySelectorError"
   ],
 
   "pt": [
@@ -138,7 +145,8 @@
     "accountColorError",
     "emptySelectedAccountsInfo",
     "emptyRecommendedAccountsInfo",
-    "transferCategorySubtitle"
+    "transferCategorySubtitle",
+    "currencySelectorError"
   ],
 
   "ru": [
@@ -160,19 +168,22 @@
     "accountColorError",
     "emptySelectedAccountsInfo",
     "emptyRecommendedAccountsInfo",
-    "transferCategorySubtitle"
+    "transferCategorySubtitle",
+    "currencySelectorError"
   ],
 
   "ta": [
     "pickColorAccountDesc",
     "emptyRecommendedAccountsInfo",
-    "transferCategorySubtitle"
+    "transferCategorySubtitle",
+    "currencySelectorError"
   ],
 
   "vi": [
     "pickColorAccountDesc",
     "emptyRecommendedAccountsInfo",
-    "transferCategorySubtitle"
+    "transferCategorySubtitle",
+    "currencySelectorError"
   ],
 
   "zh": [
@@ -190,7 +201,8 @@
     "accountColorError",
     "emptySelectedAccountsInfo",
     "emptyRecommendedAccountsInfo",
-    "transferCategorySubtitle"
+    "transferCategorySubtitle",
+    "currencySelectorError"
   ],
 
   "zh_TW": [
@@ -205,6 +217,7 @@
     "accountColorError",
     "emptySelectedAccountsInfo",
     "emptyRecommendedAccountsInfo",
-    "transferCategorySubtitle"
+    "transferCategorySubtitle",
+    "currencySelectorError"
   ]
 }

@@ -1059,5 +1059,10 @@
     "@transferCategorySubtitle": {
         "description": "Text shown add category page for add default category ",
         "type": "text"
+    },
+    "currencySelectorError": "Please select currency",
+    "@currencySelectorError": {
+        "description": "Text shown when the currency is not selected",
+        "type": "text"
     }
 }
