@@ -34,7 +34,7 @@ class _BiometricPageState extends State<BiometricPage> {
       final bool result = await localAuth.authenticateWithBiometrics();
       if (result) {
         if (context.mounted) {
-          const LandingPageData().push(context);
+          const LandingPageData().pushReplacement(context);
         }
       } else {
         //SystemNavigator.pop();
