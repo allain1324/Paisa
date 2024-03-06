@@ -52,15 +52,15 @@ class RecurringListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
       padding: EdgeInsets.zero,
       itemCount: recurringModels.length,
       itemBuilder: (context, index) {
         final RecurringModel expense = recurringModels[index];
+        final String subtitle =
+            '${expense.recurringType.name(context)} - ${expense.recurringDate.shortDayString}';
         return ListTile(
           title: Text(expense.name),
-          subtitle: Text(
-              '${expense.recurringType.name(context)} - ${expense.recurringDate.shortDayString}'),
+          subtitle: Text(subtitle),
           trailing: IconButton(
             onPressed: () async {
               await expense.delete();
