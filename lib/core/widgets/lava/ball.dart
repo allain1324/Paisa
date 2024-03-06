@@ -39,7 +39,7 @@ class Ball {
   late double size;
   late ForcePoint velocity;
 
-  moveIn(Size size) {
+  void moveIn(Size size) {
     if (pos.x >= size.width - this.size) {
       if (pos.x > 0) velocity.x = -velocity.x;
       pos = pos.copyWith(x: size.width - this.size);

@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Package imports:
 import 'package:go_router/go_router.dart';
@@ -13,6 +14,7 @@ import 'package:paisa/features/category/presentation/pages/add/add_category_page
 import 'package:paisa/features/category/presentation/pages/category_icon_picker_page.dart';
 import 'package:paisa/features/debit/presentation/pages/add/add_debit_page.dart';
 import 'package:paisa/features/home/presentation/pages/home/home_page.dart';
+import 'package:paisa/features/intro/presentation/cubit/country_picker_cubit.dart';
 import 'package:paisa/features/intro/presentation/pages/biometric_page.dart';
 import 'package:paisa/features/intro/presentation/pages/intro_page.dart';
 import 'package:paisa/features/intro/presentation/pages/user_onboarding_page.dart';
@@ -24,6 +26,7 @@ import 'package:paisa/features/settings/presentation/pages/export_and_import_pag
 import 'package:paisa/features/settings/presentation/pages/font_picker_page.dart';
 import 'package:paisa/features/settings/presentation/pages/setting_page.dart';
 import 'package:paisa/features/transaction/presentation/pages/transaction_page.dart';
+import 'package:paisa/main.dart';
 
 part 'routes.g.dart';
 
@@ -137,8 +140,11 @@ class UserOnboardingPageData extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return UserOnboardingPage(
-      forceCountrySelector: forceCountrySelector,
+    return BlocProvider(
+      create: (context) => getIt<CountryPickerCubit>()..fetchCountry(),
+      child: UserOnboardingPage(
+        forceCountrySelector: forceCountrySelector,
+      ),
     );
   }
 }

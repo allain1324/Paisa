@@ -43,21 +43,21 @@ class _UserOnboardingPageState extends State<UserOnboardingPage> {
     });
   }
 
-  Future<void> saveCategoryAndNavigate() async {
+  Future<void> _saveCategoryAndNavigate() async {
     await settings.put(userCategorySelectorKey, false);
     if (mounted) {
       changePage(4);
     }
   }
 
-  Future<void> saveAccountAndNavigate() async {
+  Future<void> _saveAccountAndNavigate() async {
     await settings.put(userAccountSelectorKey, false);
     if (mounted) {
       changePage(3);
     }
   }
 
-  Future<void> saveImage() async {
+  Future<void> _saveImage() async {
     final String image = settings.get(userImageKey, defaultValue: '');
     if (image.isEmpty) {
       settings.put(userImageKey, 'no-image').then((value) => changePage(2));
@@ -66,7 +66,7 @@ class _UserOnboardingPageState extends State<UserOnboardingPage> {
     }
   }
 
-  void saveName() {
+  void _saveName() {
     if (_formState.currentState!.validate()) {
       settings.put(userNameKey, _nameController.text).then((value) {
         changePage(1);
@@ -112,15 +112,15 @@ class _UserOnboardingPageState extends State<UserOnboardingPage> {
                   heroTag: 'next',
                   onPressed: () {
                     if (currentIndex == 0) {
-                      saveName();
+                      _saveName();
                     } else if (currentIndex == 1) {
-                      saveImage();
+                      _saveImage();
                     } else if (currentIndex == 2) {
-                      saveAccountAndNavigate();
+                      _saveAccountAndNavigate();
                     } else if (currentIndex == 3) {
-                      saveCategoryAndNavigate();
+                      _saveCategoryAndNavigate();
                     } else if (currentIndex == 4) {
-                      const LandingPageData().go(context);
+                      _saveCurrencyAndNavigate();
                     }
                   },
                   extendedPadding: const EdgeInsets.symmetric(horizontal: 24),
@@ -149,10 +149,7 @@ class _UserOnboardingPageState extends State<UserOnboardingPage> {
             const IntroImagePickerWidget(),
             const IntroAccountAddWidget(),
             const IntroCategoryAddWidget(),
-            BlocProvider<CountryPickerCubit>(
-              create: (context) => getIt<CountryPickerCubit>()..fetchCountry(),
-              child: const IntroCountryPickerWidget(),
-            ),
+            const IntroCountryPickerWidget(),
           ],
         ),
       ),
@@ -163,5 +160,13 @@ class _UserOnboardingPageState extends State<UserOnboardingPage> {
     setState(() {
       currentIndex = index;
     });
+  }
+
+  void _saveCurrencyAndNavigate() {
+    if (context.read<CountryPickerCubit>().state.selectedCountry != null) {
+      const LandingPageData().go(context);
+    } else {
+      context.showMaterialSnackBar('Please select country');
+    }
   }
 }

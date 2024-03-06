@@ -13,14 +13,12 @@ class ErrorFileExportFailure extends Failure {}
 class ErrorImagePickFailure extends Failure {}
 
 String mapFailureToMessage(Failure failure) {
-  switch (failure.runtimeType) {
-    case FileNotFoundFailure:
-      return 'File not found';
-    case ErrorFileExportFailure:
-      return 'Error file export';
-    default:
-      return 'Unexpected error';
+  if (failure is FileNotFoundFailure) {
+    return 'File not found';
+  } else if (failure is ErrorFileExportFailure) {
+    return 'Error file export';
   }
+  return 'Unexpected error';
 }
 
 class FailedToAddTransactionFailure extends Failure {}

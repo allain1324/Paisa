@@ -50,7 +50,7 @@ class Lava {
 
   double get sy => (height ~/ step).floor().toDouble();
 
-  updateSize(Size size) {
+  void updateSize(Size size) {
     this.size = size;
     sRect = Rect.fromCenter(
         center: Offset.zero, width: sx.toDouble(), height: sy.toDouble());
