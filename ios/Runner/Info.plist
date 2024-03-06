@@ -53,5 +53,7 @@
 	<false/>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Paisa uses Face ID for secure and convenient login.</string>
 </dict>
 </plist>
