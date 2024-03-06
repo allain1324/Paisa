@@ -22,7 +22,7 @@ class ProfileCubit extends Cubit<ProfileState> {
   final Box<dynamic> settings;
 
   void saveName(String name) {
-    settings.put(userNameKey, name).then((value) => emit(SavedNameState()));
+    settings.put(userNameSetKey, name).then((value) => emit(SavedNameState()));
   }
 
   void pickImage() {

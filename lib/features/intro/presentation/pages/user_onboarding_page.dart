@@ -67,7 +67,7 @@ class _UserOnboardingPageState extends State<UserOnboardingPage> {
 
   void _saveName() {
     if (_formState.currentState!.validate()) {
-      settings.put(userNameKey, _nameController.text).then((value) {
+      settings.put(userNameSetKey, _nameController.text).then((value) {
         changePage(1);
       });
     }

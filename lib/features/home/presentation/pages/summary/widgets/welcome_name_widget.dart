@@ -18,10 +18,10 @@ class WelcomeNameWidget extends StatelessWidget {
       valueListenable: getIt
           .get<Box<dynamic>>(instanceName: BoxType.settings.name)
           .listenable(
-        keys: [userNameKey],
+        keys: [userNameSetKey],
       ),
       builder: (context, value, _) {
-        final name = value.get(userNameKey, defaultValue: 'Name');
+        final name = value.get(userNameSetKey, defaultValue: 'Name');
 
         return ListTile(
           title: Text(

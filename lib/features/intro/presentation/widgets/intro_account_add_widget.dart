@@ -119,7 +119,7 @@ class _IntroAccountAddWidgetState extends State<IntroAccountAddWidget>
                                   onSelected: (value) {
                                     dataSource.add(model.copyWith(
                                         name: settings.get(
-                                      userNameKey,
+                                      userNameSetKey,
                                       defaultValue: model.name,
                                     )));
                                     setState(() {
@@ -142,8 +142,7 @@ class _IntroAccountAddWidgetState extends State<IntroAccountAddWidget>
                                     model.cardType.icon,
                                     color: context.primary,
                                   ),
-                                ))
-                            ,
+                                )),
                         FilterChip(
                           onSelected: (value) {
                             const AccountPageData().push(context);

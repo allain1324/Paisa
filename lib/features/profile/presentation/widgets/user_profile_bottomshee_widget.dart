@@ -31,7 +31,7 @@ class UserProfileBottomSheetWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController controller = TextEditingController();
-    String name = settingsUseCase.get(userNameKey, defaultValue: '');
+    String name = settingsUseCase.get(userNameSetKey, defaultValue: '');
     controller.text = name;
     controller.selection = TextSelection.collapsed(offset: name.length);
     return BlocProvider(

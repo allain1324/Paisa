@@ -34,7 +34,15 @@ final Box<dynamic> settings = Hive.box(BoxType.settings.name);
 
 final GoRouter goRouter = GoRouter(
   initialLocation: const IntroRouterData().location,
-  refreshListenable: settings.listenable(),
+  refreshListenable: settings.listenable(keys: [
+    userIntroFinishedKey,
+    userNameSetKey,
+    userImageKey,
+    userCategorySelectorKey,
+    userAccountSelectorKey,
+    userCountryKey,
+    userAuthKey
+  ]),
   debugLogDiagnostics: true,
   observers: <NavigatorObserver>[
     HeroController(),
@@ -44,11 +52,11 @@ final GoRouter goRouter = GoRouter(
   redirect: (context, state) {
     final bool isLogging =
         state.matchedLocation == const IntroRouterData().location;
-    bool isIntroDone = settings.get(userIntroKey, defaultValue: false);
+    bool isIntroDone = settings.get(userIntroFinishedKey, defaultValue: false);
     if (!isIntroDone) {
       return const IntroRouterData().location;
     }
-    final String name = settings.get(userNameKey, defaultValue: '');
+    final String name = settings.get(userNameSetKey, defaultValue: '');
     if (name.isEmpty && isLogging) {
       return UserOnboardingPageData().location;
     }

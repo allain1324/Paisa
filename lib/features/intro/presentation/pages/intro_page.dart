@@ -134,7 +134,7 @@ class IntroBigScreenWidget extends StatelessWidget {
                           onPressed: () => getIt
                               .get<Box<dynamic>>(
                                   instanceName: BoxType.settings.name)
-                              .put(userIntroKey, true),
+                              .put(userIntroFinishedKey, true),
                           title: context.loc.introCTA,
                         )
                       ],
@@ -263,7 +263,7 @@ class IntoMobileWidget extends StatelessWidget {
               onPressed: () {
                 getIt
                     .get<Box<dynamic>>(instanceName: BoxType.settings.name)
-                    .put(userIntroKey, true);
+                    .put(userIntroFinishedKey, true);
               },
               title: context.loc.introCTA,
             ),

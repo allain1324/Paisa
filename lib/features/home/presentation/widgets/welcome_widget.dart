@@ -26,7 +26,7 @@ class UserImageWidget extends StatelessWidget {
     return ValueListenableBuilder<Box>(
       valueListenable: getIt
           .get<Box<dynamic>>(instanceName: BoxType.settings.name)
-          .listenable(keys: [userImageKey, userNameKey]),
+          .listenable(keys: [userImageKey, userNameSetKey]),
       builder: (context, value, _) {
         String image = value.get(userImageKey, defaultValue: '');
         if (image == 'no-image') {
