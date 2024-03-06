@@ -41,25 +41,30 @@ class ChooseCalendarFormatWidgetState
               style: context.titleLarge,
             ),
           ),
-          ...CalendarFormats.values
-              .map(
-                (e) => RadioListTile<CalendarFormats>(
-                  value: e,
-                  activeColor: context.primary,
-                  groupValue: currentIndex,
-                  onChanged: (CalendarFormats? value) {
-                    currentIndex = value!;
-                    setState(() {});
-                  },
-                  title: Text(
-                    e.exampleValue,
-                    style: TextStyle(
-                      color: context.onSurface,
+          Expanded(
+            child: ListView(
+              shrinkWrap: true,
+              children: [
+                ...CalendarFormats.values.map(
+                  (e) => RadioListTile<CalendarFormats>(
+                    value: e,
+                    activeColor: context.primary,
+                    groupValue: currentIndex,
+                    onChanged: (CalendarFormats? value) {
+                      currentIndex = value!;
+                      setState(() {});
+                    },
+                    title: Text(
+                      e.exampleValue,
+                      style: TextStyle(
+                        color: context.onSurface,
+                      ),
                     ),
                   ),
-                ),
-              )
-              ,
+                )
+              ],
+            ),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [

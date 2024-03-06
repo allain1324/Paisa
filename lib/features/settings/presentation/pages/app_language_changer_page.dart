@@ -49,6 +49,9 @@ class _AppLanguageChangerPageState extends State<AppLanguageChangerPage> {
           itemBuilder: (_, index) {
             final LanguageEntity entity = languages[index];
             return ListTile(
+              selectedTileColor: context.primaryContainer,
+              selectedColor: context.onPrimaryContainer,
+              selected: selectedLanguage == entity.code,
               onTap: () {
                 setState(() {
                   selectedLanguage = entity.code;
@@ -56,9 +59,9 @@ class _AppLanguageChangerPageState extends State<AppLanguageChangerPage> {
               },
               title: Text(
                 entity.value,
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                style: context.titleMedium?.copyWith(
                     color: selectedLanguage == entity.code
-                        ? Theme.of(context).colorScheme.primary
+                        ? context.primary
                         : null),
               ),
             );

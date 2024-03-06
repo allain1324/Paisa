@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 // Package imports:
 import 'package:google_fonts/google_fonts.dart';
@@ -33,7 +34,7 @@ class _FontPickerPageState extends State<FontPickerPage> {
     if (!mounted) {
       return;
     }
-    Navigator.pop(context);
+    context.pop();
   }
 
   @override
@@ -43,8 +44,7 @@ class _FontPickerPageState extends State<FontPickerPage> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(context.loc.chooseFont),
-          titleTextStyle:
-              context.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+          titleTextStyle: context.titleLarge,
           bottom: PreferredSize(
             preferredSize: const Size.fromHeight(kToolbarHeight),
             child: Padding(

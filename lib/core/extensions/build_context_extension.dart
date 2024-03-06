@@ -20,7 +20,7 @@ extension AppBarHelper on BuildContext {
     return AppBar(
       leading: leadingWidget,
       title: Text(title),
-      titleTextStyle: titleSmall?.copyWith(fontWeight: FontWeight.bold),
+      titleTextStyle: titleLarge,
       actions: actions ?? [],
     );
   }
