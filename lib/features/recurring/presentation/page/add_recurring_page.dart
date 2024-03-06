@@ -78,7 +78,7 @@ class _AddRecurringPageState extends State<AddRecurringPage> {
                     RecurringAmountWidget(controller: amountController),
                     const SizedBox(height: 16),
                     const RecurringDatePickerWidget(),
-                    RecurringWidget(),
+                    const RecurringWidget(),
                     const SelectedAccount(),
                     const SelectCategory(),
                   ],

@@ -128,21 +128,14 @@ class _DebitPageState extends State<DebitPage> {
                 child: ListView(
                   shrinkWrap: true,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: Column(
-                        children: [
-                          DebtToggleButtonsWidget(debtsBloc: debitBloc),
-                          const SizedBox(height: 16),
-                          AmountWidget(controller: amountController),
-                          const SizedBox(height: 16),
-                          NameWidget(controller: nameController),
-                          const SizedBox(height: 16),
-                          DescriptionWidget(controller: descController),
-                          const SizedBox(height: 16),
-                        ],
-                      ),
-                    ),
+                    const DebtToggleButtonsWidget(),
+                    const SizedBox(height: 16),
+                    AmountWidget(controller: amountController),
+                    const SizedBox(height: 16),
+                    NameWidget(controller: nameController),
+                    const SizedBox(height: 16),
+                    DescriptionWidget(controller: descController),
+                    const SizedBox(height: 16),
                     const StartAndEndDateWidget(),
                     ListTile(
                       title: Text(
@@ -220,52 +213,49 @@ class StartAndEndDateWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final debtBloc = BlocProvider.of<DebitBloc>(context);
     return Row(
       children: [
-        BlocBuilder(
-          bloc: debtBloc,
-          buildWhen: (previous, current) => current is SelectedStartDateState,
-          builder: (context, state) {
-            if (state is SelectedStartDateState) {
-              return Expanded(
-                child: DatePickerWidget(
+        Expanded(
+          child: BlocBuilder<DebitBloc, DebtsState>(
+            buildWhen: (previous, current) => current is SelectedStartDateState,
+            builder: (context, state) {
+              if (state is SelectedStartDateState) {
+                return DatePickerWidget(
                   onSelected: (date) {
-                    debtBloc.add(SelectedStartDateEvent(date));
+                    context.read<DebitBloc>().add(SelectedStartDateEvent(date));
                   },
                   title: context.loc.startDate,
                   subtitle: state.startDateTime.formattedDate,
                   icon: MdiIcons.calendarStart,
                   lastDate: DateTime.now(),
                   firstDate: DateTime(2000),
-                ),
-              );
-            } else {
-              return const SizedBox.shrink();
-            }
-          },
+                );
+              } else {
+                return const SizedBox.shrink();
+              }
+            },
+          ),
         ),
-        BlocBuilder(
-          bloc: debtBloc,
-          buildWhen: (previous, current) => current is SelectedEndDateState,
-          builder: (context, state) {
-            if (state is SelectedEndDateState) {
-              return Expanded(
-                child: DatePickerWidget(
+        Expanded(
+          child: BlocBuilder<DebitBloc, DebtsState>(
+            buildWhen: (previous, current) => current is SelectedEndDateState,
+            builder: (context, state) {
+              if (state is SelectedEndDateState) {
+                return DatePickerWidget(
                   onSelected: (date) {
-                    debtBloc.add(SelectedEndDateEvent(date));
+                    context.read<DebitBloc>().add(SelectedEndDateEvent(date));
                   },
                   title: context.loc.dueDate,
                   subtitle: state.endDateTime.formattedDate,
                   icon: MdiIcons.calendarEnd,
                   lastDate: DateTime(2050),
                   firstDate: DateTime.now(),
-                ),
-              );
-            } else {
-              return const SizedBox.shrink();
-            }
-          },
+                );
+              } else {
+                return const SizedBox.shrink();
+              }
+            },
+          ),
         ),
       ],
     );
@@ -323,19 +313,22 @@ class NameWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PaisaTextFormField(
-      controller: controller,
-      keyboardType: TextInputType.name,
-      hintText: context.loc.nameHint,
-      validator: (value) {
-        if (value!.length >= 2) {
-          return null;
-        } else {
-          return context.loc.validName;
-        }
-      },
-      onChanged: (value) =>
-          BlocProvider.of<DebitBloc>(context).currentName = value,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: PaisaTextFormField(
+        controller: controller,
+        keyboardType: TextInputType.name,
+        hintText: context.loc.nameHint,
+        validator: (value) {
+          if (value!.length >= 2) {
+            return null;
+          } else {
+            return context.loc.validName;
+          }
+        },
+        onChanged: (value) =>
+            BlocProvider.of<DebitBloc>(context).currentName = value,
+      ),
     );
   }
 }
@@ -350,19 +343,22 @@ class DescriptionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PaisaTextFormField(
-      controller: controller,
-      keyboardType: TextInputType.name,
-      hintText: context.loc.description,
-      validator: (value) {
-        if (value!.length >= 3) {
-          return null;
-        } else {
-          return context.loc.validDescription;
-        }
-      },
-      onChanged: (value) =>
-          BlocProvider.of<DebitBloc>(context).currentDescription = value,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: PaisaTextFormField(
+        controller: controller,
+        keyboardType: TextInputType.name,
+        hintText: context.loc.description,
+        validator: (value) {
+          if (value!.length >= 3) {
+            return null;
+          } else {
+            return context.loc.validDescription;
+          }
+        },
+        onChanged: (value) =>
+            BlocProvider.of<DebitBloc>(context).currentDescription = value,
+      ),
     );
   }
 }
@@ -377,32 +373,35 @@ class AmountWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PaisaTextFormField(
-      controller: controller,
-      keyboardType: TextInputType.number,
-      hintText: context.loc.amount,
-      onChanged: (value) {
-        double? amount = double.tryParse(value);
-        BlocProvider.of<DebitBloc>(context).currentAmount = amount;
-      },
-      inputFormatters: [
-        FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
-        TextInputFormatter.withFunction((oldValue, newValue) {
-          try {
-            final text = newValue.text;
-            if (text.isNotEmpty) double.parse(text);
-            return newValue;
-          } catch (_) {}
-          return oldValue;
-        }),
-      ],
-      validator: (value) {
-        if (value!.isNotEmpty) {
-          return null;
-        } else {
-          return context.loc.validAmount;
-        }
-      },
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: PaisaTextFormField(
+        controller: controller,
+        keyboardType: TextInputType.number,
+        hintText: context.loc.amount,
+        onChanged: (value) {
+          double? amount = double.tryParse(value);
+          BlocProvider.of<DebitBloc>(context).currentAmount = amount;
+        },
+        inputFormatters: [
+          FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
+          TextInputFormatter.withFunction((oldValue, newValue) {
+            try {
+              final text = newValue.text;
+              if (text.isNotEmpty) double.parse(text);
+              return newValue;
+            } catch (_) {}
+            return oldValue;
+          }),
+        ],
+        validator: (value) {
+          if (value!.isNotEmpty) {
+            return null;
+          } else {
+            return context.loc.validAmount;
+          }
+        },
+      ),
     );
   }
 }

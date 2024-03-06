@@ -13,34 +13,36 @@ import 'package:paisa/features/debit/presentation/cubit/debts_bloc.dart';
 class DebtToggleButtonsWidget extends StatelessWidget {
   const DebtToggleButtonsWidget({
     super.key,
-    required this.debtsBloc,
   });
 
-  final DebitBloc debtsBloc;
-
-  void _update(DebitType type) {
-    debtsBloc.add(ChangeDebtTypeEvent(type));
+  void _update(BuildContext context, DebitType type) {
+    context.read<DebitBloc>().add(ChangeDebtTypeEvent(type));
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder(
-      bloc: debtsBloc,
+    return BlocBuilder<DebitBloc, DebtsState>(
       buildWhen: (previous, current) => current is DebtsTabState,
       builder: (context, state) {
-        return Row(
-          children: [
-            PaisaPillChip(
-              title: DebitType.debit.stringValue(context),
-              isSelected: debtsBloc.currentDebtType == DebitType.debit,
-              onPressed: () => _update(DebitType.debit),
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: SizedBox(
+            height: 56,
+            child: ListView.separated(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              separatorBuilder: (context, index) => const SizedBox(width: 6),
+              itemCount: DebitType.values.length,
+              itemBuilder: (context, index) {
+                final DebitType type = DebitType.values[index];
+                return PaisaPillChip(
+                  title: type.stringValue(context),
+                  isSelected: context.read<DebitBloc>().currentDebtType == type,
+                  onPressed: () => _update(context, type),
+                );
+              },
             ),
-            PaisaPillChip(
-              title: DebitType.credit.stringValue(context),
-              isSelected: debtsBloc.currentDebtType == DebitType.credit,
-              onPressed: () => _update(DebitType.credit),
-            ),
-          ],
+          ),
         );
       },
     );
