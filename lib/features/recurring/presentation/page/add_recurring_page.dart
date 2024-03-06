@@ -78,9 +78,7 @@ class _AddRecurringPageState extends State<AddRecurringPage> {
                     RecurringAmountWidget(controller: amountController),
                     const SizedBox(height: 16),
                     const RecurringDatePickerWidget(),
-                    RecurringWidget(
-                      recurringCubit: recurringCubit,
-                    ),
+                    RecurringWidget(),
                     const SelectedAccount(),
                     const SelectCategory(),
                   ],
@@ -581,19 +579,15 @@ class _RecurringDatePickerWidgetState extends State<RecurringDatePickerWidget> {
 class RecurringWidget extends StatelessWidget {
   const RecurringWidget({
     super.key,
-    required this.recurringCubit,
   });
 
-  final RecurringCubit recurringCubit;
-
-  void _update(RecurringType type) {
-    recurringCubit.changeRecurringEvent(type);
+  void _update(BuildContext context, RecurringType type) {
+    context.read<RecurringCubit>().changeRecurringEvent(type);
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder(
-      bloc: recurringCubit,
+    return BlocBuilder<RecurringCubit, RecurringState>(
       buildWhen: (oldState, newState) => newState is RecurringTypeState,
       builder: (context, state) {
         return Column(
@@ -610,36 +604,23 @@ class RecurringWidget extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                physics: const BouncingScrollPhysics(),
-                child: Row(
-                  children: [
-                    PaisaPillChip(
-                      title: RecurringType.daily.name(context),
+              child: SizedBox(
+                height: 56,
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(width: 6),
+                  itemCount: RecurringType.values.length,
+                  itemBuilder: (context, index) {
+                    final RecurringType type = RecurringType.values[index];
+                    return PaisaPillChip(
+                      title: type.name(context),
                       isSelected:
-                          recurringCubit.recurringType == RecurringType.daily,
-                      onPressed: () => _update(RecurringType.daily),
-                    ),
-                    PaisaPillChip(
-                      title: RecurringType.weekly.name(context),
-                      isSelected:
-                          recurringCubit.recurringType == RecurringType.weekly,
-                      onPressed: () => _update(RecurringType.weekly),
-                    ),
-                    PaisaPillChip(
-                      title: RecurringType.monthly.name(context),
-                      isSelected:
-                          recurringCubit.recurringType == RecurringType.monthly,
-                      onPressed: () => _update(RecurringType.monthly),
-                    ),
-                    PaisaPillChip(
-                      title: RecurringType.yearly.name(context),
-                      isSelected:
-                          recurringCubit.recurringType == RecurringType.yearly,
-                      onPressed: () => _update(RecurringType.yearly),
-                    ),
-                  ],
+                          context.read<RecurringCubit>().recurringType == type,
+                      onPressed: () => _update(context, type),
+                    );
+                  },
                 ),
               ),
             ),
