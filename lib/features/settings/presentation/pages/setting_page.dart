@@ -1,4 +1,6 @@
 // Flutter imports:
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -147,10 +149,7 @@ class SettingsPage extends StatelessWidget {
                   icon: MdiIcons.star,
                   title: context.loc.appRate,
                   subtitle: context.loc.appRateDesc,
-                  onTap: () => launchUrl(
-                    Uri.parse(playStoreUrl),
-                    mode: LaunchMode.externalApplication,
-                  ),
+                  onTap: _openPlayStoreAppStoreUrl,
                 ),
                 const PaisaDivider(),
                 SettingsOption(
@@ -197,6 +196,22 @@ class SettingsPage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+void _openPlayStoreAppStoreUrl() {
+  if (Platform.isAndroid || Platform.isIOS) {
+    final appId =
+        Platform.isAndroid ? 'dev.hemanths.paisa' : 'dev.hemanths.paisa.app';
+    final url = Uri.parse(
+      Platform.isAndroid
+          ? 'https://play.google.com/store/apps/details?id=$appId'
+          : 'https://apps.apple.com/app/id$appId',
+    );
+    launchUrl(
+      url,
+      mode: LaunchMode.externalApplication,
     );
   }
 }
