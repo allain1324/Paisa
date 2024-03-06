@@ -9,6 +9,7 @@ import 'package:flutter/foundation.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:injectable/injectable.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path_provider/path_provider.dart';
 
 // Project imports:
@@ -36,6 +37,7 @@ class JSONExportImpl implements Export {
     this.expenseDataSource,
     this.debtDataSource,
     this.debtTransactionDataSource,
+    this.packageInfo,
   );
 
   final AccountDataSource accountDataSource;
@@ -43,6 +45,7 @@ class JSONExportImpl implements Export {
   final DebtDataSource debtDataSource;
   final DebtTransactionDataSource debtTransactionDataSource;
   final TransactionDataSource expenseDataSource;
+  final PackageInfo packageInfo;
 
   @override
   Future<String> export() async {
@@ -66,7 +69,7 @@ class JSONExportImpl implements Export {
         debtTransactionDataSource.export();
 
     final Map<String, dynamic> data = {
-      'version': 1,
+      'version': 'v${packageInfo.version}',
       'expenses': expenses.toJson(),
       'accounts': accounts.toJson(),
       'categories': categories.toJson(),
