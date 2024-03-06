@@ -31,7 +31,7 @@ class RecurringPage extends StatelessWidget {
                 icon: MdiIcons.cashSync,
                 actionTitle: context.loc.recurringAction,
                 onActionPressed: () {
-                  const RecurringPageData().push(context);
+                  const AddRecurringPageData().push(context);
                 },
               );
             }

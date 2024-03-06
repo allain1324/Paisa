@@ -71,7 +71,7 @@ class _AddRecurringPageState extends State<AddRecurringPage> {
                 body: ListView(
                   shrinkWrap: true,
                   children: [
-                    TransactionToggleButtons(recurringCubit: recurringCubit),
+                    const TransactionToggleButtons(),
                     const SizedBox(height: 16),
                     RecurringNameWidget(controller: nameController),
                     const SizedBox(height: 16),
@@ -108,41 +108,39 @@ class _AddRecurringPageState extends State<AddRecurringPage> {
 class TransactionToggleButtons extends StatelessWidget {
   const TransactionToggleButtons({
     super.key,
-    required this.recurringCubit,
   });
 
-  final RecurringCubit recurringCubit;
-
-  void _update(TransactionType type) {
-    recurringCubit.changeTransactionType(type);
+  void _update(BuildContext context, TransactionType type) {
+    context.read<RecurringCubit>().changeTransactionType(type);
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder(
-      bloc: recurringCubit,
+    final filters = [
+      TransactionType.expense,
+      TransactionType.income,
+    ];
+    return BlocBuilder<RecurringCubit, RecurringState>(
       buildWhen: (previous, current) => current is TransactionTypeState,
       builder: (context, state) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                PaisaPillChip(
-                  title: TransactionType.expense.stringName(context),
-                  isSelected:
-                      recurringCubit.transactionType == TransactionType.expense,
-                  onPressed: () => _update(TransactionType.expense),
-                ),
-                PaisaPillChip(
-                  title: TransactionType.income.stringName(context),
-                  isSelected:
-                      recurringCubit.transactionType == TransactionType.income,
-                  onPressed: () => _update(TransactionType.income),
-                ),
-              ],
+          child: SizedBox(
+            height: 56,
+            child: ListView.separated(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              separatorBuilder: (context, index) => const SizedBox(width: 6),
+              itemCount: filters.length,
+              itemBuilder: (context, index) {
+                final TransactionType transactionType = filters[index];
+                return PaisaPillChip(
+                  title: transactionType.stringName(context),
+                  isSelected: context.read<RecurringCubit>().transactionType ==
+                      transactionType,
+                  onPressed: () => _update(context, transactionType),
+                );
+              },
             ),
           ),
         );
