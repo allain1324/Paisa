@@ -55,21 +55,20 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
   final AddTransactionUseCase addTransactionUseCase;
   String? currentDescription;
   TransactionEntity? currentExpense;
-  final GetDefaultCategoriesUseCase getDefaultCategoriesUseCase;
   final DeleteTransactionUseCase deleteTransactionUseCase;
-  double? transactionAmount;
   String? expenseName;
+  final GetDefaultCategoriesUseCase getDefaultCategoriesUseCase;
   final GetTransactionUseCase getTransactionUseCase;
   RecurringType recurringType = RecurringType.daily;
   int? selectedAccountId;
-  int? selectedCategoryId;
   CategoryEntity? selectedCategory;
+  int? selectedCategoryId;
   DateTime selectedDate = DateTime.now();
   final SettingsUseCase settingsUseCase;
   TimeOfDay timeOfDay = TimeOfDay.now();
   AccountEntity? fromAccount, toAccount;
+  double? transactionAmount;
   TransactionType transactionType = TransactionType.expense;
-
   final UpdateTransactionUseCase updateTransactionUseCase;
 
   Future<void> _fetchExpenseFromId(
@@ -115,34 +114,41 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
         );
       }
       final double? validAmount = transactionAmount;
-      final int? categoryId = selectedCategoryId;
       if (validAmount == null || validAmount == 0.0) {
         return emit(
-            const TransactionState.transactionError('Enter valid amount'));
+          const TransactionState.transactionError('Enter valid amount'),
+        );
       }
+      final int? categoryId = selectedCategoryId;
       if (categoryId == null) {
-        return emit(const TransactionState.transactionError('Select category'));
+        return emit(
+          const TransactionState.transactionError('Select category'),
+        );
       }
-      await addTransactionUseCase(AddTransactionParams(
-        name:
-            'Transfer from ${fromAccount!.bankName} to ${toAccount!.bankName}',
-        amount: validAmount,
-        time: selectedDate,
-        categoryId: categoryId,
-        accountId: fromAccount!.superId!,
-        description: '',
-      ));
+      await addTransactionUseCase(
+        AddTransactionParams(
+          name:
+              'Transfer from ${fromAccount!.bankName} to ${toAccount!.bankName}',
+          amount: validAmount,
+          time: selectedDate,
+          categoryId: categoryId,
+          accountId: fromAccount!.superId!,
+          description: '',
+        ),
+      );
 
-      await addTransactionUseCase(AddTransactionParams(
-        name:
-            'Received from ${fromAccount?.bankName} to ${toAccount?.bankName}',
-        amount: validAmount,
-        time: selectedDate,
-        categoryId: categoryId,
-        accountId: toAccount!.superId!,
-        transactionType: TransactionType.income,
-        description: '',
-      ));
+      await addTransactionUseCase(
+        AddTransactionParams(
+          name:
+              'Received from ${fromAccount?.bankName} to ${toAccount?.bankName}',
+          amount: validAmount,
+          time: selectedDate,
+          categoryId: categoryId,
+          accountId: toAccount!.superId!,
+          transactionType: TransactionType.income,
+          description: '',
+        ),
+      );
 
       emit(const TransactionState.transactionAdded(isAddOrUpdate: true));
     } else {

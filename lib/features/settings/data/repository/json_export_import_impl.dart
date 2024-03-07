@@ -23,7 +23,7 @@ import 'package:paisa/features/debit/data/data_sources/debit_local_data_source_i
 import 'package:paisa/features/debit/data/models/debit_model.dart';
 import 'package:paisa/features/debit_transaction/data/data_source/debit_transactions_data_store.dart';
 import 'package:paisa/features/debit_transaction/data/model/debit_transactions_model.dart';
-import 'package:paisa/features/settings/data/model/data.dart';
+import 'package:paisa/features/settings/data/model/paisa_data_response.dart';
 import 'package:paisa/features/settings/domain/repository/import_export.dart';
 import 'package:paisa/features/transaction/data/data_sources/local/transaction_data_manager.dart';
 import 'package:paisa/features/transaction/data/model/transaction_model.dart';
@@ -107,29 +107,31 @@ class JSONImportImpl implements Import {
     }
 
     final jsonString = await _readJSONFromFile(result.files.first.path!);
-    final Data data = Data.fromRawJson(jsonString);
+    final Map<String, dynamic> json = jsonDecode(jsonString);
+    final PaisaDataResponse paisaDataResponse =
+        PaisaDataResponse.fromJson(json);
 
     await expenseDataSource.clear();
     await categoryDataSource.clear();
     await accountDataSource.clear();
     await debtDataSource.clear();
 
-    for (var element in data.accounts) {
+    for (var element in paisaDataResponse.accounts) {
       await accountDataSource.update(element);
     }
 
-    for (var element in data.categories) {
+    for (var element in paisaDataResponse.categories) {
       await categoryDataSource.update(element);
     }
 
-    for (var element in data.expenses) {
+    for (var element in paisaDataResponse.expenses) {
       await expenseDataSource.update(element);
     }
 
-    for (var element in data.debts ?? []) {
+    for (var element in paisaDataResponse.debts) {
       await debtDataSource.update(element);
     }
-    for (var element in data.debitTransactions ?? []) {
+    for (var element in paisaDataResponse.debitTransactions) {
       await debitTransactionDataSource.update(element);
     }
     return true;
@@ -149,6 +151,6 @@ class JSONImportImpl implements Import {
 
   Future<String> _readJSONFromFile(String path) async {
     final Uint8List bytes = await File(path).readAsBytes();
-    return String.fromCharCodes(bytes);
+    return utf8.decode(bytes);
   }
 }

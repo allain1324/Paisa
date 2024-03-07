@@ -40,8 +40,7 @@ class Authenticate {
           biometricOnly: true,
         ),
       );
-    } catch (_) {
-      print(_);
+    } on PlatformException catch (_) {
       return false;
     }
     return authenticated;

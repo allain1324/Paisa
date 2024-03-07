@@ -23,12 +23,18 @@
     "justBlackText"
   ],
 
+  "cs": [
+    "emptyRecommendedAccountsInfo",
+    "transferCategorySubtitle",
+    "currencySelectorError",
+    "justBlackText"
+  ],
+
   "de": [
     "defaultAccount",
     "deletedCategory",
     "pickColorAccountDesc",
     "back",
-    "emptySelectedAccountsInfo",
     "emptyRecommendedAccountsInfo",
     "transferCategorySubtitle",
     "currencySelectorError",
@@ -118,6 +124,13 @@
     "justBlackText"
   ],
 
+  "ne": [
+    "emptyRecommendedAccountsInfo",
+    "transferCategorySubtitle",
+    "currencySelectorError",
+    "justBlackText"
+  ],
+
   "pl": [
     "deletedCategory",
     "pickColorAccountDesc",
@@ -183,6 +196,13 @@
 
   "ta": [
     "pickColorAccountDesc",
+    "emptyRecommendedAccountsInfo",
+    "transferCategorySubtitle",
+    "currencySelectorError",
+    "justBlackText"
+  ],
+
+  "uk": [
     "emptyRecommendedAccountsInfo",
     "transferCategorySubtitle",
     "currencySelectorError",
