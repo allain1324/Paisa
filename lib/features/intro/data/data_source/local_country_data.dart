@@ -1603,4 +1603,18 @@ const List<Map<String, dynamic>> localCountriesData = [
     'symbol_on_left': true,
     'pattern': '#,##0.00',
   },
+  {
+    'code': 'MVR',
+    'name': 'Maldivian Rufiyaa',
+    'symbol': 'ރ.',
+    'flag': 'MVR',
+    'decimal_digits': 2,
+    'number': 462,
+    'name_plural': 'Maldivian rufiyaas',
+    'thousands_separator': ',',
+    'decimal_separator': '.',
+    'space_between_amount_and_symbol': true,
+    'symbol_on_left': true,
+    'pattern': '#,##,##0.00',
+  },
 ];
