@@ -2,6 +2,7 @@
 import 'dart:math';
 
 // Flutter imports:
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -26,6 +27,10 @@ Future<void> main() async {
   await configInjector(getIt);
   getIt.get<RecurringRepository>().checkForRecurring();
   runApp(const PaisaApp());
+  if (TargetPlatform.android == defaultTargetPlatform ||
+      TargetPlatform.iOS == defaultTargetPlatform) {
+    initAppShortcuts();
+  }
 }
 
 _addDummyData() async {

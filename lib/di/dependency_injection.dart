@@ -29,10 +29,6 @@ Future<GetIt> configInjector(
   if (TargetPlatform.android == defaultTargetPlatform) {
     await FlutterDisplayMode.setHighRefreshRate();
   }
-  if (TargetPlatform.android == defaultTargetPlatform ||
-      TargetPlatform.iOS == defaultTargetPlatform) {
-    initAppShortcuts();
-  }
 
   return init(
     getIt,

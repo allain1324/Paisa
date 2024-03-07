@@ -69,8 +69,7 @@ class _CategoryIconPickerPageState extends State<CategoryIconPickerPage> {
                   contentPadding: const EdgeInsets.symmetric(
                     horizontal: 16,
                   ),
-                  visualDensity:
-                      const VisualDensity(vertical: -3),
+                  visualDensity: const VisualDensity(vertical: -3),
                   title: Text(
                     iconData.key,
                     style: context.titleMedium?.copyWith(

@@ -27,7 +27,6 @@ linter:
     - prefer_single_quotes
     - prefer_const_constructors
     - prefer_constant_declarations
-    - prefer_relative_imports: false
     - depend_on_referenced_packages: false
     - sort_pub_dependencies
     - always_use_package_imports
