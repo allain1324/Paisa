@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -60,26 +61,35 @@ class _PaisaAppState extends State<PaisaApp> {
             userCountryKey,
             appFontChangerKey,
             appLanguageKey,
+            blackThemeKey,
           ],
         ),
         builder: (context, value, _) {
+          final int color = value.get(
+            appColorKey,
+            defaultValue: 0xFF795548,
+          );
+          final Color primaryColor = Color(color);
           final bool isDynamic = value.get(
             dynamicThemeKey,
+            defaultValue: false,
+          );
+          final bool isBlack = value.get(
+            blackThemeKey,
             defaultValue: false,
           );
           final ThemeMode themeMode = ThemeMode.values[value.get(
             themeModeKey,
             defaultValue: 0,
           )];
-          final int color = value.get(
-            appColorKey,
-            defaultValue: 0xFF795548,
+          final Locale locale = Locale(
+            value.get(appLanguageKey, defaultValue: 'en'),
           );
-          final Color primaryColor = Color(color);
-          final Locale locale =
-              Locale(value.get(appLanguageKey, defaultValue: 'en'));
-          final String fontPreference =
-              value.get(appFontChangerKey, defaultValue: 'Outfit');
+          final String fontPreference = value.get(
+            appFontChangerKey,
+            defaultValue: 'Outfit',
+          );
+
           final TextTheme darkTextTheme = GoogleFonts.getTextTheme(
             fontPreference,
             ThemeData.dark().textTheme,
@@ -116,6 +126,13 @@ class _PaisaAppState extends State<PaisaApp> {
                     seedColor: primaryColor,
                     brightness: Brightness.dark,
                   );
+
+                  if (isBlack) {
+                    darkColorScheme = darkColorScheme.copyWith(
+                      background: Colors.black,
+                      surface: Colors.black,
+                    );
+                  }
                 }
 
                 return ScreenUtilInit(

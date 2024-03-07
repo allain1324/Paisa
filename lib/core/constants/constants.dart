@@ -7,6 +7,7 @@ const termsAndConditionsUrl = 'https://hemanths.dev/privacy';
 const String themeModeKey = 'key_theme_mode';
 const String appColorKey = 'key_app_color';
 const String dynamicThemeKey = 'key_dynamic_color';
+const String blackThemeKey = 'key_black_color';
 const String biometricKey = 'key_biometric';
 const String userNameSetKey = 'user_name_key';
 const String userIntroFinishedKey = 'user_intro_key';

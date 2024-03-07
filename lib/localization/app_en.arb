@@ -1064,5 +1064,10 @@
     "@currencySelectorError": {
         "description": "Text shown when the currency is not selected",
         "type": "text"
+    },
+    "justBlackText": "Just black",
+    "@justBlackText": {
+        "description": "Text shown on setting page for enable black theme",
+        "type": "text"
     }
 }

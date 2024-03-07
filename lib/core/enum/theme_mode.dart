@@ -1,8 +1,7 @@
-// Flutter imports:
 import 'package:flutter/material.dart';
 
 extension ThemeModeName on ThemeMode {
-  String get themeName {
+  String get stringValue {
     switch (this) {
       case ThemeMode.system:
         return 'System default';

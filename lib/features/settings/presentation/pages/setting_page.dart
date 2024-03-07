@@ -4,16 +4,16 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:hive_flutter/adapters.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:paisa/core/enum/theme_mode.dart';
 import 'package:paisa/features/settings/presentation/widgets/choose_calendar_format_widget.dart';
 import 'package:paisa/features/settings/presentation/widgets/choose_theme_mode_widget.dart';
+import 'package:paisa/features/settings/presentation/widgets/true_black_widget_theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // Project imports:
 import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
-import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/core/enum/calendar_formats.dart';
 import 'package:paisa/core/widgets/paisa_divider.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
@@ -36,12 +36,10 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final currentTheme = ThemeMode.values[getIt
-        .get<Box<dynamic>>(instanceName: BoxType.settings.name)
-        .get(themeModeKey, defaultValue: 0)];
-    final currentFormat = CalendarFormats.values[getIt
-        .get<Box<dynamic>>(instanceName: BoxType.settings.name)
-        .get(calendarFormatKey, defaultValue: 2)];
+    final currentTheme =
+        ThemeMode.values[settings.get(themeModeKey, defaultValue: 0)];
+    final currentFormat = CalendarFormats
+        .values[settings.get(calendarFormatKey, defaultValue: 2)];
     return PaisaAnnotatedRegionWidget(
       color: Colors.transparent,
       child: Scaffold(
@@ -60,7 +58,7 @@ class SettingsPage extends StatelessWidget {
                 SettingsOption(
                   icon: MdiIcons.brightness4,
                   title: context.loc.chooseTheme,
-                  subtitle: currentTheme.themeName,
+                  subtitle: currentTheme.stringValue,
                   onTap: () {
                     showModalBottomSheet(
                       constraints: BoxConstraints(
@@ -81,6 +79,8 @@ class SettingsPage extends StatelessWidget {
                     );
                   },
                 ),
+                const PaisaDivider(),
+                const JustBlackWidget(),
                 const PaisaDivider(),
                 const SmallSizeFabWidget(),
               ],

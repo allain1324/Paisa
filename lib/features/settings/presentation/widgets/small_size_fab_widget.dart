@@ -2,13 +2,11 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:hive_flutter/adapters.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:paisa/config/routes.dart';
 
 // Project imports:
 import 'package:paisa/core/common.dart';
-import 'package:paisa/core/common_enum.dart';
-import 'package:paisa/main.dart';
 
 class SmallSizeFabWidget extends StatefulWidget {
   const SmallSizeFabWidget({super.key});
@@ -19,7 +17,6 @@ class SmallSizeFabWidget extends StatefulWidget {
 
 class _SmallSizeFabWidgetState extends State<SmallSizeFabWidget> {
   late bool isSelected = settings.get(smallSizeFabKey, defaultValue: false);
-  final settings = getIt.get<Box<dynamic>>(instanceName: BoxType.settings.name);
 
   @override
   Widget build(BuildContext context) {

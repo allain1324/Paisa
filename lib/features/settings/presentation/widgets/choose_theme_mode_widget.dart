@@ -2,12 +2,11 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:hive_flutter/adapters.dart';
+import 'package:paisa/config/routes.dart';
 
 // Project imports:
 import 'package:paisa/core/common.dart';
-import 'package:paisa/core/common_enum.dart';
-import 'package:paisa/main.dart';
+import 'package:paisa/core/enum/theme_mode.dart';
 
 class ChooseThemeModeWidget extends StatefulWidget {
   const ChooseThemeModeWidget({
@@ -37,25 +36,23 @@ class ChooseThemeModeWidgetState extends State<ChooseThemeModeWidget> {
               style: context.titleLarge,
             ),
           ),
-          ...ThemeMode.values
-              .map(
-                (e) => RadioListTile(
-                  value: e,
-                  activeColor: context.primary,
-                  groupValue: currentIndex,
-                  onChanged: (ThemeMode? value) {
-                    currentIndex = value!;
-                    setState(() {});
-                  },
-                  title: Text(
-                    e.themeName,
-                    style: TextStyle(
-                      color: context.onSurface,
-                    ),
-                  ),
+          ...ThemeMode.values.map(
+            (e) => RadioListTile<ThemeMode>(
+              value: e,
+              activeColor: context.primary,
+              groupValue: currentIndex,
+              onChanged: (ThemeMode? value) {
+                currentIndex = value!;
+                setState(() {});
+              },
+              title: Text(
+                e.stringValue,
+                style: TextStyle(
+                  color: context.onSurface,
                 ),
-              )
-              ,
+              ),
+            ),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -87,8 +84,7 @@ class ChooseThemeModeWidgetState extends State<ChooseThemeModeWidget> {
                       vertical: 12,
                     ),
                   ),
-                  onPressed: () => getIt
-                      .get<Box<dynamic>>(instanceName: BoxType.settings.name)
+                  onPressed: () => settings
                       .put(themeModeKey, currentIndex.index)
                       .then((value) => Navigator.pop(context)),
                   child: Text(context.loc.ok),
