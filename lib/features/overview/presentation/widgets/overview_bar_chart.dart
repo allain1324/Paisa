@@ -35,6 +35,7 @@ class BarChartSample extends StatelessWidget {
     required this.groupedTransactions,
   });
 
+  final List<OverviewBarChartData> barDataList = [];
   final Map<String, List<TransactionEntity>> groupedTransactions;
   final double width = 12;
 
@@ -94,9 +95,9 @@ class BarChartSample extends StatelessWidget {
     );
   }
 
-  final List<OverviewBarChartData> barDataList = [];
   @override
   Widget build(BuildContext context) {
+    barDataList.clear();
     barDataList.addAll(groupedTransactions.entries.map((e) {
       return OverviewBarChartData(
         xLabel: e.key,
@@ -124,10 +125,18 @@ class BarChartSample extends StatelessWidget {
                   BarChartData(
                     barTouchData: BarTouchData(
                       touchTooltipData: BarTouchTooltipData(
+                        fitInsideVertically: true,
+                        fitInsideHorizontally: true,
+                        tooltipRoundedRadius: 30,
                         tooltipBgColor: context.primary,
+                        direction: TooltipDirection.auto,
+                        tooltipPadding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 8,
+                        ),
                         getTooltipItem: (group, groupIndex, rod, rodIndex) {
                           return BarTooltipItem(
-                            rod.toY.toCompactWithout(),
+                            rod.toY.toCompact(context),
                             context.bodySmall!.copyWith(
                               color: context.onPrimary,
                             ),
@@ -172,8 +181,12 @@ class BarChartSample extends StatelessWidget {
 }
 
 extension DoubleHelper on double {
-  String toCompact(BuildContext context) {
-    final CountryEntity country = Provider.of<CountryEntity>(context);
+  String toCompact(
+    BuildContext context, {
+    CountryEntity? countryEntity,
+  }) {
+    final CountryEntity country =
+        countryEntity ?? context.read<CountryEntity>();
     return NumberFormat.compactCurrency(
       symbol: country.symbol,
     ).format(this);
