@@ -233,7 +233,7 @@ class _FilterWidgetState extends State<FilterWidget> {
                             ? context.primary
                             : context.onSurfaceVariant,
                         IconData(
-                          account.cardType!.icon.codePoint,
+                          account.cardType.icon.codePoint,
                           fontFamily: fontFamilyName,
                           fontPackage: fontFamilyPackageName,
                         ),
@@ -246,7 +246,7 @@ class _FilterWidgetState extends State<FilterWidget> {
                       ),
                       showCheckmark: false,
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      label: Text(account.bankName ?? ''),
+                      label: Text(account.bankName),
                       labelStyle: Theme.of(context)
                           .textTheme
                           .titleMedium

@@ -1404,6 +1404,8 @@ abstract class _$$AccountSuccessStateImplCopyWith<$Res> {
       __$$AccountSuccessStateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({AccountEntity account});
+
+  $AccountEntityCopyWith<$Res> get account;
 }
 
 /// @nodoc
@@ -1425,6 +1427,14 @@ class __$$AccountSuccessStateImplCopyWithImpl<$Res>
           : account // ignore: cast_nullable_to_non_nullable
               as AccountEntity,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AccountEntityCopyWith<$Res> get account {
+    return $AccountEntityCopyWith<$Res>(_value.account, (value) {
+      return _then(_value.copyWith(account: value));
+    });
   }
 }
 
@@ -3334,6 +3344,8 @@ abstract class _$$AccountSelectedStateImplCopyWith<$Res> {
   @useResult
   $Res call(
       {AccountEntity accountEntity, List<TransactionEntity> transactions});
+
+  $AccountEntityCopyWith<$Res> get accountEntity;
 }
 
 /// @nodoc
@@ -3360,6 +3372,14 @@ class __$$AccountSelectedStateImplCopyWithImpl<$Res>
           : transactions // ignore: cast_nullable_to_non_nullable
               as List<TransactionEntity>,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AccountEntityCopyWith<$Res> get accountEntity {
+    return $AccountEntityCopyWith<$Res>(_value.accountEntity, (value) {
+      return _then(_value.copyWith(accountEntity: value));
+    });
   }
 }
 

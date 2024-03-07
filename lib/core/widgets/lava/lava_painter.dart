@@ -149,7 +149,7 @@ class Lava {
     return [sx + ix[dir + 4], sy + ix[dir + 8], dir];
   }
 
-  draw(Canvas canvas, Size size, Color color, {bool debug = false}) {
+  void draw(Canvas canvas, Size size, Color color, {bool debug = false}) {
     for (Ball ball in balls) {
       ball.moveIn(size);
     }

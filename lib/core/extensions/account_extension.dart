@@ -1,6 +1,8 @@
 // Package imports:
 import 'package:collection/collection.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:paisa/config/routes.dart';
+import 'package:paisa/core/constants/constants.dart';
 
 // Project imports:
 import 'package:paisa/features/account/data/model/account_model.dart';
@@ -14,7 +16,7 @@ extension AccountModelMapping on AccountModel {
         cardType: cardType,
         name: name,
         superId: superId,
-        color: color,
+        color: color ?? 0xFFFFFFFF,
       );
 }
 
@@ -30,15 +32,19 @@ extension AccountModelsMapping on Iterable<AccountModel> {
 extension AccountBoxMapping on Box<AccountModel> {
   List<AccountEntity> toEntities() => values
       .map((accountModel) => accountModel.toEntity())
-      .sorted((a, b) => b.name!.compareTo(a.name!))
+      .sorted((a, b) => b.name.compareTo(a.name))
       .toList();
 
-  double get totalAccountInitialAmount =>
-      groupBy(values, (AccountModel account) => account.key)
-          .keys
-          .map((accountId) => get(accountId)!)
-          .map((account) => account.initialAmount)
-          .fold<double>(0, (previousValue, element) => previousValue + element);
+  double get totalAccountInitialAmount {
+    final accounts = settings.get(
+      excludedAccountIdKey,
+      defaultValue: <int>[],
+    );
+    return values
+        .where((element) => !accounts.contains(element.superId))
+        .map((account) => account.initialAmount)
+        .fold<double>(0, (previousValue, element) => previousValue + element);
+  }
 }
 
 extension AccountEntityHelper on AccountEntity {

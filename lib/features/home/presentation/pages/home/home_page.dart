@@ -20,7 +20,7 @@ final destinations = [
   Destination(
     pageType: PageType.home,
     icon: const Icon(Icons.home_outlined),
-    selectedIcon: const Icon(Icons.home),
+    selectedIcon: const Icon(Icons.home_rounded),
   ),
   Destination(
     pageType: PageType.accounts,

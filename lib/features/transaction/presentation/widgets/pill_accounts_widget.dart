@@ -46,7 +46,7 @@ class _PillsAccountWidgetState extends State<PillsAccountWidget> {
           itemBuilder: (context, index) {
             final AccountEntity account = accounts[index];
             return PaisaFilterChip(
-              color: Color(account.color ?? Colors.brown.shade200.value),
+              color: Color(account.color),
               onPressed: () {
                 setState(() {
                   if (selectedAccount == account.superId) {
@@ -58,8 +58,8 @@ class _PillsAccountWidgetState extends State<PillsAccountWidget> {
                 });
               },
               isSelected: account.superId == selectedAccount,
-              icon: account.cardType!.icon,
-              title: account.bankName ?? '',
+              icon: account.cardType.icon,
+              title: account.bankName,
             );
           },
         );

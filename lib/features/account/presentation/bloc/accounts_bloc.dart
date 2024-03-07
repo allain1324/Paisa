@@ -69,10 +69,10 @@ class AccountBloc extends Bloc<AccountsEvent, AccountState> {
     if (accountEntity != null) {
       accountName = accountEntity.bankName;
       accountHolderName = accountEntity.name;
-      selectedType = accountEntity.cardType ?? CardType.cash;
+      selectedType = accountEntity.cardType;
       initialAmount = accountEntity.amount;
       currentAccount = accountEntity;
-      selectedColor = accountEntity.color ?? Colors.brown.shade100.value;
+      selectedColor = accountEntity.color;
       emit(AccountState.accountState(accountEntity));
       emit(AccountState.updateCardType(selectedType));
     } else {

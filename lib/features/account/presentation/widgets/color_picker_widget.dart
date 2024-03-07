@@ -24,7 +24,7 @@ class AccountColorPickerWidget extends StatelessWidget {
           color = state.color;
         }
         if (state is AccountSuccessState) {
-          color = state.account.color ?? Colors.red.value;
+          color = state.account.color;
         }
         return ListTile(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),

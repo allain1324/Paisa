@@ -710,6 +710,8 @@ abstract class _$$TransferAccountEventImplCopyWith<$Res> {
       __$$TransferAccountEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({AccountEntity account, bool isFromAccount});
+
+  $AccountEntityCopyWith<$Res> get account;
 }
 
 /// @nodoc
@@ -736,6 +738,14 @@ class __$$TransferAccountEventImplCopyWithImpl<$Res>
           : isFromAccount // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AccountEntityCopyWith<$Res> get account {
+    return $AccountEntityCopyWith<$Res>(_value.account, (value) {
+      return _then(_value.copyWith(account: value));
+    });
   }
 }
 
@@ -1067,6 +1077,8 @@ abstract class _$$ChangeAccountEventImplCopyWith<$Res> {
       __$$ChangeAccountEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({AccountEntity account});
+
+  $AccountEntityCopyWith<$Res> get account;
 }
 
 /// @nodoc
@@ -1088,6 +1100,14 @@ class __$$ChangeAccountEventImplCopyWithImpl<$Res>
           : account // ignore: cast_nullable_to_non_nullable
               as AccountEntity,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AccountEntityCopyWith<$Res> get account {
+    return $AccountEntityCopyWith<$Res>(_value.account, (value) {
+      return _then(_value.copyWith(account: value));
+    });
   }
 }
 
@@ -2111,6 +2131,8 @@ abstract class _$$ChangeAccountStateImplCopyWith<$Res> {
       __$$ChangeAccountStateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({AccountEntity account});
+
+  $AccountEntityCopyWith<$Res> get account;
 }
 
 /// @nodoc
@@ -2132,6 +2154,14 @@ class __$$ChangeAccountStateImplCopyWithImpl<$Res>
           : account // ignore: cast_nullable_to_non_nullable
               as AccountEntity,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AccountEntityCopyWith<$Res> get account {
+    return $AccountEntityCopyWith<$Res>(_value.account, (value) {
+      return _then(_value.copyWith(account: value));
+    });
   }
 }
 
@@ -3855,6 +3885,9 @@ abstract class _$$TransferAccountStateImplCopyWith<$Res> {
       {AccountEntity? fromAccount,
       AccountEntity? toAccount,
       bool isFromAccount});
+
+  $AccountEntityCopyWith<$Res>? get fromAccount;
+  $AccountEntityCopyWith<$Res>? get toAccount;
 }
 
 /// @nodoc
@@ -3886,6 +3919,30 @@ class __$$TransferAccountStateImplCopyWithImpl<$Res>
           : isFromAccount // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AccountEntityCopyWith<$Res>? get fromAccount {
+    if (_value.fromAccount == null) {
+      return null;
+    }
+
+    return $AccountEntityCopyWith<$Res>(_value.fromAccount!, (value) {
+      return _then(_value.copyWith(fromAccount: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AccountEntityCopyWith<$Res>? get toAccount {
+    if (_value.toAccount == null) {
+      return null;
+    }
+
+    return $AccountEntityCopyWith<$Res>(_value.toAccount!, (value) {
+      return _then(_value.copyWith(toAccount: value));
+    });
   }
 }
 

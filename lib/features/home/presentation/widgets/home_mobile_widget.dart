@@ -41,6 +41,7 @@ class HomeMobileWidget extends StatelessWidget {
       drawer: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
           return NavigationDrawer(
+            surfaceTintColor: context.surface,
             selectedIndex: context.watch<HomeCubit>().state.index,
             onDestinationSelected: (index) {
               _scaffoldStateKey.currentState?.closeDrawer();
@@ -49,6 +50,7 @@ class HomeMobileWidget extends StatelessWidget {
             children: [
               const PaisaIconTitle(),
               ...destinations.map((e) => NavigationDrawerDestination(
+                    backgroundColor: context.surface,
                     icon: e.icon,
                     selectedIcon: e.selectedIcon,
                     label: Text(e.pageType.name(context)),
@@ -58,8 +60,8 @@ class HomeMobileWidget extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: ListTile(
                   onTap: () {
+                    _scaffoldStateKey.currentState?.closeDrawer();
                     const SettingsPageData().push(context);
-                    Navigator.pop(context);
                   },
                   leading: const Icon(Icons.settings),
                   title: Text(

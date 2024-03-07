@@ -8,8 +8,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 // Project imports:
 import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
-import 'package:paisa/core/common_enum.dart';
-import 'package:paisa/core/enum/card_type.dart';
 import 'package:paisa/core/widgets/lava/lava_clock.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/account/domain/entities/account_entity.dart';
@@ -80,9 +78,9 @@ class _AccountPageViewWidgetState extends State<AccountPageViewWidget>
                         expense: expense,
                         income: income,
                         totalBalance: totalBalance,
-                        cardHolder: account.name ?? '',
-                        bankName: account.bankName ?? '',
-                        cardType: account.cardType ?? CardType.bank,
+                        cardHolder: account.name,
+                        bankName: account.bankName,
+                        cardType: account.cardType,
                         onDelete: () {
                           paisaAlertDialog(
                             context,

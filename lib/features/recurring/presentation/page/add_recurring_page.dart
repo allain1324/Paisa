@@ -236,10 +236,10 @@ class _AccountSelectedWidgetState extends State<AccountSelectedWidget> {
           } else {
             final AccountEntity account = widget.accounts[index - 1];
             return ItemWidget(
-              color: Color(account.color ?? context.primary.value),
+              color: Color(account.color),
               selected: account.superId == selectedId,
-              title: account.name ?? '',
-              icon: account.cardType!.icon.codePoint,
+              title: account.name,
+              icon: account.cardType.icon.codePoint,
               onPressed: () {
                 setState(() {
                   selectedId = account.superId!;

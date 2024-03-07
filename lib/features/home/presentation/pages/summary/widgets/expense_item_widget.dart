@@ -29,7 +29,7 @@ class ExpenseItemWidget extends StatelessWidget {
       return expense.time.shortDayString;
     } else {
       return context.loc.transactionSubTittleText(
-        account.bankName ?? '',
+        account.bankName,
         expense.time.shortDayString,
       );
     }

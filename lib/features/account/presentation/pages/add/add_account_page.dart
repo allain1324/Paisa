@@ -33,10 +33,11 @@ class AccountPage extends StatefulWidget {
 }
 
 class AccountPageState extends State<AccountPage> {
-  final accountHolderController = TextEditingController();
-  final accountInitialAmountController = TextEditingController();
-  final accountNameController = TextEditingController();
-  final accountNumberController = TextEditingController();
+  final TextEditingController accountHolderController = TextEditingController();
+  final TextEditingController accountInitialAmountController =
+      TextEditingController();
+
+  final TextEditingController accountNameController = TextEditingController();
   final AccountBloc accountsBloc = getIt.get();
   late final bool isAccountAddOrUpdate = widget.accountId == null;
 
@@ -44,7 +45,6 @@ class AccountPageState extends State<AccountPage> {
   void dispose() {
     accountHolderController.dispose();
     accountInitialAmountController.dispose();
-    accountNumberController.dispose();
     accountNameController.dispose();
     super.dispose();
   }
@@ -140,17 +140,13 @@ class AccountPageState extends State<AccountPage> {
                 color: context.onErrorContainer,
               );
             } else if (state is AccountSuccessState) {
-              accountNameController.text = state.account.bankName ?? '';
+              accountNameController.text = state.account.bankName;
               accountNameController.selection = TextSelection.collapsed(
-                  offset: state.account.bankName?.length ?? 0);
+                  offset: state.account.bankName.length);
 
-              accountNumberController.text = state.account.number ?? '';
-              accountNumberController.selection = TextSelection.collapsed(
-                  offset: state.account.number?.length ?? 0);
-
-              accountHolderController.text = state.account.name ?? '';
-              accountHolderController.selection = TextSelection.collapsed(
-                  offset: state.account.name?.length ?? 0);
+              accountHolderController.text = state.account.name;
+              accountHolderController.selection =
+                  TextSelection.collapsed(offset: state.account.name.length);
 
               accountInitialAmountController.text =
                   state.account.amount.toString();
