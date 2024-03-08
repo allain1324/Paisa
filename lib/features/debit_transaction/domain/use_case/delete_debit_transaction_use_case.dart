@@ -8,7 +8,7 @@ import 'package:paisa/features/debit_transaction/domain/repository/debit_transac
 
 part 'delete_debit_transaction_use_case.freezed.dart';
 
-@singleton
+@lazySingleton
 class DeleteDebitTransactionUseCase
     implements UseCase<void, DeleteDebitTransactionParams> {
   DeleteDebitTransactionUseCase({required this.debtRepository});

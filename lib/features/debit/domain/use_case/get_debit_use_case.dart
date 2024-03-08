@@ -9,7 +9,7 @@ import 'package:paisa/features/debit/domain/repository/debit_repository.dart';
 
 part 'get_debit_use_case.freezed.dart';
 
-@singleton
+@lazySingleton
 class GetDebitUseCase implements UseCase<DebitEntity?, GetDebitParams> {
   GetDebitUseCase({required this.debtRepository});
 

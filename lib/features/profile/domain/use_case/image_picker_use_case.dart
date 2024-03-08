@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 import 'package:paisa/core/error/failures.dart';
 import 'package:paisa/features/profile/domain/repository/profile_repository.dart';
 
-@singleton
+@lazySingleton
 class ImagePickerUseCase {
   final ProfileRepository profileRepository;
 

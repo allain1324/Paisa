@@ -9,7 +9,7 @@ import 'package:paisa/features/category/domain/repository/category_repository.da
 
 part 'get_category_use_case.freezed.dart';
 
-@singleton
+@lazySingleton
 class GetCategoryUseCase
     implements UseCase<CategoryEntity?, GetCategoryParams> {
   GetCategoryUseCase({required this.categoryRepository});

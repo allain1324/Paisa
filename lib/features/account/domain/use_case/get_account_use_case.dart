@@ -9,7 +9,7 @@ import 'package:paisa/features/account/domain/repository/account_repository.dart
 
 part 'get_account_use_case.freezed.dart';
 
-@singleton
+@lazySingleton
 class GetAccountUseCase implements UseCase<AccountEntity?, GetAccountParams> {
   GetAccountUseCase({required this.accountRepository});
 

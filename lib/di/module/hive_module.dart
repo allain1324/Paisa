@@ -17,37 +17,37 @@ import 'package:paisa/features/transaction/data/model/transaction_model.dart';
 
 @module
 abstract class HiveBoxModule {
-  @singleton
+  @lazySingleton
   @preResolve
   Future<Box<TransactionModel>> get expenseBox =>
       Hive.openBox<TransactionModel>(BoxType.expense.name);
 
-  @singleton
+  @lazySingleton
   @preResolve
   Future<Box<AccountModel>> get accountBox =>
       Hive.openBox<AccountModel>(BoxType.accounts.name);
 
-  @singleton
+  @lazySingleton
   @preResolve
   Future<Box<CategoryModel>> get categoryBox =>
       Hive.openBox<CategoryModel>(BoxType.category.name);
 
-  @singleton
+  @lazySingleton
   @preResolve
   Future<Box<DebitModel>> get debtsBox =>
       Hive.openBox<DebitModel>(BoxType.debts.name);
 
-  @singleton
+  @lazySingleton
   @preResolve
   Future<Box<DebitTransactionsModel>> get transactionsBox =>
       Hive.openBox<DebitTransactionsModel>(BoxType.transactions.name);
 
-  @singleton
+  @lazySingleton
   @preResolve
   Future<Box<RecurringModel>> get recurringBox =>
       Hive.openBox<RecurringModel>(BoxType.recurring.name);
 
-  @singleton
+  @lazySingleton
   @preResolve
   @Named('settings')
   Future<Box<dynamic>> get boxDynamic =>

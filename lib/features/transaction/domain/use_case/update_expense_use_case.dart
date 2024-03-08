@@ -9,7 +9,7 @@ import 'package:paisa/features/transaction/domain/repository/transaction_reposit
 
 part 'update_expense_use_case.freezed.dart';
 
-@singleton
+@lazySingleton
 class UpdateTransactionUseCase
     implements UseCase<void, UpdateTransactionParams> {
   UpdateTransactionUseCase({required this.expenseRepository});

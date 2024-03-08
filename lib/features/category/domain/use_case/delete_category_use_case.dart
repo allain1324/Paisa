@@ -8,7 +8,7 @@ import 'package:paisa/features/category/domain/repository/category_repository.da
 
 part 'delete_category_use_case.freezed.dart';
 
-@singleton
+@lazySingleton
 class DeleteCategoryUseCase
     implements UseCase<Future<void>, DeleteCategoryParams> {
   DeleteCategoryUseCase({required this.categoryRepository});

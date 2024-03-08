@@ -8,7 +8,7 @@ import 'package:paisa/features/account/domain/repository/account_repository.dart
 
 part 'delete_account_use_case.freezed.dart';
 
-@singleton
+@lazySingleton
 class DeleteAccountUseCase
     implements UseCase<Future<void>, DeleteAccountParams> {
   DeleteAccountUseCase({required this.accountRepository});

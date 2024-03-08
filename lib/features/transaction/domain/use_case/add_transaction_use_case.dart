@@ -11,7 +11,7 @@ import 'package:paisa/features/transaction/domain/repository/transaction_reposit
 
 part 'add_transaction_use_case.freezed.dart';
 
-@singleton
+@lazySingleton
 class AddTransactionUseCase
     implements UseCase<Future<Either<Failure, bool>>, AddTransactionParams> {
   AddTransactionUseCase({required this.expenseRepository});

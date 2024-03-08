@@ -6,7 +6,7 @@ import 'package:paisa/core/use_case/use_case.dart';
 import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/account/domain/repository/account_repository.dart';
 
-@singleton
+@lazySingleton
 class GetAccountsUseCase implements UseCase<List<AccountEntity>, NoParams> {
   GetAccountsUseCase({required this.accountRepository});
 

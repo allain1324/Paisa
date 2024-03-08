@@ -9,7 +9,7 @@ import 'package:paisa/features/account/domain/repository/account_repository.dart
 
 part 'update_account_use_case.freezed.dart';
 
-@singleton
+@lazySingleton
 class UpdateAccountUseCase implements UseCase<void, UpdateAccountParams> {
   UpdateAccountUseCase({required this.accountRepository});
 

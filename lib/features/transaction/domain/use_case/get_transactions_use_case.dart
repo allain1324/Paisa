@@ -9,7 +9,7 @@ import 'package:paisa/features/transaction/domain/repository/transaction_reposit
 
 part 'get_transactions_use_case.freezed.dart';
 
-@singleton
+@lazySingleton
 class GetTransactionsUseCase
     implements UseCase<List<TransactionEntity>, ParamsDefaultAccountId> {
   GetTransactionsUseCase({required this.expenseRepository});

@@ -8,7 +8,7 @@ import 'package:paisa/core/use_case/use_case.dart';
 import 'package:paisa/features/settings/domain/repository/import_export.dart';
 import 'package:paisa/features/settings/domain/repository/settings_repository.dart';
 
-@singleton
+@lazySingleton
 class JSONFileExportUseCase
     implements UseCase<Future<Either<Failure, String>>, NoParams> {
   JSONFileExportUseCase(

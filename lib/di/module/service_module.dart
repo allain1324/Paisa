@@ -6,18 +6,18 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 @module
 abstract class ServiceBoxModule {
-  @singleton
+  @lazySingleton
   DeviceInfoPlugin providesDeviceInfoPlugin() {
     return DeviceInfoPlugin();
   }
 
-  @singleton
+  @lazySingleton
   @preResolve
   Future<PackageInfo> providesPackageInfoPlugin() {
     return PackageInfo.fromPlatform();
   }
 
-  @singleton
+  @lazySingleton
   ImagePicker providesImagePicker() {
     return ImagePicker();
   }

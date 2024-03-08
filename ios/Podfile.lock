@@ -38,14 +38,14 @@ PODS:
   - Flutter (1.0.0)
   - image_picker_ios (0.0.1):
     - Flutter
-  - local_auth_ios (0.0.1):
+  - local_auth_darwin (0.0.1):
     - Flutter
   - package_info_plus (0.4.5):
     - Flutter
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
-  - permission_handler_apple (9.1.1):
+  - permission_handler_apple (9.3.0):
     - Flutter
   - quick_actions_ios (0.0.1):
     - Flutter
@@ -63,7 +63,7 @@ DEPENDENCIES:
   - file_picker (from `.symlinks/plugins/file_picker/ios`)
   - Flutter (from `Flutter`)
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
-  - local_auth_ios (from `.symlinks/plugins/local_auth_ios/ios`)
+  - local_auth_darwin (from `.symlinks/plugins/local_auth_darwin/darwin`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
@@ -87,8 +87,8 @@ EXTERNAL SOURCES:
     :path: Flutter
   image_picker_ios:
     :path: ".symlinks/plugins/image_picker_ios/ios"
-  local_auth_ios:
-    :path: ".symlinks/plugins/local_auth_ios/ios"
+  local_auth_darwin:
+    :path: ".symlinks/plugins/local_auth_darwin/darwin"
   package_info_plus:
     :path: ".symlinks/plugins/package_info_plus/ios"
   path_provider_foundation:
@@ -108,16 +108,16 @@ SPEC CHECKSUMS:
   DKPhotoGallery: fdfad5125a9fdda9cc57df834d49df790dbb4179
   file_picker: 15fd9539e4eb735dc54bae8c0534a7a9511a03de
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  image_picker_ios: 4a8aadfbb6dc30ad5141a2ce3832af9214a705b5
-  local_auth_ios: c6cf091ded637a88f24f86a8875d8b0f526e2605
+  image_picker_ios: 99dfe1854b4fa34d0364e74a78448a0151025425
+  local_auth_darwin: c7e464000a6a89e952235699e32b329457608d98
   package_info_plus: 115f4ad11e0698c8c1c5d8a689390df880f47e85
-  path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
-  permission_handler_apple: e76247795d700c14ea09e3a2d8855d41ee80a2e6
-  quick_actions_ios: 9e80dcfadfbc5d47d9cf8f47bcf428b11cf383d4
+  path_provider_foundation: 3784922295ac71e43754bd15e0653ccfd36a147c
+  permission_handler_apple: 036b856153a2b1f61f21030ff725f3e6fece2b78
+  quick_actions_ios: d24571db7345d2e48d094db8d077a015a568002d
   SDWebImage: 981fd7e860af070920f249fd092420006014c3eb
-  share_plus: 599aa54e4ea31d4b4c0e9c911bcc26c55e791028
+  share_plus: c3fef564749587fc939ef86ffb283ceac0baf9f5
   SwiftyGif: 93a1cc87bf3a51916001cf8f3d63835fb64c819f
-  url_launcher_ios: 08a3dfac5fb39e8759aeb0abbd5d9480f30fc8b4
+  url_launcher_ios: 6116280ddcfe98ab8820085d8d76ae7449447586
 
 PODFILE CHECKSUM: c4c93c5f6502fe2754f48404d3594bf779584011
 

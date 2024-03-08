@@ -10,7 +10,7 @@ import 'package:paisa/core/enum/filter_expense.dart';
 import 'package:paisa/core/enum/transaction_type.dart';
 import 'package:paisa/features/settings/domain/use_case/setting_use_case.dart';
 
-@singleton
+@lazySingleton
 class SummaryController {
   SummaryController(this.settingsUseCase);
 

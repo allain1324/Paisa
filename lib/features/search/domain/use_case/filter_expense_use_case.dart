@@ -6,7 +6,7 @@ import 'package:paisa/core/use_case/use_case.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'package:paisa/features/transaction/domain/repository/transaction_repository.dart';
 
-@singleton
+@lazySingleton
 class SearchUseCase implements UseCase<List<TransactionEntity>, SearchParams> {
   SearchUseCase(this.expenseRepository);
 

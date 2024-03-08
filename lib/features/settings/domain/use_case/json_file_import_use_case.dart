@@ -7,7 +7,7 @@ import 'package:paisa/core/error/failures.dart';
 import 'package:paisa/features/settings/domain/repository/import_export.dart';
 import 'package:paisa/features/settings/domain/repository/settings_repository.dart';
 
-@singleton
+@lazySingleton
 class JSONFileImportUseCase {
   JSONFileImportUseCase(
     this.settingsRepository,

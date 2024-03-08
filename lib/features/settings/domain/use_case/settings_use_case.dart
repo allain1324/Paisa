@@ -4,7 +4,7 @@ import 'package:injectable/injectable.dart';
 // Project imports:
 import 'package:paisa/features/settings/domain/repository/settings_repository.dart';
 
-@singleton
+@lazySingleton
 class SettingsUseCase {
   SettingsUseCase(this.settingsRepository);
 

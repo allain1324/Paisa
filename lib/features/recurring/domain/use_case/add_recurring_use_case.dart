@@ -5,7 +5,7 @@ import 'package:injectable/injectable.dart';
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/features/recurring/domain/repository/recurring_repository.dart';
 
-@singleton
+@lazySingleton
 class AddRecurringUseCase {
   AddRecurringUseCase(this.repository);
 

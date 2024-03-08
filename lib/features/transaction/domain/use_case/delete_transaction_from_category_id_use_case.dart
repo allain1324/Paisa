@@ -5,7 +5,7 @@ import 'package:injectable/injectable.dart';
 import 'package:paisa/core/use_case/use_case.dart';
 import 'package:paisa/features/transaction/domain/repository/transaction_repository.dart';
 
-@singleton
+@lazySingleton
 class DeleteTransactionsByCategoryIdUseCase
     implements UseCase<void, DeleteTransactionsByCategoryIdParams> {
   DeleteTransactionsByCategoryIdUseCase({

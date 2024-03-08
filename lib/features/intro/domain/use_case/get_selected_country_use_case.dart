@@ -6,7 +6,7 @@ import 'package:paisa/core/use_case/use_case.dart';
 import 'package:paisa/features/intro/domain/entities/country_entity.dart';
 import 'package:paisa/features/intro/domain/repository/country_repository.dart';
 
-@singleton
+@lazySingleton
 class GetSelectedCountryUseCase implements UseCase<CountryEntity?, NoParams> {
   final CountryRepository repository;
 

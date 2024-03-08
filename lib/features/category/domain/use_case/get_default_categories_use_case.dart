@@ -6,7 +6,7 @@ import 'package:paisa/core/use_case/use_case.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
 import 'package:paisa/features/category/domain/repository/category_repository.dart';
 
-@singleton
+@lazySingleton
 class GetDefaultCategoriesUseCase
     implements UseCase<List<CategoryEntity>, NoParams> {
   GetDefaultCategoriesUseCase({required this.categoryRepository});
