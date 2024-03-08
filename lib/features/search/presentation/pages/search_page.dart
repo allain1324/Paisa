@@ -26,7 +26,7 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-  final SearchCubit searchCubitCubit = getIt.get();
+  final SearchCubit searchCubitCubit = getIt<SearchCubit>();
   final TextEditingController textEditingController = TextEditingController();
 
   @override

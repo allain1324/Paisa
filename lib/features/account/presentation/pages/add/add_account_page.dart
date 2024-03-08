@@ -38,7 +38,7 @@ class AccountPageState extends State<AccountPage> {
       TextEditingController();
 
   final TextEditingController accountNameController = TextEditingController();
-  final AccountBloc accountsBloc = getIt.get();
+  final AccountBloc accountsBloc = getIt<AccountBloc>();
   late final bool isAccountAddOrUpdate = widget.accountId == null;
 
   @override

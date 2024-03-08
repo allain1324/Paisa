@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 // Project imports:
@@ -61,8 +62,9 @@ class LandingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final actionButton =
-        HomeFloatingActionButtonWidget(summaryController: getIt.get());
+    final Widget actionButton = HomeFloatingActionButtonWidget(
+      summaryController: getIt<SummaryController>(),
+    );
     return PaisaAnnotatedRegionWidget(
       child: WillPopScope(
         onWillPop: () async {

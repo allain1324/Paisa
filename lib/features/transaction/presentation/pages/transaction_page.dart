@@ -45,7 +45,7 @@ class TransactionPage extends StatefulWidget {
 class _TransactionPageState extends State<TransactionPage> {
   final TextEditingController amountController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
-  final TransactionBloc transactionBloc = getIt.get();
+  final TransactionBloc transactionBloc = getIt<TransactionBloc>();
   late final bool isAddExpense = widget.transactionId == null;
   final TextEditingController nameController = TextEditingController();
 

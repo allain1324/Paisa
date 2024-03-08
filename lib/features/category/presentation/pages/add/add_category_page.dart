@@ -34,7 +34,7 @@ class CategoryPage extends StatefulWidget {
 
 class _CategoryPageState extends State<CategoryPage> {
   final budgetController = TextEditingController();
-  final CategoryBloc categoryBloc = getIt.get();
+  final CategoryBloc categoryBloc = getIt<CategoryBloc>();
   final categoryController = TextEditingController();
   final descController = TextEditingController();
   late final bool isAddCategory = widget.categoryId == null;

@@ -25,7 +25,7 @@ class BiometricAuthWidget extends StatefulWidget {
 }
 
 class _BiometricAuthWidgetState extends State<BiometricAuthWidget> {
-  final SettingsUseCase settingsUseCase = getIt.get();
+  final SettingsUseCase settingsUseCase = getIt<SettingsUseCase>();
   late bool isSelected = settingsUseCase.get(userAuthKey, defaultValue: false);
 
   void _showSnackBar(bool result) => settingsUseCase

@@ -31,7 +31,7 @@ class DebitPage extends StatefulWidget {
 
 class _DebitPageState extends State<DebitPage> {
   final TextEditingController amountController = TextEditingController();
-  final DebitBloc debitBloc = getIt.get();
+  final DebitBloc debitBloc = getIt<DebitBloc>();
   final TextEditingController descController = TextEditingController();
   late final bool isDebtAddOrUpdate = widget.debtId == null;
   final TextEditingController nameController = TextEditingController();
