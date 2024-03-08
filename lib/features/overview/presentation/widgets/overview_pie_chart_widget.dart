@@ -31,6 +31,16 @@ class OverviewPieChartWidget extends StatelessWidget {
               map: mapExpenses,
               total: total,
             ),
+            ListTile(
+              title: Text(
+                context.loc.total,
+                style: context.bodyLarge,
+              ),
+              trailing: Text(
+                total.toFormateCurrency(context),
+                style: context.bodyLarge,
+              ),
+            ),
             CategoryListWidget(
               categoryGrouped: mapExpenses,
               totalExpense: total,
