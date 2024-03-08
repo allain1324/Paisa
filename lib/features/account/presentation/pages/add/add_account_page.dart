@@ -479,8 +479,12 @@ class AccountInitialAmountWidget extends StatelessWidget {
     return PaisaTextFormField(
       controller: controller,
       hintText: context.loc.enterAmount,
-      keyboardType: TextInputType.number,
-      inputFormatters: [
+      maxLength: 13,
+      maxLines: 1,
+      counterText: '',
+      keyboardType:
+          const TextInputType.numberWithOptions(decimal: true, signed: true),
+      inputFormatters: <TextInputFormatter>[
         FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
         TextInputFormatter.withFunction((oldValue, newValue) {
           try {
