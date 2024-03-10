@@ -21,15 +21,14 @@ class SetBudgetWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder(
+    return BlocBuilder<CategoryBloc, CategoryState>(
       buildWhen: (previous, current) =>
           current is CategorySuccessState ||
           current is UpdateCategoryBudgetState,
-      bloc: BlocProvider.of<CategoryBloc>(context),
       builder: (context, state) {
         bool budget = false;
         if (state is CategorySuccessState) {
-          budget = BlocProvider.of<CategoryBloc>(context).isBudgetSet ?? false;
+          budget = context.read<CategoryBloc>().isBudgetSet ?? false;
         }
         if (state is UpdateCategoryBudgetState) {
           budget = state.isBudget;
@@ -46,7 +45,8 @@ class SetBudgetWidget extends StatelessWidget {
               title: Text(context.loc.budget),
               subtitle: Text(context.loc.setBudget),
               activeColor: context.primary,
-              onChanged: (bool value) => BlocProvider.of<CategoryBloc>(context)
+              onChanged: (bool value) => context
+                  .read<CategoryBloc>()
                   .add(UpdateCategoryBudgetEvent(value)),
               value: budget,
             ),
@@ -83,7 +83,7 @@ class CategoryBudgetWidget extends StatelessWidget {
       label: context.loc.budget,
       onChanged: (value) {
         double? amount = double.tryParse(value);
-        BlocProvider.of<CategoryBloc>(context).categoryBudget = amount;
+        context.read<CategoryBloc>().categoryBudget = amount;
       },
       keyboardType: TextInputType.number,
       inputFormatters: <TextInputFormatter>[

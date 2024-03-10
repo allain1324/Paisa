@@ -32,12 +32,10 @@ class AccountColorPickerWidget extends StatelessWidget {
             final color = await paisaColorPicker(
               context,
               defaultColor:
-                  BlocProvider.of<AccountBloc>(context).selectedColor ??
-                      Colors.red.value,
+                  context.read<AccountBloc>().selectedColor ?? Colors.red.value,
             );
             if (context.mounted) {
-              BlocProvider.of<AccountBloc>(context)
-                  .add(AccountColorSelectedEvent(color));
+              context.read<AccountBloc>().add(AccountColorSelectedEvent(color));
             }
           },
           leading: Icon(

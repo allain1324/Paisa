@@ -45,9 +45,9 @@ class TransactionPage extends StatefulWidget {
 class _TransactionPageState extends State<TransactionPage> {
   final TextEditingController amountController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
-  final TransactionBloc transactionBloc = getIt<TransactionBloc>();
   late final bool isAddExpense = widget.transactionId == null;
   final TextEditingController nameController = TextEditingController();
+  final TransactionBloc transactionBloc = getIt<TransactionBloc>();
 
   @override
   void dispose() {
@@ -69,7 +69,7 @@ class _TransactionPageState extends State<TransactionPage> {
   @override
   Widget build(BuildContext context) {
     return PaisaAnnotatedRegionWidget(
-      color: Colors.transparent,
+      color: context.background,
       child: BlocProvider(
         create: (context) => transactionBloc,
         child: BlocConsumer<TransactionBloc, TransactionState>(
@@ -167,7 +167,8 @@ class _TransactionPageState extends State<TransactionPage> {
                     padding: const EdgeInsets.all(16.0),
                     child: PaisaBigButton(
                       onPressed: () {
-                        BlocProvider.of<TransactionBloc>(context)
+                        context
+                            .read<TransactionBloc>()
                             .add(TransactionEvent.addOrUpdate(isAddExpense));
                       },
                       title:
@@ -205,7 +206,8 @@ class _TransactionPageState extends State<TransactionPage> {
                     TransactionDeleteWidget(expenseId: widget.transactionId),
                     PaisaButton(
                       onPressed: () {
-                        BlocProvider.of<TransactionBloc>(context)
+                        context
+                            .read<TransactionBloc>()
                             .add(TransactionEvent.addOrUpdate(isAddExpense));
                       },
                       title:
@@ -245,8 +247,8 @@ class _TransactionPageState extends State<TransactionPage> {
                     Expanded(
                       child: ListView(
                         children: const [
-                          SelectedAccount(),
-                          SelectCategoryIcon(),
+                          SelectedAccountWidget(),
+                          SelectCategoryWidget(),
                         ],
                       ),
                     ),

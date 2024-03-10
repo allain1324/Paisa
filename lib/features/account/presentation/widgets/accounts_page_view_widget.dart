@@ -103,7 +103,8 @@ class _AccountPageViewWidgetState extends State<AccountPageViewWidget>
                             ),
                             confirmationButton: TextButton(
                               onPressed: () {
-                                BlocProvider.of<AccountBloc>(context)
+                                context
+                                    .read<AccountBloc>()
                                     .add(DeleteAccountEvent(account.superId!));
                                 Navigator.pop(context);
                               },

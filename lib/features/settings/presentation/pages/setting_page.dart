@@ -15,7 +15,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/enum/calendar_formats.dart';
-import 'package:paisa/core/widgets/paisa_divider.dart';
+import 'package:paisa/core/widgets/paisa_widgets/paisa_divider.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/settings/data/authenticate.dart';
 import 'package:paisa/features/settings/presentation/widgets/app_font_changer.dart';

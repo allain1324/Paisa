@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:paisa/core/widgets/paisa_widgets/paisa_sub_title_widget.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 // Project imports:
@@ -17,8 +18,8 @@ import 'package:paisa/features/transaction/presentation/bloc/transaction_bloc.da
 import 'package:paisa/features/transaction/presentation/widgets/selectable_item_widget.dart';
 import 'package:paisa/main.dart';
 
-class SelectedAccount extends StatelessWidget {
-  const SelectedAccount({super.key});
+class SelectedAccountWidget extends StatelessWidget {
+  const SelectedAccountWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -58,14 +59,8 @@ class SelectedAccount extends StatelessWidget {
           mobile: (p0) => Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  context.loc.selectAccount,
-                  style: context.titleSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+              PaisaSubTitle(
+                title: context.loc.selectAccount,
               ),
               AccountSelectedItem(
                 accounts: accounts,
@@ -117,11 +112,11 @@ class AccountSelectedItem extends StatelessWidget {
                 return ItemWidget(
                   color: context.secondary,
                   selected: account.superId ==
-                      BlocProvider.of<TransactionBloc>(context)
-                          .selectedAccountId,
+                      context.read<TransactionBloc>().selectedAccountId,
                   title: account.name,
                   icon: account.cardType.icon.codePoint,
-                  onPressed: () => BlocProvider.of<TransactionBloc>(context)
+                  onPressed: () => context
+                      .read<TransactionBloc>()
                       .add(TransactionEvent.changeAccount(account)),
                   subtitle: account.bankName,
                 );

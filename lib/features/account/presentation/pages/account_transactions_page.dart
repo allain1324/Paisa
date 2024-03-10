@@ -81,7 +81,8 @@ class AccountTransactionsPage extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                     ),
                     onPressed: () {
-                      BlocProvider.of<AccountBloc>(context)
+                      context
+                          .read<AccountBloc>()
                           .add(DeleteAccountEvent(accountId));
                       Navigator.pop(context);
                     },
@@ -119,9 +120,9 @@ class AccountTransactionsPage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final TransactionEntity expense =
                           state.transactions[index];
-                      final CategoryEntity? category =
-                          BlocProvider.of<HomeCubit>(context)
-                              .fetchCategoryFromId(expense.categoryId);
+                      final CategoryEntity? category = context
+                          .read<HomeCubit>()
+                          .fetchCategoryFromId(expense.categoryId);
                       if (category == null) {
                         return const SizedBox.shrink();
                       } else {

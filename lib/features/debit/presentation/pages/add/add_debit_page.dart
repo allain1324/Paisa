@@ -326,8 +326,7 @@ class NameWidget extends StatelessWidget {
             return context.loc.validName;
           }
         },
-        onChanged: (value) =>
-            BlocProvider.of<DebitBloc>(context).currentName = value,
+        onChanged: (value) => context.read<DebitBloc>().currentName = value,
       ),
     );
   }
@@ -357,7 +356,7 @@ class DescriptionWidget extends StatelessWidget {
           }
         },
         onChanged: (value) =>
-            BlocProvider.of<DebitBloc>(context).currentDescription = value,
+            context.read<DebitBloc>().currentDescription = value,
       ),
     );
   }
@@ -381,7 +380,7 @@ class AmountWidget extends StatelessWidget {
         hintText: context.loc.amount,
         onChanged: (value) {
           double? amount = double.tryParse(value);
-          BlocProvider.of<DebitBloc>(context).currentAmount = amount;
+          context.read<DebitBloc>().currentAmount = amount;
         },
         inputFormatters: [
           FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),

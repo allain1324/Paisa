@@ -1,6 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:paisa/core/widgets/paisa_divider.dart';
+import 'package:paisa/core/widgets/paisa_widgets/paisa_divider.dart';
 
 // Project imports:
 import 'package:paisa/features/category/domain/entities/category.dart';

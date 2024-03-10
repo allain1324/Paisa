@@ -11,3 +11,5 @@ export 'paisa_widgets/paisa_text_field.dart';
 export 'paisa_widgets/paisa_date_time_picker.dart';
 export 'paisa_widgets/paisa_toggle_button.dart';
 export 'paisa_widgets/paisa_user_image_widget.dart';
+export 'paisa_widgets/paisa_sub_title_widget.dart';
+export 'paisa_widgets/paisa_divider.dart';

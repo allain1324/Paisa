@@ -30,7 +30,8 @@ class TransactionDeleteWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
         ),
         onPressed: () {
-          BlocProvider.of<TransactionBloc>(context)
+          context
+              .read<TransactionBloc>()
               .add(TransactionEvent.delete(expenseId!));
           Navigator.pop(context);
         },

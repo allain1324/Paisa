@@ -45,7 +45,7 @@ class TransactionNameWidget extends StatelessWidget {
               }
             },
             onChanged: (value) =>
-                BlocProvider.of<TransactionBloc>(context).expenseName = value,
+                context.read<TransactionBloc>().expenseName = value,
           ),
         );
       },

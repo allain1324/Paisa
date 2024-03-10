@@ -21,70 +21,79 @@ class ExpenseDatePickerWidget extends StatefulWidget {
 }
 
 class _ExpenseDatePickerWidgetState extends State<ExpenseDatePickerWidget> {
-  late DateTime selectedDateTime =
-      BlocProvider.of<TransactionBloc>(context).selectedDate;
+  late DateTime selectedDateTime = context.read<TransactionBloc>().selectedDate;
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TransactionBloc, TransactionState>(
       builder: (context, state) {
-        return Row(
-          children: [
-            Expanded(
-              child: ListTile(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Row(
+            children: [
+              Expanded(
+                child: ListTile(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  onTap: () async {
+                    final DateTime? dateTime = await paisaDatePicker(
+                      context,
+                      selectedDateTime: selectedDateTime,
+                    );
+                    if (dateTime != null) {
+                      setState(() {
+                        selectedDateTime = selectedDateTime.copyWith(
+                          day: dateTime.day,
+                          month: dateTime.month,
+                          year: dateTime.year,
+                        );
+                        context.read<TransactionBloc>().selectedDate =
+                            selectedDateTime;
+                      });
+                    }
+                  },
+                  leading: Icon(
+                    Icons.today_rounded,
+                    color: context.secondary,
+                  ),
+                  title: Text(
+                    selectedDateTime.formattedDate,
+                    style: context.bodyMedium,
+                  ),
                 ),
-                onTap: () async {
-                  final DateTime? dateTime = await paisaDatePicker(
-                    context,
-                    selectedDateTime: selectedDateTime,
-                  );
-                  if (dateTime != null) {
-                    setState(() {
-                      selectedDateTime = selectedDateTime.copyWith(
-                        day: dateTime.day,
-                        month: dateTime.month,
-                        year: dateTime.year,
-                      );
-                      BlocProvider.of<TransactionBloc>(context).selectedDate =
-                          selectedDateTime;
-                    });
-                  }
-                },
-                leading: Icon(
-                  Icons.today_rounded,
-                  color: context.secondary,
-                ),
-                title: Text(selectedDateTime.formattedDate),
               ),
-            ),
-            Expanded(
-              child: ListTile(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
+              Expanded(
+                child: ListTile(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  onTap: () async {
+                    final TimeOfDay? timeOfDay =
+                        await paisaTimerPicker(context);
+                    if (timeOfDay != null) {
+                      setState(() {
+                        selectedDateTime = selectedDateTime.copyWith(
+                          hour: timeOfDay.hour,
+                          minute: timeOfDay.minute,
+                        );
+                        context.read<TransactionBloc>().selectedDate =
+                            selectedDateTime;
+                      });
+                    }
+                  },
+                  leading: Icon(
+                    MdiIcons.clockOutline,
+                    color: context.secondary,
+                  ),
+                  title: Text(
+                    selectedDateTime.formattedTime,
+                    style: context.bodyMedium,
+                  ),
                 ),
-                onTap: () async {
-                  final TimeOfDay? timeOfDay = await paisaTimerPicker(context);
-                  if (timeOfDay != null) {
-                    setState(() {
-                      selectedDateTime = selectedDateTime.copyWith(
-                        hour: timeOfDay.hour,
-                        minute: timeOfDay.minute,
-                      );
-                      BlocProvider.of<TransactionBloc>(context).selectedDate =
-                          selectedDateTime;
-                    });
-                  }
-                },
-                leading: Icon(
-                  MdiIcons.clockOutline,
-                  color: context.secondary,
-                ),
-                title: Text(selectedDateTime.formattedTime),
               ),
-            ),
-          ],
+            ],
+          ),
         );
       },
     );

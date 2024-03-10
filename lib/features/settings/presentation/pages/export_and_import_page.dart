@@ -16,7 +16,7 @@ class ExportAndImportPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SettingCubit settingCubit = BlocProvider.of<SettingCubit>(context);
+    final SettingCubit settingCubit = context.read<SettingCubit>();
     return PaisaAnnotatedRegionWidget(
       color: context.background,
       child: BlocListener(

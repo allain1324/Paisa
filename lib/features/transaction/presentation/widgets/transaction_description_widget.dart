@@ -25,8 +25,8 @@ class TransactionDescriptionWidget extends StatelessWidget {
         controller: controller,
         hintText: context.loc.description,
         keyboardType: TextInputType.name,
-        onChanged: (value) => BlocProvider.of<TransactionBloc>(context)
-            .currentDescription = value,
+        onChanged: (value) =>
+            context.read<TransactionBloc>().currentDescription = value,
       ),
     );
   }

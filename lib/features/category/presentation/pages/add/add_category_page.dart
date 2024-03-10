@@ -148,7 +148,8 @@ class _CategoryPageState extends State<CategoryPage> {
                         return;
                       }
 
-                      BlocProvider.of<CategoryBloc>(context)
+                      context
+                          .read<CategoryBloc>()
                           .add(AddOrUpdateCategoryEvent(isAddCategory));
                     },
                     title: isAddCategory ? context.loc.add : context.loc.update,
@@ -170,7 +171,8 @@ class _CategoryPageState extends State<CategoryPage> {
                           return;
                         }
 
-                        BlocProvider.of<CategoryBloc>(context)
+                        context
+                            .read<CategoryBloc>()
                             .add(AddOrUpdateCategoryEvent(isAddCategory));
                       },
                       title:
@@ -230,7 +232,7 @@ class DeleteCategoryWidget extends StatelessWidget {
           style: context.bodyMedium,
           children: [
             TextSpan(
-              text: BlocProvider.of<CategoryBloc>(context).categoryTitle,
+              text: context.read<CategoryBloc>().categoryTitle,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
               ),
@@ -243,9 +245,7 @@ class DeleteCategoryWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
         ),
         onPressed: () {
-          BlocProvider.of<CategoryBloc>(context)
-              .add(CategoryDeleteEvent(categoryId!));
-
+          context.read<CategoryBloc>().add(CategoryDeleteEvent(categoryId!));
           Navigator.pop(context);
         },
         child: Text(context.loc.delete),
@@ -285,11 +285,11 @@ class CategoryColorWidget extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           onTap: () {
             paisaColorPicker(context,
-                    defaultColor:
-                        BlocProvider.of<CategoryBloc>(context).selectedColor ??
-                            Colors.red.value)
+                    defaultColor: context.read<CategoryBloc>().selectedColor ??
+                        Colors.red.value)
                 .then((color) {
-              BlocProvider.of<CategoryBloc>(context)
+              context
+                  .read<CategoryBloc>()
                   .add(CategoryColorSelectedEvent(color));
             });
           },
@@ -304,9 +304,8 @@ class CategoryColorWidget extends StatelessWidget {
             height: 32,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Color(
-                  BlocProvider.of<CategoryBloc>(context).selectedColor ??
-                      Colors.red.value),
+              color: Color(context.read<CategoryBloc>().selectedColor ??
+                  Colors.red.value),
             ),
           ),
         );
@@ -334,10 +333,10 @@ class _TransferCategoryWidgetState extends State<TransferCategoryWidget> {
           ),
           subtitle: Text(context.loc.transferCategorySubtitle),
           title: Text(context.loc.transferCategory),
-          value: BlocProvider.of<CategoryBloc>(context).isDefault ?? false,
+          value: context.read<CategoryBloc>().isDefault ?? false,
           onChanged: (value) {
             setState(() {
-              BlocProvider.of<CategoryBloc>(context).isDefault = value;
+              context.read<CategoryBloc>().isDefault = value;
             });
           },
         );
@@ -360,8 +359,7 @@ class CategoryNameWidget extends StatelessWidget {
       controller: controller,
       hintText: context.loc.enterCategory,
       keyboardType: TextInputType.name,
-      onChanged: (value) =>
-          BlocProvider.of<CategoryBloc>(context).categoryTitle = value,
+      onChanged: (value) => context.read<CategoryBloc>().categoryTitle = value,
       validator: (value) {
         if (value!.isNotEmpty) {
           return null;
@@ -387,8 +385,7 @@ class CategoryDescriptionWidget extends StatelessWidget {
       controller: controller,
       hintText: context.loc.enterDescription,
       keyboardType: TextInputType.name,
-      onChanged: (value) =>
-          BlocProvider.of<CategoryBloc>(context).categoryDesc = value,
+      onChanged: (value) => context.read<CategoryBloc>().categoryDesc = value,
     );
   }
 }

@@ -28,7 +28,8 @@ class PaisaUserImageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<Box>(
-      valueListenable: BlocProvider.of<ProfileCubit>(context)
+      valueListenable: context
+          .read<ProfileCubit>()
           .settings
           .listenable(keys: [userImageKey]),
       builder: (context, value, _) {

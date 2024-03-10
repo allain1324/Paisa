@@ -44,10 +44,10 @@ class BudgetPage extends StatelessWidget {
             itemCount: categories.length,
             itemBuilder: (context, index) {
               final CategoryEntity category = categories[index];
-              final List<TransactionEntity> expenses =
-                  BlocProvider.of<HomeCubit>(context)
-                      .fetchExpensesFromCategoryId(category.superId!)
-                      .thisMonthExpensesList;
+              final List<TransactionEntity> expenses = context
+                  .read<HomeCubit>()
+                  .fetchExpensesFromCategoryId(category.superId!)
+                  .thisMonthExpensesList;
               return BudgetItem(category: category, expenses: expenses);
             },
             separatorBuilder: (BuildContext context, int index) =>

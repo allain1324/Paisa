@@ -8,9 +8,9 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 // Project imports:
 import 'package:paisa/config/routes.dart';
 import 'package:paisa/core/common.dart';
+import 'package:paisa/core/widgets/paisa_widgets/paisa_pill_chip.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
 import 'package:paisa/features/transaction/presentation/bloc/transaction_bloc.dart';
-import 'package:paisa/features/transaction/presentation/widgets/select_category_widget.dart';
 
 class TransferCategoriesWidget extends StatelessWidget {
   const TransferCategoriesWidget({super.key});
@@ -75,7 +75,7 @@ class SelectDefaultCategoryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final expenseBloc = BlocProvider.of<TransactionBloc>(context);
+    final TransactionBloc expenseBloc = context.read<TransactionBloc>();
     return BlocBuilder<TransactionBloc, TransactionState>(
       builder: (context, state) {
         return Padding(
@@ -94,8 +94,7 @@ class SelectDefaultCategoryWidget extends StatelessWidget {
                     },
                     icon: MdiIcons.plus.codePoint,
                     title: context.loc.addNew,
-                    iconColor: context.primary,
-                    titleColor: context.primary,
+                    color: context.primary,
                   );
                 } else {
                   final CategoryEntity category = categories[index - 1];
@@ -107,8 +106,7 @@ class SelectDefaultCategoryWidget extends StatelessWidget {
                         .add(TransactionEvent.changeCategory(category)),
                     icon: category.icon ?? 0,
                     title: category.name ?? '',
-                    titleColor: Color(category.color ?? context.primary.value),
-                    iconColor: Color(category.color ?? context.primary.value),
+                    color: Color(category.color ?? context.primary.value),
                   );
                 }
               },

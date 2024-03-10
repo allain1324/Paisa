@@ -21,7 +21,6 @@ class CategoryIconPickerWidget extends StatelessWidget {
       buildWhen: (previous, current) =>
           current is CategoryIconSelectedState ||
           current is CategorySuccessState,
-      bloc: BlocProvider.of<CategoryBloc>(context),
       builder: (context, state) {
         int codePoint = MdiIcons.home.codePoint;
         if (state is CategoryIconSelectedState) {
@@ -47,7 +46,8 @@ class CategoryIconPickerWidget extends StatelessWidget {
                 await const CategoryIconPickerPageData().push(context);
             if (result == null) return;
             if (context.mounted) {
-              BlocProvider.of<CategoryBloc>(context)
+              context
+                  .read<CategoryBloc>()
                   .add(CategoryIconSelectedEvent(result.codePoint));
             }
           },

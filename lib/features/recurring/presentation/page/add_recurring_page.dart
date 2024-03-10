@@ -182,8 +182,7 @@ class SelectedAccount extends StatelessWidget {
             AccountSelectedWidget(
               accounts: accounts,
               onSelected: (selectedId) {
-                BlocProvider.of<RecurringCubit>(context).selectedAccountId =
-                    selectedId;
+                context.read<RecurringCubit>().selectedAccountId = selectedId;
               },
             )
           ],
@@ -291,8 +290,7 @@ class SelectCategory extends StatelessWidget {
             CategorySelectWidget(
               categories: categories,
               onSelected: (int selectedId) {
-                BlocProvider.of<RecurringCubit>(context).selectedCategoryId =
-                    selectedId;
+                context.read<RecurringCubit>().selectedCategoryId = selectedId;
               },
             )
           ],
@@ -439,7 +437,7 @@ class RecurringNameWidget extends StatelessWidget {
           }
         },
         onChanged: (value) =>
-            BlocProvider.of<RecurringCubit>(context).recurringName = value,
+            context.read<RecurringCubit>().recurringName = value,
       ),
     );
   }
@@ -477,7 +475,7 @@ class RecurringAmountWidget extends StatelessWidget {
         ],
         onChanged: (value) {
           double? amount = double.tryParse(value);
-          BlocProvider.of<RecurringCubit>(context).amount = amount;
+          context.read<RecurringCubit>().amount = amount;
         },
         validator: (value) {
           if (value!.isNotEmpty) {
@@ -502,8 +500,7 @@ class RecurringDatePickerWidget extends StatefulWidget {
 }
 
 class _RecurringDatePickerWidgetState extends State<RecurringDatePickerWidget> {
-  late final RecurringCubit recurringCubit =
-      BlocProvider.of<RecurringCubit>(context);
+  late final RecurringCubit recurringCubit = context.read<RecurringCubit>();
 
   late DateTime selectedDateTime = recurringCubit.selectedDate;
 

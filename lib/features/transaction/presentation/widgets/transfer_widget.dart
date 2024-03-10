@@ -30,7 +30,7 @@ class TransferWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: Text(
-            'Date & time',
+            context.loc.dateAndTime,
             style: Theme.of(context).textTheme.titleSmall?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
@@ -53,7 +53,7 @@ class TransferWidget extends StatelessWidget {
         ),
         PillsAccountWidget(
           accountSelected: (account) {
-            BlocProvider.of<TransactionBloc>(context).fromAccount = account;
+            context.read<TransactionBloc>().fromAccount = account;
           },
         ),
         Padding(
@@ -67,7 +67,7 @@ class TransferWidget extends StatelessWidget {
         ),
         PillsAccountWidget(
           accountSelected: (account) {
-            BlocProvider.of<TransactionBloc>(context).toAccount = account;
+            context.read<TransactionBloc>().toAccount = account;
           },
         ),
         const SizedBox(height: 16),

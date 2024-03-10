@@ -32,9 +32,9 @@ class ColorPickerWidget extends StatelessWidget {
         return ListTile(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           onTap: () {
-            paisaColorPicker(context).then((color) =>
-                BlocProvider.of<CategoryBloc>(context)
-                    .add(CategoryColorSelectedEvent(color)));
+            paisaColorPicker(context).then((color) => context
+                .read<CategoryBloc>()
+                .add(CategoryColorSelectedEvent(color)));
           },
           leading: Icon(
             Icons.color_lens,

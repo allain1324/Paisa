@@ -36,7 +36,7 @@ extension AccountBoxMapping on Box<AccountModel> {
       .toList();
 
   double get totalAccountInitialAmount {
-    final accounts = settings.get(
+    final List<int> accounts = settings.get(
       excludedAccountIdKey,
       defaultValue: <int>[],
     );

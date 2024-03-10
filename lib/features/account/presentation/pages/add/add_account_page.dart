@@ -223,7 +223,8 @@ class AccountPageState extends State<AccountPage> {
                         if (!isValid) {
                           return;
                         }
-                        BlocProvider.of<AccountBloc>(context)
+                        context
+                            .read<AccountBloc>()
                             .add(AddOrUpdateAccountEvent(isAccountAddOrUpdate));
                       },
                       title: isAccountAddOrUpdate
@@ -250,7 +251,8 @@ class AccountPageState extends State<AccountPage> {
                         if (!isValid) {
                           return;
                         }
-                        BlocProvider.of<AccountBloc>(context)
+                        context
+                            .read<AccountBloc>()
                             .add(AddOrUpdateAccountEvent(isAccountAddOrUpdate));
                       },
                       title: isAccountAddOrUpdate
@@ -322,12 +324,10 @@ class AccountColorPickerWidget extends StatelessWidget {
             final color = await paisaColorPicker(
               context,
               defaultColor:
-                  BlocProvider.of<AccountBloc>(context).selectedColor ??
-                      Colors.red.value,
+                  context.read<AccountBloc>().selectedColor ?? Colors.red.value,
             );
             if (context.mounted) {
-              BlocProvider.of<AccountBloc>(context)
-                  .add(AccountColorSelectedEvent(color));
+              context.read<AccountBloc>().add(AccountColorSelectedEvent(color));
             }
           },
           leading: Icon(
@@ -342,9 +342,8 @@ class AccountColorPickerWidget extends StatelessWidget {
             height: 28,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Color(
-                  BlocProvider.of<AccountBloc>(context).selectedColor ??
-                      Colors.red.value),
+              color: Color(context.read<AccountBloc>().selectedColor ??
+                  Colors.red.value),
             ),
           ),
         );
@@ -368,7 +367,7 @@ class DeleteAccountWidget extends StatelessWidget {
           style: context.bodyMedium,
           children: [
             TextSpan(
-              text: BlocProvider.of<AccountBloc>(context).accountName,
+              text: context.read<AccountBloc>().accountName,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
               ),
@@ -381,8 +380,7 @@ class DeleteAccountWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
         ),
         onPressed: () {
-          BlocProvider.of<AccountBloc>(context)
-              .add(DeleteAccountEvent(accountId!));
+          context.read<AccountBloc>().add(DeleteAccountEvent(accountId!));
 
           Navigator.pop(context);
         },
@@ -432,7 +430,7 @@ class AccountCardHolderNameWidget extends StatelessWidget {
             FilteringTextInputFormatter.singleLineFormatter,
           ],
           onChanged: (value) =>
-              BlocProvider.of<AccountBloc>(context).accountHolderName = value,
+              context.read<AccountBloc>().accountHolderName = value,
         );
       },
     );
@@ -458,8 +456,7 @@ class AccountNameWidget extends StatelessWidget {
           inputFormatters: [
             FilteringTextInputFormatter.singleLineFormatter,
           ],
-          onChanged: (value) =>
-              BlocProvider.of<AccountBloc>(context).accountName = value,
+          onChanged: (value) => context.read<AccountBloc>().accountName = value,
         );
       },
     );
@@ -497,7 +494,7 @@ class AccountInitialAmountWidget extends StatelessWidget {
       ],
       onChanged: (value) {
         double? amount = double.tryParse(value);
-        BlocProvider.of<AccountBloc>(context).initialAmount = amount;
+        context.read<AccountBloc>().initialAmount = amount;
       },
     );
   }
@@ -521,7 +518,7 @@ class _AccountDefaultSwitchWidgetState
   late bool isAccountDefault =
       settingCubit.defaultAccountId == widget.accountId;
 
-  late final SettingCubit settingCubit = BlocProvider.of<SettingCubit>(context);
+  late final SettingCubit settingCubit = context.read<SettingCubit>();
 
   @override
   Widget build(BuildContext context) {

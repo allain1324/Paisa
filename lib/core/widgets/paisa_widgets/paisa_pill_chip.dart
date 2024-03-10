@@ -56,3 +56,46 @@ class PaisaPillChip extends StatelessWidget {
     );
   }
 }
+
+class CategoryChip extends StatelessWidget {
+  const CategoryChip({
+    super.key,
+    required this.selected,
+    required this.onSelected,
+    required this.icon,
+    required this.title,
+    required this.color,
+  });
+
+  final int icon;
+  final Function(bool) onSelected;
+  final bool selected;
+  final String title;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return FilterChip(
+      selected: selected,
+      onSelected: onSelected,
+      selectedColor: selected ? color.withOpacity(0.2) : null,
+      avatar: Icon(
+        color: color,
+        IconData(
+          icon,
+          fontFamily: fontFamilyName,
+          fontPackage: fontFamilyPackageName,
+        ),
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(28),
+        side: BorderSide(
+          color: context.primary,
+        ),
+      ),
+      showCheckmark: false,
+      label: Text(title),
+      labelStyle: context.titleMedium?.copyWith(color: color),
+    );
+  }
+}
