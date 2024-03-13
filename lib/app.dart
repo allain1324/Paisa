@@ -38,16 +38,16 @@ class _PaisaAppState extends State<PaisaApp> {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => getIt.get<SettingCubit>(),
+          create: (context) => getIt<SettingCubit>(),
         ),
         BlocProvider(
-          create: (context) => getIt.get<HomeCubit>(),
+          create: (context) => getIt<HomeCubit>(),
         ),
         BlocProvider(
-          create: (context) => getIt.get<AccountBloc>(),
+          create: (context) => getIt<AccountBloc>(),
         ),
         Provider(
-          create: (context) => getIt.get<SummaryController>(),
+          create: (context) => getIt<SummaryController>(),
         ),
       ],
       child: ValueListenableBuilder<Box>(

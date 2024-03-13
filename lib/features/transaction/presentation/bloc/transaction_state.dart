@@ -11,9 +11,6 @@ class TransactionState with _$TransactionState {
   const factory TransactionState.changecCategory(CategoryEntity category) =
       ChangeCategoryState;
 
-  const factory TransactionState.defaultCategory(
-      List<CategoryEntity> categories) = DefaultCategoriesState;
-
   const factory TransactionState.initial() = ExpenseInitial;
 
   const factory TransactionState.transaction(TransactionEntity transaction) =

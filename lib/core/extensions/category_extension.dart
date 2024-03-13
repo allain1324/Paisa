@@ -13,7 +13,7 @@ extension CategoryModelHelper on CategoryModel {
     return CategoryEntity(
       icon: icon,
       name: name,
-      color: color,
+      color: color ?? Colors.amber.shade100.value,
       budget: budget,
       description: description,
       isBudget: isBudget,
@@ -39,15 +39,12 @@ extension CategoryModelsHelper on Iterable<CategoryModel> {
 
   List<CategoryEntity> toBudgetEntities() => sort()
       .map((categoryModel) => categoryModel.toEntity())
-      .where((element) => element.isBudget != null)
-      .where((element) => element.isBudget!)
+      .where((element) => element.isBudget)
       .toList();
 }
 
 extension CategoryHelper on CategoryEntity {
-  Color get foregroundColor => Color(color ?? Colors.amber.shade100.value);
-  Color get backgroundColor =>
-      Color(color ?? Colors.amber.shade100.value).withOpacity(0.25);
-
+  Color get foregroundColor => Color(color);
+  Color get backgroundColor => Color(color).withOpacity(0.25);
   double get finalBudget => budget ?? 0.0;
 }

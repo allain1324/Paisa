@@ -22,7 +22,7 @@ class SummaryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<Box<TransactionModel>>(
-      valueListenable: getIt.get<Box<TransactionModel>>().listenable(),
+      valueListenable: getIt<Box<TransactionModel>>().listenable(),
       builder: (_, value, child) {
         final List<TransactionEntity> transactions =
             value.values.toExcludeAccounts();

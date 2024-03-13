@@ -69,7 +69,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
       selectedIcon = category.icon;
       currentCategory = category;
       isBudgetSet = category.isBudget;
-      selectedColor = category.color ?? Colors.red.shade100.value;
+      selectedColor = category.color;
       isDefault = category.isDefault;
       emit(CategorySuccessState(category));
     }

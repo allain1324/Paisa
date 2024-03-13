@@ -21,7 +21,7 @@ class RecurringPage extends StatelessWidget {
       color: context.background,
       child: Scaffold(
         body: ValueListenableBuilder<Box<RecurringModel>>(
-          valueListenable: getIt.get<Box<RecurringModel>>().listenable(),
+          valueListenable: getIt<Box<RecurringModel>>().listenable(),
           builder: (_, value, child) {
             final List<RecurringModel> recurringModels = value.values.toList();
             if (recurringModels.isEmpty) {

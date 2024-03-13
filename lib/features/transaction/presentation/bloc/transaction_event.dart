@@ -22,8 +22,6 @@ class TransactionEvent with _$TransactionEvent {
   const factory TransactionEvent.changeCategory(CategoryEntity category) =
       _ChangeCategoryEvent;
 
-  const factory TransactionEvent.defaultCategory() = _FetchDefaultCategoryEvent;
-
   const factory TransactionEvent.findTransaction(int? expenseId) =
       _FindTransactionFromIdEvent;
 

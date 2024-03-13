@@ -30,7 +30,7 @@ class _PillsAccountWidgetState extends State<PillsAccountWidget> {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<Box<AccountModel>>(
-      valueListenable: getIt.get<Box<AccountModel>>().listenable(),
+      valueListenable: getIt<Box<AccountModel>>().listenable(),
       builder: (context, value, child) {
         final accounts = value.values.toEntities();
 

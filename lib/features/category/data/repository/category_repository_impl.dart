@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 
 // Project imports:
 import 'package:paisa/core/common.dart';
-import 'package:paisa/features/category/data/data_sources/local/category_data_source.dart';
+import 'package:paisa/features/category/data/data_sources/category_data_source.dart';
 import 'package:paisa/features/category/data/model/category_model.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
 import 'package:paisa/features/category/domain/repository/category_repository.dart';

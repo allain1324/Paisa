@@ -103,7 +103,7 @@ class DebtItemWidget extends StatelessWidget {
                     if (dateTime != null) {
                       final double amount =
                           double.tryParse(controller.text) ?? 0;
-                      getIt.get<DebitBloc>().add(
+                      getIt<DebitBloc>().add(
                           AddTransactionToDebtEvent(debt, amount, dateTime!));
                       Navigator.pop(context);
                     } else {
@@ -137,7 +137,7 @@ class DebtItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<Box<DebitTransactionsModel>>(
-      valueListenable: getIt.get<Box<DebitTransactionsModel>>().listenable(),
+      valueListenable: getIt<Box<DebitTransactionsModel>>().listenable(),
       builder: (context, value, child) {
         final List<DebitTransactionEntity> transactions =
             value.getTransactionsFromId(debt.superId ?? 0);

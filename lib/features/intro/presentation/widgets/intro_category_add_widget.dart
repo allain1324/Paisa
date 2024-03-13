@@ -15,7 +15,7 @@ import 'package:paisa/core/extensions/color_extension.dart';
 import 'package:paisa/core/extensions/text_style_extension.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/category/data/data_sources/default_category.dart';
-import 'package:paisa/features/category/data/data_sources/local/category_data_source.dart';
+import 'package:paisa/features/category/data/data_sources/category_data_source.dart';
 import 'package:paisa/features/category/data/model/category_model.dart';
 import 'package:paisa/features/intro/presentation/widgets/intro_image_picker_widget.dart';
 import 'package:paisa/main.dart';
@@ -35,16 +35,16 @@ class _IntroCategoryAddWidgetState extends State<IntroCategoryAddWidget>
   @override
   void initState() {
     super.initState();
-    getIt.get<Box<CategoryModel>>().values.filterDefault.forEach((element) {
+    for (var element in getIt<Box<CategoryModel>>().values.filterDefault) {
       defaultModels.remove(element);
-    });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     super.build(context);
     return ValueListenableBuilder<Box<CategoryModel>>(
-      valueListenable: getIt.get<Box<CategoryModel>>().listenable(),
+      valueListenable: getIt<Box<CategoryModel>>().listenable(),
       builder: (context, value, child) {
         final List<CategoryModel> categoryModels =
             value.values.filterDefault.toList();

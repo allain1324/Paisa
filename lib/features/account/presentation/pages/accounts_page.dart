@@ -21,7 +21,7 @@ class AccountsPage extends StatelessWidget {
     return Scaffold(
       key: const Key('accounts_mobile'),
       body: ValueListenableBuilder<Box<AccountModel>>(
-        valueListenable: getIt.get<Box<AccountModel>>().listenable(),
+        valueListenable: getIt<Box<AccountModel>>().listenable(),
         builder: (_, value, __) {
           final List<AccountEntity> accounts = value.toEntities();
           if (accounts.isEmpty) {

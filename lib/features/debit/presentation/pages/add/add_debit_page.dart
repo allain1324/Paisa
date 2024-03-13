@@ -148,7 +148,7 @@ class _DebitPageState extends State<DebitPage> {
                     ),
                     ValueListenableBuilder<Box<DebitTransactionsModel>>(
                       valueListenable:
-                          getIt.get<Box<DebitTransactionsModel>>().listenable(),
+                          getIt<Box<DebitTransactionsModel>>().listenable(),
                       builder: (context, value, child) {
                         final int? parentId = widget.debtId;
                         if (parentId == null) return const SizedBox.shrink();

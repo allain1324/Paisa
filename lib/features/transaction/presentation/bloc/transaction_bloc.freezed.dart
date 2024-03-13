@@ -27,7 +27,6 @@ mixin _$TransactionEvent {
     required TResult Function() addRecurring,
     required TResult Function(AccountEntity account) changeAccount,
     required TResult Function(CategoryEntity category) changeCategory,
-    required TResult Function() defaultCategory,
     required TResult Function(int? expenseId) findTransaction,
     required TResult Function(DateTime dateTime) updateDateTime,
   }) =>
@@ -42,7 +41,6 @@ mixin _$TransactionEvent {
     TResult? Function()? addRecurring,
     TResult? Function(AccountEntity account)? changeAccount,
     TResult? Function(CategoryEntity category)? changeCategory,
-    TResult? Function()? defaultCategory,
     TResult? Function(int? expenseId)? findTransaction,
     TResult? Function(DateTime dateTime)? updateDateTime,
   }) =>
@@ -57,7 +55,6 @@ mixin _$TransactionEvent {
     TResult Function()? addRecurring,
     TResult Function(AccountEntity account)? changeAccount,
     TResult Function(CategoryEntity category)? changeCategory,
-    TResult Function()? defaultCategory,
     TResult Function(int? expenseId)? findTransaction,
     TResult Function(DateTime dateTime)? updateDateTime,
     required TResult orElse(),
@@ -73,7 +70,6 @@ mixin _$TransactionEvent {
     required TResult Function(_AddRecurringEvent value) addRecurring,
     required TResult Function(_ChangeAccountEvent value) changeAccount,
     required TResult Function(_ChangeCategoryEvent value) changeCategory,
-    required TResult Function(_FetchDefaultCategoryEvent value) defaultCategory,
     required TResult Function(_FindTransactionFromIdEvent value)
         findTransaction,
     required TResult Function(_UpdateDateTimeEvent value) updateDateTime,
@@ -88,7 +84,6 @@ mixin _$TransactionEvent {
     TResult? Function(_AddRecurringEvent value)? addRecurring,
     TResult? Function(_ChangeAccountEvent value)? changeAccount,
     TResult? Function(_ChangeCategoryEvent value)? changeCategory,
-    TResult? Function(_FetchDefaultCategoryEvent value)? defaultCategory,
     TResult? Function(_FindTransactionFromIdEvent value)? findTransaction,
     TResult? Function(_UpdateDateTimeEvent value)? updateDateTime,
   }) =>
@@ -102,7 +97,6 @@ mixin _$TransactionEvent {
     TResult Function(_AddRecurringEvent value)? addRecurring,
     TResult Function(_ChangeAccountEvent value)? changeAccount,
     TResult Function(_ChangeCategoryEvent value)? changeCategory,
-    TResult Function(_FetchDefaultCategoryEvent value)? defaultCategory,
     TResult Function(_FindTransactionFromIdEvent value)? findTransaction,
     TResult Function(_UpdateDateTimeEvent value)? updateDateTime,
     required TResult orElse(),
@@ -205,7 +199,6 @@ class _$AddOrUpdateExpenseEventImpl implements _AddOrUpdateExpenseEvent {
     required TResult Function() addRecurring,
     required TResult Function(AccountEntity account) changeAccount,
     required TResult Function(CategoryEntity category) changeCategory,
-    required TResult Function() defaultCategory,
     required TResult Function(int? expenseId) findTransaction,
     required TResult Function(DateTime dateTime) updateDateTime,
   }) {
@@ -223,7 +216,6 @@ class _$AddOrUpdateExpenseEventImpl implements _AddOrUpdateExpenseEvent {
     TResult? Function()? addRecurring,
     TResult? Function(AccountEntity account)? changeAccount,
     TResult? Function(CategoryEntity category)? changeCategory,
-    TResult? Function()? defaultCategory,
     TResult? Function(int? expenseId)? findTransaction,
     TResult? Function(DateTime dateTime)? updateDateTime,
   }) {
@@ -241,7 +233,6 @@ class _$AddOrUpdateExpenseEventImpl implements _AddOrUpdateExpenseEvent {
     TResult Function()? addRecurring,
     TResult Function(AccountEntity account)? changeAccount,
     TResult Function(CategoryEntity category)? changeCategory,
-    TResult Function()? defaultCategory,
     TResult Function(int? expenseId)? findTransaction,
     TResult Function(DateTime dateTime)? updateDateTime,
     required TResult orElse(),
@@ -263,7 +254,6 @@ class _$AddOrUpdateExpenseEventImpl implements _AddOrUpdateExpenseEvent {
     required TResult Function(_AddRecurringEvent value) addRecurring,
     required TResult Function(_ChangeAccountEvent value) changeAccount,
     required TResult Function(_ChangeCategoryEvent value) changeCategory,
-    required TResult Function(_FetchDefaultCategoryEvent value) defaultCategory,
     required TResult Function(_FindTransactionFromIdEvent value)
         findTransaction,
     required TResult Function(_UpdateDateTimeEvent value) updateDateTime,
@@ -281,7 +271,6 @@ class _$AddOrUpdateExpenseEventImpl implements _AddOrUpdateExpenseEvent {
     TResult? Function(_AddRecurringEvent value)? addRecurring,
     TResult? Function(_ChangeAccountEvent value)? changeAccount,
     TResult? Function(_ChangeCategoryEvent value)? changeCategory,
-    TResult? Function(_FetchDefaultCategoryEvent value)? defaultCategory,
     TResult? Function(_FindTransactionFromIdEvent value)? findTransaction,
     TResult? Function(_UpdateDateTimeEvent value)? updateDateTime,
   }) {
@@ -298,7 +287,6 @@ class _$AddOrUpdateExpenseEventImpl implements _AddOrUpdateExpenseEvent {
     TResult Function(_AddRecurringEvent value)? addRecurring,
     TResult Function(_ChangeAccountEvent value)? changeAccount,
     TResult Function(_ChangeCategoryEvent value)? changeCategory,
-    TResult Function(_FetchDefaultCategoryEvent value)? defaultCategory,
     TResult Function(_FindTransactionFromIdEvent value)? findTransaction,
     TResult Function(_UpdateDateTimeEvent value)? updateDateTime,
     required TResult orElse(),
@@ -395,7 +383,6 @@ class _$ClearExpenseEventImpl implements _ClearExpenseEvent {
     required TResult Function() addRecurring,
     required TResult Function(AccountEntity account) changeAccount,
     required TResult Function(CategoryEntity category) changeCategory,
-    required TResult Function() defaultCategory,
     required TResult Function(int? expenseId) findTransaction,
     required TResult Function(DateTime dateTime) updateDateTime,
   }) {
@@ -413,7 +400,6 @@ class _$ClearExpenseEventImpl implements _ClearExpenseEvent {
     TResult? Function()? addRecurring,
     TResult? Function(AccountEntity account)? changeAccount,
     TResult? Function(CategoryEntity category)? changeCategory,
-    TResult? Function()? defaultCategory,
     TResult? Function(int? expenseId)? findTransaction,
     TResult? Function(DateTime dateTime)? updateDateTime,
   }) {
@@ -431,7 +417,6 @@ class _$ClearExpenseEventImpl implements _ClearExpenseEvent {
     TResult Function()? addRecurring,
     TResult Function(AccountEntity account)? changeAccount,
     TResult Function(CategoryEntity category)? changeCategory,
-    TResult Function()? defaultCategory,
     TResult Function(int? expenseId)? findTransaction,
     TResult Function(DateTime dateTime)? updateDateTime,
     required TResult orElse(),
@@ -453,7 +438,6 @@ class _$ClearExpenseEventImpl implements _ClearExpenseEvent {
     required TResult Function(_AddRecurringEvent value) addRecurring,
     required TResult Function(_ChangeAccountEvent value) changeAccount,
     required TResult Function(_ChangeCategoryEvent value) changeCategory,
-    required TResult Function(_FetchDefaultCategoryEvent value) defaultCategory,
     required TResult Function(_FindTransactionFromIdEvent value)
         findTransaction,
     required TResult Function(_UpdateDateTimeEvent value) updateDateTime,
@@ -471,7 +455,6 @@ class _$ClearExpenseEventImpl implements _ClearExpenseEvent {
     TResult? Function(_AddRecurringEvent value)? addRecurring,
     TResult? Function(_ChangeAccountEvent value)? changeAccount,
     TResult? Function(_ChangeCategoryEvent value)? changeCategory,
-    TResult? Function(_FetchDefaultCategoryEvent value)? defaultCategory,
     TResult? Function(_FindTransactionFromIdEvent value)? findTransaction,
     TResult? Function(_UpdateDateTimeEvent value)? updateDateTime,
   }) {
@@ -488,7 +471,6 @@ class _$ClearExpenseEventImpl implements _ClearExpenseEvent {
     TResult Function(_AddRecurringEvent value)? addRecurring,
     TResult Function(_ChangeAccountEvent value)? changeAccount,
     TResult Function(_ChangeCategoryEvent value)? changeCategory,
-    TResult Function(_FetchDefaultCategoryEvent value)? defaultCategory,
     TResult Function(_FindTransactionFromIdEvent value)? findTransaction,
     TResult Function(_UpdateDateTimeEvent value)? updateDateTime,
     required TResult orElse(),
@@ -588,7 +570,6 @@ class _$ChangeTransactionTypeEventImpl implements _ChangeTransactionTypeEvent {
     required TResult Function() addRecurring,
     required TResult Function(AccountEntity account) changeAccount,
     required TResult Function(CategoryEntity category) changeCategory,
-    required TResult Function() defaultCategory,
     required TResult Function(int? expenseId) findTransaction,
     required TResult Function(DateTime dateTime) updateDateTime,
   }) {
@@ -606,7 +587,6 @@ class _$ChangeTransactionTypeEventImpl implements _ChangeTransactionTypeEvent {
     TResult? Function()? addRecurring,
     TResult? Function(AccountEntity account)? changeAccount,
     TResult? Function(CategoryEntity category)? changeCategory,
-    TResult? Function()? defaultCategory,
     TResult? Function(int? expenseId)? findTransaction,
     TResult? Function(DateTime dateTime)? updateDateTime,
   }) {
@@ -624,7 +604,6 @@ class _$ChangeTransactionTypeEventImpl implements _ChangeTransactionTypeEvent {
     TResult Function()? addRecurring,
     TResult Function(AccountEntity account)? changeAccount,
     TResult Function(CategoryEntity category)? changeCategory,
-    TResult Function()? defaultCategory,
     TResult Function(int? expenseId)? findTransaction,
     TResult Function(DateTime dateTime)? updateDateTime,
     required TResult orElse(),
@@ -646,7 +625,6 @@ class _$ChangeTransactionTypeEventImpl implements _ChangeTransactionTypeEvent {
     required TResult Function(_AddRecurringEvent value) addRecurring,
     required TResult Function(_ChangeAccountEvent value) changeAccount,
     required TResult Function(_ChangeCategoryEvent value) changeCategory,
-    required TResult Function(_FetchDefaultCategoryEvent value) defaultCategory,
     required TResult Function(_FindTransactionFromIdEvent value)
         findTransaction,
     required TResult Function(_UpdateDateTimeEvent value) updateDateTime,
@@ -664,7 +642,6 @@ class _$ChangeTransactionTypeEventImpl implements _ChangeTransactionTypeEvent {
     TResult? Function(_AddRecurringEvent value)? addRecurring,
     TResult? Function(_ChangeAccountEvent value)? changeAccount,
     TResult? Function(_ChangeCategoryEvent value)? changeCategory,
-    TResult? Function(_FetchDefaultCategoryEvent value)? defaultCategory,
     TResult? Function(_FindTransactionFromIdEvent value)? findTransaction,
     TResult? Function(_UpdateDateTimeEvent value)? updateDateTime,
   }) {
@@ -681,7 +658,6 @@ class _$ChangeTransactionTypeEventImpl implements _ChangeTransactionTypeEvent {
     TResult Function(_AddRecurringEvent value)? addRecurring,
     TResult Function(_ChangeAccountEvent value)? changeAccount,
     TResult Function(_ChangeCategoryEvent value)? changeCategory,
-    TResult Function(_FetchDefaultCategoryEvent value)? defaultCategory,
     TResult Function(_FindTransactionFromIdEvent value)? findTransaction,
     TResult Function(_UpdateDateTimeEvent value)? updateDateTime,
     required TResult orElse(),
@@ -798,7 +774,6 @@ class _$TransferAccountEventImpl implements _TransferAccountEvent {
     required TResult Function() addRecurring,
     required TResult Function(AccountEntity account) changeAccount,
     required TResult Function(CategoryEntity category) changeCategory,
-    required TResult Function() defaultCategory,
     required TResult Function(int? expenseId) findTransaction,
     required TResult Function(DateTime dateTime) updateDateTime,
   }) {
@@ -816,7 +791,6 @@ class _$TransferAccountEventImpl implements _TransferAccountEvent {
     TResult? Function()? addRecurring,
     TResult? Function(AccountEntity account)? changeAccount,
     TResult? Function(CategoryEntity category)? changeCategory,
-    TResult? Function()? defaultCategory,
     TResult? Function(int? expenseId)? findTransaction,
     TResult? Function(DateTime dateTime)? updateDateTime,
   }) {
@@ -834,7 +808,6 @@ class _$TransferAccountEventImpl implements _TransferAccountEvent {
     TResult Function()? addRecurring,
     TResult Function(AccountEntity account)? changeAccount,
     TResult Function(CategoryEntity category)? changeCategory,
-    TResult Function()? defaultCategory,
     TResult Function(int? expenseId)? findTransaction,
     TResult Function(DateTime dateTime)? updateDateTime,
     required TResult orElse(),
@@ -856,7 +829,6 @@ class _$TransferAccountEventImpl implements _TransferAccountEvent {
     required TResult Function(_AddRecurringEvent value) addRecurring,
     required TResult Function(_ChangeAccountEvent value) changeAccount,
     required TResult Function(_ChangeCategoryEvent value) changeCategory,
-    required TResult Function(_FetchDefaultCategoryEvent value) defaultCategory,
     required TResult Function(_FindTransactionFromIdEvent value)
         findTransaction,
     required TResult Function(_UpdateDateTimeEvent value) updateDateTime,
@@ -874,7 +846,6 @@ class _$TransferAccountEventImpl implements _TransferAccountEvent {
     TResult? Function(_AddRecurringEvent value)? addRecurring,
     TResult? Function(_ChangeAccountEvent value)? changeAccount,
     TResult? Function(_ChangeCategoryEvent value)? changeCategory,
-    TResult? Function(_FetchDefaultCategoryEvent value)? defaultCategory,
     TResult? Function(_FindTransactionFromIdEvent value)? findTransaction,
     TResult? Function(_UpdateDateTimeEvent value)? updateDateTime,
   }) {
@@ -891,7 +862,6 @@ class _$TransferAccountEventImpl implements _TransferAccountEvent {
     TResult Function(_AddRecurringEvent value)? addRecurring,
     TResult Function(_ChangeAccountEvent value)? changeAccount,
     TResult Function(_ChangeCategoryEvent value)? changeCategory,
-    TResult Function(_FetchDefaultCategoryEvent value)? defaultCategory,
     TResult Function(_FindTransactionFromIdEvent value)? findTransaction,
     TResult Function(_UpdateDateTimeEvent value)? updateDateTime,
     required TResult orElse(),
@@ -961,7 +931,6 @@ class _$AddRecurringEventImpl implements _AddRecurringEvent {
     required TResult Function() addRecurring,
     required TResult Function(AccountEntity account) changeAccount,
     required TResult Function(CategoryEntity category) changeCategory,
-    required TResult Function() defaultCategory,
     required TResult Function(int? expenseId) findTransaction,
     required TResult Function(DateTime dateTime) updateDateTime,
   }) {
@@ -979,7 +948,6 @@ class _$AddRecurringEventImpl implements _AddRecurringEvent {
     TResult? Function()? addRecurring,
     TResult? Function(AccountEntity account)? changeAccount,
     TResult? Function(CategoryEntity category)? changeCategory,
-    TResult? Function()? defaultCategory,
     TResult? Function(int? expenseId)? findTransaction,
     TResult? Function(DateTime dateTime)? updateDateTime,
   }) {
@@ -997,7 +965,6 @@ class _$AddRecurringEventImpl implements _AddRecurringEvent {
     TResult Function()? addRecurring,
     TResult Function(AccountEntity account)? changeAccount,
     TResult Function(CategoryEntity category)? changeCategory,
-    TResult Function()? defaultCategory,
     TResult Function(int? expenseId)? findTransaction,
     TResult Function(DateTime dateTime)? updateDateTime,
     required TResult orElse(),
@@ -1019,7 +986,6 @@ class _$AddRecurringEventImpl implements _AddRecurringEvent {
     required TResult Function(_AddRecurringEvent value) addRecurring,
     required TResult Function(_ChangeAccountEvent value) changeAccount,
     required TResult Function(_ChangeCategoryEvent value) changeCategory,
-    required TResult Function(_FetchDefaultCategoryEvent value) defaultCategory,
     required TResult Function(_FindTransactionFromIdEvent value)
         findTransaction,
     required TResult Function(_UpdateDateTimeEvent value) updateDateTime,
@@ -1037,7 +1003,6 @@ class _$AddRecurringEventImpl implements _AddRecurringEvent {
     TResult? Function(_AddRecurringEvent value)? addRecurring,
     TResult? Function(_ChangeAccountEvent value)? changeAccount,
     TResult? Function(_ChangeCategoryEvent value)? changeCategory,
-    TResult? Function(_FetchDefaultCategoryEvent value)? defaultCategory,
     TResult? Function(_FindTransactionFromIdEvent value)? findTransaction,
     TResult? Function(_UpdateDateTimeEvent value)? updateDateTime,
   }) {
@@ -1054,7 +1019,6 @@ class _$AddRecurringEventImpl implements _AddRecurringEvent {
     TResult Function(_AddRecurringEvent value)? addRecurring,
     TResult Function(_ChangeAccountEvent value)? changeAccount,
     TResult Function(_ChangeCategoryEvent value)? changeCategory,
-    TResult Function(_FetchDefaultCategoryEvent value)? defaultCategory,
     TResult Function(_FindTransactionFromIdEvent value)? findTransaction,
     TResult Function(_UpdateDateTimeEvent value)? updateDateTime,
     required TResult orElse(),
@@ -1154,7 +1118,6 @@ class _$ChangeAccountEventImpl implements _ChangeAccountEvent {
     required TResult Function() addRecurring,
     required TResult Function(AccountEntity account) changeAccount,
     required TResult Function(CategoryEntity category) changeCategory,
-    required TResult Function() defaultCategory,
     required TResult Function(int? expenseId) findTransaction,
     required TResult Function(DateTime dateTime) updateDateTime,
   }) {
@@ -1172,7 +1135,6 @@ class _$ChangeAccountEventImpl implements _ChangeAccountEvent {
     TResult? Function()? addRecurring,
     TResult? Function(AccountEntity account)? changeAccount,
     TResult? Function(CategoryEntity category)? changeCategory,
-    TResult? Function()? defaultCategory,
     TResult? Function(int? expenseId)? findTransaction,
     TResult? Function(DateTime dateTime)? updateDateTime,
   }) {
@@ -1190,7 +1152,6 @@ class _$ChangeAccountEventImpl implements _ChangeAccountEvent {
     TResult Function()? addRecurring,
     TResult Function(AccountEntity account)? changeAccount,
     TResult Function(CategoryEntity category)? changeCategory,
-    TResult Function()? defaultCategory,
     TResult Function(int? expenseId)? findTransaction,
     TResult Function(DateTime dateTime)? updateDateTime,
     required TResult orElse(),
@@ -1212,7 +1173,6 @@ class _$ChangeAccountEventImpl implements _ChangeAccountEvent {
     required TResult Function(_AddRecurringEvent value) addRecurring,
     required TResult Function(_ChangeAccountEvent value) changeAccount,
     required TResult Function(_ChangeCategoryEvent value) changeCategory,
-    required TResult Function(_FetchDefaultCategoryEvent value) defaultCategory,
     required TResult Function(_FindTransactionFromIdEvent value)
         findTransaction,
     required TResult Function(_UpdateDateTimeEvent value) updateDateTime,
@@ -1230,7 +1190,6 @@ class _$ChangeAccountEventImpl implements _ChangeAccountEvent {
     TResult? Function(_AddRecurringEvent value)? addRecurring,
     TResult? Function(_ChangeAccountEvent value)? changeAccount,
     TResult? Function(_ChangeCategoryEvent value)? changeCategory,
-    TResult? Function(_FetchDefaultCategoryEvent value)? defaultCategory,
     TResult? Function(_FindTransactionFromIdEvent value)? findTransaction,
     TResult? Function(_UpdateDateTimeEvent value)? updateDateTime,
   }) {
@@ -1247,7 +1206,6 @@ class _$ChangeAccountEventImpl implements _ChangeAccountEvent {
     TResult Function(_AddRecurringEvent value)? addRecurring,
     TResult Function(_ChangeAccountEvent value)? changeAccount,
     TResult Function(_ChangeCategoryEvent value)? changeCategory,
-    TResult Function(_FetchDefaultCategoryEvent value)? defaultCategory,
     TResult Function(_FindTransactionFromIdEvent value)? findTransaction,
     TResult Function(_UpdateDateTimeEvent value)? updateDateTime,
     required TResult orElse(),
@@ -1276,6 +1234,8 @@ abstract class _$$ChangeCategoryEventImplCopyWith<$Res> {
       __$$ChangeCategoryEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({CategoryEntity category});
+
+  $CategoryEntityCopyWith<$Res> get category;
 }
 
 /// @nodoc
@@ -1297,6 +1257,14 @@ class __$$ChangeCategoryEventImplCopyWithImpl<$Res>
           : category // ignore: cast_nullable_to_non_nullable
               as CategoryEntity,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CategoryEntityCopyWith<$Res> get category {
+    return $CategoryEntityCopyWith<$Res>(_value.category, (value) {
+      return _then(_value.copyWith(category: value));
+    });
   }
 }
 
@@ -1344,7 +1312,6 @@ class _$ChangeCategoryEventImpl implements _ChangeCategoryEvent {
     required TResult Function() addRecurring,
     required TResult Function(AccountEntity account) changeAccount,
     required TResult Function(CategoryEntity category) changeCategory,
-    required TResult Function() defaultCategory,
     required TResult Function(int? expenseId) findTransaction,
     required TResult Function(DateTime dateTime) updateDateTime,
   }) {
@@ -1362,7 +1329,6 @@ class _$ChangeCategoryEventImpl implements _ChangeCategoryEvent {
     TResult? Function()? addRecurring,
     TResult? Function(AccountEntity account)? changeAccount,
     TResult? Function(CategoryEntity category)? changeCategory,
-    TResult? Function()? defaultCategory,
     TResult? Function(int? expenseId)? findTransaction,
     TResult? Function(DateTime dateTime)? updateDateTime,
   }) {
@@ -1380,7 +1346,6 @@ class _$ChangeCategoryEventImpl implements _ChangeCategoryEvent {
     TResult Function()? addRecurring,
     TResult Function(AccountEntity account)? changeAccount,
     TResult Function(CategoryEntity category)? changeCategory,
-    TResult Function()? defaultCategory,
     TResult Function(int? expenseId)? findTransaction,
     TResult Function(DateTime dateTime)? updateDateTime,
     required TResult orElse(),
@@ -1402,7 +1367,6 @@ class _$ChangeCategoryEventImpl implements _ChangeCategoryEvent {
     required TResult Function(_AddRecurringEvent value) addRecurring,
     required TResult Function(_ChangeAccountEvent value) changeAccount,
     required TResult Function(_ChangeCategoryEvent value) changeCategory,
-    required TResult Function(_FetchDefaultCategoryEvent value) defaultCategory,
     required TResult Function(_FindTransactionFromIdEvent value)
         findTransaction,
     required TResult Function(_UpdateDateTimeEvent value) updateDateTime,
@@ -1420,7 +1384,6 @@ class _$ChangeCategoryEventImpl implements _ChangeCategoryEvent {
     TResult? Function(_AddRecurringEvent value)? addRecurring,
     TResult? Function(_ChangeAccountEvent value)? changeAccount,
     TResult? Function(_ChangeCategoryEvent value)? changeCategory,
-    TResult? Function(_FetchDefaultCategoryEvent value)? defaultCategory,
     TResult? Function(_FindTransactionFromIdEvent value)? findTransaction,
     TResult? Function(_UpdateDateTimeEvent value)? updateDateTime,
   }) {
@@ -1437,7 +1400,6 @@ class _$ChangeCategoryEventImpl implements _ChangeCategoryEvent {
     TResult Function(_AddRecurringEvent value)? addRecurring,
     TResult Function(_ChangeAccountEvent value)? changeAccount,
     TResult Function(_ChangeCategoryEvent value)? changeCategory,
-    TResult Function(_FetchDefaultCategoryEvent value)? defaultCategory,
     TResult Function(_FindTransactionFromIdEvent value)? findTransaction,
     TResult Function(_UpdateDateTimeEvent value)? updateDateTime,
     required TResult orElse(),
@@ -1457,166 +1419,6 @@ abstract class _ChangeCategoryEvent implements TransactionEvent {
   @JsonKey(ignore: true)
   _$$ChangeCategoryEventImplCopyWith<_$ChangeCategoryEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$FetchDefaultCategoryEventImplCopyWith<$Res> {
-  factory _$$FetchDefaultCategoryEventImplCopyWith(
-          _$FetchDefaultCategoryEventImpl value,
-          $Res Function(_$FetchDefaultCategoryEventImpl) then) =
-      __$$FetchDefaultCategoryEventImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$FetchDefaultCategoryEventImplCopyWithImpl<$Res>
-    extends _$TransactionEventCopyWithImpl<$Res,
-        _$FetchDefaultCategoryEventImpl>
-    implements _$$FetchDefaultCategoryEventImplCopyWith<$Res> {
-  __$$FetchDefaultCategoryEventImplCopyWithImpl(
-      _$FetchDefaultCategoryEventImpl _value,
-      $Res Function(_$FetchDefaultCategoryEventImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$FetchDefaultCategoryEventImpl implements _FetchDefaultCategoryEvent {
-  const _$FetchDefaultCategoryEventImpl();
-
-  @override
-  String toString() {
-    return 'TransactionEvent.defaultCategory()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchDefaultCategoryEventImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(bool isAdding) addOrUpdate,
-    required TResult Function(int expenseId) delete,
-    required TResult Function(TransactionType transactionType)
-        changeTransactionType,
-    required TResult Function(AccountEntity account, bool isFromAccount)
-        transferAccount,
-    required TResult Function() addRecurring,
-    required TResult Function(AccountEntity account) changeAccount,
-    required TResult Function(CategoryEntity category) changeCategory,
-    required TResult Function() defaultCategory,
-    required TResult Function(int? expenseId) findTransaction,
-    required TResult Function(DateTime dateTime) updateDateTime,
-  }) {
-    return defaultCategory();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isAdding)? addOrUpdate,
-    TResult? Function(int expenseId)? delete,
-    TResult? Function(TransactionType transactionType)? changeTransactionType,
-    TResult? Function(AccountEntity account, bool isFromAccount)?
-        transferAccount,
-    TResult? Function()? addRecurring,
-    TResult? Function(AccountEntity account)? changeAccount,
-    TResult? Function(CategoryEntity category)? changeCategory,
-    TResult? Function()? defaultCategory,
-    TResult? Function(int? expenseId)? findTransaction,
-    TResult? Function(DateTime dateTime)? updateDateTime,
-  }) {
-    return defaultCategory?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isAdding)? addOrUpdate,
-    TResult Function(int expenseId)? delete,
-    TResult Function(TransactionType transactionType)? changeTransactionType,
-    TResult Function(AccountEntity account, bool isFromAccount)?
-        transferAccount,
-    TResult Function()? addRecurring,
-    TResult Function(AccountEntity account)? changeAccount,
-    TResult Function(CategoryEntity category)? changeCategory,
-    TResult Function()? defaultCategory,
-    TResult Function(int? expenseId)? findTransaction,
-    TResult Function(DateTime dateTime)? updateDateTime,
-    required TResult orElse(),
-  }) {
-    if (defaultCategory != null) {
-      return defaultCategory();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_AddOrUpdateExpenseEvent value) addOrUpdate,
-    required TResult Function(_ClearExpenseEvent value) delete,
-    required TResult Function(_ChangeTransactionTypeEvent value)
-        changeTransactionType,
-    required TResult Function(_TransferAccountEvent value) transferAccount,
-    required TResult Function(_AddRecurringEvent value) addRecurring,
-    required TResult Function(_ChangeAccountEvent value) changeAccount,
-    required TResult Function(_ChangeCategoryEvent value) changeCategory,
-    required TResult Function(_FetchDefaultCategoryEvent value) defaultCategory,
-    required TResult Function(_FindTransactionFromIdEvent value)
-        findTransaction,
-    required TResult Function(_UpdateDateTimeEvent value) updateDateTime,
-  }) {
-    return defaultCategory(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_AddOrUpdateExpenseEvent value)? addOrUpdate,
-    TResult? Function(_ClearExpenseEvent value)? delete,
-    TResult? Function(_ChangeTransactionTypeEvent value)? changeTransactionType,
-    TResult? Function(_TransferAccountEvent value)? transferAccount,
-    TResult? Function(_AddRecurringEvent value)? addRecurring,
-    TResult? Function(_ChangeAccountEvent value)? changeAccount,
-    TResult? Function(_ChangeCategoryEvent value)? changeCategory,
-    TResult? Function(_FetchDefaultCategoryEvent value)? defaultCategory,
-    TResult? Function(_FindTransactionFromIdEvent value)? findTransaction,
-    TResult? Function(_UpdateDateTimeEvent value)? updateDateTime,
-  }) {
-    return defaultCategory?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AddOrUpdateExpenseEvent value)? addOrUpdate,
-    TResult Function(_ClearExpenseEvent value)? delete,
-    TResult Function(_ChangeTransactionTypeEvent value)? changeTransactionType,
-    TResult Function(_TransferAccountEvent value)? transferAccount,
-    TResult Function(_AddRecurringEvent value)? addRecurring,
-    TResult Function(_ChangeAccountEvent value)? changeAccount,
-    TResult Function(_ChangeCategoryEvent value)? changeCategory,
-    TResult Function(_FetchDefaultCategoryEvent value)? defaultCategory,
-    TResult Function(_FindTransactionFromIdEvent value)? findTransaction,
-    TResult Function(_UpdateDateTimeEvent value)? updateDateTime,
-    required TResult orElse(),
-  }) {
-    if (defaultCategory != null) {
-      return defaultCategory(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _FetchDefaultCategoryEvent implements TransactionEvent {
-  const factory _FetchDefaultCategoryEvent() = _$FetchDefaultCategoryEventImpl;
 }
 
 /// @nodoc
@@ -1697,7 +1499,6 @@ class _$FindTransactionFromIdEventImpl implements _FindTransactionFromIdEvent {
     required TResult Function() addRecurring,
     required TResult Function(AccountEntity account) changeAccount,
     required TResult Function(CategoryEntity category) changeCategory,
-    required TResult Function() defaultCategory,
     required TResult Function(int? expenseId) findTransaction,
     required TResult Function(DateTime dateTime) updateDateTime,
   }) {
@@ -1715,7 +1516,6 @@ class _$FindTransactionFromIdEventImpl implements _FindTransactionFromIdEvent {
     TResult? Function()? addRecurring,
     TResult? Function(AccountEntity account)? changeAccount,
     TResult? Function(CategoryEntity category)? changeCategory,
-    TResult? Function()? defaultCategory,
     TResult? Function(int? expenseId)? findTransaction,
     TResult? Function(DateTime dateTime)? updateDateTime,
   }) {
@@ -1733,7 +1533,6 @@ class _$FindTransactionFromIdEventImpl implements _FindTransactionFromIdEvent {
     TResult Function()? addRecurring,
     TResult Function(AccountEntity account)? changeAccount,
     TResult Function(CategoryEntity category)? changeCategory,
-    TResult Function()? defaultCategory,
     TResult Function(int? expenseId)? findTransaction,
     TResult Function(DateTime dateTime)? updateDateTime,
     required TResult orElse(),
@@ -1755,7 +1554,6 @@ class _$FindTransactionFromIdEventImpl implements _FindTransactionFromIdEvent {
     required TResult Function(_AddRecurringEvent value) addRecurring,
     required TResult Function(_ChangeAccountEvent value) changeAccount,
     required TResult Function(_ChangeCategoryEvent value) changeCategory,
-    required TResult Function(_FetchDefaultCategoryEvent value) defaultCategory,
     required TResult Function(_FindTransactionFromIdEvent value)
         findTransaction,
     required TResult Function(_UpdateDateTimeEvent value) updateDateTime,
@@ -1773,7 +1571,6 @@ class _$FindTransactionFromIdEventImpl implements _FindTransactionFromIdEvent {
     TResult? Function(_AddRecurringEvent value)? addRecurring,
     TResult? Function(_ChangeAccountEvent value)? changeAccount,
     TResult? Function(_ChangeCategoryEvent value)? changeCategory,
-    TResult? Function(_FetchDefaultCategoryEvent value)? defaultCategory,
     TResult? Function(_FindTransactionFromIdEvent value)? findTransaction,
     TResult? Function(_UpdateDateTimeEvent value)? updateDateTime,
   }) {
@@ -1790,7 +1587,6 @@ class _$FindTransactionFromIdEventImpl implements _FindTransactionFromIdEvent {
     TResult Function(_AddRecurringEvent value)? addRecurring,
     TResult Function(_ChangeAccountEvent value)? changeAccount,
     TResult Function(_ChangeCategoryEvent value)? changeCategory,
-    TResult Function(_FetchDefaultCategoryEvent value)? defaultCategory,
     TResult Function(_FindTransactionFromIdEvent value)? findTransaction,
     TResult Function(_UpdateDateTimeEvent value)? updateDateTime,
     required TResult orElse(),
@@ -1887,7 +1683,6 @@ class _$UpdateDateTimeEventImpl implements _UpdateDateTimeEvent {
     required TResult Function() addRecurring,
     required TResult Function(AccountEntity account) changeAccount,
     required TResult Function(CategoryEntity category) changeCategory,
-    required TResult Function() defaultCategory,
     required TResult Function(int? expenseId) findTransaction,
     required TResult Function(DateTime dateTime) updateDateTime,
   }) {
@@ -1905,7 +1700,6 @@ class _$UpdateDateTimeEventImpl implements _UpdateDateTimeEvent {
     TResult? Function()? addRecurring,
     TResult? Function(AccountEntity account)? changeAccount,
     TResult? Function(CategoryEntity category)? changeCategory,
-    TResult? Function()? defaultCategory,
     TResult? Function(int? expenseId)? findTransaction,
     TResult? Function(DateTime dateTime)? updateDateTime,
   }) {
@@ -1923,7 +1717,6 @@ class _$UpdateDateTimeEventImpl implements _UpdateDateTimeEvent {
     TResult Function()? addRecurring,
     TResult Function(AccountEntity account)? changeAccount,
     TResult Function(CategoryEntity category)? changeCategory,
-    TResult Function()? defaultCategory,
     TResult Function(int? expenseId)? findTransaction,
     TResult Function(DateTime dateTime)? updateDateTime,
     required TResult orElse(),
@@ -1945,7 +1738,6 @@ class _$UpdateDateTimeEventImpl implements _UpdateDateTimeEvent {
     required TResult Function(_AddRecurringEvent value) addRecurring,
     required TResult Function(_ChangeAccountEvent value) changeAccount,
     required TResult Function(_ChangeCategoryEvent value) changeCategory,
-    required TResult Function(_FetchDefaultCategoryEvent value) defaultCategory,
     required TResult Function(_FindTransactionFromIdEvent value)
         findTransaction,
     required TResult Function(_UpdateDateTimeEvent value) updateDateTime,
@@ -1963,7 +1755,6 @@ class _$UpdateDateTimeEventImpl implements _UpdateDateTimeEvent {
     TResult? Function(_AddRecurringEvent value)? addRecurring,
     TResult? Function(_ChangeAccountEvent value)? changeAccount,
     TResult? Function(_ChangeCategoryEvent value)? changeCategory,
-    TResult? Function(_FetchDefaultCategoryEvent value)? defaultCategory,
     TResult? Function(_FindTransactionFromIdEvent value)? findTransaction,
     TResult? Function(_UpdateDateTimeEvent value)? updateDateTime,
   }) {
@@ -1980,7 +1771,6 @@ class _$UpdateDateTimeEventImpl implements _UpdateDateTimeEvent {
     TResult Function(_AddRecurringEvent value)? addRecurring,
     TResult Function(_ChangeAccountEvent value)? changeAccount,
     TResult Function(_ChangeCategoryEvent value)? changeCategory,
-    TResult Function(_FetchDefaultCategoryEvent value)? defaultCategory,
     TResult Function(_FindTransactionFromIdEvent value)? findTransaction,
     TResult Function(_UpdateDateTimeEvent value)? updateDateTime,
     required TResult orElse(),
@@ -2010,7 +1800,6 @@ mixin _$TransactionState {
     required TResult Function(TransactionType transactionType)
         changeTransactionType,
     required TResult Function(CategoryEntity category) changecCategory,
-    required TResult Function(List<CategoryEntity> categories) defaultCategory,
     required TResult Function() initial,
     required TResult Function(TransactionEntity transaction) transaction,
     required TResult Function(bool isAddOrUpdate) transactionAdded,
@@ -2027,7 +1816,6 @@ mixin _$TransactionState {
     TResult? Function(AccountEntity account)? changeAccount,
     TResult? Function(TransactionType transactionType)? changeTransactionType,
     TResult? Function(CategoryEntity category)? changecCategory,
-    TResult? Function(List<CategoryEntity> categories)? defaultCategory,
     TResult? Function()? initial,
     TResult? Function(TransactionEntity transaction)? transaction,
     TResult? Function(bool isAddOrUpdate)? transactionAdded,
@@ -2044,7 +1832,6 @@ mixin _$TransactionState {
     TResult Function(AccountEntity account)? changeAccount,
     TResult Function(TransactionType transactionType)? changeTransactionType,
     TResult Function(CategoryEntity category)? changecCategory,
-    TResult Function(List<CategoryEntity> categories)? defaultCategory,
     TResult Function()? initial,
     TResult Function(TransactionEntity transaction)? transaction,
     TResult Function(bool isAddOrUpdate)? transactionAdded,
@@ -2063,7 +1850,6 @@ mixin _$TransactionState {
     required TResult Function(ChangeTransactionTypeState value)
         changeTransactionType,
     required TResult Function(ChangeCategoryState value) changecCategory,
-    required TResult Function(DefaultCategoriesState value) defaultCategory,
     required TResult Function(ExpenseInitial value) initial,
     required TResult Function(TransactionFoundState value) transaction,
     required TResult Function(TransactionAdded value) transactionAdded,
@@ -2078,7 +1864,6 @@ mixin _$TransactionState {
     TResult? Function(ChangeAccountState value)? changeAccount,
     TResult? Function(ChangeTransactionTypeState value)? changeTransactionType,
     TResult? Function(ChangeCategoryState value)? changecCategory,
-    TResult? Function(DefaultCategoriesState value)? defaultCategory,
     TResult? Function(ExpenseInitial value)? initial,
     TResult? Function(TransactionFoundState value)? transaction,
     TResult? Function(TransactionAdded value)? transactionAdded,
@@ -2093,7 +1878,6 @@ mixin _$TransactionState {
     TResult Function(ChangeAccountState value)? changeAccount,
     TResult Function(ChangeTransactionTypeState value)? changeTransactionType,
     TResult Function(ChangeCategoryState value)? changecCategory,
-    TResult Function(DefaultCategoriesState value)? defaultCategory,
     TResult Function(ExpenseInitial value)? initial,
     TResult Function(TransactionFoundState value)? transaction,
     TResult Function(TransactionAdded value)? transactionAdded,
@@ -2203,7 +1987,6 @@ class _$ChangeAccountStateImpl implements ChangeAccountState {
     required TResult Function(TransactionType transactionType)
         changeTransactionType,
     required TResult Function(CategoryEntity category) changecCategory,
-    required TResult Function(List<CategoryEntity> categories) defaultCategory,
     required TResult Function() initial,
     required TResult Function(TransactionEntity transaction) transaction,
     required TResult Function(bool isAddOrUpdate) transactionAdded,
@@ -2223,7 +2006,6 @@ class _$ChangeAccountStateImpl implements ChangeAccountState {
     TResult? Function(AccountEntity account)? changeAccount,
     TResult? Function(TransactionType transactionType)? changeTransactionType,
     TResult? Function(CategoryEntity category)? changecCategory,
-    TResult? Function(List<CategoryEntity> categories)? defaultCategory,
     TResult? Function()? initial,
     TResult? Function(TransactionEntity transaction)? transaction,
     TResult? Function(bool isAddOrUpdate)? transactionAdded,
@@ -2243,7 +2025,6 @@ class _$ChangeAccountStateImpl implements ChangeAccountState {
     TResult Function(AccountEntity account)? changeAccount,
     TResult Function(TransactionType transactionType)? changeTransactionType,
     TResult Function(CategoryEntity category)? changecCategory,
-    TResult Function(List<CategoryEntity> categories)? defaultCategory,
     TResult Function()? initial,
     TResult Function(TransactionEntity transaction)? transaction,
     TResult Function(bool isAddOrUpdate)? transactionAdded,
@@ -2268,7 +2049,6 @@ class _$ChangeAccountStateImpl implements ChangeAccountState {
     required TResult Function(ChangeTransactionTypeState value)
         changeTransactionType,
     required TResult Function(ChangeCategoryState value) changecCategory,
-    required TResult Function(DefaultCategoriesState value) defaultCategory,
     required TResult Function(ExpenseInitial value) initial,
     required TResult Function(TransactionFoundState value) transaction,
     required TResult Function(TransactionAdded value) transactionAdded,
@@ -2286,7 +2066,6 @@ class _$ChangeAccountStateImpl implements ChangeAccountState {
     TResult? Function(ChangeAccountState value)? changeAccount,
     TResult? Function(ChangeTransactionTypeState value)? changeTransactionType,
     TResult? Function(ChangeCategoryState value)? changecCategory,
-    TResult? Function(DefaultCategoriesState value)? defaultCategory,
     TResult? Function(ExpenseInitial value)? initial,
     TResult? Function(TransactionFoundState value)? transaction,
     TResult? Function(TransactionAdded value)? transactionAdded,
@@ -2304,7 +2083,6 @@ class _$ChangeAccountStateImpl implements ChangeAccountState {
     TResult Function(ChangeAccountState value)? changeAccount,
     TResult Function(ChangeTransactionTypeState value)? changeTransactionType,
     TResult Function(ChangeCategoryState value)? changecCategory,
-    TResult Function(DefaultCategoriesState value)? defaultCategory,
     TResult Function(ExpenseInitial value)? initial,
     TResult Function(TransactionFoundState value)? transaction,
     TResult Function(TransactionAdded value)? transactionAdded,
@@ -2404,7 +2182,6 @@ class _$ChangeTransactionTypeStateImpl implements ChangeTransactionTypeState {
     required TResult Function(TransactionType transactionType)
         changeTransactionType,
     required TResult Function(CategoryEntity category) changecCategory,
-    required TResult Function(List<CategoryEntity> categories) defaultCategory,
     required TResult Function() initial,
     required TResult Function(TransactionEntity transaction) transaction,
     required TResult Function(bool isAddOrUpdate) transactionAdded,
@@ -2424,7 +2201,6 @@ class _$ChangeTransactionTypeStateImpl implements ChangeTransactionTypeState {
     TResult? Function(AccountEntity account)? changeAccount,
     TResult? Function(TransactionType transactionType)? changeTransactionType,
     TResult? Function(CategoryEntity category)? changecCategory,
-    TResult? Function(List<CategoryEntity> categories)? defaultCategory,
     TResult? Function()? initial,
     TResult? Function(TransactionEntity transaction)? transaction,
     TResult? Function(bool isAddOrUpdate)? transactionAdded,
@@ -2444,7 +2220,6 @@ class _$ChangeTransactionTypeStateImpl implements ChangeTransactionTypeState {
     TResult Function(AccountEntity account)? changeAccount,
     TResult Function(TransactionType transactionType)? changeTransactionType,
     TResult Function(CategoryEntity category)? changecCategory,
-    TResult Function(List<CategoryEntity> categories)? defaultCategory,
     TResult Function()? initial,
     TResult Function(TransactionEntity transaction)? transaction,
     TResult Function(bool isAddOrUpdate)? transactionAdded,
@@ -2469,7 +2244,6 @@ class _$ChangeTransactionTypeStateImpl implements ChangeTransactionTypeState {
     required TResult Function(ChangeTransactionTypeState value)
         changeTransactionType,
     required TResult Function(ChangeCategoryState value) changecCategory,
-    required TResult Function(DefaultCategoriesState value) defaultCategory,
     required TResult Function(ExpenseInitial value) initial,
     required TResult Function(TransactionFoundState value) transaction,
     required TResult Function(TransactionAdded value) transactionAdded,
@@ -2487,7 +2261,6 @@ class _$ChangeTransactionTypeStateImpl implements ChangeTransactionTypeState {
     TResult? Function(ChangeAccountState value)? changeAccount,
     TResult? Function(ChangeTransactionTypeState value)? changeTransactionType,
     TResult? Function(ChangeCategoryState value)? changecCategory,
-    TResult? Function(DefaultCategoriesState value)? defaultCategory,
     TResult? Function(ExpenseInitial value)? initial,
     TResult? Function(TransactionFoundState value)? transaction,
     TResult? Function(TransactionAdded value)? transactionAdded,
@@ -2505,7 +2278,6 @@ class _$ChangeTransactionTypeStateImpl implements ChangeTransactionTypeState {
     TResult Function(ChangeAccountState value)? changeAccount,
     TResult Function(ChangeTransactionTypeState value)? changeTransactionType,
     TResult Function(ChangeCategoryState value)? changecCategory,
-    TResult Function(DefaultCategoriesState value)? defaultCategory,
     TResult Function(ExpenseInitial value)? initial,
     TResult Function(TransactionFoundState value)? transaction,
     TResult Function(TransactionAdded value)? transactionAdded,
@@ -2539,6 +2311,8 @@ abstract class _$$ChangeCategoryStateImplCopyWith<$Res> {
       __$$ChangeCategoryStateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({CategoryEntity category});
+
+  $CategoryEntityCopyWith<$Res> get category;
 }
 
 /// @nodoc
@@ -2560,6 +2334,14 @@ class __$$ChangeCategoryStateImplCopyWithImpl<$Res>
           : category // ignore: cast_nullable_to_non_nullable
               as CategoryEntity,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CategoryEntityCopyWith<$Res> get category {
+    return $CategoryEntityCopyWith<$Res>(_value.category, (value) {
+      return _then(_value.copyWith(category: value));
+    });
   }
 }
 
@@ -2602,7 +2384,6 @@ class _$ChangeCategoryStateImpl implements ChangeCategoryState {
     required TResult Function(TransactionType transactionType)
         changeTransactionType,
     required TResult Function(CategoryEntity category) changecCategory,
-    required TResult Function(List<CategoryEntity> categories) defaultCategory,
     required TResult Function() initial,
     required TResult Function(TransactionEntity transaction) transaction,
     required TResult Function(bool isAddOrUpdate) transactionAdded,
@@ -2622,7 +2403,6 @@ class _$ChangeCategoryStateImpl implements ChangeCategoryState {
     TResult? Function(AccountEntity account)? changeAccount,
     TResult? Function(TransactionType transactionType)? changeTransactionType,
     TResult? Function(CategoryEntity category)? changecCategory,
-    TResult? Function(List<CategoryEntity> categories)? defaultCategory,
     TResult? Function()? initial,
     TResult? Function(TransactionEntity transaction)? transaction,
     TResult? Function(bool isAddOrUpdate)? transactionAdded,
@@ -2642,7 +2422,6 @@ class _$ChangeCategoryStateImpl implements ChangeCategoryState {
     TResult Function(AccountEntity account)? changeAccount,
     TResult Function(TransactionType transactionType)? changeTransactionType,
     TResult Function(CategoryEntity category)? changecCategory,
-    TResult Function(List<CategoryEntity> categories)? defaultCategory,
     TResult Function()? initial,
     TResult Function(TransactionEntity transaction)? transaction,
     TResult Function(bool isAddOrUpdate)? transactionAdded,
@@ -2667,7 +2446,6 @@ class _$ChangeCategoryStateImpl implements ChangeCategoryState {
     required TResult Function(ChangeTransactionTypeState value)
         changeTransactionType,
     required TResult Function(ChangeCategoryState value) changecCategory,
-    required TResult Function(DefaultCategoriesState value) defaultCategory,
     required TResult Function(ExpenseInitial value) initial,
     required TResult Function(TransactionFoundState value) transaction,
     required TResult Function(TransactionAdded value) transactionAdded,
@@ -2685,7 +2463,6 @@ class _$ChangeCategoryStateImpl implements ChangeCategoryState {
     TResult? Function(ChangeAccountState value)? changeAccount,
     TResult? Function(ChangeTransactionTypeState value)? changeTransactionType,
     TResult? Function(ChangeCategoryState value)? changecCategory,
-    TResult? Function(DefaultCategoriesState value)? defaultCategory,
     TResult? Function(ExpenseInitial value)? initial,
     TResult? Function(TransactionFoundState value)? transaction,
     TResult? Function(TransactionAdded value)? transactionAdded,
@@ -2703,7 +2480,6 @@ class _$ChangeCategoryStateImpl implements ChangeCategoryState {
     TResult Function(ChangeAccountState value)? changeAccount,
     TResult Function(ChangeTransactionTypeState value)? changeTransactionType,
     TResult Function(ChangeCategoryState value)? changecCategory,
-    TResult Function(DefaultCategoriesState value)? defaultCategory,
     TResult Function(ExpenseInitial value)? initial,
     TResult Function(TransactionFoundState value)? transaction,
     TResult Function(TransactionAdded value)? transactionAdded,
@@ -2728,213 +2504,6 @@ abstract class ChangeCategoryState implements TransactionState {
   @JsonKey(ignore: true)
   _$$ChangeCategoryStateImplCopyWith<_$ChangeCategoryStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$DefaultCategoriesStateImplCopyWith<$Res> {
-  factory _$$DefaultCategoriesStateImplCopyWith(
-          _$DefaultCategoriesStateImpl value,
-          $Res Function(_$DefaultCategoriesStateImpl) then) =
-      __$$DefaultCategoriesStateImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({List<CategoryEntity> categories});
-}
-
-/// @nodoc
-class __$$DefaultCategoriesStateImplCopyWithImpl<$Res>
-    extends _$TransactionStateCopyWithImpl<$Res, _$DefaultCategoriesStateImpl>
-    implements _$$DefaultCategoriesStateImplCopyWith<$Res> {
-  __$$DefaultCategoriesStateImplCopyWithImpl(
-      _$DefaultCategoriesStateImpl _value,
-      $Res Function(_$DefaultCategoriesStateImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? categories = null,
-  }) {
-    return _then(_$DefaultCategoriesStateImpl(
-      null == categories
-          ? _value._categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as List<CategoryEntity>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$DefaultCategoriesStateImpl implements DefaultCategoriesState {
-  const _$DefaultCategoriesStateImpl(final List<CategoryEntity> categories)
-      : _categories = categories;
-
-  final List<CategoryEntity> _categories;
-  @override
-  List<CategoryEntity> get categories {
-    if (_categories is EqualUnmodifiableListView) return _categories;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_categories);
-  }
-
-  @override
-  String toString() {
-    return 'TransactionState.defaultCategory(categories: $categories)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DefaultCategoriesStateImpl &&
-            const DeepCollectionEquality()
-                .equals(other._categories, _categories));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_categories));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DefaultCategoriesStateImplCopyWith<_$DefaultCategoriesStateImpl>
-      get copyWith => __$$DefaultCategoriesStateImplCopyWithImpl<
-          _$DefaultCategoriesStateImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AccountEntity account) changeAccount,
-    required TResult Function(TransactionType transactionType)
-        changeTransactionType,
-    required TResult Function(CategoryEntity category) changecCategory,
-    required TResult Function(List<CategoryEntity> categories) defaultCategory,
-    required TResult Function() initial,
-    required TResult Function(TransactionEntity transaction) transaction,
-    required TResult Function(bool isAddOrUpdate) transactionAdded,
-    required TResult Function() transactionDeleted,
-    required TResult Function(String errorString) transactionError,
-    required TResult Function(AccountEntity? fromAccount,
-            AccountEntity? toAccount, bool isFromAccount)
-        transferAccount,
-    required TResult Function(DateTime dateTime) updateDateTime,
-  }) {
-    return defaultCategory(categories);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AccountEntity account)? changeAccount,
-    TResult? Function(TransactionType transactionType)? changeTransactionType,
-    TResult? Function(CategoryEntity category)? changecCategory,
-    TResult? Function(List<CategoryEntity> categories)? defaultCategory,
-    TResult? Function()? initial,
-    TResult? Function(TransactionEntity transaction)? transaction,
-    TResult? Function(bool isAddOrUpdate)? transactionAdded,
-    TResult? Function()? transactionDeleted,
-    TResult? Function(String errorString)? transactionError,
-    TResult? Function(AccountEntity? fromAccount, AccountEntity? toAccount,
-            bool isFromAccount)?
-        transferAccount,
-    TResult? Function(DateTime dateTime)? updateDateTime,
-  }) {
-    return defaultCategory?.call(categories);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AccountEntity account)? changeAccount,
-    TResult Function(TransactionType transactionType)? changeTransactionType,
-    TResult Function(CategoryEntity category)? changecCategory,
-    TResult Function(List<CategoryEntity> categories)? defaultCategory,
-    TResult Function()? initial,
-    TResult Function(TransactionEntity transaction)? transaction,
-    TResult Function(bool isAddOrUpdate)? transactionAdded,
-    TResult Function()? transactionDeleted,
-    TResult Function(String errorString)? transactionError,
-    TResult Function(AccountEntity? fromAccount, AccountEntity? toAccount,
-            bool isFromAccount)?
-        transferAccount,
-    TResult Function(DateTime dateTime)? updateDateTime,
-    required TResult orElse(),
-  }) {
-    if (defaultCategory != null) {
-      return defaultCategory(categories);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ChangeAccountState value) changeAccount,
-    required TResult Function(ChangeTransactionTypeState value)
-        changeTransactionType,
-    required TResult Function(ChangeCategoryState value) changecCategory,
-    required TResult Function(DefaultCategoriesState value) defaultCategory,
-    required TResult Function(ExpenseInitial value) initial,
-    required TResult Function(TransactionFoundState value) transaction,
-    required TResult Function(TransactionAdded value) transactionAdded,
-    required TResult Function(TransactionDeletedState value) transactionDeleted,
-    required TResult Function(TransactionErrorState value) transactionError,
-    required TResult Function(TransferAccountState value) transferAccount,
-    required TResult Function(UpdateDateTimeState value) updateDateTime,
-  }) {
-    return defaultCategory(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ChangeAccountState value)? changeAccount,
-    TResult? Function(ChangeTransactionTypeState value)? changeTransactionType,
-    TResult? Function(ChangeCategoryState value)? changecCategory,
-    TResult? Function(DefaultCategoriesState value)? defaultCategory,
-    TResult? Function(ExpenseInitial value)? initial,
-    TResult? Function(TransactionFoundState value)? transaction,
-    TResult? Function(TransactionAdded value)? transactionAdded,
-    TResult? Function(TransactionDeletedState value)? transactionDeleted,
-    TResult? Function(TransactionErrorState value)? transactionError,
-    TResult? Function(TransferAccountState value)? transferAccount,
-    TResult? Function(UpdateDateTimeState value)? updateDateTime,
-  }) {
-    return defaultCategory?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChangeAccountState value)? changeAccount,
-    TResult Function(ChangeTransactionTypeState value)? changeTransactionType,
-    TResult Function(ChangeCategoryState value)? changecCategory,
-    TResult Function(DefaultCategoriesState value)? defaultCategory,
-    TResult Function(ExpenseInitial value)? initial,
-    TResult Function(TransactionFoundState value)? transaction,
-    TResult Function(TransactionAdded value)? transactionAdded,
-    TResult Function(TransactionDeletedState value)? transactionDeleted,
-    TResult Function(TransactionErrorState value)? transactionError,
-    TResult Function(TransferAccountState value)? transferAccount,
-    TResult Function(UpdateDateTimeState value)? updateDateTime,
-    required TResult orElse(),
-  }) {
-    if (defaultCategory != null) {
-      return defaultCategory(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class DefaultCategoriesState implements TransactionState {
-  const factory DefaultCategoriesState(final List<CategoryEntity> categories) =
-      _$DefaultCategoriesStateImpl;
-
-  List<CategoryEntity> get categories;
-  @JsonKey(ignore: true)
-  _$$DefaultCategoriesStateImplCopyWith<_$DefaultCategoriesStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2979,7 +2548,6 @@ class _$ExpenseInitialImpl implements ExpenseInitial {
     required TResult Function(TransactionType transactionType)
         changeTransactionType,
     required TResult Function(CategoryEntity category) changecCategory,
-    required TResult Function(List<CategoryEntity> categories) defaultCategory,
     required TResult Function() initial,
     required TResult Function(TransactionEntity transaction) transaction,
     required TResult Function(bool isAddOrUpdate) transactionAdded,
@@ -2999,7 +2567,6 @@ class _$ExpenseInitialImpl implements ExpenseInitial {
     TResult? Function(AccountEntity account)? changeAccount,
     TResult? Function(TransactionType transactionType)? changeTransactionType,
     TResult? Function(CategoryEntity category)? changecCategory,
-    TResult? Function(List<CategoryEntity> categories)? defaultCategory,
     TResult? Function()? initial,
     TResult? Function(TransactionEntity transaction)? transaction,
     TResult? Function(bool isAddOrUpdate)? transactionAdded,
@@ -3019,7 +2586,6 @@ class _$ExpenseInitialImpl implements ExpenseInitial {
     TResult Function(AccountEntity account)? changeAccount,
     TResult Function(TransactionType transactionType)? changeTransactionType,
     TResult Function(CategoryEntity category)? changecCategory,
-    TResult Function(List<CategoryEntity> categories)? defaultCategory,
     TResult Function()? initial,
     TResult Function(TransactionEntity transaction)? transaction,
     TResult Function(bool isAddOrUpdate)? transactionAdded,
@@ -3044,7 +2610,6 @@ class _$ExpenseInitialImpl implements ExpenseInitial {
     required TResult Function(ChangeTransactionTypeState value)
         changeTransactionType,
     required TResult Function(ChangeCategoryState value) changecCategory,
-    required TResult Function(DefaultCategoriesState value) defaultCategory,
     required TResult Function(ExpenseInitial value) initial,
     required TResult Function(TransactionFoundState value) transaction,
     required TResult Function(TransactionAdded value) transactionAdded,
@@ -3062,7 +2627,6 @@ class _$ExpenseInitialImpl implements ExpenseInitial {
     TResult? Function(ChangeAccountState value)? changeAccount,
     TResult? Function(ChangeTransactionTypeState value)? changeTransactionType,
     TResult? Function(ChangeCategoryState value)? changecCategory,
-    TResult? Function(DefaultCategoriesState value)? defaultCategory,
     TResult? Function(ExpenseInitial value)? initial,
     TResult? Function(TransactionFoundState value)? transaction,
     TResult? Function(TransactionAdded value)? transactionAdded,
@@ -3080,7 +2644,6 @@ class _$ExpenseInitialImpl implements ExpenseInitial {
     TResult Function(ChangeAccountState value)? changeAccount,
     TResult Function(ChangeTransactionTypeState value)? changeTransactionType,
     TResult Function(ChangeCategoryState value)? changecCategory,
-    TResult Function(DefaultCategoriesState value)? defaultCategory,
     TResult Function(ExpenseInitial value)? initial,
     TResult Function(TransactionFoundState value)? transaction,
     TResult Function(TransactionAdded value)? transactionAdded,
@@ -3182,7 +2745,6 @@ class _$TransactionFoundStateImpl implements TransactionFoundState {
     required TResult Function(TransactionType transactionType)
         changeTransactionType,
     required TResult Function(CategoryEntity category) changecCategory,
-    required TResult Function(List<CategoryEntity> categories) defaultCategory,
     required TResult Function() initial,
     required TResult Function(TransactionEntity transaction) transaction,
     required TResult Function(bool isAddOrUpdate) transactionAdded,
@@ -3202,7 +2764,6 @@ class _$TransactionFoundStateImpl implements TransactionFoundState {
     TResult? Function(AccountEntity account)? changeAccount,
     TResult? Function(TransactionType transactionType)? changeTransactionType,
     TResult? Function(CategoryEntity category)? changecCategory,
-    TResult? Function(List<CategoryEntity> categories)? defaultCategory,
     TResult? Function()? initial,
     TResult? Function(TransactionEntity transaction)? transaction,
     TResult? Function(bool isAddOrUpdate)? transactionAdded,
@@ -3222,7 +2783,6 @@ class _$TransactionFoundStateImpl implements TransactionFoundState {
     TResult Function(AccountEntity account)? changeAccount,
     TResult Function(TransactionType transactionType)? changeTransactionType,
     TResult Function(CategoryEntity category)? changecCategory,
-    TResult Function(List<CategoryEntity> categories)? defaultCategory,
     TResult Function()? initial,
     TResult Function(TransactionEntity transaction)? transaction,
     TResult Function(bool isAddOrUpdate)? transactionAdded,
@@ -3247,7 +2807,6 @@ class _$TransactionFoundStateImpl implements TransactionFoundState {
     required TResult Function(ChangeTransactionTypeState value)
         changeTransactionType,
     required TResult Function(ChangeCategoryState value) changecCategory,
-    required TResult Function(DefaultCategoriesState value) defaultCategory,
     required TResult Function(ExpenseInitial value) initial,
     required TResult Function(TransactionFoundState value) transaction,
     required TResult Function(TransactionAdded value) transactionAdded,
@@ -3265,7 +2824,6 @@ class _$TransactionFoundStateImpl implements TransactionFoundState {
     TResult? Function(ChangeAccountState value)? changeAccount,
     TResult? Function(ChangeTransactionTypeState value)? changeTransactionType,
     TResult? Function(ChangeCategoryState value)? changecCategory,
-    TResult? Function(DefaultCategoriesState value)? defaultCategory,
     TResult? Function(ExpenseInitial value)? initial,
     TResult? Function(TransactionFoundState value)? transaction,
     TResult? Function(TransactionAdded value)? transactionAdded,
@@ -3283,7 +2841,6 @@ class _$TransactionFoundStateImpl implements TransactionFoundState {
     TResult Function(ChangeAccountState value)? changeAccount,
     TResult Function(ChangeTransactionTypeState value)? changeTransactionType,
     TResult Function(ChangeCategoryState value)? changecCategory,
-    TResult Function(DefaultCategoriesState value)? defaultCategory,
     TResult Function(ExpenseInitial value)? initial,
     TResult Function(TransactionFoundState value)? transaction,
     TResult Function(TransactionAdded value)? transactionAdded,
@@ -3381,7 +2938,6 @@ class _$TransactionAddedImpl implements TransactionAdded {
     required TResult Function(TransactionType transactionType)
         changeTransactionType,
     required TResult Function(CategoryEntity category) changecCategory,
-    required TResult Function(List<CategoryEntity> categories) defaultCategory,
     required TResult Function() initial,
     required TResult Function(TransactionEntity transaction) transaction,
     required TResult Function(bool isAddOrUpdate) transactionAdded,
@@ -3401,7 +2957,6 @@ class _$TransactionAddedImpl implements TransactionAdded {
     TResult? Function(AccountEntity account)? changeAccount,
     TResult? Function(TransactionType transactionType)? changeTransactionType,
     TResult? Function(CategoryEntity category)? changecCategory,
-    TResult? Function(List<CategoryEntity> categories)? defaultCategory,
     TResult? Function()? initial,
     TResult? Function(TransactionEntity transaction)? transaction,
     TResult? Function(bool isAddOrUpdate)? transactionAdded,
@@ -3421,7 +2976,6 @@ class _$TransactionAddedImpl implements TransactionAdded {
     TResult Function(AccountEntity account)? changeAccount,
     TResult Function(TransactionType transactionType)? changeTransactionType,
     TResult Function(CategoryEntity category)? changecCategory,
-    TResult Function(List<CategoryEntity> categories)? defaultCategory,
     TResult Function()? initial,
     TResult Function(TransactionEntity transaction)? transaction,
     TResult Function(bool isAddOrUpdate)? transactionAdded,
@@ -3446,7 +3000,6 @@ class _$TransactionAddedImpl implements TransactionAdded {
     required TResult Function(ChangeTransactionTypeState value)
         changeTransactionType,
     required TResult Function(ChangeCategoryState value) changecCategory,
-    required TResult Function(DefaultCategoriesState value) defaultCategory,
     required TResult Function(ExpenseInitial value) initial,
     required TResult Function(TransactionFoundState value) transaction,
     required TResult Function(TransactionAdded value) transactionAdded,
@@ -3464,7 +3017,6 @@ class _$TransactionAddedImpl implements TransactionAdded {
     TResult? Function(ChangeAccountState value)? changeAccount,
     TResult? Function(ChangeTransactionTypeState value)? changeTransactionType,
     TResult? Function(ChangeCategoryState value)? changecCategory,
-    TResult? Function(DefaultCategoriesState value)? defaultCategory,
     TResult? Function(ExpenseInitial value)? initial,
     TResult? Function(TransactionFoundState value)? transaction,
     TResult? Function(TransactionAdded value)? transactionAdded,
@@ -3482,7 +3034,6 @@ class _$TransactionAddedImpl implements TransactionAdded {
     TResult Function(ChangeAccountState value)? changeAccount,
     TResult Function(ChangeTransactionTypeState value)? changeTransactionType,
     TResult Function(ChangeCategoryState value)? changecCategory,
-    TResult Function(DefaultCategoriesState value)? defaultCategory,
     TResult Function(ExpenseInitial value)? initial,
     TResult Function(TransactionFoundState value)? transaction,
     TResult Function(TransactionAdded value)? transactionAdded,
@@ -3554,7 +3105,6 @@ class _$TransactionDeletedStateImpl implements TransactionDeletedState {
     required TResult Function(TransactionType transactionType)
         changeTransactionType,
     required TResult Function(CategoryEntity category) changecCategory,
-    required TResult Function(List<CategoryEntity> categories) defaultCategory,
     required TResult Function() initial,
     required TResult Function(TransactionEntity transaction) transaction,
     required TResult Function(bool isAddOrUpdate) transactionAdded,
@@ -3574,7 +3124,6 @@ class _$TransactionDeletedStateImpl implements TransactionDeletedState {
     TResult? Function(AccountEntity account)? changeAccount,
     TResult? Function(TransactionType transactionType)? changeTransactionType,
     TResult? Function(CategoryEntity category)? changecCategory,
-    TResult? Function(List<CategoryEntity> categories)? defaultCategory,
     TResult? Function()? initial,
     TResult? Function(TransactionEntity transaction)? transaction,
     TResult? Function(bool isAddOrUpdate)? transactionAdded,
@@ -3594,7 +3143,6 @@ class _$TransactionDeletedStateImpl implements TransactionDeletedState {
     TResult Function(AccountEntity account)? changeAccount,
     TResult Function(TransactionType transactionType)? changeTransactionType,
     TResult Function(CategoryEntity category)? changecCategory,
-    TResult Function(List<CategoryEntity> categories)? defaultCategory,
     TResult Function()? initial,
     TResult Function(TransactionEntity transaction)? transaction,
     TResult Function(bool isAddOrUpdate)? transactionAdded,
@@ -3619,7 +3167,6 @@ class _$TransactionDeletedStateImpl implements TransactionDeletedState {
     required TResult Function(ChangeTransactionTypeState value)
         changeTransactionType,
     required TResult Function(ChangeCategoryState value) changecCategory,
-    required TResult Function(DefaultCategoriesState value) defaultCategory,
     required TResult Function(ExpenseInitial value) initial,
     required TResult Function(TransactionFoundState value) transaction,
     required TResult Function(TransactionAdded value) transactionAdded,
@@ -3637,7 +3184,6 @@ class _$TransactionDeletedStateImpl implements TransactionDeletedState {
     TResult? Function(ChangeAccountState value)? changeAccount,
     TResult? Function(ChangeTransactionTypeState value)? changeTransactionType,
     TResult? Function(ChangeCategoryState value)? changecCategory,
-    TResult? Function(DefaultCategoriesState value)? defaultCategory,
     TResult? Function(ExpenseInitial value)? initial,
     TResult? Function(TransactionFoundState value)? transaction,
     TResult? Function(TransactionAdded value)? transactionAdded,
@@ -3655,7 +3201,6 @@ class _$TransactionDeletedStateImpl implements TransactionDeletedState {
     TResult Function(ChangeAccountState value)? changeAccount,
     TResult Function(ChangeTransactionTypeState value)? changeTransactionType,
     TResult Function(ChangeCategoryState value)? changecCategory,
-    TResult Function(DefaultCategoriesState value)? defaultCategory,
     TResult Function(ExpenseInitial value)? initial,
     TResult Function(TransactionFoundState value)? transaction,
     TResult Function(TransactionAdded value)? transactionAdded,
@@ -3747,7 +3292,6 @@ class _$TransactionErrorStateImpl implements TransactionErrorState {
     required TResult Function(TransactionType transactionType)
         changeTransactionType,
     required TResult Function(CategoryEntity category) changecCategory,
-    required TResult Function(List<CategoryEntity> categories) defaultCategory,
     required TResult Function() initial,
     required TResult Function(TransactionEntity transaction) transaction,
     required TResult Function(bool isAddOrUpdate) transactionAdded,
@@ -3767,7 +3311,6 @@ class _$TransactionErrorStateImpl implements TransactionErrorState {
     TResult? Function(AccountEntity account)? changeAccount,
     TResult? Function(TransactionType transactionType)? changeTransactionType,
     TResult? Function(CategoryEntity category)? changecCategory,
-    TResult? Function(List<CategoryEntity> categories)? defaultCategory,
     TResult? Function()? initial,
     TResult? Function(TransactionEntity transaction)? transaction,
     TResult? Function(bool isAddOrUpdate)? transactionAdded,
@@ -3787,7 +3330,6 @@ class _$TransactionErrorStateImpl implements TransactionErrorState {
     TResult Function(AccountEntity account)? changeAccount,
     TResult Function(TransactionType transactionType)? changeTransactionType,
     TResult Function(CategoryEntity category)? changecCategory,
-    TResult Function(List<CategoryEntity> categories)? defaultCategory,
     TResult Function()? initial,
     TResult Function(TransactionEntity transaction)? transaction,
     TResult Function(bool isAddOrUpdate)? transactionAdded,
@@ -3812,7 +3354,6 @@ class _$TransactionErrorStateImpl implements TransactionErrorState {
     required TResult Function(ChangeTransactionTypeState value)
         changeTransactionType,
     required TResult Function(ChangeCategoryState value) changecCategory,
-    required TResult Function(DefaultCategoriesState value) defaultCategory,
     required TResult Function(ExpenseInitial value) initial,
     required TResult Function(TransactionFoundState value) transaction,
     required TResult Function(TransactionAdded value) transactionAdded,
@@ -3830,7 +3371,6 @@ class _$TransactionErrorStateImpl implements TransactionErrorState {
     TResult? Function(ChangeAccountState value)? changeAccount,
     TResult? Function(ChangeTransactionTypeState value)? changeTransactionType,
     TResult? Function(ChangeCategoryState value)? changecCategory,
-    TResult? Function(DefaultCategoriesState value)? defaultCategory,
     TResult? Function(ExpenseInitial value)? initial,
     TResult? Function(TransactionFoundState value)? transaction,
     TResult? Function(TransactionAdded value)? transactionAdded,
@@ -3848,7 +3388,6 @@ class _$TransactionErrorStateImpl implements TransactionErrorState {
     TResult Function(ChangeAccountState value)? changeAccount,
     TResult Function(ChangeTransactionTypeState value)? changeTransactionType,
     TResult Function(ChangeCategoryState value)? changecCategory,
-    TResult Function(DefaultCategoriesState value)? defaultCategory,
     TResult Function(ExpenseInitial value)? initial,
     TResult Function(TransactionFoundState value)? transaction,
     TResult Function(TransactionAdded value)? transactionAdded,
@@ -3997,7 +3536,6 @@ class _$TransferAccountStateImpl implements TransferAccountState {
     required TResult Function(TransactionType transactionType)
         changeTransactionType,
     required TResult Function(CategoryEntity category) changecCategory,
-    required TResult Function(List<CategoryEntity> categories) defaultCategory,
     required TResult Function() initial,
     required TResult Function(TransactionEntity transaction) transaction,
     required TResult Function(bool isAddOrUpdate) transactionAdded,
@@ -4017,7 +3555,6 @@ class _$TransferAccountStateImpl implements TransferAccountState {
     TResult? Function(AccountEntity account)? changeAccount,
     TResult? Function(TransactionType transactionType)? changeTransactionType,
     TResult? Function(CategoryEntity category)? changecCategory,
-    TResult? Function(List<CategoryEntity> categories)? defaultCategory,
     TResult? Function()? initial,
     TResult? Function(TransactionEntity transaction)? transaction,
     TResult? Function(bool isAddOrUpdate)? transactionAdded,
@@ -4037,7 +3574,6 @@ class _$TransferAccountStateImpl implements TransferAccountState {
     TResult Function(AccountEntity account)? changeAccount,
     TResult Function(TransactionType transactionType)? changeTransactionType,
     TResult Function(CategoryEntity category)? changecCategory,
-    TResult Function(List<CategoryEntity> categories)? defaultCategory,
     TResult Function()? initial,
     TResult Function(TransactionEntity transaction)? transaction,
     TResult Function(bool isAddOrUpdate)? transactionAdded,
@@ -4062,7 +3598,6 @@ class _$TransferAccountStateImpl implements TransferAccountState {
     required TResult Function(ChangeTransactionTypeState value)
         changeTransactionType,
     required TResult Function(ChangeCategoryState value) changecCategory,
-    required TResult Function(DefaultCategoriesState value) defaultCategory,
     required TResult Function(ExpenseInitial value) initial,
     required TResult Function(TransactionFoundState value) transaction,
     required TResult Function(TransactionAdded value) transactionAdded,
@@ -4080,7 +3615,6 @@ class _$TransferAccountStateImpl implements TransferAccountState {
     TResult? Function(ChangeAccountState value)? changeAccount,
     TResult? Function(ChangeTransactionTypeState value)? changeTransactionType,
     TResult? Function(ChangeCategoryState value)? changecCategory,
-    TResult? Function(DefaultCategoriesState value)? defaultCategory,
     TResult? Function(ExpenseInitial value)? initial,
     TResult? Function(TransactionFoundState value)? transaction,
     TResult? Function(TransactionAdded value)? transactionAdded,
@@ -4098,7 +3632,6 @@ class _$TransferAccountStateImpl implements TransferAccountState {
     TResult Function(ChangeAccountState value)? changeAccount,
     TResult Function(ChangeTransactionTypeState value)? changeTransactionType,
     TResult Function(ChangeCategoryState value)? changecCategory,
-    TResult Function(DefaultCategoriesState value)? defaultCategory,
     TResult Function(ExpenseInitial value)? initial,
     TResult Function(TransactionFoundState value)? transaction,
     TResult Function(TransactionAdded value)? transactionAdded,
@@ -4199,7 +3732,6 @@ class _$UpdateDateTimeStateImpl implements UpdateDateTimeState {
     required TResult Function(TransactionType transactionType)
         changeTransactionType,
     required TResult Function(CategoryEntity category) changecCategory,
-    required TResult Function(List<CategoryEntity> categories) defaultCategory,
     required TResult Function() initial,
     required TResult Function(TransactionEntity transaction) transaction,
     required TResult Function(bool isAddOrUpdate) transactionAdded,
@@ -4219,7 +3751,6 @@ class _$UpdateDateTimeStateImpl implements UpdateDateTimeState {
     TResult? Function(AccountEntity account)? changeAccount,
     TResult? Function(TransactionType transactionType)? changeTransactionType,
     TResult? Function(CategoryEntity category)? changecCategory,
-    TResult? Function(List<CategoryEntity> categories)? defaultCategory,
     TResult? Function()? initial,
     TResult? Function(TransactionEntity transaction)? transaction,
     TResult? Function(bool isAddOrUpdate)? transactionAdded,
@@ -4239,7 +3770,6 @@ class _$UpdateDateTimeStateImpl implements UpdateDateTimeState {
     TResult Function(AccountEntity account)? changeAccount,
     TResult Function(TransactionType transactionType)? changeTransactionType,
     TResult Function(CategoryEntity category)? changecCategory,
-    TResult Function(List<CategoryEntity> categories)? defaultCategory,
     TResult Function()? initial,
     TResult Function(TransactionEntity transaction)? transaction,
     TResult Function(bool isAddOrUpdate)? transactionAdded,
@@ -4264,7 +3794,6 @@ class _$UpdateDateTimeStateImpl implements UpdateDateTimeState {
     required TResult Function(ChangeTransactionTypeState value)
         changeTransactionType,
     required TResult Function(ChangeCategoryState value) changecCategory,
-    required TResult Function(DefaultCategoriesState value) defaultCategory,
     required TResult Function(ExpenseInitial value) initial,
     required TResult Function(TransactionFoundState value) transaction,
     required TResult Function(TransactionAdded value) transactionAdded,
@@ -4282,7 +3811,6 @@ class _$UpdateDateTimeStateImpl implements UpdateDateTimeState {
     TResult? Function(ChangeAccountState value)? changeAccount,
     TResult? Function(ChangeTransactionTypeState value)? changeTransactionType,
     TResult? Function(ChangeCategoryState value)? changecCategory,
-    TResult? Function(DefaultCategoriesState value)? defaultCategory,
     TResult? Function(ExpenseInitial value)? initial,
     TResult? Function(TransactionFoundState value)? transaction,
     TResult? Function(TransactionAdded value)? transactionAdded,
@@ -4300,7 +3828,6 @@ class _$UpdateDateTimeStateImpl implements UpdateDateTimeState {
     TResult Function(ChangeAccountState value)? changeAccount,
     TResult Function(ChangeTransactionTypeState value)? changeTransactionType,
     TResult Function(ChangeCategoryState value)? changecCategory,
-    TResult Function(DefaultCategoriesState value)? defaultCategory,
     TResult Function(ExpenseInitial value)? initial,
     TResult Function(TransactionFoundState value)? transaction,
     TResult Function(TransactionAdded value)? transactionAdded,

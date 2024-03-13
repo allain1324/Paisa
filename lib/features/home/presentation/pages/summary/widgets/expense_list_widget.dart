@@ -32,6 +32,7 @@ class ExpenseListWidget extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       itemCount: expenses.length,
       itemBuilder: (_, index) {
+        print('Hemanth $index');
         final TransactionEntity expense = expenses[index];
         final AccountEntity? account =
             context.read<HomeCubit>().fetchAccountFromId(expense.accountId);

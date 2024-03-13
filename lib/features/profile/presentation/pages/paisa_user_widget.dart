@@ -37,8 +37,8 @@ class PaisaUserWidget extends StatelessWidget {
         ),
         context: context,
         builder: (_) => UserProfileBottomSheetWidget(
-          settingsUseCase: getIt.get<SettingsUseCase>(),
-          profileCubit: getIt.get<ProfileCubit>(),
+          settingsUseCase: getIt<SettingsUseCase>(),
+          profileCubit: getIt<ProfileCubit>(),
         ),
       ),
       child: const UserImageWidget(),

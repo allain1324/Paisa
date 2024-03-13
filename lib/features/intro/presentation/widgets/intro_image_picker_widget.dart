@@ -29,7 +29,7 @@ class IntroImagePickerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt.get<ProfileCubit>(),
+      create: (context) => getIt<ProfileCubit>(),
       child: SafeArea(
         child: Column(
           children: [

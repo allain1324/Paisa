@@ -25,7 +25,7 @@ class OverviewTransactionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<Box<TransactionModel>>(
-      valueListenable: getIt.get<Box<TransactionModel>>().listenable(),
+      valueListenable: getIt<Box<TransactionModel>>().listenable(),
       builder: (context, expenseBox, _) {
         if (expenseBox.values.isEmpty) {
           return EmptyWidget(

@@ -19,7 +19,7 @@ class OverviewCategoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<Box<CategoryModel>>(
-      valueListenable: getIt.get<Box<CategoryModel>>().listenable(),
+      valueListenable: getIt<Box<CategoryModel>>().listenable(),
       builder: (context, expenseBox, _) {
         if (expenseBox.values.isEmpty) {
           return EmptyWidget(

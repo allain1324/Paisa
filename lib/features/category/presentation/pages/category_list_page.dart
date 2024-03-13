@@ -20,12 +20,12 @@ class CategoryListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = getIt.get<CategoryBloc>();
+    final bloc = getIt<CategoryBloc>();
     return PaisaAnnotatedRegionWidget(
       color: context.background,
       child: Scaffold(
         body: ValueListenableBuilder<Box<CategoryModel>>(
-          valueListenable: getIt.get<Box<CategoryModel>>().listenable(),
+          valueListenable: getIt<Box<CategoryModel>>().listenable(),
           builder: (BuildContext context, value, Widget? child) {
             if (value.values.isEmpty) {
               return EmptyWidget(

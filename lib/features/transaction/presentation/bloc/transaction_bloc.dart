@@ -47,7 +47,6 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
     on<_ChangeAccountEvent>(_changeAccount);
     on<_UpdateDateTimeEvent>(_updateDateTime);
     on<_TransferAccountEvent>(_transferAccount);
-    on<_FetchDefaultCategoryEvent>(_fetchDefaultCategories);
   }
 
   final GetAccountUseCase accountUseCase;
@@ -270,14 +269,5 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
       fromAccount: fromAccount,
       toAccount: toAccount,
     ));
-  }
-
-  FutureOr<void> _fetchDefaultCategories(
-    _FetchDefaultCategoryEvent event,
-    Emitter<TransactionState> emit,
-  ) {
-    final List<CategoryEntity> categories =
-        getDefaultCategoriesUseCase(NoParams());
-    emit(TransactionState.defaultCategory(categories));
   }
 }

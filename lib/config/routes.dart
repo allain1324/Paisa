@@ -416,7 +416,7 @@ final GoRouter goRouter = GoRouter(
         final String? forceCountrySelector =
             state.uri.queryParameters['force_country_selector'];
         return BlocProvider<CountryPickerCubit>(
-          create: (BuildContext context) => getIt.get<CountryPickerCubit>(),
+          create: (BuildContext context) => getIt<CountryPickerCubit>(),
           child: CountryPickerPage(
             forceCountrySelector: forceCountrySelector == 'true',
           ),
@@ -433,7 +433,7 @@ final GoRouter goRouter = GoRouter(
       name: landingName,
       path: landingPath,
       builder: (BuildContext context, GoRouterState state) =>
-          LandingPage(inApp: getIt.get<InApp>()),
+          LandingPage(inApp: getIt<InApp>()),
       routes: [
         GoRoute(
           path: addTransactionPath,

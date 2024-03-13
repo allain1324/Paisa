@@ -26,7 +26,7 @@ class _BiometricPageState extends State<BiometricPage> {
   }
 
   Future<void> checkBiometrics() async {
-    final localAuth = getIt.get<Authenticate>();
+    final localAuth = getIt<Authenticate>();
 
     final bool canCheckBiometrics = await localAuth.canCheckBiometrics();
 

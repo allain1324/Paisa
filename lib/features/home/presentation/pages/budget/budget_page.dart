@@ -11,7 +11,6 @@ import 'package:paisa/core/common.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/category/data/model/category_model.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
-import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
 import 'package:paisa/features/home/presentation/pages/home/home_cubit.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'package:paisa/main.dart';
@@ -19,17 +18,14 @@ import 'package:paisa/main.dart';
 class BudgetPage extends StatelessWidget {
   const BudgetPage({
     super.key,
-    required this.summaryController,
   });
-
-  final SummaryController summaryController;
 
   @override
   Widget build(BuildContext context) {
     return PaisaAnnotatedRegionWidget(
       color: context.background,
       child: ValueListenableBuilder<Box<CategoryModel>>(
-        valueListenable: getIt.get<Box<CategoryModel>>().listenable(),
+        valueListenable: getIt<Box<CategoryModel>>().listenable(),
         builder: (_, value, child) {
           final categories = value.values.toBudgetEntities();
           if (categories.isEmpty) {

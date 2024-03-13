@@ -14,7 +14,7 @@ import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/di/dependency_injection.dart';
 import 'package:paisa/features/account/data/data_sources/account_data_manager.dart';
 import 'package:paisa/features/account/data/model/account_model.dart';
-import 'package:paisa/features/category/data/data_sources/local/category_data_source.dart';
+import 'package:paisa/features/category/data/data_sources/category_data_source.dart';
 import 'package:paisa/features/category/data/model/category_model.dart';
 import 'package:paisa/features/recurring/domain/repository/recurring_repository.dart';
 import 'package:paisa/features/transaction/data/data_sources/local/transaction_data_manager.dart';
@@ -25,7 +25,7 @@ final getIt = GetIt.instance;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await configInjector(getIt);
-  getIt.get<RecurringRepository>().checkForRecurring();
+  getIt<RecurringRepository>().checkForRecurring();
   runApp(const PaisaApp());
   if (TargetPlatform.android == defaultTargetPlatform ||
       TargetPlatform.iOS == defaultTargetPlatform) {

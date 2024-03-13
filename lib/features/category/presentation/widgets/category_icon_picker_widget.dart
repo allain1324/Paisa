@@ -17,7 +17,7 @@ class CategoryIconPickerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder(
+    return BlocBuilder<CategoryBloc, CategoryState>(
       buildWhen: (previous, current) =>
           current is CategoryIconSelectedState ||
           current is CategorySuccessState,

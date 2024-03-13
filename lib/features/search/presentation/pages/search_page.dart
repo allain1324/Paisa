@@ -204,7 +204,7 @@ class _FilterWidgetState extends State<FilterWidget> {
           ),
         ),
         ValueListenableBuilder<Box<AccountModel>>(
-          valueListenable: getIt.get<Box<AccountModel>>().listenable(),
+          valueListenable: getIt<Box<AccountModel>>().listenable(),
           builder: (context, value, child) {
             final accounts = value.values.toEntities();
             return Padding(
@@ -274,7 +274,7 @@ class _FilterWidgetState extends State<FilterWidget> {
           ),
         ),
         ValueListenableBuilder<Box<CategoryModel>>(
-          valueListenable: getIt.get<Box<CategoryModel>>().listenable(),
+          valueListenable: getIt<Box<CategoryModel>>().listenable(),
           builder: (context, value, child) {
             final List<CategoryEntity> categories = value.values.toEntities();
 

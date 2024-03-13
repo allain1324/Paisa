@@ -1,36 +1,17 @@
 // Package imports:
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'category.freezed.dart';
 
-class CategoryEntity extends Equatable {
-  const CategoryEntity({
-    this.budget,
-    this.color,
-    this.description,
-    this.icon,
-    this.name,
-    this.superId,
-    this.isBudget = false,
-    this.isDefault = false,
-  });
-
-  final double? budget;
-  final int? color;
-  final String? description;
-  final int? icon;
-  final bool? isBudget;
-  final bool? isDefault;
-  final String? name;
-  final int? superId;
-
-  @override
-  List<Object?> get props => [
-        budget,
-        color,
-        description,
-        icon,
-        name,
-        superId,
-        isBudget,
-        isDefault,
-      ];
+@freezed
+class CategoryEntity with _$CategoryEntity {
+  const factory CategoryEntity({
+    double? budget,
+    required int color,
+    String? description,
+    required int icon,
+    @Default(false) bool isBudget,
+    @Default(false) bool isDefault,
+    required String name,
+    int? superId,
+  }) = _CategoryEntity;
 }

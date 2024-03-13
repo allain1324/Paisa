@@ -28,7 +28,7 @@ class ExpenseTotalWidget extends StatelessWidget {
     final double totalExpenses = expenses.totalExpense;
     final double totalIncome = expenses.totalIncome;
     final double totalAccountBalance =
-        getIt.get<Box<AccountModel>>().totalAccountInitialAmount;
+        getIt<Box<AccountModel>>().totalAccountInitialAmount;
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,

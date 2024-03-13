@@ -36,12 +36,7 @@ class TransferWidget extends StatelessWidget {
                 ),
           ),
         ),
-        const Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: 16.0,
-          ),
-          child: ExpenseDatePickerWidget(),
-        ),
+        const ExpenseDatePickerWidget(),
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: Text(

@@ -89,7 +89,7 @@ class SettingsPage extends StatelessWidget {
               title: context.loc.others,
               options: [
                 BiometricAuthWidget(
-                  authenticate: getIt.get<Authenticate>(),
+                  authenticate: getIt<Authenticate>(),
                 ),
                 const AppLanguageChanger(),
                 const PaisaDivider(),

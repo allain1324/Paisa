@@ -33,7 +33,7 @@ class _AddRecurringPageState extends State<AddRecurringPage> {
   final amountController = TextEditingController();
   final descriptionController = TextEditingController();
   final nameController = TextEditingController();
-  late final RecurringCubit recurringCubit = getIt.get<RecurringCubit>();
+  late final RecurringCubit recurringCubit = getIt<RecurringCubit>();
 
   @override
   void dispose() {
@@ -153,7 +153,7 @@ class SelectedAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<Box<AccountModel>>(
-      valueListenable: getIt.get<Box<AccountModel>>().listenable(),
+      valueListenable: getIt<Box<AccountModel>>().listenable(),
       builder: (context, value, child) {
         final accounts = value.values.toEntities();
         if (accounts.isEmpty) {
@@ -260,7 +260,7 @@ class SelectCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<Box<CategoryModel>>(
-      valueListenable: getIt.get<Box<CategoryModel>>().listenable(),
+      valueListenable: getIt<Box<CategoryModel>>().listenable(),
       builder: (context, value, child) {
         final List<CategoryEntity> categories = value.values.toEntities();
         if (categories.isEmpty) {

@@ -18,7 +18,7 @@ import 'package:package_info_plus/package_info_plus.dart' as _i22;
 
 import '../features/account/data/data_sources/account_data_manager.dart'
     as _i36;
-import '../features/account/data/model/account_model.dart' as _i9;
+import '../features/account/data/model/account_model.dart' as _i10;
 import '../features/account/data/repository/account_repository_impl.dart'
     as _i38;
 import '../features/account/domain/repository/account_repository.dart' as _i37;
@@ -31,7 +31,7 @@ import '../features/account/domain/use_case/get_accounts_use_case.dart' as _i60;
 import '../features/account/domain/use_case/update_account_use_case.dart'
     as _i82;
 import '../features/account/presentation/bloc/accounts_bloc.dart' as _i85;
-import '../features/category/data/data_sources/local/category_data_source.dart'
+import '../features/category/data/data_sources/category_data_source.dart'
     as _i11;
 import '../features/category/data/model/category_model.dart' as _i7;
 import '../features/category/data/repository/category_repository_impl.dart'
@@ -52,7 +52,7 @@ import '../features/category/domain/use_case/update_category_use_case.dart'
 import '../features/category/presentation/bloc/category_bloc.dart' as _i91;
 import '../features/debit/data/data_sources/debit_local_data_source_impl.dart'
     as _i14;
-import '../features/debit/data/models/debit_model.dart' as _i5;
+import '../features/debit/data/models/debit_model.dart' as _i9;
 import '../features/debit/data/repository/debit_repository_impl.dart' as _i45;
 import '../features/debit/domain/repository/debit_repository.dart' as _i44;
 import '../features/debit/domain/use_case/add_debit_use.case.dart' as _i88;
@@ -64,7 +64,7 @@ import '../features/debit/presentation/cubit/debts_bloc.dart' as _i92;
 import '../features/debit_transaction/data/data_source/debit_transactions_data_store.dart'
     as _i15;
 import '../features/debit_transaction/data/model/debit_transactions_model.dart'
-    as _i10;
+    as _i8;
 import '../features/debit_transaction/data/repository/debit_transaction_repo_impl.dart'
     as _i47;
 import '../features/debit_transaction/domain/repository/debit_transaction_repository.dart'
@@ -98,7 +98,7 @@ import '../features/recurring/data/data_sources/local_recurring_data_manager.dar
     as _i20;
 import '../features/recurring/data/data_sources/local_recurring_data_manager_impl.dart'
     as _i21;
-import '../features/recurring/data/model/recurring.dart' as _i8;
+import '../features/recurring/data/model/recurring.dart' as _i5;
 import '../features/recurring/data/repository/recurring_repository_impl.dart'
     as _i79;
 import '../features/recurring/domain/repository/recurring_repository.dart'
@@ -174,33 +174,33 @@ Future<_i1.GetIt> init(
   final hiveBoxModule = _$HiveBoxModule();
   final serviceBoxModule = _$ServiceBoxModule();
   gh.lazySingleton<_i3.Authenticate>(() => _i3.Authenticate());
-  await gh.lazySingletonAsync<_i4.Box<_i5.DebitModel>>(
-    () => hiveBoxModule.debtsBox,
+  await gh.lazySingletonAsync<_i4.Box<dynamic>>(
+    () => hiveBoxModule.boxDynamic,
+    instanceName: 'settings',
+    preResolve: true,
+  );
+  await gh.lazySingletonAsync<_i4.Box<_i5.RecurringModel>>(
+    () => hiveBoxModule.recurringBox,
     preResolve: true,
   );
   await gh.lazySingletonAsync<_i4.Box<_i6.TransactionModel>>(
     () => hiveBoxModule.expenseBox,
     preResolve: true,
   );
-  await gh.lazySingletonAsync<_i4.Box<dynamic>>(
-    () => hiveBoxModule.boxDynamic,
-    instanceName: 'settings',
-    preResolve: true,
-  );
   await gh.lazySingletonAsync<_i4.Box<_i7.CategoryModel>>(
     () => hiveBoxModule.categoryBox,
     preResolve: true,
   );
-  await gh.lazySingletonAsync<_i4.Box<_i8.RecurringModel>>(
-    () => hiveBoxModule.recurringBox,
-    preResolve: true,
-  );
-  await gh.lazySingletonAsync<_i4.Box<_i9.AccountModel>>(
-    () => hiveBoxModule.accountBox,
-    preResolve: true,
-  );
-  await gh.lazySingletonAsync<_i4.Box<_i10.DebitTransactionsModel>>(
+  await gh.lazySingletonAsync<_i4.Box<_i8.DebitTransactionsModel>>(
     () => hiveBoxModule.transactionsBox,
+    preResolve: true,
+  );
+  await gh.lazySingletonAsync<_i4.Box<_i9.DebitModel>>(
+    () => hiveBoxModule.debtsBox,
+    preResolve: true,
+  );
+  await gh.lazySingletonAsync<_i4.Box<_i10.AccountModel>>(
+    () => hiveBoxModule.accountBox,
     preResolve: true,
   );
   gh.lazySingleton<_i11.CategoryDataSource>(() =>
@@ -209,10 +209,10 @@ Future<_i1.GetIt> init(
   gh.lazySingleton<_i12.CountryRepository>(() => _i13.CountryRepositoryImpl(
       gh<_i4.Box<dynamic>>(instanceName: 'settings')));
   gh.lazySingleton<_i14.DebtDataSource>(
-      () => _i14.DebitDataSourceImpl(debtBox: gh<_i4.Box<_i5.DebitModel>>()));
+      () => _i14.DebitDataSourceImpl(debtBox: gh<_i4.Box<_i9.DebitModel>>()));
   gh.lazySingleton<_i15.DebtTransactionDataSource>(() =>
       _i15.DebitTransactionDataStoreImpl(
-          transactionsBox: gh<_i4.Box<_i10.DebitTransactionsModel>>()));
+          transactionsBox: gh<_i4.Box<_i8.DebitTransactionsModel>>()));
   gh.lazySingleton<_i16.DeviceInfoPlugin>(
       () => serviceBoxModule.providesDeviceInfoPlugin());
   gh.factory<_i17.GetCountriesUseCase>(
@@ -222,7 +222,7 @@ Future<_i1.GetIt> init(
   gh.lazySingleton<_i19.ImagePicker>(
       () => serviceBoxModule.providesImagePicker());
   gh.factory<_i20.LocalRecurringDataManager>(() =>
-      _i21.LocalRecurringDataManagerImpl(gh<_i4.Box<_i8.RecurringModel>>()));
+      _i21.LocalRecurringDataManagerImpl(gh<_i4.Box<_i5.RecurringModel>>()));
   await gh.lazySingletonAsync<_i22.PackageInfo>(
     () => serviceBoxModule.providesPackageInfoPlugin(),
     preResolve: true,
@@ -248,7 +248,7 @@ Future<_i1.GetIt> init(
       _i35.UpdateTransactionUseCase(
           expenseRepository: gh<_i33.TransactionRepository>()));
   gh.lazySingleton<_i36.AccountDataSource>(() =>
-      _i36.AccountDataSourceImpl(accountBox: gh<_i4.Box<_i9.AccountModel>>()));
+      _i36.AccountDataSourceImpl(accountBox: gh<_i4.Box<_i10.AccountModel>>()));
   gh.lazySingleton<_i37.AccountRepository>(() =>
       _i38.AccountRepositoryImpl(dataSource: gh<_i36.AccountDataSource>()));
   gh.lazySingleton<_i39.AddAccountUseCase>(() =>

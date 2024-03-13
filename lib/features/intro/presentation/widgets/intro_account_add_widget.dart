@@ -29,7 +29,7 @@ class IntroAccountAddWidget extends StatefulWidget {
 
 class _IntroAccountAddWidgetState extends State<IntroAccountAddWidget>
     with AutomaticKeepAliveClientMixin {
-  final AccountDataSource dataSource = getIt.get<AccountDataSource>();
+  final AccountDataSource dataSource = getIt<AccountDataSource>();
   final List<AccountModel> defaultModels = defaultAccountsData();
 
   @override
@@ -42,7 +42,7 @@ class _IntroAccountAddWidgetState extends State<IntroAccountAddWidget>
       color: context.background,
       child: Scaffold(
         body: ValueListenableBuilder<Box<AccountModel>>(
-          valueListenable: getIt.get<Box<AccountModel>>().listenable(),
+          valueListenable: getIt<Box<AccountModel>>().listenable(),
           builder: (context, value, child) {
             final List<AccountModel> categoryModels = value.values.toList();
             return ListView(
