@@ -1,11 +1,14 @@
 // This is a generated file; do not edit or check into version control.
 FLUTTER_ROOT=/Users/h.savarala/Documents/flutter
-FLUTTER_APPLICATION_PATH=/Users/h.savarala/Desktop/dev/Paisa
+FLUTTER_APPLICATION_PATH=/Users/h.savarala/Desktop/dev/paisa
 COCOAPODS_PARALLEL_CODE_SIGN=true
+FLUTTER_TARGET=/Users/h.savarala/Desktop/dev/paisa/lib/main.dart
 FLUTTER_BUILD_DIR=build
 FLUTTER_BUILD_NAME=6.0.8
 FLUTTER_BUILD_NUMBER=608
+DART_DEFINES=RkxVVFRFUl9XRUJfQVVUT19ERVRFQ1Q9dHJ1ZQ==,RkxVVFRFUl9XRUJfQ0FOVkFTS0lUX1VSTD1odHRwczovL3d3dy5nc3RhdGljLmNvbS9mbHV0dGVyLWNhbnZhc2tpdC8wNDgxN2M5OWM5ZmQ0OTU2ZjI3NTA1MjA0ZjdlMzQ0MzM1ODEwYWVkLw==,RkxVVFRFUl9BUFBfRkxBVk9SPWRldg==
 DART_OBFUSCATION=false
 TRACK_WIDGET_CREATION=true
 TREE_SHAKE_ICONS=false
-PACKAGE_CONFIG=.dart_tool/package_config.json
+PACKAGE_CONFIG=/Users/h.savarala/Desktop/dev/paisa/.dart_tool/package_config.json
+FLAVOR=dev

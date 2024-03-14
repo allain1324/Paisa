@@ -5,31 +5,37 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Paisa - Dev",
+            "name": "[Dev] Paisa",
             "request": "launch",
             "type": "dart",
             "args": [
                 "--flavor",
-                "dev"
+                "dev",
+                "--target",
+                "lib/main.dart"
             ]
         },
         {
-            "name": "Paisa - Prod",
+            "name": "[Prod] Paisa",
             "request": "launch",
             "type": "dart",
             "args": [
                 "--flavor",
-                "prod"
+                "prod",
+                "--target",
+                "lib/main.dart"
             ]
         },
         {
-            "name": "Paisa - Dev (profile mode)",
+            "name": "[Profile] Paisa",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile",
             "args": [
                 "--flavor",
-                "dev"
+                "dev",
+                "--target",
+                "lib/main.dart"
             ]
         }
     ]
