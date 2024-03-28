@@ -21,7 +21,9 @@
     "transferCategorySubtitle",
     "currencySelectorError",
     "justBlackText",
-    "dateAndTime"
+    "dateAndTime",
+    "goals",
+    "addGoalTooltip"
   ],
 
   "cs": [
@@ -29,7 +31,9 @@
     "transferCategorySubtitle",
     "currencySelectorError",
     "justBlackText",
-    "dateAndTime"
+    "dateAndTime",
+    "goals",
+    "addGoalTooltip"
   ],
 
   "de": [
@@ -41,7 +45,9 @@
     "transferCategorySubtitle",
     "currencySelectorError",
     "justBlackText",
-    "dateAndTime"
+    "dateAndTime",
+    "goals",
+    "addGoalTooltip"
   ],
 
   "es": [
@@ -57,7 +63,9 @@
     "transferCategorySubtitle",
     "currencySelectorError",
     "justBlackText",
-    "dateAndTime"
+    "dateAndTime",
+    "goals",
+    "addGoalTooltip"
   ],
 
   "fr": [
@@ -74,7 +82,9 @@
     "transferCategorySubtitle",
     "currencySelectorError",
     "justBlackText",
-    "dateAndTime"
+    "dateAndTime",
+    "goals",
+    "addGoalTooltip"
   ],
 
   "it": [
@@ -105,7 +115,9 @@
     "transferCategorySubtitle",
     "currencySelectorError",
     "justBlackText",
-    "dateAndTime"
+    "dateAndTime",
+    "goals",
+    "addGoalTooltip"
   ],
 
   "kn": [
@@ -128,7 +140,9 @@
     "transferCategorySubtitle",
     "currencySelectorError",
     "justBlackText",
-    "dateAndTime"
+    "dateAndTime",
+    "goals",
+    "addGoalTooltip"
   ],
 
   "ne": [
@@ -136,7 +150,9 @@
     "transferCategorySubtitle",
     "currencySelectorError",
     "justBlackText",
-    "dateAndTime"
+    "dateAndTime",
+    "goals",
+    "addGoalTooltip"
   ],
 
   "pl": [
@@ -154,7 +170,9 @@
     "transferCategorySubtitle",
     "currencySelectorError",
     "justBlackText",
-    "dateAndTime"
+    "dateAndTime",
+    "goals",
+    "addGoalTooltip"
   ],
 
   "pt": [
@@ -177,7 +195,9 @@
     "transferCategorySubtitle",
     "currencySelectorError",
     "justBlackText",
-    "dateAndTime"
+    "dateAndTime",
+    "goals",
+    "addGoalTooltip"
   ],
 
   "ru": [
@@ -202,7 +222,9 @@
     "transferCategorySubtitle",
     "currencySelectorError",
     "justBlackText",
-    "dateAndTime"
+    "dateAndTime",
+    "goals",
+    "addGoalTooltip"
   ],
 
   "ta": [
@@ -211,7 +233,9 @@
     "transferCategorySubtitle",
     "currencySelectorError",
     "justBlackText",
-    "dateAndTime"
+    "dateAndTime",
+    "goals",
+    "addGoalTooltip"
   ],
 
   "uk": [
@@ -219,7 +243,9 @@
     "transferCategorySubtitle",
     "currencySelectorError",
     "justBlackText",
-    "dateAndTime"
+    "dateAndTime",
+    "goals",
+    "addGoalTooltip"
   ],
 
   "vi": [
@@ -228,7 +254,9 @@
     "transferCategorySubtitle",
     "currencySelectorError",
     "justBlackText",
-    "dateAndTime"
+    "dateAndTime",
+    "goals",
+    "addGoalTooltip"
   ],
 
   "zh": [
@@ -249,7 +277,9 @@
     "transferCategorySubtitle",
     "currencySelectorError",
     "justBlackText",
-    "dateAndTime"
+    "dateAndTime",
+    "goals",
+    "addGoalTooltip"
   ],
 
   "zh_TW": [
@@ -267,6 +297,8 @@
     "transferCategorySubtitle",
     "currencySelectorError",
     "justBlackText",
-    "dateAndTime"
+    "dateAndTime",
+    "goals",
+    "addGoalTooltip"
   ]
 }

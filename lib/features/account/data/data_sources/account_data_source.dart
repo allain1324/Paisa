@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 // Project imports:
 import 'package:paisa/features/account/data/model/account_model.dart';
 
-abstract class AccountDataSource {
+abstract interface class AccountDataSource {
   Future<int> add(AccountModel account);
 
   Future<void> delete(int key);
@@ -43,7 +43,7 @@ class AccountDataSourceImpl implements AccountDataSource {
   Future<void> clear() => accountBox.clear();
 
   @override
-  Future<void> delete(int key) async => accountBox.delete(key);
+  Future<void> delete(int key) => accountBox.delete(key);
 
   @override
   Iterable<AccountModel> export() => accountBox.values;

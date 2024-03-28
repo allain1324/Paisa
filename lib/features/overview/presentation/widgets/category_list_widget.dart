@@ -26,7 +26,7 @@ class CategoryListWidget extends StatelessWidget {
       itemBuilder: (context, index) {
         final MapEntry<CategoryEntity, List<TransactionEntity>> map =
             categoryGrouped[index];
-        final Color color = Color(map.key.color ?? Colors.amber.shade100.value);
+        final Color color = Color(map.key.color);
         return InkWell(
           onTap: () {
             TransactionsByCategoryPageData(map.key.superId!).push(context);
@@ -45,7 +45,7 @@ class CategoryListWidget extends StatelessWidget {
                           size: 18,
                           color: color,
                           IconData(
-                            map.key.icon ?? 0,
+                            map.key.icon,
                             fontFamily: fontFamilyName,
                             fontPackage: fontFamilyPackageName,
                           ),
@@ -55,12 +55,15 @@ class CategoryListWidget extends StatelessWidget {
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text(map.key.name ?? ''),
+                        child: Text(map.key.name),
                       ),
                     )
                   ],
                 ),
                 Row(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.ideographic,
                   children: [
                     Expanded(
                       child: Padding(
@@ -77,7 +80,10 @@ class CategoryListWidget extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Text(map.value.total.toFormateCurrency(context))
+                    Text(
+                      map.value.total.toFormateCurrency(context),
+                      style: context.bodyMedium?.copyWith(),
+                    )
                   ],
                 )
               ],

@@ -2,21 +2,21 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 // Project imports:
 import 'package:paisa/core/common.dart';
+import 'package:paisa/core/extensions/goal_extension.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
-import 'package:paisa/features/category/data/model/category_model.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
-import 'package:paisa/features/home/presentation/pages/home/home_cubit.dart';
+import 'package:paisa/features/goals/data/models/goal_model.dart';
+import 'package:paisa/features/goals/domain/entity/goal_entity.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'package:paisa/main.dart';
 
-class BudgetPage extends StatelessWidget {
-  const BudgetPage({
+class GoalsPage extends StatelessWidget {
+  const GoalsPage({
     super.key,
   });
 
@@ -24,11 +24,11 @@ class BudgetPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return PaisaAnnotatedRegionWidget(
       color: context.background,
-      child: ValueListenableBuilder<Box<CategoryModel>>(
-        valueListenable: getIt<Box<CategoryModel>>().listenable(),
+      child: ValueListenableBuilder<Box<GoalModel>>(
+        valueListenable: getIt<Box<GoalModel>>().listenable(),
         builder: (_, value, child) {
-          final categories = value.values.toBudgetEntities();
-          if (categories.isEmpty) {
+          final Iterable<GoalEntity> goals = value.values.toEntities();
+          if (goals.isEmpty) {
             return EmptyWidget(
               icon: MdiIcons.timetable,
               title: context.loc.emptyBudgetMessageTitle,
@@ -37,14 +37,14 @@ class BudgetPage extends StatelessWidget {
           }
           return ListView.separated(
             physics: const BouncingScrollPhysics(),
-            itemCount: categories.length,
+            itemCount: goals.length,
             itemBuilder: (context, index) {
-              final CategoryEntity category = categories[index];
+              /* final GoalEntity goalEntity = goales[index];
               final List<TransactionEntity> expenses = context
                   .read<HomeCubit>()
-                  .fetchExpensesFromCategoryId(category.superId!)
+                  .fetchExpensesFromCategoryId(goalEntity.superId!)
                   .thisMonthExpensesList;
-              return BudgetItem(category: category, expenses: expenses);
+              return BudgetItem(category: goalEntity, expenses: expenses); */
             },
             separatorBuilder: (BuildContext context, int index) =>
                 const Divider(),

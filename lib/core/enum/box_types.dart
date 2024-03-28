@@ -5,6 +5,7 @@ enum BoxType {
   settings('settings'),
   debts('debts'),
   recurring('recurring'),
+  goal('goal'),
   transactions('transactions');
 
   final String name;

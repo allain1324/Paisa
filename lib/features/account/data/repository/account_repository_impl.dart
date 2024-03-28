@@ -4,7 +4,7 @@ import 'package:injectable/injectable.dart';
 // Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/common_enum.dart';
-import 'package:paisa/features/account/data/data_sources/account_data_manager.dart';
+import 'package:paisa/features/account/data/data_sources/account_data_source.dart';
 import 'package:paisa/features/account/data/model/account_model.dart';
 import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/account/domain/repository/account_repository.dart';

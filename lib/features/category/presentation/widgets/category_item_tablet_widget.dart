@@ -32,11 +32,11 @@ class CategoryItemTabletWidget extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Icon(
                 IconData(
-                  category.icon ?? 0,
+                  category.icon,
                   fontFamily: fontFamilyName,
                   fontPackage: fontFamilyPackageName,
                 ),
-                color: Color(category.color ?? context.primary.value),
+                color: Color(category.color),
               ),
             ),
             Expanded(
@@ -47,7 +47,7 @@ class CategoryItemTabletWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      category.name ?? '',
+                      category.name,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: context.bodyMedium?.copyWith(

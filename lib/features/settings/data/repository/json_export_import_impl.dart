@@ -15,7 +15,7 @@ import 'package:path_provider/path_provider.dart';
 // Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/error/exceptions.dart';
-import 'package:paisa/features/account/data/data_sources/account_data_manager.dart';
+import 'package:paisa/features/account/data/data_sources/account_data_source.dart';
 import 'package:paisa/features/account/data/model/account_model.dart';
 import 'package:paisa/features/category/data/data_sources/category_data_source.dart';
 import 'package:paisa/features/category/data/model/category_model.dart';

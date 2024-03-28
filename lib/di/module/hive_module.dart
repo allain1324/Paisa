@@ -11,7 +11,7 @@ import 'package:paisa/features/account/data/model/account_model.dart';
 import 'package:paisa/features/category/data/model/category_model.dart';
 import 'package:paisa/features/debit/data/models/debit_model.dart';
 import 'package:paisa/features/debit_transaction/data/model/debit_transactions_model.dart';
-import 'package:paisa/features/goals/data/models/goals.dart';
+import 'package:paisa/features/goals/data/models/goal_model.dart';
 import 'package:paisa/features/intro/data/models/country_model.dart';
 import 'package:paisa/features/recurring/data/model/recurring.dart';
 import 'package:paisa/features/transaction/data/model/transaction_model.dart';
@@ -50,6 +50,11 @@ abstract class HiveBoxModule {
 
   @lazySingleton
   @preResolve
+  Future<Box<GoalModel>> get goalBox =>
+      Hive.openBox<GoalModel>(BoxType.recurring.name);
+
+  @lazySingleton
+  @preResolve
   @Named('settings')
   Future<Box<dynamic>> get boxDynamic =>
       Hive.openBox<dynamic>(BoxType.settings.name);
@@ -70,7 +75,7 @@ class HiveAdapters {
       ..registerAdapter(CardTypeAdapter())
       ..registerAdapter(RecurringTypeAdapter())
       ..registerAdapter(RecurringModelAdapter())
-      ..registerAdapter(GoalsModelAdapter())
+      ..registerAdapter(GoalModelAdapter())
       ..registerAdapter(FilterExpenseAdapter());
   }
 

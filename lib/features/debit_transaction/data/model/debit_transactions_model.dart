@@ -5,6 +5,11 @@ import 'package:hive_flutter/adapters.dart';
 part 'debit_transactions_model.g.dart';
 part 'debit_transactions_model.freezed.dart';
 
+enum TransactionModelType {
+  debit,
+  goal,
+}
+
 @unfreezed
 class DebitTransactionsModel extends HiveObject with _$DebitTransactionsModel {
   @HiveType(typeId: 3, adapterName: 'DebitTransactionsModelAdapter')
@@ -13,6 +18,9 @@ class DebitTransactionsModel extends HiveObject with _$DebitTransactionsModel {
     @HiveField(2) required DateTime now,
     @HiveField(4, defaultValue: -1) required int parentId,
     @HiveField(3) int? superId,
+    @HiveField(5)
+    @Default(TransactionModelType.debit)
+    TransactionModelType type,
   }) = _DebitTransactionsModel;
 
   DebitTransactionsModel._();

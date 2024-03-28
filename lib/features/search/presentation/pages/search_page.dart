@@ -305,7 +305,7 @@ class _FilterWidgetState extends State<FilterWidget> {
                             ? context.primary
                             : context.onSurfaceVariant,
                         IconData(
-                          categoryEntity.icon ?? 0,
+                          categoryEntity.icon,
                           fontFamily: fontFamilyName,
                           fontPackage: fontFamilyPackageName,
                         ),
@@ -318,7 +318,7 @@ class _FilterWidgetState extends State<FilterWidget> {
                       ),
                       showCheckmark: false,
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      label: Text(categoryEntity.name ?? ''),
+                      label: Text(categoryEntity.name),
                       labelStyle: Theme.of(context)
                           .textTheme
                           .titleMedium

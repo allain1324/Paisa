@@ -87,9 +87,9 @@ class _CategoryPageState extends State<CategoryPage> {
               offset: state.category.budget.toString().length,
             );
 
-            categoryController.text = state.category.name ?? '';
+            categoryController.text = state.category.name;
             categoryController.selection = TextSelection.collapsed(
-              offset: state.category.name?.length ?? 0,
+              offset: state.category.name.length,
             );
 
             descController.text = state.category.description ?? '';

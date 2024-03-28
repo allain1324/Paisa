@@ -55,15 +55,14 @@ class ExpenseItemWidget extends StatelessWidget {
               ?.copyWith(color: context.bodySmall?.color?.withOpacity(0.55)),
         ),
         leading: CircleAvatar(
-          backgroundColor:
-              Color(category.color ?? context.surface.value).withOpacity(0.2),
+          backgroundColor: Color(category.color).withOpacity(0.2),
           child: Icon(
             IconData(
-              category.icon ?? 0,
+              category.icon,
               fontFamily: fontFamilyName,
               fontPackage: fontFamilyPackageName,
             ),
-            color: Color(category.color ?? context.surface.value),
+            color: Color(category.color),
           ),
         ),
         trailing: Text(

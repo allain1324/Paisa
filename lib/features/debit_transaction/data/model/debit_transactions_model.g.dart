@@ -22,13 +22,14 @@ class DebitTransactionsModelAdapter
       now: fields[2] as DateTime,
       parentId: fields[4] == null ? -1 : fields[4] as int,
       superId: fields[3] as int?,
+      type: fields[5] as TransactionModelType,
     );
   }
 
   @override
   void write(BinaryWriter writer, _$DebitTransactionsModelImpl obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(5)
       ..writeByte(1)
       ..write(obj.amount)
       ..writeByte(2)
@@ -36,7 +37,9 @@ class DebitTransactionsModelAdapter
       ..writeByte(4)
       ..write(obj.parentId)
       ..writeByte(3)
-      ..write(obj.superId);
+      ..write(obj.superId)
+      ..writeByte(5)
+      ..write(obj.type);
   }
 
   @override
@@ -61,6 +64,8 @@ _$DebitTransactionsModelImpl _$$DebitTransactionsModelImplFromJson(
       now: DateTime.parse(json['now'] as String),
       parentId: json['parentId'] as int,
       superId: json['superId'] as int?,
+      type: $enumDecodeNullable(_$TransactionModelTypeEnumMap, json['type']) ??
+          TransactionModelType.debit,
     );
 
 Map<String, dynamic> _$$DebitTransactionsModelImplToJson(
@@ -70,4 +75,10 @@ Map<String, dynamic> _$$DebitTransactionsModelImplToJson(
       'now': instance.now.toIso8601String(),
       'parentId': instance.parentId,
       'superId': instance.superId,
+      'type': _$TransactionModelTypeEnumMap[instance.type]!,
     };
+
+const _$TransactionModelTypeEnumMap = {
+  TransactionModelType.debit: 'debit',
+  TransactionModelType.goal: 'goal',
+};

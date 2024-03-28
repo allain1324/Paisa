@@ -28,27 +28,25 @@ class CategoryItemMobileWidget extends StatelessWidget {
       },
       child: ListTile(
         leading: CircleAvatar(
-          backgroundColor: Color(category.color ?? Colors.amber.shade100.value)
-              .withOpacity(0.3),
+          backgroundColor: Color(category.color).withOpacity(0.3),
           child: Icon(
             IconData(
-              category.icon ?? 0,
+              category.icon,
               fontFamily: fontFamilyName,
               fontPackage: fontFamilyPackageName,
             ),
-            color: Color(category.color ?? Colors.amber.shade100.value),
+            color: Color(category.color),
           ),
         ),
         title: Text(
-          category.name ?? '',
+          category.name,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: context.titleMedium?.copyWith(
             color: context.onSurfaceVariant,
           ),
         ),
-        trailing:
-            category.isDefault ?? false ? Icon(MdiIcons.swapHorizontal) : null,
+        trailing: category.isDefault ? Icon(MdiIcons.swapHorizontal) : null,
         subtitle: category.description == null || category.description == ''
             ? null
             : Text(

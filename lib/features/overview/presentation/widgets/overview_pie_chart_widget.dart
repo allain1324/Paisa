@@ -65,7 +65,7 @@ class PieChartWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<PieChartSectionData> sections = map.map((e) {
-      final Color color = Color(e.key.color ?? Colors.amber.value);
+      final Color color = Color(e.key.color);
       return PieChartSectionData(
         color: color.withOpacity(0.3),
         value: e.value.total / total,

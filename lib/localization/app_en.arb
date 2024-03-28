@@ -1074,5 +1074,15 @@
     "@dateAndTime": {
         "description": "Text shown on transaction page sub title",
         "type": "text"
+    },
+    "goals": "Goals",
+    "@goals": {
+        "description": "Text shown on navigation drawer item",
+        "type": "text"
+    },
+    "addGoalTooltip": "Add Goal",
+    "@addGoalTooltip": {
+        "description": "Tooltip shown on the goals add button",
+        "type": "text"
     }
 }

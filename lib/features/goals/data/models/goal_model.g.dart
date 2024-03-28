@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'goals.dart';
+part of 'goal_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class GoalsModelAdapter extends TypeAdapter<_$GoalsImpl> {
+class GoalModelAdapter extends TypeAdapter<_$GoalsImpl> {
   @override
   final int typeId = 8;
 
@@ -44,7 +44,7 @@ class GoalsModelAdapter extends TypeAdapter<_$GoalsImpl> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is GoalsModelAdapter &&
+      other is GoalModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

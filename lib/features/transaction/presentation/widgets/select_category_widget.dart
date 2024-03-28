@@ -109,9 +109,9 @@ class SelectedItem extends StatelessWidget {
                     selected: selected,
                     onSelected: (value) => expenseBloc
                         .add(TransactionEvent.changeCategory(category)),
-                    icon: category.icon ?? 0,
-                    title: category.name ?? '',
-                    color: Color(category.color ?? context.primary.value),
+                    icon: category.icon,
+                    title: category.name,
+                    color: Color(category.color),
                   );
                 }
               },

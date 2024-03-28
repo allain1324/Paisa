@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'goals.dart';
+part of 'goal_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-Goals _$GoalsFromJson(Map<String, dynamic> json) {
+GoalModel _$GoalModelFromJson(Map<String, dynamic> json) {
   return _Goals.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Goals {
+mixin _$GoalModel {
   @HiveField(0)
   String get name => throw _privateConstructorUsedError;
   @HiveField(0)
@@ -39,13 +39,14 @@ mixin _$Goals {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $GoalsCopyWith<Goals> get copyWith => throw _privateConstructorUsedError;
+  $GoalModelCopyWith<GoalModel> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GoalsCopyWith<$Res> {
-  factory $GoalsCopyWith(Goals value, $Res Function(Goals) then) =
-      _$GoalsCopyWithImpl<$Res, Goals>;
+abstract class $GoalModelCopyWith<$Res> {
+  factory $GoalModelCopyWith(GoalModel value, $Res Function(GoalModel) then) =
+      _$GoalModelCopyWithImpl<$Res, GoalModel>;
   @useResult
   $Res call(
       {@HiveField(0) String name,
@@ -55,9 +56,9 @@ abstract class $GoalsCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$GoalsCopyWithImpl<$Res, $Val extends Goals>
-    implements $GoalsCopyWith<$Res> {
-  _$GoalsCopyWithImpl(this._value, this._then);
+class _$GoalModelCopyWithImpl<$Res, $Val extends GoalModel>
+    implements $GoalModelCopyWith<$Res> {
+  _$GoalModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -94,7 +95,7 @@ class _$GoalsCopyWithImpl<$Res, $Val extends Goals>
 }
 
 /// @nodoc
-abstract class _$$GoalsImplCopyWith<$Res> implements $GoalsCopyWith<$Res> {
+abstract class _$$GoalsImplCopyWith<$Res> implements $GoalModelCopyWith<$Res> {
   factory _$$GoalsImplCopyWith(
           _$GoalsImpl value, $Res Function(_$GoalsImpl) then) =
       __$$GoalsImplCopyWithImpl<$Res>;
@@ -109,7 +110,7 @@ abstract class _$$GoalsImplCopyWith<$Res> implements $GoalsCopyWith<$Res> {
 
 /// @nodoc
 class __$$GoalsImplCopyWithImpl<$Res>
-    extends _$GoalsCopyWithImpl<$Res, _$GoalsImpl>
+    extends _$GoalModelCopyWithImpl<$Res, _$GoalsImpl>
     implements _$$GoalsImplCopyWith<$Res> {
   __$$GoalsImplCopyWithImpl(
       _$GoalsImpl _value, $Res Function(_$GoalsImpl) _then)
@@ -146,7 +147,7 @@ class __$$GoalsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-@HiveType(typeId: 8, adapterName: 'GoalsModelAdapter')
+@HiveType(typeId: 8, adapterName: 'GoalModelAdapter')
 class _$GoalsImpl extends _Goals {
   _$GoalsImpl(
       {@HiveField(0) required this.name,
@@ -173,7 +174,7 @@ class _$GoalsImpl extends _Goals {
 
   @override
   String toString() {
-    return 'Goals(name: $name, amount: $amount, superId: $superId, icon: $icon)';
+    return 'GoalModel(name: $name, amount: $amount, superId: $superId, icon: $icon)';
   }
 
   @JsonKey(ignore: true)
@@ -190,7 +191,7 @@ class _$GoalsImpl extends _Goals {
   }
 }
 
-abstract class _Goals extends Goals {
+abstract class _Goals extends GoalModel {
   factory _Goals(
       {@HiveField(0) required String name,
       @HiveField(1) required double amount,

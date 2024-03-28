@@ -380,7 +380,7 @@ class _CategorySelectWidgetState extends State<CategorySelectWidget> {
                         ? context.primary
                         : context.onSurfaceVariant,
                     IconData(
-                      category.icon ?? 0,
+                      category.icon,
                       fontFamily: fontFamilyName,
                       fontPackage: fontFamilyPackageName,
                     ),
@@ -393,7 +393,7 @@ class _CategorySelectWidgetState extends State<CategorySelectWidget> {
                   ),
                   showCheckmark: false,
                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  label: Text(category.name ?? ''),
+                  label: Text(category.name),
                   labelStyle: context.titleMedium?.copyWith(
                       color: category.superId == selectedId
                           ? context.primary

@@ -53,6 +53,11 @@ final destinations = [
     icon: Icon(MdiIcons.cashSync),
     selectedIcon: Icon(MdiIcons.cashSync),
   ),
+  /*  Destination(
+    pageType: PageType.goals,
+    icon: Icon(MdiIcons.cashSync),
+    selectedIcon: Icon(MdiIcons.cashSync),
+  ), */
 ];
 
 class LandingPage extends StatelessWidget {

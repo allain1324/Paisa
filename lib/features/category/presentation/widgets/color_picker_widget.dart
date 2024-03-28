@@ -27,7 +27,7 @@ class ColorPickerWidget extends StatelessWidget {
           color = state.categoryColor;
         }
         if (state is CategorySuccessState) {
-          color = state.category.color ?? Colors.red.value;
+          color = state.category.color;
         }
         return ListTile(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),

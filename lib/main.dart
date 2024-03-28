@@ -12,7 +12,7 @@ import 'package:get_it/get_it.dart';
 import 'package:paisa/app.dart';
 import 'package:paisa/core/common_enum.dart';
 import 'package:paisa/di/dependency_injection.dart';
-import 'package:paisa/features/account/data/data_sources/account_data_manager.dart';
+import 'package:paisa/features/account/data/data_sources/account_data_source.dart';
 import 'package:paisa/features/account/data/model/account_model.dart';
 import 'package:paisa/features/category/data/data_sources/category_data_source.dart';
 import 'package:paisa/features/category/data/model/category_model.dart';
