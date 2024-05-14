@@ -25,7 +25,7 @@ extension DateUtils on DateTime {
   String get dayString => DateFormat('dd').format(this);
   String get weekString => DateFormat('EEE').format(this);
   String get monthString => DateFormat('MMM').format(this);
-  String get shortDayString => DateFormat('dd MMM • hh:mm a').format(this);
+  String get shortDayString => DateFormat('EEE dd MMM • hh:mm a').format(this);
   
   bool get isToday {
     final now = DateTime.now();
