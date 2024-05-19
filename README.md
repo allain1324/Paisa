@@ -6,7 +6,10 @@
 </p>
 <p align="center">
  <a href="https://flutter.dev/" style="text-decoration:none" area-label="flutter">
-    <img src="https://img.shields.io/badge/Platform-Flutter%203.10.4-blue">
+    <img src="https://img.shields.io/badge/Platform-Flutter%203.19.2-blue">
+  </a>
+  <a href="https://github.com/RetroMusicPlayer/Paisa/releases/tag/v6.0.8" style="text-decoration:none" area-label="flutter">
+    <img src="https://img.shields.io/badge/Version-6.0.8-orange">
   </a>
    <a href="https://play.google.com/store/apps/details?id=dev.hemanths.paisa" style="text-decoration:none" area-label="play store">
     <img src="https://img.shields.io/badge/Download-Google%20Play-green">
@@ -14,15 +17,12 @@
   <a href="https://apps.microsoft.com/store/detail/9NQ2KR46N764?launch=true&mode=mini" style="text-decoration:none" area-label="windows">
     <img src="https://img.shields.io/badge/Download-Micrsoft%20Store-red">
   </a>
-  <a href="https://github.com/RetroMusicPlayer/Paisa/releases/tag/v4.8.0" style="text-decoration:none" area-label="flutter">
-    <img src="https://img.shields.io/badge/Version-4.8.0-orange">
-  </a>
 </p>
 <p  align="center">
     <h2> Material design expense manager</h2>
 </p>
 
-### ⚠ Join [@paisa group](https://t.me/app_paisa) on Telegram for important updates
+### ⚠ Join [Telegram Group](https://t.me/app_paisa) for important updates
 
 ### Screen shots
 
