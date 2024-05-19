@@ -12,8 +12,8 @@ import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 
-class ExpenseItemWidget extends StatelessWidget {
-  const ExpenseItemWidget({
+class TransactionItemWidget extends StatelessWidget {
+  const TransactionItemWidget({
     super.key,
     required this.expense,
     required this.account,

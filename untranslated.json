@@ -1,4 +1,9 @@
 {
+  "ar": [
+    "goals",
+    "addGoalTooltip"
+  ],
+
   "be": [
     "defaultAccount",
     "deletedCategory",
@@ -51,19 +56,6 @@
   ],
 
   "es": [
-    "pickColorAccountDesc",
-    "back",
-    "excludeAccount",
-    "accountNotFound",
-    "bankNameError",
-    "holderNameError",
-    "accountColorError",
-    "emptySelectedAccountsInfo",
-    "emptyRecommendedAccountsInfo",
-    "transferCategorySubtitle",
-    "currencySelectorError",
-    "justBlackText",
-    "dateAndTime",
     "goals",
     "addGoalTooltip"
   ],

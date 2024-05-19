@@ -68,9 +68,9 @@ _$AccountModelImpl _$$AccountModelImplFromJson(Map<String, dynamic> json) =>
       bankName: json['bankName'] as String,
       cardType: $enumDecodeNullable(_$CardTypeEnumMap, json['cardType']) ??
           CardType.bank,
-      superId: json['superId'] as int?,
+      superId: (json['superId'] as num?)?.toInt(),
       amount: (json['amount'] as num?)?.toDouble(),
-      color: json['color'] as int?,
+      color: (json['color'] as num?)?.toInt(),
       isAccountExcluded: json['isAccountExcluded'] as bool?,
     );
 

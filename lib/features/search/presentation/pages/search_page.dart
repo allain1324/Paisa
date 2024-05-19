@@ -14,7 +14,7 @@ import 'package:paisa/features/account/data/model/account_model.dart';
 import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/category/data/model/category_model.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
-import 'package:paisa/features/home/presentation/pages/summary/widgets/expense_list_widget.dart';
+import 'package:paisa/features/home/presentation/pages/summary/widgets/transaction_list_widget.dart';
 import 'package:paisa/features/search/presentation/cubit/search_cubit.dart';
 import 'package:paisa/main.dart';
 
@@ -123,7 +123,7 @@ class _SearchPageState extends State<SearchPage> {
                       ),
                     ),
                   ),
-                  ExpenseListWidget(expenses: state.expenses),
+                  TransactionsListWidget(expenses: state.expenses),
                 ],
               ),
             );

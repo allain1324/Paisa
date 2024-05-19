@@ -128,7 +128,6 @@ class BarChartSample extends StatelessWidget {
                         fitInsideVertically: true,
                         fitInsideHorizontally: true,
                         tooltipRoundedRadius: 30,
-                        tooltipBgColor: context.primary,
                         direction: TooltipDirection.auto,
                         tooltipPadding: const EdgeInsets.symmetric(
                           horizontal: 16,

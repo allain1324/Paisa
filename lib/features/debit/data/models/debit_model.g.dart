@@ -71,7 +71,7 @@ _$DebitModelImpl _$$DebitModelImplFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String,
       expiryDateTime: DateTime.parse(json['expiryDateTime'] as String),
       name: json['name'] as String,
-      superId: json['superId'] as int?,
+      superId: (json['superId'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$$DebitModelImplToJson(_$DebitModelImpl instance) =>

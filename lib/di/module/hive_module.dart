@@ -20,43 +20,43 @@ import 'package:paisa/features/transaction/data/model/transaction_model.dart';
 abstract class HiveBoxModule {
   @lazySingleton
   @preResolve
-  Future<Box<TransactionModel>> get expenseBox =>
+  Future<Box<TransactionModel>> expenseBox() =>
       Hive.openBox<TransactionModel>(BoxType.expense.name);
 
   @lazySingleton
   @preResolve
-  Future<Box<AccountModel>> get accountBox =>
+  Future<Box<AccountModel>> accountBox() =>
       Hive.openBox<AccountModel>(BoxType.accounts.name);
 
   @lazySingleton
   @preResolve
-  Future<Box<CategoryModel>> get categoryBox =>
+  Future<Box<CategoryModel>> categoryBox() =>
       Hive.openBox<CategoryModel>(BoxType.category.name);
 
   @lazySingleton
   @preResolve
-  Future<Box<DebitModel>> get debtsBox =>
+  Future<Box<DebitModel>> debtsBox() =>
       Hive.openBox<DebitModel>(BoxType.debts.name);
 
   @lazySingleton
   @preResolve
-  Future<Box<DebitTransactionsModel>> get transactionsBox =>
+  Future<Box<DebitTransactionsModel>> transactionsBox() =>
       Hive.openBox<DebitTransactionsModel>(BoxType.transactions.name);
 
   @lazySingleton
   @preResolve
-  Future<Box<RecurringModel>> get recurringBox =>
+  Future<Box<RecurringModel>> recurringBox() =>
       Hive.openBox<RecurringModel>(BoxType.recurring.name);
 
   @lazySingleton
   @preResolve
-  Future<Box<GoalModel>> get goalBox =>
-      Hive.openBox<GoalModel>(BoxType.recurring.name);
+  Future<Box<GoalModel>> goalBox() =>
+      Hive.openBox<GoalModel>(BoxType.goal.name);
 
   @lazySingleton
   @preResolve
   @Named('settings')
-  Future<Box<dynamic>> get boxDynamic =>
+  Future<Box<dynamic>> boxDynamic() =>
       Hive.openBox<dynamic>(BoxType.settings.name);
 }
 

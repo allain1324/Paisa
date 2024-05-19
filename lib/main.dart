@@ -31,9 +31,10 @@ Future<void> main() async {
       TargetPlatform.iOS == defaultTargetPlatform) {
     initAppShortcuts();
   }
+  //_addDummyData();
 }
 
-_addDummyData() async {
+void _addDummyData() async {
   final accountDataSource = getIt<AccountDataSource>();
   final categoryDataSource = getIt<CategoryDataSource>();
   final transactionDataSource = getIt<TransactionDataSource>();
@@ -61,10 +62,10 @@ _addDummyData() async {
     );
   }
   final random = Random();
-  final startDate = DateTime(2010);
+  final startDate = DateTime(2019);
   final endDate = DateTime.now();
 
-  for (int i = 0; i < 100; i++) {
+  for (int i = 0; i < 1000; i++) {
     int accountId = Random().nextInt(10);
     int categoryId = Random().nextInt(10);
     final difference = endDate.difference(startDate).inDays;

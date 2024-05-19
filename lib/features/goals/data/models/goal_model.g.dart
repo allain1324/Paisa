@@ -56,8 +56,8 @@ class GoalModelAdapter extends TypeAdapter<_$GoalsImpl> {
 _$GoalsImpl _$$GoalsImplFromJson(Map<String, dynamic> json) => _$GoalsImpl(
       name: json['name'] as String,
       amount: (json['amount'] as num).toDouble(),
-      superId: json['superId'] as int?,
-      icon: json['icon'] as int,
+      superId: (json['superId'] as num?)?.toInt(),
+      icon: (json['icon'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$GoalsImplToJson(_$GoalsImpl instance) =>

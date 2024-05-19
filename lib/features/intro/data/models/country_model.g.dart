@@ -77,11 +77,11 @@ class CountryModelAdapter extends TypeAdapter<_$CountryModelImpl> {
 _$CountryModelImpl _$$CountryModelImplFromJson(Map<String, dynamic> json) =>
     _$CountryModelImpl(
       code: json['code'] as String,
-      decimalDigits: json['decimal_digits'] as int?,
+      decimalDigits: (json['decimal_digits'] as num?)?.toInt(),
       decimalSeparator: json['decimal_separator'] as String?,
       name: json['name'] as String,
       namePlural: json['name_plural'] as String?,
-      number: json['number'] as int,
+      number: (json['number'] as num).toInt(),
       pattern: json['pattern'] as String,
       spaceBetweenAmountAndSymbol:
           json['space_between_amount_and_symbol'] as bool?,

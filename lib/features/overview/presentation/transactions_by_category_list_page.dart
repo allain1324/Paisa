@@ -10,7 +10,7 @@ import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
 import 'package:paisa/features/home/presentation/pages/home/home_cubit.dart';
-import 'package:paisa/features/home/presentation/pages/summary/widgets/expense_item_widget.dart';
+import 'package:paisa/features/home/presentation/pages/summary/widgets/transaction_item_widget.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 
 class TransactionByCategoryPage extends StatelessWidget {
@@ -62,7 +62,7 @@ class TransactionByCategoryPage extends StatelessWidget {
             if (account == null || category == null) {
               return const SizedBox.shrink();
             }
-            return ExpenseItemWidget(
+            return TransactionItemWidget(
               expense: expenses[index],
               account: account,
               category: category,

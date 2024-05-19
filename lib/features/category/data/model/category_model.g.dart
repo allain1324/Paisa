@@ -69,12 +69,12 @@ _$CategoryModelImpl _$$CategoryModelImplFromJson(Map<String, dynamic> json) =>
     _$CategoryModelImpl(
       name: json['name'] as String,
       description: json['description'] as String?,
-      icon: json['icon'] as int,
+      icon: (json['icon'] as num).toInt(),
       isDefault: json['isDefault'] as bool? ?? false,
-      superId: json['superId'] as int?,
+      superId: (json['superId'] as num?)?.toInt(),
       budget: (json['budget'] as num?)?.toDouble(),
       isBudget: json['isBudget'] as bool? ?? false,
-      color: json['color'] as int?,
+      color: (json['color'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$$CategoryModelImplToJson(_$CategoryModelImpl instance) =>

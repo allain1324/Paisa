@@ -62,8 +62,8 @@ _$DebitTransactionsModelImpl _$$DebitTransactionsModelImplFromJson(
     _$DebitTransactionsModelImpl(
       amount: (json['amount'] as num).toDouble(),
       now: DateTime.parse(json['now'] as String),
-      parentId: json['parentId'] as int,
-      superId: json['superId'] as int?,
+      parentId: (json['parentId'] as num).toInt(),
+      superId: (json['superId'] as num?)?.toInt(),
       type: $enumDecodeNullable(_$TransactionModelTypeEnumMap, json['type']) ??
           TransactionModelType.debit,
     );

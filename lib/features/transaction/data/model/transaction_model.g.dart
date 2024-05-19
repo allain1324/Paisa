@@ -68,12 +68,12 @@ class TransactionModelAdapter extends TypeAdapter<_$TransactionModelImpl> {
 _$TransactionModelImpl _$$TransactionModelImplFromJson(
         Map<String, dynamic> json) =>
     _$TransactionModelImpl(
-      accountId: json['accountId'] as int,
-      categoryId: json['categoryId'] as int,
+      accountId: (json['accountId'] as num).toInt(),
+      categoryId: (json['categoryId'] as num).toInt(),
       currency: (json['currency'] as num?)?.toDouble() ?? 0,
       description: json['description'] as String?,
       name: json['name'] as String,
-      superId: json['superId'] as int?,
+      superId: (json['superId'] as num?)?.toInt(),
       time: DateTime.parse(json['time'] as String),
       type: $enumDecodeNullable(_$TransactionTypeEnumMap, json['type']) ??
           TransactionType.expense,
