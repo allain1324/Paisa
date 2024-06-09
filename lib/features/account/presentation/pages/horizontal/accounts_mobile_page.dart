@@ -105,7 +105,7 @@ class AccountsHorizontalMobilePage extends StatelessWidget {
               },
             );
           },
-        )
+        ),
       ],
     );
   }
