@@ -243,6 +243,10 @@
     "customize"
   ],
 
+  "tr": [
+    "customize"
+  ],
+
   "uk": [
     "emptyRecommendedAccountsInfo",
     "transferCategorySubtitle",
@@ -267,26 +271,6 @@
   ],
 
   "zh": [
-    "defaultAccount",
-    "deletedCategory",
-    "pickColorAccountDesc",
-    "transactionsByCategory",
-    "creatingBackupSuccess",
-    "restoringBackupSuccess",
-    "back",
-    "excludeAccount",
-    "accountNotFound",
-    "bankNameError",
-    "holderNameError",
-    "accountColorError",
-    "emptySelectedAccountsInfo",
-    "emptyRecommendedAccountsInfo",
-    "transferCategorySubtitle",
-    "currencySelectorError",
-    "justBlackText",
-    "dateAndTime",
-    "goals",
-    "addGoalTooltip",
     "customize"
   ],
 
