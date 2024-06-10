@@ -6,10 +6,10 @@
 </p>
 <p align="center">
  <a href="https://flutter.dev/" style="text-decoration:none" area-label="flutter">
-    <img src="https://img.shields.io/badge/Platform-Flutter%203.19.2-blue">
+    <img src="https://img.shields.io/badge/Platform-Flutter%203.22.2-blue">
   </a>
-  <a href="https://github.com/RetroMusicPlayer/Paisa/releases/tag/v6.0.8" style="text-decoration:none" area-label="flutter">
-    <img src="https://img.shields.io/badge/Version-6.0.8-orange">
+  <a href="https://github.com/RetroMusicPlayer/Paisa/releases/tag/v6.1.1" style="text-decoration:none" area-label="flutter">
+    <img src="https://img.shields.io/badge/Version-6.1.1-orange">
   </a>
    <a href="https://play.google.com/store/apps/details?id=dev.hemanths.paisa" style="text-decoration:none" area-label="play store">
     <img src="https://img.shields.io/badge/Download-Google%20Play-green">
