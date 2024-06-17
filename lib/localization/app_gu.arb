@@ -39,47 +39,47 @@
         "description": "Accounts text shown in the bottom navigation or drawer widget",
         "type": "text"
     },
-    "defaultAccount": "Default account",
+    "defaultAccount": "મૂળભૂત ખાતું",
     "@defaultAccount": {
         "description": "Text shown on the switch in add account screen",
         "type": "text"
     },
-    "recurring": "Recurring",
+    "recurring": "પુનરાવર્તિત",
     "@recurring": {
         "description": "Recurring text shown in the bottom navigation or drawer widget and recurring page toolbar title",
         "type": "text"
     },
-    "debts": "Debts",
+    "debts": "ઉધારી",
     "@debts": {
         "description": "Debts text shown in the bottom navigation or drawer widget",
         "type": "text"
     },
-    "addTransactionTooltip": "Add transaction",
+    "addTransactionTooltip": "વ્યવહાર ઉમેરો",
     "@addTransactionTooltip": {
         "description": "Tooltip shown on the home fab button",
         "type": "text"
     },
-    "addAccountTooltip": "Add account",
+    "addAccountTooltip": "ખાતું ઉમેરો",
     "@addAccountTooltip": {
         "description": "Tooltip shown on the account fab button",
         "type": "text"
     },
-    "addCategoryTooltip": "Add category",
+    "addCategoryTooltip": "શ્રેણીઓ ઉમેરો",
     "@addCategoryTooltip": {
         "description": "Tooltip shown on the category fab button",
         "type": "text"
     },
-    "addDebtTooltip": "Add debt",
+    "addDebtTooltip": "ઉધારી ઉમેરો",
     "@addDebtTooltip": {
         "description": "Tooltip shown on the category debt button",
         "type": "text"
     },
-    "addRecurringTooltip": "Add recurring",
+    "addRecurringTooltip": "પુનરાવર્તન ઉમેરો",
     "@addRecurringTooltip": {
         "description": "Tooltip shown on the category recurring button",
         "type": "text"
     },
-    "selectDateRangeTooltip": "Date range",
+    "selectDateRangeTooltip": "તારીખની શ્રેણી",
     "@selectDate": {
         "description": "Tooltip shown on the overview fab button",
         "type": "text"
@@ -97,62 +97,62 @@
             }
         }
     },
-    "addCategory": "Add Category",
+    "addCategory": "શ્રેણી ઉમેરો",
     "@addCategory": {
         "description": "Text shown on the toolbar on the category page",
         "type": "text"
     },
-    "addCategoryEmptyTitle": "No categories",
+    "addCategoryEmptyTitle": "કોઇ શ્રેણીઓ નથી",
     "@addCategoryEmptyTitle": {
         "description": "Title text shown on the expense page when there is not categories available",
         "type": "text"
     },
-    "addCategoryEmptySubTitle": "Add categories to select",
+    "addCategoryEmptySubTitle": "પસંદ કરવા માટે શ્રેણીઓ ઉમેરો",
     "@addCategoryEmptySubTitle": {
         "description": "Subtitle text shown on the expense page when there is not categories available",
         "type": "text"
     },
-    "addAccountEmptyTitle": "No accounts",
+    "addAccountEmptyTitle": "કોઇ ખાતા નથી",
     "@addAccountEmptyTitle": {
         "description": "Title text shown on the expense page when there is not accounts available",
         "type": "text"
     },
-    "addAccountEmptySubTitle": "Add account to select",
+    "addAccountEmptySubTitle": "પસંદ કરવા માટે ખાતાઓ ઉમેરો",
     "@addAccountEmptySubTitle": {
         "description": "Subtitle text shown on the expense page when there is not accounts available",
         "type": "text"
     },
-    "addTransaction": "Add transaction",
+    "addTransaction": "વ્યવહાર ઉમેરો",
     "@addTransaction": {
         "description": "Add transaction text shown on the transactions page as toolbar title",
         "type": "text"
     },
-    "updateTransaction": "Update transaction",
+    "updateTransaction": "વ્યવહાર બદલો",
     "@updateTransaction": {
         "description": "Update transaction text shown on the transactions page as toolbar title",
         "type": "text"
     },
-    "addedTransaction": "Transaction added",
+    "addedTransaction": "વ્યવહાર ઉમેર્યો",
     "@addedTransaction": {
         "description": "Successful message when Transaction added",
         "type": "text"
     },
-    "updatedTransaction": "Transaction updated",
+    "updatedTransaction": "વ્યવહાર બદલ્યો",
     "@updatedTransaction": {
         "description": "Successful message when Transaction updated",
         "type": "text"
     },
-    "deletedTransaction": "Transaction deleted",
+    "deletedTransaction": "બદલો કાઢી નાખ્યો",
     "@deletedTransaction": {
         "description": "Successful message when Transaction deleted",
         "type": "text"
     },
-    "expenseName": "Expense name",
+    "expenseName": "વ્યવહારનુ નામ",
     "@expenseName": {
         "description": "Text shown on input hint name",
         "type": "text"
     },
-    "description": "Description",
+    "description": "વિવરણ",
     "@description": {
         "description": "Text shown on the transaction page textfield description ",
         "type": "text"
