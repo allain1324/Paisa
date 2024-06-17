@@ -142,7 +142,7 @@
         "description": "Successful message when Transaction updated",
         "type": "text"
     },
-    "deletedTransaction": "બદલો કાઢી નાખ્યો",
+    "deletedTransaction": "વ્યવહાર કાઢી નાખ્યો",
     "@deletedTransaction": {
         "description": "Successful message when Transaction deleted",
         "type": "text"
@@ -157,12 +157,12 @@
         "description": "Text shown on the transaction page textfield description ",
         "type": "text"
     },
-    "selectAccount": "Select account",
+    "selectAccount": "ખાતું પસંદ કરો",
     "@selectAccount": {
         "description": "Section title text shown on the transaction for accounts",
         "type": "text"
     },
-    "selectCategory": "Select category",
+    "selectCategory": "શ્રેણી પસંદ કરો",
     "@selectCategory": {
         "description": "Section title text shown on the transaction for categories ",
         "type": "text"
@@ -172,196 +172,196 @@
         "description": "Text shown on the drawer button",
         "type": "text"
     },
-    "localApp": "Unlock with fingerprint",
+    "localApp": "આંગળીનિ છાપથી ખોલો",
     "@localApp": {
         "description": "Text shown on the settings page biometric button",
         "type": "text"
     },
-    "expense": "Expense",
+    "expense": "ખર્ચ",
     "@expense": {
         "description": "Text shown on the multiple places",
         "type": "text"
     },
-    "transfer": "Transfer",
+    "transfer": "હેરફેર",
     "@transfer": {
         "description": "Text shown on the multiple places",
         "type": "text"
     },
-    "daily": "Daily",
+    "daily": "રોજિંદુ",
     "@daily": {
         "description": "Text shown on the expenses filter",
         "type": "text"
     },
-    "weekly": "Weekly",
+    "weekly": "અથવાડિક",
     "@weekly": {
         "description": "Text shown on the expenses filter",
         "type": "text"
     },
-    "monthly": "Monthly",
+    "monthly": "માસિક",
     "@monthly": {
         "description": "Text shown on the expenses filter",
         "type": "text"
     },
-    "yearly": "Yearly",
+    "yearly": "વાર્ષિક",
     "@yearly": {
         "description": "Text shown on the expenses filter",
         "type": "text"
     },
-    "all": "All",
+    "all": "બધું",
     "@all": {
         "description": "Text shown on the expenses filter",
         "type": "text"
     },
-    "updateAccount": "Update account",
+    "updateAccount": "ખાતામાં ફેરફાર કરો",
     "@updateAccount": {
         "description": "Update account text shown on the transactions page as toolbar title",
         "type": "text"
     },
-    "addAccount": "Add Account",
+    "addAccount": "ખાતું ઉમેરો",
     "@addAccount": {
         "description": "Add account text shown on the transactions page as toolbar title",
         "type": "text"
     },
-    "transactionHistory": "Transaction history",
+    "transactionHistory": "વ્યવહારનો ઇતિહાસ",
     "@transactionHistory": {
         "description": "Title text shown on accounts page as section header title",
         "type": "text"
     },
-    "cash": "Cash",
+    "cash": "રોકડાં",
     "@cash": {
         "description": "Text shown on the account page chip button",
         "type": "text"
     },
-    "bank": "Bank",
+    "bank": "બેન્ક",
     "@bank": {
         "description": "Text shown on the account page chip button",
         "type": "text"
     },
-    "wallet": "Wallet",
+    "wallet": "પાકીટ",
     "@wallet": {
         "description": "Text shown on the account page chip button",
         "type": "text"
     },
-    "cardHolder": "Cardholder name",
+    "cardHolder": "કાર્ડધારકનું નામ",
     "@cardHolder": {
         "description": "Text shown on the account page as textfield hint",
         "type": "text"
     },
-    "accountName": "Account name",
+    "accountName": "ખાતાનું નામ",
     "@accountName": {
         "description": "Text shown on the account page as textfield hint",
         "type": "text"
     },
-    "lastFourDigit": "Last four digit number",
+    "lastFourDigit": "છેલ્લાં ચાર આંકડાં",
     "@lastFourDigit": {
         "description": "Text shown on the account page as textfield hint",
         "type": "text"
     },
-    "addedAccount": "Account added",
+    "addedAccount": "ખાતું ઉમેર્યુ",
     "@addedAccount": {
         "description": "Successful message when account added",
         "type": "text"
     },
-    "updatedAccount": "Account updated",
+    "updatedAccount": "ખાતું અદ્યતન કર્યું",
     "@updatedAccount": {
         "description": "Successful message when account updated",
         "type": "text"
     },
-    "deletedAccount": "Account deleted",
+    "deletedAccount": "ખાતું કાઢી નાખ્યું",
     "@deletedAccount": {
         "description": "Successful message when account deleted",
         "type": "text"
     },
-    "deletedCategory": "Category deleted",
+    "deletedCategory": "શ્રેણી કાઢી નાખી",
     "@deletedCategory": {
         "description": "Successful message when category deleted",
         "type": "text"
     },
-    "successAddCategory": "Category added",
+    "successAddCategory": "શ્રેણી ઉમેરી",
     "@successAddCategory": {
         "description": "Successful message when category deleted",
         "type": "text"
     },
-    "validName": "Enter valid name",
+    "validName": "માન્ય નામ દાખલ કરો",
     "@validName": {
         "description": "Error message shown when entered name is not valid",
         "type": "text"
     },
-    "profile": "Profile",
+    "profile": "તમારા વિશે",
     "@profile": {
         "description": "Text shown on the bottom sheet dialog",
         "type": "text"
     },
-    "chooseTheme": "Choose theme",
+    "chooseTheme": "થીમ",
     "@chooseTheme": {
         "description": "Title text shown on the settings page theme for theme chooser",
         "type": "text"
     },
-    "selectCurrency": "Select currency",
+    "selectCurrency": "ચલણ પસંદ કરો",
     "@selectCurrency": {
         "description": "Toolbar title text shown on choosing the currency",
         "type": "text"
     },
-    "errorAuth": "Authentication error",
+    "errorAuth": "પ્રમાણિકરણમા ભુલ",
     "@errorAuth": {
         "description": "Error message shown when biometric authentication fails",
         "type": "text"
     },
-    "emptyAccountMessageTitle": "No accounts are available",
+    "emptyAccountMessageTitle": "કોઇ ખાતા ઉપલબ્ધ નથી",
     "@emptyAccountMessageTitle": {
         "description": "Message title text shown on the accounts page",
         "type": "text"
     },
-    "emptyAccountMessageSubTitle": "Add an account to display it here",
+    "emptyAccountMessageSubTitle": "અહી બતાવવા માટે કોઇ ખાતુ ઉમેરો",
     "@emptyAccountMessageSubTitle": {
         "description": "Message sub title text shown on the accounts page",
         "type": "text"
     },
-    "emptyCategoriesMessageTitle": "No categories are available",
+    "emptyCategoriesMessageTitle": "કોઇ શ્રેણી ઉપલબ્ધ નથી",
     "@emptyCategoriesMessageTitle": {
         "description": "Message title text shown on the categories page when no categories available",
         "type": "text"
     },
-    "emptyCategoriesMessageSubTitle": "Add a category to display it here",
+    "emptyCategoriesMessageSubTitle": "અહી બતાવવા માટે કોઇ શ્રેણી ઉમેરો",
     "@emptyCategoriesMessageSubTitle": {
         "description": "Message subtitle text shown on the categories page when no categories available",
         "type": "text"
     },
-    "emptyOverviewMessageTitle": "No overview data",
+    "emptyOverviewMessageTitle": "સારાંશ બતાવવા માટે કોઇ માહિતી નથી",
     "@emptyOverviewMessageTitle": {
         "description": "No overview data message",
         "type": "text"
     },
-    "emptyOverviewMessageSubtitle": "To see your spending overview, add your expenses",
+    "emptyOverviewMessageSubtitle": "ખર્ચનો સારાંશ જોવા માટે, ખર્ચ ઉમેરો",
     "@emptyOverviewMessageSubtitle": {
         "description": "No budget overview description ",
         "type": "text"
     },
-    "amount": "Amount",
+    "amount": "રકમ",
     "@amount": {
         "description": "Text shown on the input hint name",
         "type": "text"
     },
-    "initialAmount": "Initial amount",
+    "initialAmount": "શરુઆતી રકમ",
     "@initialAmount": {
         "description": "Text shown on the input hint name"
     },
-    "validAmount": "Enter valid amount",
+    "validAmount": "માન્ય રકમ દાખલ કરો",
     "@validAmount": {
         "description": "Text shown on the input hint name",
         "type": "text"
     },
-    "dueDate": "End date",
+    "dueDate": "તારીખ ઉમેરો",
     "@dueDate": {
         "description": "Text shown on the debt/ credit page when selecting end date",
         "type": "text"
     },
-    "startDate": "Start date",
+    "startDate": "શરુઆતી તારીખ",
     "@startDate": {
         "description": "Text shown on the debt/ credit page when selecting start date",
         "type": "text"
     },
-    "socialLinks": "Social links",
+    "socialLinks": "સામાજીકા સાઇટસની લિન્કસ",
     "@socialLinks": {
         "description": "Section title shown on the settings page",
         "type": "text"
@@ -371,12 +371,12 @@
         "description": "Title text shown on settings page for telegram button",
         "type": "text"
     },
-    "telegramGroup": "A group to follow and post bugs and feature requests",
+    "telegramGroup": "ત્રુટિઓ તેમજ નવી વિશેષતાઓ ઉમેરાવા માટે",
     "@telegramGroup": {
         "description": "Subtitle text shown on settings page for telegram button",
         "type": "text"
     },
-    "privacyPolicy": "Privacy & Policy",
+    "privacyPolicy": "ગોપનીયતા & નિતી",
     "@privacyPolicy": {
         "description": "Title text shown on settings page for privacy and policy button",
         "type": "text"
@@ -386,17 +386,17 @@
         "description": "Title text shown on settings page for github button ",
         "type": "text"
     },
-    "githubText": "Fork the project on GitHub",
+    "githubText": "ગિટહબ પર પ્રોજેક્ટ ફોર્ક કરો",
     "@githubText": {
         "description": "Subtitle text shown on the github button",
         "type": "text"
     },
-    "version": "Version",
+    "version": "આવૃત્તિ",
     "@version": {
         "description": "Title text shown on the settings page for button",
         "type": "text"
     },
-    "versionNumber": "v{version}",
+    "versionNumber": "વ{version}",
     "@versionNumber": {
         "description": "Subtitle text shown on the settings page for button",
         "placeholders": {
@@ -405,437 +405,437 @@
             }
         }
     },
-    "deleteAccount": "Deleting the account deletes all expenses which are tied to this account ",
+    "deleteAccount": "ખાતું કાઢી નાખતા તેને સબંધિત તમામ વ્યવહારો પણ દૂર થશે",
     "@deleteAccount": {
         "description": "Delete account message",
         "type": "text"
     },
-    "deleteCategory": "Deleting the category deletes all expenses which are tied to this category",
+    "deleteCategory": "શ્રેણી કાઢી નાખતા તેને સબંધિત તમામ વ્યવહારો પણ દૂર થશે",
     "@deleteCategory": {
         "description": "Delete category message",
         "type": "text"
     },
-    "deleteExpense": "Expense will be permanently removed from account",
+    "deleteExpense": "ખર્ચ ખાતામાંથી હંમેશા માટે દૂર થશે",
     "@deleteExpense": {
         "description": "Delete expense message",
         "type": "text"
     },
-    "dialogDeleteTitle": "Permanently delete?",
+    "dialogDeleteTitle": "કાયમી ધોરણે દૂર કરીએ?",
     "@dialogDeleteTitle": {
         "description": "Permanently delete ",
         "type": "text"
     },
-    "updatedCategory": "Category updated",
+    "updatedCategory": "શ્રેણી સફળતાપૂર્વક રીતે અદ્યતન કરાઈ",
     "@updatedCategory": {
         "description": "Successful message when category updated",
         "type": "text"
     },
-    "update": "Update",
+    "update": "અદ્યતન",
     "@update": {
         "description": "Text shown on multiple places on button",
         "type": "text"
     },
-    "add": "Add",
+    "add": "ઉમેરો",
     "@add": {
         "description": "Text shown on multiple places on button",
         "type": "text"
     },
-    "done": "Done",
+    "done": "થયું",
     "@done": {
         "description": "Text shown on multiple places on button",
         "type": "text"
     },
-    "cancel": "Cancel",
+    "cancel": "રદ",
     "@cancel": {
         "description": "Text shown on multiple places on button",
         "type": "text"
     },
-    "custom": "Custom",
+    "custom": "અન્ય",
     "@custom": {
         "description": "Text shown on the one of the theme option",
         "type": "text"
     },
-    "accentColor": "Primary color",
+    "accentColor": "મૂળભૂત રંગ",
     "@accentColor": {
         "description": "Title text shown on the settings page theme button",
         "type": "text"
     },
-    "dynamicColor": "Dynamic",
+    "dynamicColor": "ગતિશીલ",
     "@dynamicColor": {
         "description": "Text shown on the theme option switch button ",
         "type": "text"
     },
-    "pickColor": "Pick color",
+    "pickColor": "કલર પસંદ કરો",
     "@pickColor": {
         "description": "Title text shown on the color picker",
         "type": "text"
     },
-    "pickColorDesc": "Set color to your category",
+    "pickColorDesc": "તમારી શ્રેણીનો રંગ પસંદ કરો",
     "@pickColorDesc": {
         "description": "Subtitle text shown on the category color picker button",
         "type": "text"
     },
-    "pickColorAccountDesc": "Set color to your account",
+    "pickColorAccountDesc": "તમારા ખાતાનો રંગ પસંદ કરો",
     "@pickColorAccountDesc": {
         "description": "Subtitle text shown on the account color picker button",
         "type": "text"
     },
-    "colors": "Colors",
+    "colors": "રંગો",
     "@colors": {
         "description": "Section title on settings page for theme",
         "type": "text"
     },
-    "others": "Others",
+    "others": "અન્ય",
     "@others": {
         "description": "Section title on settings page for theme",
         "type": "text"
     },
-    "madeWithLoveInIndia": "Made with ♥ in India",
+    "madeWithLoveInIndia": "♥પ્રેમથી ભારતમાં બનાવેલ",
     "@madeWithLoveInIndia": {
         "description": "Message shown on the bottom of the setting screen",
         "type": "text"
     },
-    "updateCategory": "Update Category",
+    "updateCategory": "શ્રેણી અદ્યતન કરો",
     "@updateCategory": {
         "description": "Text shown on the adding category screen toolbar",
         "type": "text"
     },
-    "accountInformationTitle": "Information",
+    "accountInformationTitle": "માહિતી",
     "@accountInformationTitle": {
         "description": "Title text shown on the information dialog",
         "type": "text"
     },
-    "accountInformationSubTitle": "The account details you entered are not shared with anyone, including us. It is only used for visual representation of account details, you may enter false info too",
+    "accountInformationSubTitle": "The account details you entered are not shared with anyoneતમે દાખલ કરેલ ખાતાની માહિતી કોઇને પણ મોકલાતી નથી, અમને પણ નહિં. It is only used for visual representation of account details તે ફ્ક્ત ખાતાની માહિતી તમને બતાવવા માટે વપરાય છે, તમે ખોટી માહિતી પણ નાખી શકો છો",
     "@accountInformationSubTitle": {
         "description": "Subtitle text shown on the information dialog",
         "type": "text"
     },
-    "next": "Next",
+    "next": "પછીનું",
     "@next": {
         "description": "Text shown on the intro page button",
         "type": "text"
     },
-    "image": "Image",
+    "image": "છબી",
     "@image": {
         "description": "Text shown on the intro page",
         "type": "text"
     },
-    "welcome": "Hi, Welcome to",
+    "welcome": "કેમ છો, સ્વાગત છે",
     "@welcome": {
         "description": "Intro page message for name input",
         "type": "text"
     },
-    "welcomeDesc": "What should we call you?",
+    "welcomeDesc": "અમે તમને કેવી રીતે બોલાવીએ?",
     "@welcomeDesc": {
         "description": "Welcome desc ",
         "type": "text"
     },
-    "nameHint": "Name",
+    "nameHint": "નામ",
     "@nameHint": {
         "description": "Text input hint name",
         "type": "text"
     },
-    "enterNameHint": "Enter name",
+    "enterNameHint": "નામ દાખલ કરો",
     "@enterNameHint": {
         "description": "Text input hint name",
         "type": "text"
     },
-    "imageDesc": "Let's set an image of you",
+    "imageDesc": "તમારી છબી પસંદ કરો",
     "@imageDesc": {
         "description": "Image desc ",
         "type": "text"
     },
-    "setBudget": "Set budget for category",
+    "setBudget": "આ શ્રેણી માટે અંદાજપત્ર",
     "@setBudget": {
         "description": "Text shown on the category screen for setting budget",
         "type": "text"
     },
-    "income": "Income",
+    "income": "આવક",
     "@income": {
         "description": "Text shown on multiple places",
         "type": "text"
     },
-    "thisMonth": "This month",
+    "thisMonth": "આ મહિને",
     "@thisMonth": {
         "description": "Text shown on the home screen top section",
         "type": "text"
     },
-    "totalBalance": "Total balance",
+    "totalBalance": "કુલ રકમ",
     "@totalBalance": {
         "description": "Text shown on the home screen top section",
         "type": "text"
     },
-    "ok": "Ok",
+    "ok": "બરાબર",
     "@ok": {
         "description": "Text shown on the button",
         "type": "text"
     },
-    "searchMessage": "Start searching something!",
+    "searchMessage": "કંઇક શોધવાનું શરુ કરો!",
     "@searchMessage": {
         "description": "Message shown on the search screen",
         "type": "text"
     },
-    "emptySearchMessage": "Looks like nothing was found!",
+    "emptySearchMessage": "લાગે છે, કે કંઇ ન મળ્યું!",
     "@emptySearchMessage": {
         "description": "Message shown on the search screen",
         "type": "text"
     },
-    "emptyExpensesMessageTitle": "No expenses yet?",
+    "emptyExpensesMessageTitle": "કોઇ ખર્ચ નથી?",
     "@emptyExpensesMessageTitle": {
         "description": "Title message shown on the page when there are no expenses",
         "type": "text"
     },
-    "emptyExpensesMessageSubTitle": "If there are no expenses, start by adding an expense to see it displayed here",
+    "emptyExpensesMessageSubTitle": "જો કોઇ ખર્ચ ન દેખાતો હોય તો ખર્ચ ઉમેરવાનું શરુ કરો જેથી તે અહીં દેખાય",
     "@emptyExpensesMessageSunTitle": {
         "description": "Subtitle message shown on the page when there are no expenses",
         "type": "text"
     },
-    "selectIconTitle": "Select icon",
+    "selectIconTitle": "ચિન્હ્ પસંદ કરો",
     "@selectIconTitle": {
         "description": "Title text shown on the button in category page",
         "type": "text"
     },
-    "selectIconSubTitle": "Tap to select icon",
+    "selectIconSubTitle": "ચિન્હ્ પસંદ કરવા માટે દબાવો",
     "@selectIconSubTitle": {
         "description": "Subtitle text shown on the button in category page",
         "type": "text"
     },
-    "incomeName": "Income name",
+    "incomeName": "આવકનું નામ",
     "@incomeName": {
         "description": "Text shown on the input hint",
         "type": "text"
     },
-    "currencySign": "Currency sign",
+    "currencySign": "ચલણનું ચિન્હ્",
     "@currencySign": {
         "description": "Text shown on the button on settings screen",
         "type": "text"
     },
-    "calendarFormat": "Calendar format",
+    "calendarFormat": "તારીનું સ્વરૂપ",
     "@calendarFormat": {
         "description": "Text shown on the button on settings screen",
         "type": "text"
     },
-    "expenseByCategory": "Expense by category",
+    "expenseByCategory": "શ્રેણીદીઠ ખર્ચ",
     "@expenseByCategory": {
         "description": "Text shown on the toolbar title",
         "type": "text"
     },
-    "transactionsByCategory": "Transactions by category",
+    "transactionsByCategory": "શ્રેણીદીઠ વ્યવહારો",
     "@transactionsByCategory": {
         "description": "Text shown on the toolbar title",
         "type": "text"
     },
-    "backupAndRestoreTitle": "Backup and restore",
+    "backupAndRestoreTitle": "નકલ તેમજ પુન:સ્થાપન",
     "@backupAndRestoreTitle": {
         "description": "Text shown on the toolbar title",
         "type": "text"
     },
-    "backupAndRestoreSubTitle": "Backup and restore your expenses, accounts & categories",
+    "backupAndRestoreSubTitle": "તમારા ખર્ચાઓ, ખાતાઓ તેમજ શ્રેણીઓની નકલ તેમજ પુન:સ્થાપન કરવા માટે",
     "@backupAndRestoreSubTitle": {
         "description": "Subtitle text shown on the setting button",
         "type": "text"
     },
-    "exportData": "Export",
+    "exportData": "એક નકલ તૈયાર કરો",
     "@exportData": {
         "description": "Text shown on the import and export button",
         "type": "text"
     },
-    "importData": "Import",
+    "importData": "પુન:સ્થાપન",
     "@importData": {
         "description": "IText shown on the import and export button",
         "type": "text"
     },
-    "creatingBackup": "Creating backup",
+    "creatingBackup": "એક નકલ તૈયાર થઇ રહી છે",
     "@creatingBackup": {
         "description": "Message shown when the backup is initiated",
         "type": "text"
     },
-    "creatingBackupSuccess": "Backup successful",
+    "creatingBackupSuccess": "નકલ સફળ થઇ",
     "@creatingBackupSuccess": {
         "description": "Message shown when the importing backup file",
         "type": "text"
     },
-    "restoringBackup": "Restoring backup",
+    "restoringBackup": "નકલ પુન:સ્થાપિત થઈ રહી છે",
     "@restoringBackup": {
         "description": "Message shown when the importing backup file",
         "type": "text"
     },
-    "restoringBackupSuccess": "Restoring successful",
+    "restoringBackupSuccess": "નકલ સફળતાપૂર્વક પુન:સ્થાપિત થઈ",
     "@restoringBackupSuccess": {
         "description": "Message shown when the importing backup file",
         "type": "text"
     },
-    "saveAsCSV": "Save as CSV",
+    "saveAsCSV": "CSV તરીકે સાચવો",
     "@saveAsCSV": {
         "description": "Save as CSV "
     },
-    "saveAsCSVDesc": "Export data into CSV file format",
+    "saveAsCSVDesc": "માહીતીની નકલ CSV સ્વરુપમા કરો",
     "@saveAsCSVDesc": {
         "description": "Save as CSV "
     },
-    "appRate": "Rate the app",
+    "appRate": "એપ કેવી લાગી?",
     "@appRate": {
         "description": "Rate "
     },
-    "appRateDesc": "Love this app? Let us know how we can make it better on the Google Play Store",
+    "appRateDesc": "એપ ગમી? આ એપને કેવી રીતે સારી બનાવી શકાય તે અમને પ્લે-સ્ટોર પર જણાવવાં વિનંતિ",
     "@appRateDesc": {
         "description": "Rate "
     },
-    "raiseABugOrRequest": "Raise a bug or request",
+    "raiseABugOrRequest": "કોઇ ત્રુટિની જાણ કરો",
     "@raiseABugOrRequest": {
         "description": "Raise a bug or request "
     },
-    "raiseABugOrRequestDesc": "Found a bug or need a feature to be implemented? Ask away!",
+    "raiseABugOrRequestDesc": "કોઇ ત્રુટિ મળી અથવા કોઇ નવી વિશેષતા ઉમેરવા માંગો છો? હમણાં જ જણાવો!",
     "@raiseABugOrRequestDesc": {
         "description": "Found a bug or need a feature to implement ask away "
     },
-    "transferName": "Transfer name",
+    "transferName": "હેરાફેરીનું નામ",
     "@transferName": {
         "description": "Transfer name "
     },
-    "debt": "Debt",
+    "debt": "ઉધાર",
     "@debt": {
         "description": "Debts "
     },
-    "credit": "Credit",
+    "credit": "ધિરાણ",
     "@credit": {
         "description": "Credit "
     },
-    "enterCategory": "Enter category",
+    "enterCategory": "શ્રેણી દાખલ કરો",
     "@enterCategory": {
         "description": "Enter category "
     },
-    "addDebt": "Add debt",
+    "addDebt": "ઉધાર ઉમેરો",
     "@addDebt": {
         "description": "Add debt "
     },
-    "addCredit": "Add credit",
+    "addCredit": "ધિરાણ ઉમેરો",
     "@addCredit": {
         "description": "Add credit "
     },
-    "enterBudget": "Enter budget",
+    "enterBudget": "ખર્ચનો અંદાજ ઉમેરો",
     "@enterBudget": {
         "description": "Enter budget "
     },
-    "enterDescription": "Enter description",
+    "enterDescription": "વિવરણ ઉમેરો",
     "@enterDescription": {
         "description": "Enter description "
     },
-    "validDescription": "Enter valid description",
+    "validDescription": "માન્ય વિવરણ ઉમેરો",
     "@validDescription": {
         "description": "Enter valid description "
     },
-    "payDebt": "Pay debt",
+    "payDebt": "ઉધાર ચુકવો",
     "@payDebt": {
         "description": "Pay debt "
     },
-    "payCredit": "Pay credit",
+    "payCredit": "ધિરાણ આપો",
     "@payCredit": {
         "description": "Pay credit "
     },
-    "enterAmount": "Enter amount",
+    "enterAmount": "રકમ ઉમેરો",
     "@enterAmount": {
         "description": "Enter amount "
     },
-    "emptyDebts": "There are no debts at this time",
+    "emptyDebts": "હાલમાં કોઇ ઉધાર નથી",
     "@emptyDebts": {
         "description": "There are no debts at this time "
     },
-    "emptyDebtsDesc": "Add your debts to see them displayed here",
+    "emptyDebtsDesc": "અહી બતાવવા માટે ઉધાર ઉમેરો",
     "@emptyDebtsDesc": {
         "description": "Add your debts here to see them displayed "
     },
-    "emptyCredit": "There are no credits at this time",
+    "emptyCredit": "હાલમાં કોઇ ધિરાણ નથી",
     "@emptyCredit": {
         "description": "There are no credits at this time "
     },
-    "emptyCreditDesc": "Add your credits to see them displayed here",
+    "emptyCreditDesc": "અહી બતાવવા માટે ધિરાણ ઉમેરો",
     "@emptyCreditDesc": {
         "description": "Add your credits here to see them displayed "
     },
-    "enterInitialAmount": "Enter initial amount",
+    "enterInitialAmount": "શરુઆતી રકમ ઉમેરો",
     "@enterInitialAmount": {
         "description": "Enter initial amount "
     },
-    "enterNumberOptional": "Enter last 4 digit (optional)",
+    "enterNumberOptional": "છેલ્લાં ચાર અંક (વૈકલ્પિક)",
     "@enterNumberOptional": {
         "description": "Optional number"
     },
-    "enterAccountName": "Enter account name",
+    "enterAccountName": "ખાતાનું નામ",
     "@enterAccountName": {
         "description": "Enter account name "
     },
-    "enterCardHolderName": "Enter cardholder name",
+    "enterCardHolderName": "કાર્ડધારકનુ નામ",
     "@enterCardHolderName": {
         "description": "Enter account name "
     },
-    "search": "Search",
+    "search": "શોધો",
     "@search": {
         "description": "Search "
     },
-    "addNew": "Add new",
+    "addNew": "નવ્ું ઉમેરો",
     "@addNew": {
         "description": "Add new "
     },
-    "delete": "Delete",
+    "delete": "કાઢી નાખો",
     "@delete": {
         "description": "Delete "
     },
-    "appBarSearch": "Search expenses, accounts, categories",
+    "appBarSearch": "ખર્ચા, ખાતાઓ તેમજ શ્રેણીઓ શોધો",
     "@appBarSearch": {
         "description": "Delete "
     },
-    "noTransaction": "Empty in transaction",
+    "noTransaction": "વ્યવહાર ખાલી છે",
     "@noTransaction": {
         "description": "Empty in transaction"
     },
-    "enterSymbol": "Enter symbol",
+    "enterSymbol": "ચિન્હ્ ઉમેરો",
     "@enterSymbol": {
         "description": "Enter symbol"
     },
-    "leftSymbol": "Symbol on left",
+    "leftSymbol": "ડાબી બાજુ ચિન્હ્",
     "@leftSymbol": {
         "description": "Symbol on left "
     },
-    "rightSymbol": "Symbol on right",
+    "rightSymbol": "જમણી બાજુ ચિન્હ્",
     "@rightSymbol": {
         "description": "Symbol on right "
     },
-    "customSymbol": "Custom symbol",
+    "customSymbol": "અન્ય ચિન્હ",
     "@customSymbol": {
         "description": "Custom symbol "
     },
-    "intoTitle": "Simple way to help control your savings",
+    "intoTitle": "તમારી બચતમાં મદદ કરવાની સરળ રીત",
     "@intoTitle": {
         "description": "Title text shown on the intro page",
         "type": "text"
     },
-    "intoSummary1": "Manage your money with our app",
+    "intoSummary1": "તમારા નાણાંનું આયોજન કરવા માટે અમારી એપનો ઉપયોગ કરો",
     "@intoSummary1": {
         "description": "Hint message 1 shown on the intro page",
         "type": "text"
     },
-    "intoSummary2": "Easy expense tracking for a better budget",
+    "intoSummary2": "સારા અંદાજપત્ર માટે સરળ હિસાબ",
     "@intoSummary2": {
         "description": "Hint message 2 shown on the intro page",
         "type": "text"
     },
-    "intoSummary3": "Stay on top of your expenses, anytime, anywhere",
+    "intoSummary3": "ગમે ત્યારે, ગમે ત્યાં હિસાબ રાખો",
     "@intoSummary3": {
         "description": "Hint message 3 shown on the intro page",
         "type": "text"
     },
-    "introCTA": "Get started",
+    "introCTA": "શરુ કરો",
     "@introCTA": {
         "description": "Text shown on the intro screen button",
         "type": "text"
     },
-    "deleteDebtOrCredit": "Deleting the debt or credit deletes all records related to it",
+    "deleteDebtOrCredit": "કોઇ ઉધાર કે ધિરાણ કાઢવાથી તેને સંબંધિત તમામ ખર્ચ પણ નીકળી જશે",
     "@deleteDebtOrCredit": {
         "description": "Delete debt or credit ",
         "type": "text"
     },
-    "backupAndRestoreJSONTitle": "Export data as JSON file",
+    "backupAndRestoreJSONTitle": "JSON સ્વરુપમાં માહિતીનો નિકાસ કરો",
     "@backupAndRestoreJSONTitle": {
         "description": "Section title text shown on the export and import page",
         "type": "text"
