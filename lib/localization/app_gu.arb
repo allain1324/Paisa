@@ -1,40 +1,40 @@
 {
-    "appTitle": "Paisa",
+    "appTitle": "પૈસા",
     "@appTitle": {
         "description": "The app name",
         "type": "text"
     },
-    "home": "Home",
+    "home": "ઘર",
     "@home": {
         "description": "Home text shown in the bottom navigation or drawer widget",
         "type": "text"
     },
-    "transactions": "Transactions",
+    "transactions": "વ્યવહારો",
     "@transactions": {
         "description": "Section title shown on the home page",
         "type": "text"
     },
-    "welcomeMessage": "Welcome back!",
+    "welcomeMessage": "સ્વાગત છે!",
     "@welcomeMessage": {
         "description": "Text shown on the home screen under the user name",
         "type": "text"
     },
-    "categories": "Categories",
+    "categories": "શ્રેણીઓ",
     "@categories": {
         "description": "Categories text shown in the bottom navigation or drawer widget",
         "type": "text"
     },
-    "accounts": "Accounts",
+    "accounts": "ખાતાઓ",
     "@accounts": {
         "description": "Accounts text shown in the bottom navigation or drawer widget",
         "type": "text"
     },
-    "budget": "Budget",
+    "budget": "હિસાબ",
     "@budget": {
         "description": "Accounts text shown in the bottom navigation or drawer widget",
         "type": "text"
     },
-    "overview": "Overview",
+    "overview": "સારાંશ",
     "@overview": {
         "description": "Accounts text shown in the bottom navigation or drawer widget",
         "type": "text"
