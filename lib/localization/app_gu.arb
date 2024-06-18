@@ -840,7 +840,7 @@
         "description": "Section title text shown on the export and import page",
         "type": "text"
     },
-    "backupAndRestoreJSONDesc": "The file will be a plain JSON file created and exported to save. Please note that if in case anything changes happen in the future in Paisa then this file will be invalid to import",
+    "backupAndRestoreJSONDesc": "ફાઈલ સાદી JSONના સ્વરૂપમા બનશે તેમજ નિકાસ પામશેThe file will be a plain JSON file created and exported to save. Please note that if in case anything changes happen in the future in Paisa then this file will be invalid to import",
     "@backupAndRestoreJSONDesc": {
         "description": "Message shown on the import and export screen",
         "type": "text"
