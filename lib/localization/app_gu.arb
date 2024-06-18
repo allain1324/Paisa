@@ -840,252 +840,252 @@
         "description": "Section title text shown on the export and import page",
         "type": "text"
     },
-    "backupAndRestoreJSONDesc": "ફાઈલ સાદી JSONના સ્વરૂપમા બનશે તેમજ નિકાસ પામશેThe file will be a plain JSON file created and exported to save. Please note that if in case anything changes happen in the future in Paisa then this file will be invalid to import",
+    "backupAndRestoreJSONDesc": "ફાઇલ એક સાદી JSON ફાઇલ હશે જે સાચવવા માટે બનાવવામાં અને નિકાસ કરવામાં આવશે. મહેરબાની કરીને નોંધ કરો કે જો Paisa માં ભવિષ્યમાં કંઈપણ ફેરફાર થાય તો આ ફાઇલ આયાત કરવા માટે અમાન્ય રહેશે",
     "@backupAndRestoreJSONDesc": {
         "description": "Message shown on the import and export screen",
         "type": "text"
     },
-    "emptyBudgetMessageTitle": "No budgets have been set for any categories",
+    "emptyBudgetMessageTitle": "કોઈપણ શ્રેણી માટે કોઈ બજેટ નક્કી કરવામાં આવ્યું નથી",
     "@emptyBudgetMessageTitle": {
         "description": "Title text shown on the budget screen when no budgets are available",
         "type": "text"
     },
-    "emptyBudgetMessageSubTitle": "Set a budget for any category, and that category will show up here",
+    "emptyBudgetMessageSubTitle": "કોઈપણ શ્રેણી માટે બજેટ સેટ કરો અને તે શ્રેણી અહીં દેખાશે",
     "@emptyBudgetMessageSubTitle": {
         "description": "Subtitle text shown on the budget screen when no budgets are available",
         "type": "text"
     },
-    "recurringEmptyMessageTitle": "No recurring events?",
+    "recurringEmptyMessageTitle": "કોઈ પુનરાવર્તિત વ્યવહારો નથી?",
     "@recurringEmptyMessageTitle": {
         "description": "Title text shown on the recurring page when no events available",
         "type": "text"
     },
-    "recurringEmptyMessageSubTitle": "Add recurring events to view them here",
+    "recurringEmptyMessageSubTitle": "પુનરાવર્તિત વ્યવહારો અહીં જોવા માટે ઉમેરો",
     "@recurringEmptyMessageSubTitle": {
         "description": "Subtitle text shown on the recurring page when no events available",
         "type": "text"
     },
-    "recurringAction": "Add recurring events",
+    "recurringAction": "પુનરાવર્તિત વ્યવહારો ઉમેરો",
     "@recurringAction": {
         "description": "Text shown on the recurring action button",
         "type": "text"
     },
-    "sortList": "Sort list",
+    "sortList": "આ ક્ર્મિત કરો",
     "@sortList": {
         "description": "Title text shown on the sort dialog",
         "type": "text"
     },
-    "smallSizeFab": "Small size FAB",
+    "smallSizeFab": "નાના કદનું FAB",
     "@smallSizeFab": {
         "description": "Title text shown on the settings page for FAB size option",
         "type": "text"
     },
-    "smallSizeFabMessage": "Show small size action button on all screens",
+    "smallSizeFabMessage": "બધી સ્ક્રીન પર નાના કદના એક્શન ચિન્હ બતાવો",
     "@smallSizeFabMessage": {
         "description": "Title text shown on the settings page for FAB size option",
         "type": "text"
     },
-    "selectDateErrorMessage": "Select date",
+    "selectDateErrorMessage": "તારીખ પસંદ કરો",
     "@selectDateErrorMessage": {
         "description": "Message shown when the date is not select on debt payout ",
         "type": "text"
     },
-    "edit": "Edit",
+    "edit": "ફેરફાર કરો",
     "@edit": {
         "description": "Text shown on the buttons",
         "type": "text"
     },
-    "fromAccount": "Transfer account from",
+    "fromAccount": "અહિંથી ખાતાની ફેરબદલ કરો",
     "@fromAccount": {
         "description": "Text shown on the title section of account in transfer section in transaction page",
         "type": "text"
     },
-    "toAccount": "Transfer account to",
+    "toAccount": "થી ખાતું બદલો",
     "@toAccount": {
         "description": "Text shown on the title section of account in transfer section in transaction page",
         "type": "text"
     },
-    "paisaLocked": "Paisa Locked",
+    "paisaLocked": "Paisa ને લોક કરો",
     "@paisaLocked": {
         "description": "Text shown on the title section of biometric screen",
         "type": "text"
     },
-    "authenticate": "Authenticate",
+    "authenticate": "પ્રમાણિત કરો",
     "@authenticate": {
         "description": "Text shown on the button biometric screen",
         "type": "text"
     },
-    "biometricMessage": "Touch the fingerprint sensor",
+    "biometricMessage": "ફિંગરપ્રિન્ટ સેન્સરને અડો",
     "@biometricMessage": {
         "description": "Text shown on the biometric screen below icon",
         "type": "text"
     },
-    "addedCategories": "Added categories",
+    "addedCategories": "શ્રેણીઓ ઉમેરી",
     "@addedCategories": {
         "description": "Text shown on the add category section title",
         "type": "text"
     },
-    "back": "Back",
+    "back": "પાછા જાઓ",
     "@back": {
-        "description": "Text shown on the button on intro page",
+        "description": "",
         "type": "text"
     },
-    "recommendedCategories": "Recommended categories",
+    "recommendedCategories": "ભલામણ કરેલ શ્રેણીઓ",
     "@recommendedCategories": {
         "description": "Text shown on the add category section title",
         "type": "text"
     },
-    "addedAccounts": "Selected accounts",
+    "addedAccounts": "પસંદ કરેલ ખાતાઓ",
     "@addedAccounts": {
         "description": "Text shown on the add account section title",
         "type": "text"
     },
-    "recommendedAccounts": "Recommended accounts",
+    "recommendedAccounts": "ભલામણ કરેલ શ્રેણીઓ ખાતાઓ",
     "@recommendedAccounts": {
         "description": "Text shown on the add account section title",
         "type": "text"
     },
-    "total": "Total",
+    "total": "કુલ",
     "@total": {
         "description": "Text shown on the home screen sub title on total card",
         "type": "text"
     },
-    "colorsUI": "Colors & UI",
+    "colorsUI": "રંગ & UI",
     "@colorsUI": {
         "description": "Text shown on the section title on settings screen",
         "type": "text"
     },
-    "more": "More",
+    "more": "વધુ",
     "@more": {
         "description": "Text shown on the button on icon chooser screen",
         "type": "text"
     },
-    "chooseIcon": "Choose icon",
+    "chooseIcon": "ચિન્હ્",
     "@chooseIcon": {
         "description": "Title text shown on the icon chooser screen",
         "type": "text"
     },
-    "transferCategory": "Transfer category",
+    "transferCategory": "શ્રેણી બદલો",
     "@transferCategory": {
         "description": "Text shown add category page for add default category ",
         "type": "text"
     },
-    "accountStyle": "Account style",
+    "accountStyle": "ખાતાનો દેખાવ",
     "@accountStyle": {
         "description": "Text shown on settings page",
         "type": "text"
     },
-    "accountStyleDescription": "Select your preferred account display style : vertical or horizontal",
+    "accountStyleDescription": "તમારી પસંદગીની એકાઉન્ટ ડિસ્પ્લે શૈલી પસંદ કરો: ઊભી અથવા આડી",
     "@accountStyleDescription": {
         "description": "Text shown on settings page",
         "type": "text"
     },
-    "supportMe": "Support me",
+    "supportMe": "મની સહયોગ કરો",
     "@supportMe": {
         "description": "Text shown on settings page",
         "type": "text"
     },
-    "supportMeDescription": "If you think I deserve a little treat for my hard work, you can buy me a virtual beer",
+    "supportMeDescription": "જો તમને લાગે કે હું મારી મહેનત માટે થોડી ભેટને લાયક છું, તો તમે મને વર્ચ્યુઅલ ચા ખરીદી શકો છો",
     "@supportMeDescription": {
         "description": "Text shown on settings page",
         "type": "text"
     },
-    "lockAppDescription": "When enabled, you'll need to use fingerprint to open Paisa.",
+    "lockAppDescription": "જ્યારે સક્ષમ હોય, ત્યારે તમારે Paisa ખોલવા માટે ફિંગરપ્રિન્ટનો ઉપયોગ કરવાની જરૂર પડશે.",
     "@lockAppDescription": {
         "description": "Text shown on settings page",
         "type": "text"
     },
-    "fontStyle": "Font style",
+    "fontStyle": "લખાણની શૈલી",
     "@fontStyle": {
         "description": "Text shown on settings page",
         "type": "text"
     },
-    "fontStyleDescription": "Change the font style to personalize your app's appearance. Select from various font options to suit your preferences and enhance readability.",
+    "fontStyleDescription": "તમારી એપ્લિકેશનના દેખાવને વ્યક્તિગત કરવા માટે લખાણની શૈલી બદલો. તમારી પસંદગીઓને અનુરૂપ અને વાંચનક્ષમતા વધારવા માટે વિવિધ લખાણ શૈલીનાં વિકલ્પોમાંથી પસંદ કરો.",
     "@fontStyleDescription": {
         "description": "Text shown on settings page",
         "type": "text"
     },
-    "chooseFont": "Choose font",
+    "chooseFont": "લખાણની શૈલી પસંદ કરો",
     "@chooseFont": {
         "description": "Text shown on font selection dialog title",
         "type": "text"
     },
-    "chooseAppLanguage": "Choose language",
+    "chooseAppLanguage": "ભાષા પસંદ કરો",
     "@chooseAppLanguage": {
         "description": "Text shown on app language selection dialog title",
         "type": "text"
     },
-    "appLanguage": "App language",
+    "appLanguage": "એપ્લિકેશનની ભાષા",
     "@appLanguage": {
         "description": "Text shown on settings page",
         "type": "text"
     },
-    "excludeAccount": "Exclude account",
+    "excludeAccount": "ખાતું બાકાત રાખો",
     "@excludeAccount": {
         "description": "Text shown on add account page for excluding the account from summing up",
         "type": "text"
     },
-    "accountNotFound": "Account not found!",
+    "accountNotFound": "ખાતુ ન મળ્યું!",
     "@accountNotFound": {
         "description": "Text shown on snackbar when account not found",
         "type": "text"
     },
-    "bankNameError": "Set bank name",
+    "bankNameError": "બેન્કનુ નામ",
     "@bankNameError": {
         "description": "Text shown on snackbar when adding account",
         "type": "text"
     },
-    "holderNameError": "Set account holder name",
+    "holderNameError": "ખાતાધારકનું નામ",
     "@holderNameError": {
         "description": "Text shown on snackbar when adding account",
         "type": "text"
     },
-    "accountColorError": "Set account color name",
+    "accountColorError": "ખાતાનો રંગ",
     "@accountColorError": {
         "description": "Text shown on snackbar when adding account",
         "type": "text"
     },
-    "emptySelectedAccountsInfo": "Select account from above to start",
+    "emptySelectedAccountsInfo": "શરૂ કરવા માટે ઉપરથી ખાતુ પસંદ કરો",
     "@accountsIntroInfo": {
         "description": "Text shown on intro page accounts info",
         "type": "text"
     },
-    "emptyRecommendedAccountsInfo": "No accounts left to add",
+    "emptyRecommendedAccountsInfo": "ઉમેરવા માટે કોઈ ખાતુ બાકી નથી",
     "@emptyRecommendedAccountsInfo": {
         "description": "Text shown on intro page accounts info",
         "type": "text"
     },
-    "transferCategorySubtitle": "Allow transfers between accounts",
+    "transferCategorySubtitle": "ખાતાઓ વચ્ચે ટ્રાન્સફર કરવાની મંજૂરી આપો",
     "@transferCategorySubtitle": {
         "description": "Text shown add category page for add default category ",
         "type": "text"
     },
-    "currencySelectorError": "Please select currency",
+    "currencySelectorError": "ચલણ પસંદ કરવા વિનંતિ",
     "@currencySelectorError": {
         "description": "Text shown when the currency is not selected",
         "type": "text"
     },
-    "justBlackText": "Just black",
+    "justBlackText": "માત્ર કાળો",
     "@justBlackText": {
         "description": "Text shown on setting page for enable black theme",
         "type": "text"
     },
-    "dateAndTime": "Date & time",
+    "dateAndTime": "તારીખ & સમય",
     "@dateAndTime": {
         "description": "Text shown on transaction page sub title",
         "type": "text"
     },
-    "goals": "Goals",
+    "goals": "લક્ષ",
     "@goals": {
         "description": "Text shown on navigation drawer item",
         "type": "text"
     },
-    "addGoalTooltip": "Add Goal",
+    "addGoalTooltip": "લક્ષ ઉમેરો",
     "@addGoalTooltip": {
         "description": "Tooltip shown on the goals add button",
         "type": "text"
     },
-    "customize": "Customize",
+    "customize": "કસ્ટમાઇઝ કરો",
     "@customize": {
         "description": "Subtitle text shown on the settings page section",
         "type": "text"
