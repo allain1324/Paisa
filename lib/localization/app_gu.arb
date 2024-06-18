@@ -1,391 +1,79 @@
 {
     "appTitle": "Paisa",
-    "@appTitle": {
-        "description": "The app name",
-        "type": "text"
-    },
     "home": "ઘર",
-    "@home": {
-        "description": "Home text shown in the bottom navigation or drawer widget",
-        "type": "text"
-    },
     "transactions": "વ્યવહારો",
-    "@transactions": {
-        "description": "Section title shown on the home page",
-        "type": "text"
-    },
     "welcomeMessage": "સ્વાગત છે!",
-    "@welcomeMessage": {
-        "description": "Text shown on the home screen under the user name",
-        "type": "text"
-    },
     "categories": "શ્રેણીઓ",
-    "@categories": {
-        "description": "Categories text shown in the bottom navigation or drawer widget",
-        "type": "text"
-    },
     "accounts": "ખાતાઓ",
-    "@accounts": {
-        "description": "Accounts text shown in the bottom navigation or drawer widget",
-        "type": "text"
-    },
     "budget": "હિસાબ",
-    "@budget": {
-        "description": "Accounts text shown in the bottom navigation or drawer widget",
-        "type": "text"
-    },
     "overview": "સારાંશ",
-    "@overview": {
-        "description": "Accounts text shown in the bottom navigation or drawer widget",
-        "type": "text"
-    },
     "defaultAccount": "મૂળભૂત ખાતું",
-    "@defaultAccount": {
-        "description": "Text shown on the switch in add account screen",
-        "type": "text"
-    },
     "recurring": "પુનરાવર્તિત",
-    "@recurring": {
-        "description": "Recurring text shown in the bottom navigation or drawer widget and recurring page toolbar title",
-        "type": "text"
-    },
-    "debts": "ઉધારી",
-    "@debts": {
-        "description": "Debts text shown in the bottom navigation or drawer widget",
-        "type": "text"
-    },
+    "debts": "ઉધારી"
     "addTransactionTooltip": "વ્યવહાર ઉમેરો",
-    "@addTransactionTooltip": {
-        "description": "Tooltip shown on the home fab button",
-        "type": "text"
-    },
     "addAccountTooltip": "ખાતું ઉમેરો",
-    "@addAccountTooltip": {
-        "description": "Tooltip shown on the account fab button",
-        "type": "text"
-    },
     "addCategoryTooltip": "શ્રેણીઓ ઉમેરો",
-    "@addCategoryTooltip": {
-        "description": "Tooltip shown on the category fab button",
-        "type": "text"
-    },
     "addDebtTooltip": "ઉધારી ઉમેરો",
-    "@addDebtTooltip": {
-        "description": "Tooltip shown on the category debt button",
-        "type": "text"
-    },
     "addRecurringTooltip": "પુનરાવર્તન ઉમેરો",
-    "@addRecurringTooltip": {
-        "description": "Tooltip shown on the category recurring button",
-        "type": "text"
-    },
     "selectDateRangeTooltip": "તારીખની શ્રેણી",
-    "@selectDate": {
-        "description": "Tooltip shown on the overview fab button",
-        "type": "text"
-    },
-    "transactionSubTittleText": "{bankName} • {dateString}",
-    "@transactionSubTittleText": {
-        "description": "Tooltip shown on the overview fab button",
-        "type": "text",
-        "placeholders": {
-            "bankName": {
-                "type": "String"
-            },
-            "dateString": {
-                "type": "String"
-            }
-        }
-    },
     "addCategory": "શ્રેણી ઉમેરો",
-    "@addCategory": {
-        "description": "Text shown on the toolbar on the category page",
-        "type": "text"
-    },
     "addCategoryEmptyTitle": "કોઇ શ્રેણીઓ નથી",
-    "@addCategoryEmptyTitle": {
-        "description": "Title text shown on the expense page when there is not categories available",
-        "type": "text"
-    },
-    "addCategoryEmptySubTitle": "પસંદ કરવા માટે શ્રેણીઓ ઉમેરો",
-    "@addCategoryEmptySubTitle": {
-        "description": "Subtitle text shown on the expense page when there is not categories available",
-        "type": "text"
-    },
+    "addCategoryEmptySubTitle": "પસંદ કરવા માટે શ્રેણીઓ ઉમેરો"
     "addAccountEmptyTitle": "કોઇ ખાતા નથી",
-    "@addAccountEmptyTitle": {
-        "description": "Title text shown on the expense page when there is not accounts available",
-        "type": "text"
-    },
     "addAccountEmptySubTitle": "પસંદ કરવા માટે ખાતાઓ ઉમેરો",
-    "@addAccountEmptySubTitle": {
-        "description": "Subtitle text shown on the expense page when there is not accounts available",
-        "type": "text"
-    },
     "addTransaction": "વ્યવહાર ઉમેરો",
-    "@addTransaction": {
-        "description": "Add transaction text shown on the transactions page as toolbar title",
-        "type": "text"
-    },
     "updateTransaction": "વ્યવહાર બદલો",
-    "@updateTransaction": {
-        "description": "Update transaction text shown on the transactions page as toolbar title",
-        "type": "text"
-    },
     "addedTransaction": "વ્યવહાર ઉમેર્યો",
-    "@addedTransaction": {
-        "description": "Successful message when Transaction added",
-        "type": "text"
-    },
     "updatedTransaction": "વ્યવહાર બદલ્યો",
-    "@updatedTransaction": {
-        "description": "Successful message when Transaction updated",
-        "type": "text"
-    },
     "deletedTransaction": "વ્યવહાર કાઢી નાખ્યો",
-    "@deletedTransaction": {
-        "description": "Successful message when Transaction deleted",
-        "type": "text"
-    },
     "expenseName": "વ્યવહારનુ નામ",
-    "@expenseName": {
-        "description": "Text shown on input hint name",
-        "type": "text"
-    },
     "description": "વિવરણ",
-    "@description": {
-        "description": "Text shown on the transaction page textfield description ",
-        "type": "text"
-    },
     "selectAccount": "ખાતું પસંદ કરો",
-    "@selectAccount": {
-        "description": "Section title text shown on the transaction for accounts",
-        "type": "text"
-    },
     "selectCategory": "શ્રેણી પસંદ કરો",
-    "@selectCategory": {
-        "description": "Section title text shown on the transaction for categories ",
-        "type": "text"
-    },
     "settings": "Settings",
-    "@settings": {
-        "description": "Text shown on the drawer button",
-        "type": "text"
-    },
     "localApp": "આંગળીનિ છાપથી ખોલો",
-    "@localApp": {
-        "description": "Text shown on the settings page biometric button",
-        "type": "text"
-    },
     "expense": "ખર્ચ",
-    "@expense": {
-        "description": "Text shown on the multiple places",
-        "type": "text"
-    },
     "transfer": "હેરફેર",
-    "@transfer": {
-        "description": "Text shown on the multiple places",
-        "type": "text"
-    },
     "daily": "રોજિંદુ",
-    "@daily": {
-        "description": "Text shown on the expenses filter",
-        "type": "text"
-    },
-    "weekly": "અથવાડિક",
-    "@weekly": {
-        "description": "Text shown on the expenses filter",
-        "type": "text"
-    },
+    "weekly": "અઠવાડિક",
     "monthly": "માસિક",
-    "@monthly": {
-        "description": "Text shown on the expenses filter",
-        "type": "text"
-    },
     "yearly": "વાર્ષિક",
-    "@yearly": {
-        "description": "Text shown on the expenses filter",
-        "type": "text"
-    },
-    "all": "બધું",
-    "@all": {
-        "description": "Text shown on the expenses filter",
-        "type": "text"
-    },
+    "all": "તમામ",
     "updateAccount": "ખાતામાં ફેરફાર કરો",
-    "@updateAccount": {
-        "description": "Update account text shown on the transactions page as toolbar title",
-        "type": "text"
-    },
     "addAccount": "ખાતું ઉમેરો",
-    "@addAccount": {
-        "description": "Add account text shown on the transactions page as toolbar title",
-        "type": "text"
-    },
+
     "transactionHistory": "વ્યવહારનો ઇતિહાસ",
-    "@transactionHistory": {
-        "description": "Title text shown on accounts page as section header title",
-        "type": "text"
-    },
     "cash": "રોકડાં",
-    "@cash": {
-        "description": "Text shown on the account page chip button",
-        "type": "text"
-    },
     "bank": "બેન્ક",
-    "@bank": {
-        "description": "Text shown on the account page chip button",
-        "type": "text"
-    },
     "wallet": "પાકીટ",
-    "@wallet": {
-        "description": "Text shown on the account page chip button",
-        "type": "text"
-    },
-    "cardHolder": "કાર્ડધારકનું નામ",
-    "@cardHolder": {
-        "description": "Text shown on the account page as textfield hint",
-        "type": "text"
-    },
+    "cardHolder": "કાર્ડધારકનું નામ"
     "accountName": "ખાતાનું નામ",
-    "@accountName": {
-        "description": "Text shown on the account page as textfield hint",
-        "type": "text"
-    },
     "lastFourDigit": "છેલ્લાં ચાર આંકડાં",
-    "@lastFourDigit": {
-        "description": "Text shown on the account page as textfield hint",
-        "type": "text"
-    },
     "addedAccount": "ખાતું ઉમેર્યુ",
-    "@addedAccount": {
-        "description": "Successful message when account added",
-        "type": "text"
-    },
     "updatedAccount": "ખાતું અદ્યતન કર્યું",
-    "@updatedAccount": {
-        "description": "Successful message when account updated",
-        "type": "text"
-    },
     "deletedAccount": "ખાતું કાઢી નાખ્યું",
-    "@deletedAccount": {
-        "description": "Successful message when account deleted",
-        "type": "text"
-    },
     "deletedCategory": "શ્રેણી કાઢી નાખી",
-    "@deletedCategory": {
-        "description": "Successful message when category deleted",
-        "type": "text"
-    },
     "successAddCategory": "શ્રેણી ઉમેરી",
-    "@successAddCategory": {
-        "description": "Successful message when category deleted",
-        "type": "text"
-    },
-    "validName": "માન્ય નામ દાખલ કરો",
-    "@validName": {
-        "description": "Error message shown when entered name is not valid",
-        "type": "text"
-    },
     "profile": "તમારા વિશે",
-    "@profile": {
-        "description": "Text shown on the bottom sheet dialog",
-        "type": "text"
-    },
     "chooseTheme": "થીમ",
-    "@chooseTheme": {
-        "description": "Title text shown on the settings page theme for theme chooser",
-        "type": "text"
-    },
     "selectCurrency": "ચલણ પસંદ કરો",
-    "@selectCurrency": {
-        "description": "Toolbar title text shown on choosing the currency",
-        "type": "text"
-    },
     "errorAuth": "પ્રમાણિકરણમા ભુલ",
-    "@errorAuth": {
-        "description": "Error message shown when biometric authentication fails",
-        "type": "text"
-    },
     "emptyAccountMessageTitle": "કોઇ ખાતા ઉપલબ્ધ નથી",
-    "@emptyAccountMessageTitle": {
-        "description": "Message title text shown on the accounts page",
-        "type": "text"
-    },
     "emptyAccountMessageSubTitle": "અહી બતાવવા માટે કોઇ ખાતુ ઉમેરો",
-    "@emptyAccountMessageSubTitle": {
-        "description": "Message sub title text shown on the accounts page",
-        "type": "text"
-    },
     "emptyCategoriesMessageTitle": "કોઇ શ્રેણી ઉપલબ્ધ નથી",
-    "@emptyCategoriesMessageTitle": {
-        "description": "Message title text shown on the categories page when no categories available",
-        "type": "text"
-    },
     "emptyCategoriesMessageSubTitle": "અહી બતાવવા માટે કોઇ શ્રેણી ઉમેરો",
-    "@emptyCategoriesMessageSubTitle": {
-        "description": "Message subtitle text shown on the categories page when no categories available",
-        "type": "text"
-    },
     "emptyOverviewMessageTitle": "સારાંશ બતાવવા માટે કોઇ માહિતી નથી",
-    "@emptyOverviewMessageTitle": {
-        "description": "No overview data message",
-        "type": "text"
-    },
     "emptyOverviewMessageSubtitle": "ખર્ચનો સારાંશ જોવા માટે, ખર્ચ ઉમેરો",
-    "@emptyOverviewMessageSubtitle": {
-        "description": "No budget overview description ",
-        "type": "text"
-    },
     "amount": "રકમ",
-    "@amount": {
-        "description": "Text shown on the input hint name",
-        "type": "text"
-    },
     "initialAmount": "શરુઆતી રકમ",
-    "@initialAmount": {
-        "description": "Text shown on the input hint name"
-    },
     "validAmount": "માન્ય રકમ દાખલ કરો",
-    "@validAmount": {
-        "description": "Text shown on the input hint name",
-        "type": "text"
-    },
     "dueDate": "તારીખ ઉમેરો",
-    "@dueDate": {
-        "description": "Text shown on the debt/ credit page when selecting end date",
-        "type": "text"
-    },
     "startDate": "શરુઆતી તારીખ",
-    "@startDate": {
-        "description": "Text shown on the debt/ credit page when selecting start date",
-        "type": "text"
-    },
     "socialLinks": "સામાજીકા સાઇટસની લિન્કસ",
-    "@socialLinks": {
-        "description": "Section title shown on the settings page",
-        "type": "text"
-    },
     "telegram": "Telegram",
-    "@telegram": {
-        "description": "Title text shown on settings page for telegram button",
-        "type": "text"
-    },
     "telegramGroup": "ત્રુટિઓ તેમજ નવી વિશેષતાઓ ઉમેરાવા માટે",
-    "@telegramGroup": {
-        "description": "Subtitle text shown on settings page for telegram button",
-        "type": "text"
-    },
     "privacyPolicy": "ગોપનીયતા & નિતી",
-    "@privacyPolicy": {
-        "description": "Title text shown on settings page for privacy and policy button",
-        "type": "text"
-    },
     "github": "GitHub",
-    "@github": {
-        "description": "Title text shown on settings page for github button ",
-        "type": "text"
-    },
     "githubText": "ગિટહબ પર પ્રોજેક્ટ ફોર્ક કરો",
     "@githubText": {
         "description": "Subtitle text shown on the github button",
