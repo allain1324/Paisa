@@ -85,6 +85,10 @@
     "customize"
   ],
 
+  "gu": [
+    "emptyRecommendedAccountsInfo"
+  ],
+
   "it": [
     "defaultAccount",
     "addAccountTooltip",

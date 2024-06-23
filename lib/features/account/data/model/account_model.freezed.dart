@@ -41,9 +41,9 @@ mixin _$AccountModel {
   @HiveField(8, defaultValue: 0)
   set amount(double value) => throw _privateConstructorUsedError;
   @HiveField(9, defaultValue: 0xFFFFC107)
-  int? get color => throw _privateConstructorUsedError;
+  int get color => throw _privateConstructorUsedError;
   @HiveField(9, defaultValue: 0xFFFFC107)
-  set color(int? value) => throw _privateConstructorUsedError;
+  set color(int value) => throw _privateConstructorUsedError;
   @HiveField(21, defaultValue: false)
   bool get isAccountExcluded => throw _privateConstructorUsedError;
   @HiveField(21, defaultValue: false)
@@ -67,7 +67,7 @@ abstract class $AccountModelCopyWith<$Res> {
       @HiveField(6, defaultValue: CardType.bank) CardType cardType,
       @HiveField(7) int? superId,
       @HiveField(8, defaultValue: 0) double amount,
-      @HiveField(9, defaultValue: 0xFFFFC107) int? color,
+      @HiveField(9, defaultValue: 0xFFFFC107) int color,
       @HiveField(21, defaultValue: false) bool isAccountExcluded});
 }
 
@@ -89,7 +89,7 @@ class _$AccountModelCopyWithImpl<$Res, $Val extends AccountModel>
     Object? cardType = null,
     Object? superId = freezed,
     Object? amount = null,
-    Object? color = freezed,
+    Object? color = null,
     Object? isAccountExcluded = null,
   }) {
     return _then(_value.copyWith(
@@ -113,10 +113,10 @@ class _$AccountModelCopyWithImpl<$Res, $Val extends AccountModel>
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as double,
-      color: freezed == color
+      color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       isAccountExcluded: null == isAccountExcluded
           ? _value.isAccountExcluded
           : isAccountExcluded // ignore: cast_nullable_to_non_nullable
@@ -139,7 +139,7 @@ abstract class _$$AccountModelImplCopyWith<$Res>
       @HiveField(6, defaultValue: CardType.bank) CardType cardType,
       @HiveField(7) int? superId,
       @HiveField(8, defaultValue: 0) double amount,
-      @HiveField(9, defaultValue: 0xFFFFC107) int? color,
+      @HiveField(9, defaultValue: 0xFFFFC107) int color,
       @HiveField(21, defaultValue: false) bool isAccountExcluded});
 }
 
@@ -159,7 +159,7 @@ class __$$AccountModelImplCopyWithImpl<$Res>
     Object? cardType = null,
     Object? superId = freezed,
     Object? amount = null,
-    Object? color = freezed,
+    Object? color = null,
     Object? isAccountExcluded = null,
   }) {
     return _then(_$AccountModelImpl(
@@ -183,10 +183,10 @@ class __$$AccountModelImplCopyWithImpl<$Res>
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as double,
-      color: freezed == color
+      color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       isAccountExcluded: null == isAccountExcluded
           ? _value.isAccountExcluded
           : isAccountExcluded // ignore: cast_nullable_to_non_nullable
@@ -205,7 +205,7 @@ class _$AccountModelImpl extends _AccountModel {
       @HiveField(6, defaultValue: CardType.bank) this.cardType = CardType.bank,
       @HiveField(7) this.superId,
       @HiveField(8, defaultValue: 0) this.amount = 0.0,
-      @HiveField(9, defaultValue: 0xFFFFC107) this.color,
+      @HiveField(9, defaultValue: 0xFFFFC107) this.color = 0xFFFFC107,
       @HiveField(21, defaultValue: false) this.isAccountExcluded = false})
       : super._();
 
@@ -230,8 +230,9 @@ class _$AccountModelImpl extends _AccountModel {
   @HiveField(8, defaultValue: 0)
   double amount;
   @override
+  @JsonKey()
   @HiveField(9, defaultValue: 0xFFFFC107)
-  int? color;
+  int color;
   @override
   @JsonKey()
   @HiveField(21, defaultValue: false)
@@ -263,7 +264,7 @@ abstract class _AccountModel extends AccountModel {
           @HiveField(6, defaultValue: CardType.bank) CardType cardType,
           @HiveField(7) int? superId,
           @HiveField(8, defaultValue: 0) double amount,
-          @HiveField(9, defaultValue: 0xFFFFC107) int? color,
+          @HiveField(9, defaultValue: 0xFFFFC107) int color,
           @HiveField(21, defaultValue: false) bool isAccountExcluded}) =
       _$AccountModelImpl;
   _AccountModel._() : super._();
@@ -298,9 +299,9 @@ abstract class _AccountModel extends AccountModel {
   set amount(double value);
   @override
   @HiveField(9, defaultValue: 0xFFFFC107)
-  int? get color;
+  int get color;
   @HiveField(9, defaultValue: 0xFFFFC107)
-  set color(int? value);
+  set color(int value);
   @override
   @HiveField(21, defaultValue: false)
   bool get isAccountExcluded;

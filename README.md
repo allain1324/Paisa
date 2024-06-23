@@ -75,7 +75,8 @@
    }
    ```
 
-3. Run the app and check once
+3. Check `untranslated.json` for anything missing keys need to be translated
+4. Run the app and check once
 
 ### Steps to build project
 

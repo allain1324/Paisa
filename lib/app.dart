@@ -65,9 +65,11 @@ class _PaisaAppState extends State<PaisaApp> {
             themeModeKey,
             defaultValue: 0,
           )];
-          final Locale locale = Locale(
-            value.get(appLanguageKey, defaultValue: 'en'),
+          final String languageCode = value.get(
+            appLanguageKey,
+            defaultValue: 'en',
           );
+          final Locale locale = Locale(languageCode);
           final String fontPreference = value.get(
             appFontChangerKey,
             defaultValue: 'Outfit',
