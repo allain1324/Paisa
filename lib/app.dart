@@ -112,7 +112,6 @@ class _PaisaAppState extends State<PaisaApp> {
 
                   if (isBlack) {
                     darkColorScheme = darkColorScheme.copyWith(
-                      background: Colors.black,
                       surface: Colors.black,
                     );
                   }

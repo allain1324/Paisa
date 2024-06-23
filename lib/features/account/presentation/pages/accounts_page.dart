@@ -36,10 +36,12 @@ class AccountsPage extends StatelessWidget {
             );
           }
           return ValueListenableBuilder<Box<dynamic>>(
-            valueListenable: settings.listenable(keys: [smallSizeFabKey]),
+            valueListenable: settings.listenable(keys: [userAccountsStyleKey]),
             builder: (context, value, child) {
-              final isVertical =
-                  value.get(userAccountsStyleKey, defaultValue: false);
+              final isVertical = value.get(
+                userAccountsStyleKey,
+                defaultValue: false,
+              );
               if (isVertical) {
                 return AccountMobileVerticalPage(accounts: accounts);
               } else {

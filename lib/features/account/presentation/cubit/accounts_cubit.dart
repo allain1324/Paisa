@@ -23,7 +23,7 @@ class AccountsCubit extends Cubit<AccountsState> {
         getAccountUseCase(GetAccountParams(accountId));
     final List<TransactionEntity> transactions =
         getTransactionsByAccountIdUseCase(
-            GetTransactionsByAccountIdParams(accountId));
+            ParamsGetTransactionsByAccountId(accountId));
 
     emit(state.copyWith(
       isLoading: false,

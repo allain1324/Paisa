@@ -61,8 +61,8 @@ final destinations = [
   ), */
 ];
 
-class LandingPage extends StatelessWidget {
-  const LandingPage({
+class HomePage extends StatelessWidget {
+  const HomePage({
     super.key,
   });
 
