@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:paisa/config/routes.dart';
 
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/enum/card_type.dart';
@@ -20,7 +20,7 @@ class AccountCardV2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ColorScheme colorScheme =
-        ColorScheme.fromSeed(seedColor: Color(account.color!));
+        ColorScheme.fromSeed(seedColor: Color(account.color));
     final color = colorScheme.primaryContainer;
     final onPrimary = colorScheme.onPrimaryContainer;
     final String expense = expenses.totalExpense.toFormateCurrency(context);
@@ -35,12 +35,8 @@ class AccountCardV2 extends StatelessWidget {
           color: color,
           child: InkWell(
             onTap: () {
-              /*  GoRouter.of(context).pushNamed(
-                accountTransactionName,
-                pathParameters: <String, String>{
-                  'aid': account.superId.toString()
-                },
-              ); */
+              TransactionsByAccountPageData(accountId: account.superId!)
+                  .push(context);
             },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,19 +44,17 @@ class AccountCardV2 extends StatelessWidget {
                 ListTile(
                   horizontalTitleGap: 0,
                   trailing: Icon(
-                    account.cardType == null
-                        ? CardType.bank.icon
-                        : account.cardType!.icon,
+                    account.cardType.icon,
                     color: onPrimary,
                   ),
                   title: Text(
-                    account.name ?? '',
+                    account.name,
                     style: context.bodyMedium?.copyWith(
                       color: onPrimary,
                     ),
                   ),
                   subtitle: Text(
-                    account.bankName ?? '',
+                    account.bankName,
                     style: context.bodyMedium?.copyWith(
                       color: onPrimary.withOpacity(0.5),
                     ),
@@ -144,7 +138,7 @@ class ThisMonthTransactionWidget extends StatelessWidget {
           const SizedBox(height: 6),
           Text(
             content,
-            style: context.titleLarge?.copyWith(
+            style: context.titleMedium?.copyWith(
               color: color,
             ),
           ),

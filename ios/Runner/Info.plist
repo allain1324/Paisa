@@ -47,5 +47,7 @@
 		<true/>
 		<key>UIStatusBarHidden</key>
 		<false/>
+		<key>NSPhotoLibraryUsageDescription</key>
+		<string>The Paisa app requires access to the photo library to set user profile</string>
 	</dict>
 </plist>

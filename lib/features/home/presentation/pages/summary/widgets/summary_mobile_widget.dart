@@ -1,14 +1,11 @@
 // Flutter imports:
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 // Project imports:
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/enum/filter_expense.dart';
-import 'package:paisa/core/theme/custom_color.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
-import 'package:paisa/core/widgets/section_list_view/index_path.dart';
 import 'package:paisa/core/widgets/section_list_view/sectioned_list_view.dart';
 import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
@@ -57,17 +54,23 @@ class SummaryMobileWidget extends StatelessWidget {
           valueListenable:
               Provider.of<SummaryController>(context).notifyFilterExpense,
           builder: (context, value, child) {
-            final Map<String, List<TransactionEntity>> maps =
-                groupBy(expenses, (element) => element.time.formatted(value));
-            return SectionedListView(
-              sectionSeparatorBuilder: (context, section) =>
-                  const PaisaDivider(),
-              separatorBuilder: (context, index) =>
-                  const PaisaDivider(indent: 72),
-              itemBuilder: (context, IndexPath index) {
-                final TransactionEntity transaction =
-                    maps.values.toList()[index.section][index.index];
-
+            return SliverGroupedListView(
+              elements: expenses,
+              groupBy: (element) => element.time.formatted(value),
+              separator: const PaisaDivider(),
+              sort: false,
+              groupSeparatorBuilder: (value) {
+                return ListTile(
+                  title: Text(
+                    value,
+                    style: context.titleSmall?.copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: context.onBackground,
+                    ),
+                  ),
+                );
+              },
+              itemBuilder: (context, transaction) {
                 final AccountEntity? account = context
                     .read<HomeCubit>()
                     .fetchAccountFromId(transaction.accountId);
@@ -83,30 +86,6 @@ class SummaryMobileWidget extends StatelessWidget {
                   category: category,
                 );
               },
-              sectionsCount: maps.keys.length,
-              groupHeaderBuilder: (context, section) {
-                final String title = maps.keys.elementAt(section);
-                final double total = maps.values.elementAt(section).filterTotal;
-                return ListTile(
-                  title: Text(
-                    title,
-                    style: context.titleSmall?.copyWith(
-                      fontWeight: FontWeight.w600,
-                      color: context.onBackground,
-                    ),
-                  ),
-                  trailing: Text(
-                    total.toFormateCurrency(context),
-                    style: context.titleSmall?.copyWith(
-                      color: total.isNegative
-                          ? Theme.of(context).extension<CustomColors>()!.red
-                          : Theme.of(context).extension<CustomColors>()!.green,
-                    ),
-                  ),
-                );
-              },
-              countOfItemInSection: (section) =>
-                  maps.values.elementAt(section).length,
             );
           },
         )

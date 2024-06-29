@@ -1,12 +1,9 @@
 // Flutter imports:
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/enum/filter_expense.dart';
-import 'package:paisa/core/theme/custom_color.dart';
 import 'package:paisa/core/widgets/paisa_widgets/paisa_divider.dart';
-import 'package:paisa/core/widgets/section_list_view/index_path.dart';
 import 'package:paisa/core/widgets/section_list_view/sectioned_list_view.dart';
 
 // Project imports:
@@ -18,7 +15,6 @@ import 'package:paisa/features/home/presentation/controller/summary_controller.d
 import 'package:paisa/features/home/presentation/pages/home/home_cubit.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/transaction_item_widget.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/transactions_header_widget.dart';
-import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'package:provider/provider.dart';
 
 class AccountsHorizontalMobilePage extends StatelessWidget {
@@ -47,18 +43,23 @@ class AccountsHorizontalMobilePage extends StatelessWidget {
               valueListenable: Provider.of<SummaryController>(context)
                   .sortHomeExpenseNotifier,
               builder: (context, value, child) {
-                final Map<String, List<TransactionEntity>> maps = groupBy(
-                    state.transactions,
-                    (element) => element.time.formatted(value));
-                return SectionedListView(
-                  sectionSeparatorBuilder: (context, section) =>
-                      const PaisaDivider(),
-                  separatorBuilder: (context, index) =>
-                      const PaisaDivider(indent: 72),
-                  itemBuilder: (context, IndexPath index) {
-                    final TransactionEntity transaction =
-                        maps.values.toList()[index.section][index.index];
-
+                return SliverGroupedListView(
+                  elements: state.transactions,
+                  groupBy: (element) => element.time.formatted(value),
+                  separator: const PaisaDivider(),
+                  sort: false,
+                  groupSeparatorBuilder: (value) {
+                    return ListTile(
+                      title: Text(
+                        value,
+                        style: context.titleSmall?.copyWith(
+                          fontWeight: FontWeight.w600,
+                          color: context.onBackground,
+                        ),
+                      ),
+                    );
+                  },
+                  itemBuilder: (context, transaction) {
                     final AccountEntity? account = context
                         .read<HomeCubit>()
                         .fetchAccountFromId(transaction.accountId);
@@ -74,33 +75,6 @@ class AccountsHorizontalMobilePage extends StatelessWidget {
                       category: category,
                     );
                   },
-                  sectionsCount: maps.keys.length,
-                  groupHeaderBuilder: (context, section) {
-                    final String title = maps.keys.elementAt(section);
-                    final double total =
-                        maps.values.elementAt(section).filterTotal;
-                    return ListTile(
-                      title: Text(
-                        title,
-                        style: context.titleSmall?.copyWith(
-                          fontWeight: FontWeight.w600,
-                          color: context.onBackground,
-                        ),
-                      ),
-                      trailing: Text(
-                        total.toFormateCurrency(context),
-                        style: context.titleSmall?.copyWith(
-                          color: total.isNegative
-                              ? Theme.of(context).extension<CustomColors>()!.red
-                              : Theme.of(context)
-                                  .extension<CustomColors>()!
-                                  .green,
-                        ),
-                      ),
-                    );
-                  },
-                  countOfItemInSection: (section) =>
-                      maps.values.elementAt(section).length,
                 );
               },
             );
