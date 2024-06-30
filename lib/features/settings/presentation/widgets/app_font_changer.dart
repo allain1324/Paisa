@@ -20,7 +20,12 @@ class AppFontChanger extends StatelessWidget {
         return ListTile(
           leading: Icon(MdiIcons.formatFont),
           title: Text(context.loc.fontStyle),
-          subtitle: Text(context.loc.fontStyleDescription),
+          subtitle: Text(
+            context.loc.fontStyleDescription,
+            style: context.bodyMedium?.copyWith(
+              color: context.onBackground.withOpacity(0.6),
+            ),
+          ),
           onTap: () {
             const FontPickerPageData().push(context);
           },

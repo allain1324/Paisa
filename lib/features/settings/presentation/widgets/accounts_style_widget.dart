@@ -19,7 +19,12 @@ class _AccountsStyleWidgetState extends State<AccountsStyleWidget> {
     return SwitchListTile(
       secondary: Icon(MdiIcons.creditCard),
       title: Text(context.loc.accountStyle),
-      subtitle: Text(context.loc.accountStyleDescription),
+      subtitle: Text(
+        context.loc.accountStyleDescription,
+        style: context.bodyMedium?.copyWith(
+          color: context.onBackground.withOpacity(0.6),
+        ),
+      ),
       onChanged: (bool value) async {
         setState(() {
           isSelected = value;

@@ -24,9 +24,12 @@ class AppLanguageChanger extends StatelessWidget {
         AppLanguageChangerPageData(currentLanguage: code).push(context);
       },
       title: Text(context.loc.appLanguage),
-      subtitle: Text(Languages.languages
-          .firstWhere((element) => element.code == code)
-          .value),
+      subtitle: Text(
+        Languages.languages.firstWhere((element) => element.code == code).value,
+        style: context.bodyMedium?.copyWith(
+          color: context.onBackground.withOpacity(0.6),
+        ),
+      ),
     );
   }
 }

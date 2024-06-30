@@ -31,15 +31,15 @@ class SettingsOption extends StatelessWidget {
             ),
       title: Text(
         title,
-        style: TextStyle(
+        style: context.bodyLarge?.copyWith(
           color: context.onBackground,
         ),
       ),
       subtitle: subtitle != null
           ? Text(
               subtitle!,
-              style: TextStyle(
-                color: context.onBackground,
+              style: context.bodyMedium?.copyWith(
+                color: context.onBackground.withOpacity(0.6),
               ),
             )
           : null,

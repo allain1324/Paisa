@@ -58,7 +58,12 @@ class _BiometricAuthWidgetState extends State<BiometricAuthWidget> {
               SwitchListTile(
                 secondary: Icon(MdiIcons.fingerprint),
                 title: Text(context.loc.localApp),
-                subtitle: Text(context.loc.lockAppDescription),
+                subtitle: Text(
+                  context.loc.lockAppDescription,
+                  style: context.bodyMedium?.copyWith(
+                    color: context.onBackground.withOpacity(0.6),
+                  ),
+                ),
                 onChanged: (bool value) async {
                   bool isAuthenticated = false;
                   if (value) {

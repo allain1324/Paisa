@@ -28,7 +28,12 @@ class CurrencyChangeWidget extends StatelessWidget {
         UserOnboardingPageData(forceCountrySelector: true).push(context);
       },
       title: Text(context.loc.currencySign),
-      subtitle: Text(currentSymbol ?? ''),
+      subtitle: Text(
+        currentSymbol ?? '',
+        style: context.bodyMedium?.copyWith(
+          color: context.onBackground.withOpacity(0.6),
+        ),
+      ),
     );
   }
 }

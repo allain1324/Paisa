@@ -5,10 +5,9 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:paisa/core/enum/theme_mode.dart';
 import 'package:paisa/features/settings/presentation/widgets/accounts_style_widget.dart';
+import 'package:paisa/features/settings/presentation/widgets/app_theme_widget.dart';
 import 'package:paisa/features/settings/presentation/widgets/choose_calendar_format_widget.dart';
-import 'package:paisa/features/settings/presentation/widgets/choose_theme_mode_widget.dart';
 import 'package:paisa/features/settings/presentation/widgets/true_black_widget_theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -36,12 +35,10 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final currentTheme =
-        ThemeMode.values[settings.get(themeModeKey, defaultValue: 0)];
     final currentFormat = CalendarFormats
         .values[settings.get(calendarFormatKey, defaultValue: 2)];
     return PaisaAnnotatedRegionWidget(
-      color: Colors.transparent,
+      color: context.surface,
       child: Scaffold(
         appBar: context.materialYouAppBar(
           context.loc.settings,
@@ -52,35 +49,12 @@ class SettingsPage extends StatelessWidget {
           children: [
             SettingsGroup(
               title: context.loc.colorsUI,
-              options: [
-                const SettingsColorPickerWidget(),
-                const PaisaDivider(),
-                const JustBlackWidget(),
-                const PaisaDivider(),
-                SettingsOption(
-                  icon: MdiIcons.brightness4,
-                  title: context.loc.chooseTheme,
-                  subtitle: currentTheme.stringValue,
-                  onTap: () {
-                    showModalBottomSheet(
-                      constraints: BoxConstraints(
-                        maxWidth: MediaQuery.of(context).size.width >= 700
-                            ? 700
-                            : double.infinity,
-                      ),
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(16),
-                          topRight: Radius.circular(16),
-                        ),
-                      ),
-                      context: context,
-                      builder: (_) => ChooseThemeModeWidget(
-                        currentTheme: currentTheme,
-                      ),
-                    );
-                  },
-                ),
+              options: const [
+                AppThemeWidget(),
+                PaisaDivider(),
+                JustBlackWidget(),
+                PaisaDivider(),
+                SettingsColorPickerWidget(),
               ],
             ),
             SettingsGroup(

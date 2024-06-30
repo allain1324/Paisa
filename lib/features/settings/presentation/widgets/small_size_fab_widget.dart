@@ -25,7 +25,12 @@ class _SmallSizeFabWidgetState extends State<SmallSizeFabWidget> {
       title: Text(
         context.loc.smallSizeFab,
       ),
-      subtitle: Text(context.loc.smallSizeFabMessage),
+      subtitle: Text(
+        context.loc.smallSizeFabMessage,
+        style: context.bodyMedium?.copyWith(
+          color: context.onBackground.withOpacity(0.6),
+        ),
+      ),
       onChanged: (bool value) async {
         setState(() {
           isSelected = value;
