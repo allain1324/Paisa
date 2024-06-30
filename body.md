@@ -1,2 +1,1 @@
-Merged pull requests
-#489 #488
+#### Fixed stuck on logo
