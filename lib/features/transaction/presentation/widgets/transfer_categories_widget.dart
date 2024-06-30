@@ -24,7 +24,7 @@ class TransferCategoriesWidget extends StatelessWidget {
       valueListenable: getIt<Box<CategoryModel>>().listenable(),
       builder: (context, value, child) {
         final List<CategoryEntity> categories =
-            value.values.filterDefault.toEntities();
+            value.values.transferCategory.toEntities();
         if (categories.isEmpty) {
           return ListTile(
             onTap: () async {

@@ -70,7 +70,7 @@ class _AccountPageViewWidgetState extends State<AccountPageViewWidget>
                     final String income = state.transactions.totalIncome
                         .toFormateCurrency(context);
                     final String totalBalance =
-                        (state.transactions.fullTotal + account.initialAmount)
+                        (state.transactions.fullTotal + account.amount)
                             .toFormateCurrency(context);
                     return AccountCard(
                       key: ValueKey(account.hashCode),

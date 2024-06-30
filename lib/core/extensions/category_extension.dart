@@ -18,7 +18,7 @@ extension CategoryModelHelper on CategoryModel {
       description: description,
       isBudget: isBudget,
       superId: superId,
-      isDefault: isDefault,
+      isDefault: isTransferCategory,
     );
   }
 }
@@ -28,10 +28,14 @@ extension CategoryModelsHelper on Iterable<CategoryModel> {
     return map((e) => e.toJson()).toList();
   }
 
-  Iterable<CategoryModel> sort() => sorted((a, b) => a.name.compareTo(b.name));
+  List<CategoryModel> sort() => sorted((a, b) => a.name.compareTo(b.name));
 
-  Iterable<CategoryModel> get filterDefault {
-    return sort().where((element) => !element.isDefault);
+  List<CategoryModel> get filterDefault {
+    return where((element) => !element.isTransferCategory).sort();
+  }
+
+  Iterable<CategoryModel> get transferCategory {
+    return sort().where((element) => element.isTransferCategory);
   }
 
   List<CategoryEntity> toEntities() =>

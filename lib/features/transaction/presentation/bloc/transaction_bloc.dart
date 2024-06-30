@@ -17,7 +17,6 @@ import 'package:paisa/core/use_case/use_case.dart';
 import 'package:paisa/features/account/domain/entities/account_entity.dart';
 import 'package:paisa/features/account/domain/use_case/account_use_case.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
-import 'package:paisa/features/category/domain/use_case/category_use_case.dart';
 import 'package:paisa/features/settings/domain/use_case/settings_use_case.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'package:paisa/features/transaction/domain/use_case/transaction_use_case.dart';
@@ -29,15 +28,13 @@ part 'transaction_state.dart';
 @injectable
 class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
   TransactionBloc(
-    this.settingsUseCase, {
-    required this.getTransactionUseCase,
-    required this.accountUseCase,
-    required this.addTransactionUseCase,
-    required this.deleteTransactionUseCase,
-    required this.updateTransactionUseCase,
-    required this.accountsUseCase,
-    required this.getDefaultCategoriesUseCase,
-  }) : super(const TransactionState.initial()) {
+    this.settingsUseCase,
+    this._accountsUseCase,
+    this._addTransactionUseCase,
+    this._deleteTransactionUseCase,
+    this._getTransactionUseCase,
+    this._updateTransactionUseCase,
+  ) : super(const TransactionState.initial()) {
     on<TransactionEvent>((event, emit) {});
     on<_AddOrUpdateExpenseEvent>(_addExpense);
     on<_ClearExpenseEvent>(_deleteExpense);
@@ -49,15 +46,13 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
     on<_TransferAccountEvent>(_transferAccount);
   }
 
-  final GetAccountUseCase accountUseCase;
-  final GetAccountsUseCase accountsUseCase;
-  final AddTransactionUseCase addTransactionUseCase;
+  final GetAccountsUseCase _accountsUseCase;
+  final AddTransactionUseCase _addTransactionUseCase;
   String? currentDescription;
   TransactionEntity? currentExpense;
-  final DeleteTransactionUseCase deleteTransactionUseCase;
+  final DeleteTransactionUseCase _deleteTransactionUseCase;
   String? expenseName;
-  final GetDefaultCategoriesUseCase getDefaultCategoriesUseCase;
-  final GetTransactionUseCase getTransactionUseCase;
+  final GetTransactionUseCase _getTransactionUseCase;
   RecurringType recurringType = RecurringType.daily;
   int? selectedAccountId;
   CategoryEntity? selectedCategory;
@@ -68,7 +63,7 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
   AccountEntity? fromAccount, toAccount;
   double? transactionAmount;
   TransactionType transactionType = TransactionType.expense;
-  final UpdateTransactionUseCase updateTransactionUseCase;
+  final UpdateTransactionUseCase _updateTransactionUseCase;
 
   Future<void> _fetchExpenseFromId(
     _FindTransactionFromIdEvent event,
@@ -81,7 +76,7 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
     }
 
     final TransactionEntity? transaction =
-        await getTransactionUseCase(GetTransactionParams(expenseId));
+        await _getTransactionUseCase(GetTransactionParams(expenseId));
     if (transaction != null) {
       transactionAmount = transaction.currency;
       expenseName = transaction.name;
@@ -104,103 +99,60 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
     _AddOrUpdateExpenseEvent event,
     Emitter<TransactionState> emit,
   ) async {
+    final double? validAmount = transactionAmount;
+    final String? transactionName = expenseName;
+    final int? categoryId = selectedCategoryId;
+    final int? accountId = selectedAccountId;
+    final int? fromAccountId = fromAccount?.superId;
+    final int? toAccountId = toAccount?.superId;
+    final DateTime dateTime = selectedDate;
+    final String? description = currentDescription;
+
+    if (validAmount == null || validAmount == 0.0) {
+      return emit(
+          const TransactionState.transactionError('Enter valid amount'));
+    }
     if (transactionType == TransactionType.transfer) {
-      if ((fromAccount == null || toAccount == null) ||
-          (fromAccount == toAccount)) {
-        return emit(
-          const TransactionState.transactionError(
-              'Select both from and to accounts'),
-        );
+      if (fromAccountId == null || toAccountId == -1) {
+        return emit(const TransactionState.transactionError(
+            'Select from and to account'));
       }
-      final double? validAmount = transactionAmount;
-      if (validAmount == null || validAmount == 0.0) {
-        return emit(
-          const TransactionState.transactionError('Enter valid amount'),
-        );
-      }
-      final int? categoryId = selectedCategoryId;
-      if (categoryId == null) {
-        return emit(
-          const TransactionState.transactionError('Select category'),
-        );
-      }
-      await addTransactionUseCase(
-        AddTransactionParams(
-          name:
-              'Transfer from ${fromAccount!.bankName} to ${toAccount!.bankName}',
-          amount: validAmount,
-          time: selectedDate,
-          categoryId: categoryId,
-          accountId: fromAccount!.superId!,
-          description: '',
-        ),
-      );
-
-      await addTransactionUseCase(
-        AddTransactionParams(
-          name:
-              'Received from ${fromAccount?.bankName} to ${toAccount?.bankName}',
-          amount: validAmount,
-          time: selectedDate,
-          categoryId: categoryId,
-          accountId: toAccount!.superId!,
-          transactionType: TransactionType.income,
-          description: '',
-        ),
-      );
-
-      emit(const TransactionState.transactionAdded(isAddOrUpdate: true));
     } else {
-      final double? validAmount = transactionAmount;
-      final String? name = expenseName;
-      final int? categoryId = selectedCategoryId;
-      final int? accountId = selectedAccountId;
-      final DateTime dateTime = selectedDate;
-      final String? description = currentDescription;
-
-      if (validAmount == null || validAmount == 0.0) {
-        return emit(
-            const TransactionState.transactionError('Enter valid amount'));
-      }
-
       if (accountId == null || accountId == -1) {
         return emit(const TransactionState.transactionError('Select account'));
       }
-      if (categoryId == null) {
-        return emit(const TransactionState.transactionError('Select category'));
-      }
-
-      if (event.isAdding) {
-        await addTransactionUseCase(AddTransactionParams(
-          name: ((name == null || name.isEmpty)
-                  ? selectedCategory?.name
-                  : name) ??
-              '',
-          amount: validAmount,
-          time: dateTime,
-          categoryId: categoryId,
-          accountId: accountId,
-          transactionType: transactionType,
-          description: description,
-        ));
-      } else {
-        if (currentExpense == null) return;
-        await updateTransactionUseCase(UpdateTransactionParams(
-          superId: currentExpense!.superId!,
-          accountId: accountId,
-          categoryId: categoryId,
-          currency: validAmount,
-          description: description,
-          name: ((name == null || name.isEmpty)
-                  ? selectedCategory?.name
-                  : name) ??
-              '',
-          time: dateTime,
-          type: transactionType,
-        ));
-      }
-      emit(TransactionState.transactionAdded(isAddOrUpdate: event.isAdding));
     }
+    if (categoryId == null) {
+      return emit(const TransactionState.transactionError('Select category'));
+    }
+    final String name = ((transactionName == null || transactionName.isEmpty)
+            ? selectedCategory?.name
+            : transactionName) ??
+        '';
+    if (event.isAdding) {
+      await _addTransactionUseCase(AddTransactionParams(
+        name: name,
+        amount: validAmount,
+        time: dateTime,
+        categoryId: categoryId,
+        accountId: accountId ?? 0,
+        transactionType: transactionType,
+        description: description,
+      ));
+    } else {
+      if (currentExpense == null) return;
+      await _updateTransactionUseCase(UpdateTransactionParams(
+        superId: currentExpense!.superId!,
+        accountId: accountId ?? 0,
+        categoryId: categoryId,
+        currency: validAmount,
+        description: description,
+        name: name,
+        time: dateTime,
+        type: transactionType,
+      ));
+    }
+    emit(TransactionState.transactionAdded(isAddOrUpdate: event.isAdding));
   }
 
   Future<void> _deleteExpense(
@@ -208,7 +160,7 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
     Emitter<TransactionState> emit,
   ) async {
     final int transactionId = event.expenseId;
-    await deleteTransactionUseCase(
+    await _deleteTransactionUseCase(
       DeleteTransactionParams(transactionId),
     );
     emit(const TransactionState.transactionDeleted());
@@ -218,7 +170,7 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
     _ChangeTransactionTypeEvent event,
     Emitter<TransactionState> emit,
   ) {
-    final List<AccountEntity> accounts = accountsUseCase(NoParams());
+    final List<AccountEntity> accounts = _accountsUseCase(NoParams());
     if (accounts.isEmpty &&
         accounts.length <= 1 &&
         event.transactionType == TransactionType.transfer) {

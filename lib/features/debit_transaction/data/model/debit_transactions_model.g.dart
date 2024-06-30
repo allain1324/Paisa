@@ -22,7 +22,7 @@ class DebitTransactionsModelAdapter
       now: fields[2] as DateTime,
       parentId: fields[4] == null ? -1 : fields[4] as int,
       superId: fields[3] as int?,
-      type: fields[5] as TransactionModelType,
+      type: fields[5] as TransactionModelType?,
     );
   }
 
@@ -75,7 +75,7 @@ Map<String, dynamic> _$$DebitTransactionsModelImplToJson(
       'now': instance.now.toIso8601String(),
       'parentId': instance.parentId,
       'superId': instance.superId,
-      'type': _$TransactionModelTypeEnumMap[instance.type]!,
+      'type': _$TransactionModelTypeEnumMap[instance.type],
     };
 
 const _$TransactionModelTypeEnumMap = {

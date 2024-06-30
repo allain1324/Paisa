@@ -38,9 +38,9 @@ mixin _$DebitTransactionsModel {
   @HiveField(3)
   set superId(int? value) => throw _privateConstructorUsedError;
   @HiveField(5)
-  TransactionModelType get type => throw _privateConstructorUsedError;
+  TransactionModelType? get type => throw _privateConstructorUsedError;
   @HiveField(5)
-  set type(TransactionModelType value) => throw _privateConstructorUsedError;
+  set type(TransactionModelType? value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -59,7 +59,7 @@ abstract class $DebitTransactionsModelCopyWith<$Res> {
       @HiveField(2) DateTime now,
       @HiveField(4, defaultValue: -1) int parentId,
       @HiveField(3) int? superId,
-      @HiveField(5) TransactionModelType type});
+      @HiveField(5) TransactionModelType? type});
 }
 
 /// @nodoc
@@ -80,7 +80,7 @@ class _$DebitTransactionsModelCopyWithImpl<$Res,
     Object? now = null,
     Object? parentId = null,
     Object? superId = freezed,
-    Object? type = null,
+    Object? type = freezed,
   }) {
     return _then(_value.copyWith(
       amount: null == amount
@@ -99,10 +99,10 @@ class _$DebitTransactionsModelCopyWithImpl<$Res,
           ? _value.superId
           : superId // ignore: cast_nullable_to_non_nullable
               as int?,
-      type: null == type
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as TransactionModelType,
+              as TransactionModelType?,
     ) as $Val);
   }
 }
@@ -121,7 +121,7 @@ abstract class _$$DebitTransactionsModelImplCopyWith<$Res>
       @HiveField(2) DateTime now,
       @HiveField(4, defaultValue: -1) int parentId,
       @HiveField(3) int? superId,
-      @HiveField(5) TransactionModelType type});
+      @HiveField(5) TransactionModelType? type});
 }
 
 /// @nodoc
@@ -141,7 +141,7 @@ class __$$DebitTransactionsModelImplCopyWithImpl<$Res>
     Object? now = null,
     Object? parentId = null,
     Object? superId = freezed,
-    Object? type = null,
+    Object? type = freezed,
   }) {
     return _then(_$DebitTransactionsModelImpl(
       amount: null == amount
@@ -160,10 +160,10 @@ class __$$DebitTransactionsModelImplCopyWithImpl<$Res>
           ? _value.superId
           : superId // ignore: cast_nullable_to_non_nullable
               as int?,
-      type: null == type
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as TransactionModelType,
+              as TransactionModelType?,
     ));
   }
 }
@@ -198,7 +198,7 @@ class _$DebitTransactionsModelImpl extends _DebitTransactionsModel {
   @override
   @JsonKey()
   @HiveField(5)
-  TransactionModelType type;
+  TransactionModelType? type;
 
   @override
   String toString() {
@@ -226,7 +226,7 @@ abstract class _DebitTransactionsModel extends DebitTransactionsModel {
       @HiveField(2) required DateTime now,
       @HiveField(4, defaultValue: -1) required int parentId,
       @HiveField(3) int? superId,
-      @HiveField(5) TransactionModelType type}) = _$DebitTransactionsModelImpl;
+      @HiveField(5) TransactionModelType? type}) = _$DebitTransactionsModelImpl;
   _DebitTransactionsModel._() : super._();
 
   factory _DebitTransactionsModel.fromJson(Map<String, dynamic> json) =
@@ -254,9 +254,9 @@ abstract class _DebitTransactionsModel extends DebitTransactionsModel {
   set superId(int? value);
   @override
   @HiveField(5)
-  TransactionModelType get type;
+  TransactionModelType? get type;
   @HiveField(5)
-  set type(TransactionModelType value);
+  set type(TransactionModelType? value);
   @override
   @JsonKey(ignore: true)
   _$$DebitTransactionsModelImplCopyWith<_$DebitTransactionsModelImpl>

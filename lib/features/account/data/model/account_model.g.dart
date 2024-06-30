@@ -21,9 +21,9 @@ class AccountModelAdapter extends TypeAdapter<_$AccountModelImpl> {
       bankName: fields[3] as String,
       cardType: fields[6] == null ? CardType.bank : fields[6] as CardType,
       superId: fields[7] as int?,
-      amount: fields[8] == null ? 0 : fields[8] as double,
+      amount: fields[8] == null ? 0 : fields[8] as double?,
       color: fields[9] == null ? 4294951175 : fields[9] as int,
-      isAccountExcluded: fields[21] == null ? false : fields[21] as bool,
+      isAccountExcluded: fields[21] == null ? false : fields[21] as bool?,
     );
   }
 

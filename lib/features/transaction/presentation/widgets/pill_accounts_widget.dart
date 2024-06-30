@@ -37,7 +37,7 @@ class _PillsAccountWidgetState extends State<PillsAccountWidget> {
         return GridView.builder(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 200,
+            maxCrossAxisExtent: 232,
             childAspectRatio: 16 / 5,
           ),
           physics: const NeverScrollableScrollPhysics(),

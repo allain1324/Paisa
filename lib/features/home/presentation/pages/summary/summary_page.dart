@@ -28,13 +28,13 @@ class SummaryPage extends StatelessWidget {
       valueListenable: getIt<Box<TransactionModel>>().listenable(),
       builder: (_, value, child) {
         final List<TransactionEntity> transactions =
-            value.values.toExcludeAccounts();
-        _updateHomeScreenWidget(
+            value.values.excludeAccounts();
+        /* _updateHomeScreenWidget(
           context,
           totalExpenses: transactions.totalExpense.toFormateCurrency(context),
           totalIncome: transactions.totalIncome.toFormateCurrency(context),
           total: transactions.total.toFormateCurrency(context),
-        );
+        ); */
         return ScreenTypeLayout.builder(
           mobile: (p0) => SummaryMobileWidget(expenses: transactions),
           tablet: (p0) => SummaryTabletWidget(expenses: transactions),

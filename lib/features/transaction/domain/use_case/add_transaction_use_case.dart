@@ -27,6 +27,8 @@ class AddTransactionUseCase
       accountId: params.accountId,
       transactionType: params.transactionType,
       description: params.description,
+      fromAccountId: params.fromAccountId,
+      toAccountId: params.toAccountId,
     );
   }
 }
@@ -40,6 +42,8 @@ class AddTransactionParams with _$AddTransactionParams {
     required int categoryId,
     required int accountId,
     String? description,
+    @Default(-1) int fromAccountId,
+    @Default(-1) int toAccountId,
     @Default(TransactionType.expense) TransactionType transactionType,
   }) = _AddTransactionParams;
 }

@@ -106,9 +106,9 @@ class _TransactionPageState extends State<TransactionPage> {
               amountController.selection = TextSelection.collapsed(
                 offset: state.transaction.currency.toString().length,
               );
-              descriptionController.text = state.transaction.description ?? '';
+              descriptionController.text = state.transaction.description;
               descriptionController.selection = TextSelection.collapsed(
-                offset: state.transaction.description?.length ?? 0,
+                offset: state.transaction.description.length,
               );
             }
           },

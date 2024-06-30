@@ -36,7 +36,7 @@ class CategoryRepositoryImpl extends CategoryRepository {
       budget: budget,
       isBudget: isBudget,
       color: color,
-      isDefault: isDefault,
+      isTransferCategory: isDefault,
     ));
   }
 
@@ -72,7 +72,7 @@ class CategoryRepositoryImpl extends CategoryRepository {
       icon: icon,
       budget: budget,
       isBudget: isBudget,
-      isDefault: isDefault,
+      isTransferCategory: isDefault,
       color: color,
       superId: key,
     ));

@@ -20,7 +20,7 @@ class CategoryModelAdapter extends TypeAdapter<_$CategoryModelImpl> {
       name: fields[0] as String,
       description: fields[1] as String?,
       icon: fields[2] as int,
-      isDefault: fields[3] == null ? false : fields[3] as bool,
+      isTransferCategory: fields[3] == null ? false : fields[3] as bool,
       superId: fields[4] == null ? 0 : fields[4] as int?,
       budget: fields[6] == null ? 0 : fields[6] as double?,
       isBudget: fields[7] == null ? false : fields[7] as bool,
@@ -39,7 +39,7 @@ class CategoryModelAdapter extends TypeAdapter<_$CategoryModelImpl> {
       ..writeByte(2)
       ..write(obj.icon)
       ..writeByte(3)
-      ..write(obj.isDefault)
+      ..write(obj.isTransferCategory)
       ..writeByte(4)
       ..write(obj.superId)
       ..writeByte(6)
@@ -70,7 +70,7 @@ _$CategoryModelImpl _$$CategoryModelImplFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       description: json['description'] as String?,
       icon: (json['icon'] as num).toInt(),
-      isDefault: json['isDefault'] as bool? ?? false,
+      isTransferCategory: json['isTransferCategory'] as bool? ?? false,
       superId: (json['superId'] as num?)?.toInt(),
       budget: (json['budget'] as num?)?.toDouble(),
       isBudget: json['isBudget'] as bool? ?? false,
@@ -82,7 +82,7 @@ Map<String, dynamic> _$$CategoryModelImplToJson(_$CategoryModelImpl instance) =>
       'name': instance.name,
       'description': instance.description,
       'icon': instance.icon,
-      'isDefault': instance.isDefault,
+      'isTransferCategory': instance.isTransferCategory,
       'superId': instance.superId,
       'budget': instance.budget,
       'isBudget': instance.isBudget,

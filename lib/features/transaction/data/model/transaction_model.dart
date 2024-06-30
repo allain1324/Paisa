@@ -16,6 +16,8 @@ class TransactionModel extends HiveObject
   @HiveType(typeId: 0, adapterName: 'TransactionModelAdapter')
   factory TransactionModel({
     @HiveField(5) required int accountId,
+    @HiveField(9) int? fromAccountId,
+    @HiveField(10) int? toAccountId,
     @HiveField(6) required int categoryId,
     @HiveField(1) @Default(0) double currency,
     @HiveField(8) String? description,

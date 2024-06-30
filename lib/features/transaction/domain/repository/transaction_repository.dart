@@ -13,8 +13,10 @@ abstract class TransactionRepository {
     required int accountId,
     required DateTime time,
     required String name,
-    TransactionType transactionType = TransactionType.expense,
     String? description,
+    required int fromAccountId,
+    required int toAccountId,
+    TransactionType transactionType = TransactionType.expense,
   });
 
   Future<void> clearExpense(int expenseId);
@@ -40,6 +42,8 @@ abstract class TransactionRepository {
     required String name,
     TransactionType transactionType = TransactionType.expense,
     String? description,
+    required int fromAccountId,
+    required int toAccountId,
   });
 
   Future<void> clearAll();

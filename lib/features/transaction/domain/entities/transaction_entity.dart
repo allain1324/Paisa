@@ -10,9 +10,11 @@ part 'transaction_entity.freezed.dart';
 class TransactionEntity with _$TransactionEntity {
   const factory TransactionEntity({
     required int accountId,
+    int? fromAccountId,
+    int? toAccountId,
     required int categoryId,
     required double currency,
-    String? description,
+    @Default('') String description,
     required String name,
     int? superId,
     required DateTime time,

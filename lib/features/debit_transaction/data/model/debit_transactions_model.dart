@@ -20,7 +20,7 @@ class DebitTransactionsModel extends HiveObject with _$DebitTransactionsModel {
     @HiveField(3) int? superId,
     @HiveField(5)
     @Default(TransactionModelType.debit)
-    TransactionModelType type,
+    TransactionModelType? type,
   }) = _DebitTransactionsModel;
 
   DebitTransactionsModel._();

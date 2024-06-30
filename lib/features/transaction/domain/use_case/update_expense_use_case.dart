@@ -27,6 +27,8 @@ class UpdateTransactionUseCase
       accountId: params.accountId,
       transactionType: params.type,
       description: params.description,
+      fromAccountId: params.fromAccountId,
+      toAccountId: params.toAccountId,
     );
   }
 }
@@ -40,7 +42,9 @@ class UpdateTransactionParams with _$UpdateTransactionParams {
     required String name,
     required int superId,
     required DateTime time,
-    String? description,
+    @Default('') String? description,
+    @Default(-1) int fromAccountId,
+    @Default(-1) int toAccountId,
     @Default(TransactionType.expense) TransactionType type,
   }) = _UpdateTransactionParams;
 }

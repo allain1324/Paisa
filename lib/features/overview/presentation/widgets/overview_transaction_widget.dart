@@ -27,7 +27,7 @@ class OverviewTransactionWidget extends StatelessWidget {
     return ValueListenableBuilder<Box<TransactionModel>>(
       valueListenable: getIt<Box<TransactionModel>>().listenable(),
       builder: (context, expenseBox, _) {
-        if (expenseBox.values.isEmpty) {
+        if (expenseBox.values.excludeTransfer().isEmpty) {
           return EmptyWidget(
             icon: Icons.paid,
             title: context.loc.emptyOverviewMessageTitle,
@@ -108,6 +108,7 @@ class FilterGroupCategoryTransactionWidget extends StatelessWidget {
   final Widget Function(
     Map<String, List<TransactionEntity>> groupedTransactions,
   ) builder;
+
   final Iterable<TransactionEntity> transactions;
   final ValueNotifier<FilterExpense> valueNotifier;
 
@@ -134,9 +135,10 @@ class FilterGroupedDateWidget extends StatelessWidget {
     required this.builder,
     required this.mapTransactions,
   });
-  final ValueNotifier<String> valueNotifier;
+
   final Widget Function(List<TransactionEntity> transactions) builder;
   final Map<String, List<TransactionEntity>> mapTransactions;
+  final ValueNotifier<String> valueNotifier;
 
   @override
   Widget build(BuildContext context) {

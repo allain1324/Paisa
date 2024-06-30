@@ -148,7 +148,7 @@ class CountryWidget extends StatelessWidget {
                 left: 16,
               ),
               child: Text(
-                countryModel.symbol ?? '',
+                countryModel.symbol,
                 style: context.titleLarge,
               ),
             ),

@@ -18,15 +18,19 @@ class TransactionItemWidget extends StatelessWidget {
     required this.expense,
     required this.account,
     required this.category,
+    this.fromAccount,
+    this.toAccount,
   });
 
   final AccountEntity account;
+  final AccountEntity? fromAccount;
+  final AccountEntity? toAccount;
   final CategoryEntity category;
   final TransactionEntity expense;
 
   String getSubtitle(BuildContext context) {
     if (expense.type == TransactionType.transfer) {
-      return expense.time.shortDayString;
+      return '${fromAccount?.name} to ${toAccount?.name} - ${expense.time.shortDayString}';
     } else {
       return context.loc.transactionSubTittleText(
         account.bankName,
@@ -37,6 +41,7 @@ class TransactionItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Color color = Color(category.color);
     return InkWell(
       borderRadius: BorderRadius.circular(24),
       onTap: () {
@@ -51,19 +56,25 @@ class TransactionItemWidget extends StatelessWidget {
         ),
         subtitle: Text(
           getSubtitle(context),
-          style: context.bodySmall
-              ?.copyWith(color: context.bodySmall?.color?.withOpacity(0.55)),
+          style: context.bodySmall?.copyWith(
+            color: context.bodySmall?.color?.withOpacity(0.55),
+          ),
         ),
         leading: CircleAvatar(
-          backgroundColor: Color(category.color).withOpacity(0.2),
-          child: Icon(
-            IconData(
-              category.icon,
-              fontFamily: fontFamilyName,
-              fontPackage: fontFamilyPackageName,
-            ),
-            color: Color(category.color),
-          ),
+          backgroundColor: color.withOpacity(0.2),
+          child: expense.type == TransactionType.transfer
+              ? Icon(
+                  MdiIcons.swapHorizontal,
+                  color: color,
+                )
+              : Icon(
+                  IconData(
+                    category.icon,
+                    fontFamily: fontFamilyName,
+                    fontPackage: fontFamilyPackageName,
+                  ),
+                  color: color,
+                ),
         ),
         trailing: Text(
           expense.currency.toFormateCurrency(context),

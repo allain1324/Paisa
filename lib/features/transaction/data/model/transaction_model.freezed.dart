@@ -24,6 +24,14 @@ mixin _$TransactionModel {
   int get accountId => throw _privateConstructorUsedError;
   @HiveField(5)
   set accountId(int value) => throw _privateConstructorUsedError;
+  @HiveField(9)
+  int? get fromAccountId => throw _privateConstructorUsedError;
+  @HiveField(9)
+  set fromAccountId(int? value) => throw _privateConstructorUsedError;
+  @HiveField(10)
+  int? get toAccountId => throw _privateConstructorUsedError;
+  @HiveField(10)
+  set toAccountId(int? value) => throw _privateConstructorUsedError;
   @HiveField(6)
   int get categoryId => throw _privateConstructorUsedError;
   @HiveField(6)
@@ -67,6 +75,8 @@ abstract class $TransactionModelCopyWith<$Res> {
   @useResult
   $Res call(
       {@HiveField(5) int accountId,
+      @HiveField(9) int? fromAccountId,
+      @HiveField(10) int? toAccountId,
       @HiveField(6) int categoryId,
       @HiveField(1) double currency,
       @HiveField(8) String? description,
@@ -90,6 +100,8 @@ class _$TransactionModelCopyWithImpl<$Res, $Val extends TransactionModel>
   @override
   $Res call({
     Object? accountId = null,
+    Object? fromAccountId = freezed,
+    Object? toAccountId = freezed,
     Object? categoryId = null,
     Object? currency = null,
     Object? description = freezed,
@@ -103,6 +115,14 @@ class _$TransactionModelCopyWithImpl<$Res, $Val extends TransactionModel>
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as int,
+      fromAccountId: freezed == fromAccountId
+          ? _value.fromAccountId
+          : fromAccountId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      toAccountId: freezed == toAccountId
+          ? _value.toAccountId
+          : toAccountId // ignore: cast_nullable_to_non_nullable
+              as int?,
       categoryId: null == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
@@ -145,6 +165,8 @@ abstract class _$$TransactionModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {@HiveField(5) int accountId,
+      @HiveField(9) int? fromAccountId,
+      @HiveField(10) int? toAccountId,
       @HiveField(6) int categoryId,
       @HiveField(1) double currency,
       @HiveField(8) String? description,
@@ -166,6 +188,8 @@ class __$$TransactionModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? accountId = null,
+    Object? fromAccountId = freezed,
+    Object? toAccountId = freezed,
     Object? categoryId = null,
     Object? currency = null,
     Object? description = freezed,
@@ -179,6 +203,14 @@ class __$$TransactionModelImplCopyWithImpl<$Res>
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as int,
+      fromAccountId: freezed == fromAccountId
+          ? _value.fromAccountId
+          : fromAccountId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      toAccountId: freezed == toAccountId
+          ? _value.toAccountId
+          : toAccountId // ignore: cast_nullable_to_non_nullable
+              as int?,
       categoryId: null == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
@@ -217,6 +249,8 @@ class __$$TransactionModelImplCopyWithImpl<$Res>
 class _$TransactionModelImpl extends _TransactionModel {
   _$TransactionModelImpl(
       {@HiveField(5) required this.accountId,
+      @HiveField(9) this.fromAccountId,
+      @HiveField(10) this.toAccountId,
       @HiveField(6) required this.categoryId,
       @HiveField(1) this.currency = 0,
       @HiveField(8) this.description,
@@ -232,6 +266,12 @@ class _$TransactionModelImpl extends _TransactionModel {
   @override
   @HiveField(5)
   int accountId;
+  @override
+  @HiveField(9)
+  int? fromAccountId;
+  @override
+  @HiveField(10)
+  int? toAccountId;
   @override
   @HiveField(6)
   int categoryId;
@@ -258,7 +298,7 @@ class _$TransactionModelImpl extends _TransactionModel {
 
   @override
   String toString() {
-    return 'TransactionModel(accountId: $accountId, categoryId: $categoryId, currency: $currency, description: $description, name: $name, superId: $superId, time: $time, type: $type)';
+    return 'TransactionModel(accountId: $accountId, fromAccountId: $fromAccountId, toAccountId: $toAccountId, categoryId: $categoryId, currency: $currency, description: $description, name: $name, superId: $superId, time: $time, type: $type)';
   }
 
   @JsonKey(ignore: true)
@@ -279,6 +319,8 @@ class _$TransactionModelImpl extends _TransactionModel {
 abstract class _TransactionModel extends TransactionModel {
   factory _TransactionModel(
       {@HiveField(5) required int accountId,
+      @HiveField(9) int? fromAccountId,
+      @HiveField(10) int? toAccountId,
       @HiveField(6) required int categoryId,
       @HiveField(1) double currency,
       @HiveField(8) String? description,
@@ -296,6 +338,16 @@ abstract class _TransactionModel extends TransactionModel {
   int get accountId;
   @HiveField(5)
   set accountId(int value);
+  @override
+  @HiveField(9)
+  int? get fromAccountId;
+  @HiveField(9)
+  set fromAccountId(int? value);
+  @override
+  @HiveField(10)
+  int? get toAccountId;
+  @HiveField(10)
+  set toAccountId(int? value);
   @override
   @HiveField(6)
   int get categoryId;

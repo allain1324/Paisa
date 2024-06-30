@@ -17,9 +17,11 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$TransactionEntity {
   int get accountId => throw _privateConstructorUsedError;
+  int? get fromAccountId => throw _privateConstructorUsedError;
+  int? get toAccountId => throw _privateConstructorUsedError;
   int get categoryId => throw _privateConstructorUsedError;
   double get currency => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   int? get superId => throw _privateConstructorUsedError;
   DateTime get time => throw _privateConstructorUsedError;
@@ -38,9 +40,11 @@ abstract class $TransactionEntityCopyWith<$Res> {
   @useResult
   $Res call(
       {int accountId,
+      int? fromAccountId,
+      int? toAccountId,
       int categoryId,
       double currency,
-      String? description,
+      String description,
       String name,
       int? superId,
       DateTime time,
@@ -61,9 +65,11 @@ class _$TransactionEntityCopyWithImpl<$Res, $Val extends TransactionEntity>
   @override
   $Res call({
     Object? accountId = null,
+    Object? fromAccountId = freezed,
+    Object? toAccountId = freezed,
     Object? categoryId = null,
     Object? currency = null,
-    Object? description = freezed,
+    Object? description = null,
     Object? name = null,
     Object? superId = freezed,
     Object? time = null,
@@ -74,6 +80,14 @@ class _$TransactionEntityCopyWithImpl<$Res, $Val extends TransactionEntity>
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as int,
+      fromAccountId: freezed == fromAccountId
+          ? _value.fromAccountId
+          : fromAccountId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      toAccountId: freezed == toAccountId
+          ? _value.toAccountId
+          : toAccountId // ignore: cast_nullable_to_non_nullable
+              as int?,
       categoryId: null == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
@@ -82,10 +96,10 @@ class _$TransactionEntityCopyWithImpl<$Res, $Val extends TransactionEntity>
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
               as double,
-      description: freezed == description
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -116,9 +130,11 @@ abstract class _$$TransactionEntityImplCopyWith<$Res>
   @useResult
   $Res call(
       {int accountId,
+      int? fromAccountId,
+      int? toAccountId,
       int categoryId,
       double currency,
-      String? description,
+      String description,
       String name,
       int? superId,
       DateTime time,
@@ -137,9 +153,11 @@ class __$$TransactionEntityImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? accountId = null,
+    Object? fromAccountId = freezed,
+    Object? toAccountId = freezed,
     Object? categoryId = null,
     Object? currency = null,
-    Object? description = freezed,
+    Object? description = null,
     Object? name = null,
     Object? superId = freezed,
     Object? time = null,
@@ -150,6 +168,14 @@ class __$$TransactionEntityImplCopyWithImpl<$Res>
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as int,
+      fromAccountId: freezed == fromAccountId
+          ? _value.fromAccountId
+          : fromAccountId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      toAccountId: freezed == toAccountId
+          ? _value.toAccountId
+          : toAccountId // ignore: cast_nullable_to_non_nullable
+              as int?,
       categoryId: null == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
@@ -158,10 +184,10 @@ class __$$TransactionEntityImplCopyWithImpl<$Res>
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
               as double,
-      description: freezed == description
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -187,9 +213,11 @@ class __$$TransactionEntityImplCopyWithImpl<$Res>
 class _$TransactionEntityImpl implements _TransactionEntity {
   const _$TransactionEntityImpl(
       {required this.accountId,
+      this.fromAccountId,
+      this.toAccountId,
       required this.categoryId,
       required this.currency,
-      this.description,
+      this.description = '',
       required this.name,
       this.superId,
       required this.time,
@@ -198,11 +226,16 @@ class _$TransactionEntityImpl implements _TransactionEntity {
   @override
   final int accountId;
   @override
+  final int? fromAccountId;
+  @override
+  final int? toAccountId;
+  @override
   final int categoryId;
   @override
   final double currency;
   @override
-  final String? description;
+  @JsonKey()
+  final String description;
   @override
   final String name;
   @override
@@ -215,7 +248,7 @@ class _$TransactionEntityImpl implements _TransactionEntity {
 
   @override
   String toString() {
-    return 'TransactionEntity(accountId: $accountId, categoryId: $categoryId, currency: $currency, description: $description, name: $name, superId: $superId, time: $time, type: $type)';
+    return 'TransactionEntity(accountId: $accountId, fromAccountId: $fromAccountId, toAccountId: $toAccountId, categoryId: $categoryId, currency: $currency, description: $description, name: $name, superId: $superId, time: $time, type: $type)';
   }
 
   @override
@@ -225,6 +258,10 @@ class _$TransactionEntityImpl implements _TransactionEntity {
             other is _$TransactionEntityImpl &&
             (identical(other.accountId, accountId) ||
                 other.accountId == accountId) &&
+            (identical(other.fromAccountId, fromAccountId) ||
+                other.fromAccountId == fromAccountId) &&
+            (identical(other.toAccountId, toAccountId) ||
+                other.toAccountId == toAccountId) &&
             (identical(other.categoryId, categoryId) ||
                 other.categoryId == categoryId) &&
             (identical(other.currency, currency) ||
@@ -238,8 +275,18 @@ class _$TransactionEntityImpl implements _TransactionEntity {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, accountId, categoryId, currency,
-      description, name, superId, time, type);
+  int get hashCode => Object.hash(
+      runtimeType,
+      accountId,
+      fromAccountId,
+      toAccountId,
+      categoryId,
+      currency,
+      description,
+      name,
+      superId,
+      time,
+      type);
 
   @JsonKey(ignore: true)
   @override
@@ -252,9 +299,11 @@ class _$TransactionEntityImpl implements _TransactionEntity {
 abstract class _TransactionEntity implements TransactionEntity {
   const factory _TransactionEntity(
       {required final int accountId,
+      final int? fromAccountId,
+      final int? toAccountId,
       required final int categoryId,
       required final double currency,
-      final String? description,
+      final String description,
       required final String name,
       final int? superId,
       required final DateTime time,
@@ -263,11 +312,15 @@ abstract class _TransactionEntity implements TransactionEntity {
   @override
   int get accountId;
   @override
+  int? get fromAccountId;
+  @override
+  int? get toAccountId;
+  @override
   int get categoryId;
   @override
   double get currency;
   @override
-  String? get description;
+  String get description;
   @override
   String get name;
   @override

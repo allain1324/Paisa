@@ -30,6 +30,8 @@ class ExpenseRepositoryImpl extends TransactionRepository {
     required int accountId,
     required DateTime time,
     required String name,
+    required int fromAccountId,
+    required int toAccountId,
     TransactionType transactionType = TransactionType.expense,
     String? description,
   }) async {
@@ -43,6 +45,8 @@ class ExpenseRepositoryImpl extends TransactionRepository {
           accountId: accountId,
           type: transactionType,
           description: description,
+          fromAccountId: fromAccountId,
+          toAccountId: toAccountId,
         ),
       );
       if (result != -1) {
@@ -75,10 +79,6 @@ class ExpenseRepositoryImpl extends TransactionRepository {
   }
 
   @override
-  List<TransactionEntity> transactions({int? accountId}) =>
-      dataSource.expenses().toEntities();
-
-  @override
   TransactionEntity? fetchExpenseFromId(int expenseId) {
     return dataSource.findById(expenseId)?.toEntity();
   }
@@ -109,6 +109,10 @@ class ExpenseRepositoryImpl extends TransactionRepository {
   }
 
   @override
+  List<TransactionEntity> transactions({int? accountId}) =>
+      dataSource.expenses().toEntities();
+
+  @override
   Future<void> updateExpense({
     required int key,
     required double amount,
@@ -118,6 +122,8 @@ class ExpenseRepositoryImpl extends TransactionRepository {
     required String name,
     TransactionType transactionType = TransactionType.expense,
     String? description,
+    required int fromAccountId,
+    required int toAccountId,
   }) {
     return dataSource.update(
       TransactionModel(
@@ -129,6 +135,8 @@ class ExpenseRepositoryImpl extends TransactionRepository {
         type: transactionType,
         description: description,
         superId: key,
+        fromAccountId: fromAccountId,
+        toAccountId: toAccountId,
       ),
     );
   }

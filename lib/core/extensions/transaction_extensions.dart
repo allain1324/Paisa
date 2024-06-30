@@ -67,7 +67,7 @@ extension ExpenseModelHelper on TransactionModel {
         categoryId: categoryId,
         accountId: accountId,
         type: type,
-        description: description,
+        description: description ?? '',
         superId: superId,
       );
 }
@@ -77,7 +77,7 @@ extension ExpenseModelsHelper on Iterable<TransactionModel> {
     return map((e) => e.toJson()).toList();
   }
 
-  List<TransactionEntity> toExcludeAccounts() {
+  List<TransactionEntity> excludeAccounts() {
     final List<int> accounts = settings.get(
       excludedAccountIdKey,
       defaultValue: <int>[],
@@ -85,6 +85,10 @@ extension ExpenseModelsHelper on Iterable<TransactionModel> {
     return map((expenseModel) => expenseModel.toEntity())
         .where((element) => !accounts.contains(element.accountId))
         .sorted((a, b) => b.time.compareTo(a.time));
+  }
+
+  Iterable<TransactionModel> excludeTransfer() {
+    return where((element) => element.type != TransactionType.transfer);
   }
 
   List<TransactionEntity> toEntities() {

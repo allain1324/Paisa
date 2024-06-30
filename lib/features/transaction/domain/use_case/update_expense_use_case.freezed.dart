@@ -23,6 +23,8 @@ mixin _$UpdateTransactionParams {
   int get superId => throw _privateConstructorUsedError;
   DateTime get time => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
+  int get fromAccountId => throw _privateConstructorUsedError;
+  int get toAccountId => throw _privateConstructorUsedError;
   TransactionType get type => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -44,6 +46,8 @@ abstract class $UpdateTransactionParamsCopyWith<$Res> {
       int superId,
       DateTime time,
       String? description,
+      int fromAccountId,
+      int toAccountId,
       TransactionType type});
 }
 
@@ -68,6 +72,8 @@ class _$UpdateTransactionParamsCopyWithImpl<$Res,
     Object? superId = null,
     Object? time = null,
     Object? description = freezed,
+    Object? fromAccountId = null,
+    Object? toAccountId = null,
     Object? type = null,
   }) {
     return _then(_value.copyWith(
@@ -99,6 +105,14 @@ class _$UpdateTransactionParamsCopyWithImpl<$Res,
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
+      fromAccountId: null == fromAccountId
+          ? _value.fromAccountId
+          : fromAccountId // ignore: cast_nullable_to_non_nullable
+              as int,
+      toAccountId: null == toAccountId
+          ? _value.toAccountId
+          : toAccountId // ignore: cast_nullable_to_non_nullable
+              as int,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -124,6 +138,8 @@ abstract class _$$UpdateTransactionParamsImplCopyWith<$Res>
       int superId,
       DateTime time,
       String? description,
+      int fromAccountId,
+      int toAccountId,
       TransactionType type});
 }
 
@@ -147,6 +163,8 @@ class __$$UpdateTransactionParamsImplCopyWithImpl<$Res>
     Object? superId = null,
     Object? time = null,
     Object? description = freezed,
+    Object? fromAccountId = null,
+    Object? toAccountId = null,
     Object? type = null,
   }) {
     return _then(_$UpdateTransactionParamsImpl(
@@ -178,6 +196,14 @@ class __$$UpdateTransactionParamsImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
+      fromAccountId: null == fromAccountId
+          ? _value.fromAccountId
+          : fromAccountId // ignore: cast_nullable_to_non_nullable
+              as int,
+      toAccountId: null == toAccountId
+          ? _value.toAccountId
+          : toAccountId // ignore: cast_nullable_to_non_nullable
+              as int,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -196,7 +222,9 @@ class _$UpdateTransactionParamsImpl implements _UpdateTransactionParams {
       required this.name,
       required this.superId,
       required this.time,
-      this.description,
+      this.description = '',
+      this.fromAccountId = -1,
+      this.toAccountId = -1,
       this.type = TransactionType.expense});
 
   @override
@@ -212,14 +240,21 @@ class _$UpdateTransactionParamsImpl implements _UpdateTransactionParams {
   @override
   final DateTime time;
   @override
+  @JsonKey()
   final String? description;
+  @override
+  @JsonKey()
+  final int fromAccountId;
+  @override
+  @JsonKey()
+  final int toAccountId;
   @override
   @JsonKey()
   final TransactionType type;
 
   @override
   String toString() {
-    return 'UpdateTransactionParams(accountId: $accountId, categoryId: $categoryId, currency: $currency, name: $name, superId: $superId, time: $time, description: $description, type: $type)';
+    return 'UpdateTransactionParams(accountId: $accountId, categoryId: $categoryId, currency: $currency, name: $name, superId: $superId, time: $time, description: $description, fromAccountId: $fromAccountId, toAccountId: $toAccountId, type: $type)';
   }
 
   @override
@@ -238,12 +273,16 @@ class _$UpdateTransactionParamsImpl implements _UpdateTransactionParams {
             (identical(other.time, time) || other.time == time) &&
             (identical(other.description, description) ||
                 other.description == description) &&
+            (identical(other.fromAccountId, fromAccountId) ||
+                other.fromAccountId == fromAccountId) &&
+            (identical(other.toAccountId, toAccountId) ||
+                other.toAccountId == toAccountId) &&
             (identical(other.type, type) || other.type == type));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, accountId, categoryId, currency,
-      name, superId, time, description, type);
+      name, superId, time, description, fromAccountId, toAccountId, type);
 
   @JsonKey(ignore: true)
   @override
@@ -262,6 +301,8 @@ abstract class _UpdateTransactionParams implements UpdateTransactionParams {
       required final int superId,
       required final DateTime time,
       final String? description,
+      final int fromAccountId,
+      final int toAccountId,
       final TransactionType type}) = _$UpdateTransactionParamsImpl;
 
   @override
@@ -278,6 +319,10 @@ abstract class _UpdateTransactionParams implements UpdateTransactionParams {
   DateTime get time;
   @override
   String? get description;
+  @override
+  int get fromAccountId;
+  @override
+  int get toAccountId;
   @override
   TransactionType get type;
   @override

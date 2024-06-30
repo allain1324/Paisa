@@ -64,10 +64,12 @@ void _addDummyData() async {
     );
   }
   final random = Random();
-  final startDate = DateTime(2024);
+  final startDate = DateTime(
+    2019,
+  );
   final endDate = DateTime.now();
 
-  for (int i = 0; i < 2000; i++) {
+  for (int i = 0; i < 200; i++) {
     int accountId = Random().nextInt(10);
     int categoryId = Random().nextInt(10);
     final difference = endDate.difference(startDate).inDays;
