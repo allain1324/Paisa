@@ -172,8 +172,8 @@
         "description": "Text shown on the drawer button",
         "type": "text"
     },
-    "localApp": "Unlock with fingerprint",
-    "@localApp": {
+    "lockApp": "Unlock with fingerprint",
+    "@lockApp": {
         "description": "Text shown on the settings page biometric button",
         "type": "text"
     },

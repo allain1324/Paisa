@@ -32,7 +32,7 @@
     "selectAccount": "选择账户",
     "selectCategory": "选择类别",
     "settings": "设置",
-    "localApp": "通过指纹解锁",
+    "lockApp": "通过指纹解锁",
     "expense": "支出",
     "transfer": "转账",
     "daily": "日视图",

@@ -10,7 +10,6 @@ import 'package:paisa/core/common.dart';
 
 Future<IconData> paisaIconPicker({
   required BuildContext context,
-  //required Function(IconData icon) onSelectedIcon,
   IconData defaultIcon = Icons.home_rounded,
 }) async {
   IconData selectedIcon = defaultIcon;
@@ -18,49 +17,54 @@ Future<IconData> paisaIconPicker({
 
   await showDialog(
     context: context,
-    builder: (_) => AlertDialog(
-      icon: Icon(defaultIcon),
-      title: Text(
-        context.loc.selectIconTitle,
-        style: context.titleMedium,
-      ),
-      content: SizedBox(
+    builder: (_) => Dialog.fullscreen(
+      child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.9,
         height: MediaQuery.of(context).size.height * 0.5,
-        child: _IconPickerWidget(
-          iconKeys: iconKeys,
-          selectedIcon: selectedIcon,
-          onSelectedIcon: (icon) {
-            //onSelectedIcon.call(icon);
-            // Navigator.of(context).pop();
-            selectedIcon = icon;
-          },
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Expanded(
+              child: _IconPickerWidget(
+                iconKeys: iconKeys,
+                selectedIcon: selectedIcon,
+                onSelectedIcon: (icon) {
+                  //onSelectedIcon.call(icon);
+                  // Navigator.of(context).pop();
+                  selectedIcon = icon;
+                },
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                  style: TextButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop(defaultIcon);
+                  },
+                  child: Text(
+                    context.loc.cancel,
+                  ),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop(selectedIcon);
+                  },
+                  child: Text(
+                    context.loc.done,
+                  ),
+                )
+              ],
+            )
+          ],
         ),
       ),
-      actions: [
-        TextButton(
-          style: TextButton.styleFrom(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-          ),
-          onPressed: () {
-            Navigator.of(context).pop(defaultIcon);
-          },
-          child: Text(
-            context.loc.cancel,
-          ),
-        ),
-        TextButton(
-          style: TextButton.styleFrom(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-          ),
-          onPressed: () {
-            Navigator.of(context).pop(selectedIcon);
-          },
-          child: Text(
-            context.loc.done,
-          ),
-        )
-      ],
     ),
   );
   return selectedIcon;
@@ -88,58 +92,69 @@ class _IconPickerWidgetState extends State<_IconPickerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        TextField(
-          controller: controller,
-          onChanged: (value) {
-            iconKeys = widget.iconKeys
-                .where((element) => element
-                    .toLowerCase()
-                    .contains(value.toLowerCase().replaceAll(' ', '')))
-                .toList();
-            setState(() {});
-          },
-        ),
-        Expanded(
-          child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 70,
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          ListTile(
+            leading: Icon(selectedIcon),
+            title: Text(
+              context.loc.selectIconTitle,
+              style: context.titleMedium,
             ),
-            shrinkWrap: true,
-            itemCount: iconKeys.length,
-            itemBuilder: (_, index) {
-              final bool isSelected =
-                  selectedIcon == MdiIcons.fromString(iconKeys[index]);
-              return Container(
-                margin: const EdgeInsets.all(4),
-                decoration: isSelected
-                    ? BoxDecoration(
-                        border: Border.all(
-                          width: 2,
-                          color: context.primary,
-                        ),
-                        borderRadius: BorderRadius.circular(32),
-                      )
-                    : null,
-                child: IconButton(
-                  key: ValueKey(iconKeys[index].hashCode),
-                  color: isSelected
-                      ? context.primary
-                      : Theme.of(context).disabledColor,
-                  onPressed: () {
-                    setState(() {
-                      selectedIcon = MdiIcons.fromString(iconKeys[index]);
-                      widget.onSelectedIcon.call(selectedIcon ?? MdiIcons.home);
-                    });
-                  },
-                  icon: Icon(MdiIcons.fromString(iconKeys[index])),
-                ),
-              );
+          ),
+          TextField(
+            controller: controller,
+            onChanged: (value) {
+              iconKeys = widget.iconKeys
+                  .where((element) => element
+                      .toLowerCase()
+                      .contains(value.toLowerCase().replaceAll(' ', '')))
+                  .toList();
+              setState(() {});
             },
           ),
-        ),
-      ],
+          Expanded(
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 70,
+              ),
+              shrinkWrap: true,
+              itemCount: iconKeys.length,
+              itemBuilder: (_, index) {
+                final bool isSelected =
+                    selectedIcon == MdiIcons.fromString(iconKeys[index]);
+                return Container(
+                  margin: const EdgeInsets.all(4),
+                  decoration: isSelected
+                      ? BoxDecoration(
+                          border: Border.all(
+                            width: 2,
+                            color: context.primary,
+                          ),
+                          borderRadius: BorderRadius.circular(32),
+                        )
+                      : null,
+                  child: IconButton(
+                    key: ValueKey(iconKeys[index].hashCode),
+                    color: isSelected
+                        ? context.primary
+                        : Theme.of(context).disabledColor,
+                    onPressed: () {
+                      setState(() {
+                        selectedIcon = MdiIcons.fromString(iconKeys[index]);
+                        widget.onSelectedIcon
+                            .call(selectedIcon ?? MdiIcons.home);
+                      });
+                    },
+                    icon: Icon(MdiIcons.fromString(iconKeys[index])),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

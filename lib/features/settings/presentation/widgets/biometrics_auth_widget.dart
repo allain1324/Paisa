@@ -57,7 +57,7 @@ class _BiometricAuthWidgetState extends State<BiometricAuthWidget> {
             children: [
               SwitchListTile(
                 secondary: Icon(MdiIcons.fingerprint),
-                title: Text(context.loc.localApp),
+                title: Text(context.loc.lockApp),
                 subtitle: Text(
                   context.loc.lockAppDescription,
                   style: context.bodyMedium?.copyWith(

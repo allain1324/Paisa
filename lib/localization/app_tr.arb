@@ -88,14 +88,14 @@
     "@transactionSubTittleText": {
         "description": "Genel bakış fab düğmesinde gösterilen araç ipucu",
         "type": "text",
-      "placeholders": {
-        "bankName": {
-            "type": "Dizi"
-        },
-        "dateString": {
-            "type": "Dizi"
+        "placeholders": {
+            "bankName": {
+                "type": "Dizi"
+            },
+            "dateString": {
+                "type": "Dizi"
+            }
         }
-      }
     },
     "addCategory": "Kategori Ekle",
     "@addCategory": {
@@ -152,7 +152,7 @@
         "description": "Giriş ipucu adında gösterilen metin",
         "type": "text"
     },
-      "description": "Açıklama",
+    "description": "Açıklama",
     "@description": {
         "description": "İşlem sayfasında gösterilen metin metin alanı açıklaması ",
         "type": "text"
@@ -172,8 +172,8 @@
         "description": "Çekmece düğmesinde gösterilen metin",
         "type": "text"
     },
-    "localApp": "Parmak izi ile kilidi AÇ",
-    "@localApp": {
+    "lockApp": "Parmak izi ile kilidi AÇ",
+    "@lockApp": {
         "description": "Ayarlar sayfasında biyometrik düğmesinde gösterilen metin",
         "type": "text"
     },
@@ -399,11 +399,11 @@
     "versionNumber": "v{version}",
     "@versionNumber": {
         "description": "Düğme için ayarlar sayfasında gösterilen altyazı metni",
-      "placeholders": {
-        "version": {
-            "type": "Dizi"
+        "placeholders": {
+            "version": {
+                "type": "Dizi"
+            }
         }
-      }
     },
     "deleteAccount": "Hesabın silinmesi, bu hesaba bağlı tüm masrafları siler ",
     "@deleteAccount": {

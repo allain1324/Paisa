@@ -32,7 +32,7 @@
   "selectAccount": "Seleccionar cuenta",
   "selectCategory": "Seleccionar categoría",
   "settings": "Ajustes",
-  "localApp": "Desbloquear con huella digital",
+  "lockApp": "Desbloquear con huella digital",
   "expense": "Gastos",
   "transfer": "Transferir",
   "daily": "Diario",
