@@ -1,162 +1,325 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-
-// Package imports:
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
 import 'package:paisa/core/common.dart';
 
-class PaisaBigButton extends StatelessWidget {
-  const PaisaBigButton({
-    super.key,
-    required this.onPressed,
-    required this.title,
-  });
+enum ButtonSize { small, medium, large }
 
-  final VoidCallback onPressed;
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.all(16),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(32.0),
-        ),
-        foregroundColor: context.onPrimary,
-        backgroundColor: context.primary,
-      ),
-      child: Text(
-        title,
-        style: TextStyle(
-          fontWeight: FontWeight.w700,
-          fontSize: context.titleLarge?.fontSize,
-        ),
-      ),
-    );
-  }
-}
+enum ButtonStyle { elevated, outlined, text }
 
 class PaisaButton extends StatelessWidget {
-  const PaisaButton({
-    super.key,
-    required this.onPressed,
-    required this.title,
-  });
-
-  final VoidCallback onPressed;
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
+  // Factory constructor
+  factory PaisaButton({
+    required String text,
+    required VoidCallback onPressed,
+    ButtonSize size = ButtonSize.medium,
+    ButtonStyle style = ButtonStyle.elevated,
+    Color? color,
+    IconData? icon,
+  }) {
+    return PaisaButton._(
+      text: text,
       onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        foregroundColor: context.onPrimary,
-        backgroundColor: context.primary,
-      ),
-      child: Text(title),
+      size: size,
+      style: style,
+      color: color,
+      icon: icon,
     );
   }
-}
 
-class PaisaIconButton extends StatelessWidget {
-  const PaisaIconButton({
-    super.key,
+  // Private constructor
+  const PaisaButton._({
+    required this.text,
     required this.onPressed,
-    required this.title,
-    required this.iconData,
+    required this.size,
+    required this.style,
+    this.color,
+    this.icon,
   });
 
-  final IconData iconData;
-  final VoidCallback onPressed;
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton.icon(
+  factory PaisaButton.largeElevated({
+    required String text,
+    required VoidCallback onPressed,
+    Color? color,
+    IconData? icon,
+  }) {
+    return PaisaButton(
+      text: text,
       onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        foregroundColor: context.onPrimary,
-        backgroundColor: context.primary,
-      ),
-      label: Text(title),
-      icon: Icon(iconData),
+      size: ButtonSize.large,
+      color: color,
+      icon: icon,
     );
   }
-}
 
-class PaisaTextButton extends StatelessWidget {
-  const PaisaTextButton({
-    super.key,
-    required this.onPressed,
-    required this.title,
-  });
-
-  final VoidCallback onPressed;
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(
+  factory PaisaButton.largeText({
+    required String text,
+    required VoidCallback onPressed,
+    Color? color,
+    IconData? icon,
+  }) {
+    return PaisaButton(
+      text: text,
       onPressed: onPressed,
-      style: TextButton.styleFrom(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        foregroundColor: context.primary,
-      ),
-      child: Text(title),
+      size: ButtonSize.large,
+      style: ButtonStyle.text,
+      color: color,
+      icon: icon,
     );
   }
-}
-
-class PaisaOutlineButton extends StatelessWidget {
-  const PaisaOutlineButton({
-    super.key,
-    required this.onPressed,
-    required this.title,
-  });
-
-  final VoidCallback onPressed;
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return OutlinedButton(
+  factory PaisaButton.largeOutlined({
+    required String text,
+    required VoidCallback onPressed,
+    Color? color,
+    IconData? icon,
+  }) {
+    return PaisaButton(
+      text: text,
       onPressed: onPressed,
-      style: OutlinedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        foregroundColor: context.primary,
-      ),
-      child: Text(title),
+      size: ButtonSize.large,
+      style: ButtonStyle.outlined,
+      color: color,
+      icon: icon,
     );
   }
-}
 
-class PaisaOutlineIconButton extends StatelessWidget {
-  const PaisaOutlineIconButton({
-    super.key,
-    required this.onPressed,
-    required this.title,
-  });
+  factory PaisaButton.mediumElevated({
+    required String text,
+    required VoidCallback onPressed,
+    Color? color,
+    IconData? icon,
+  }) {
+    return PaisaButton(
+      text: text,
+      onPressed: onPressed,
+      color: color,
+      icon: icon,
+    );
+  }
 
+  factory PaisaButton.mediumOutlined({
+    required String text,
+    required VoidCallback onPressed,
+    Color? color,
+    IconData? icon,
+  }) {
+    return PaisaButton(
+      text: text,
+      onPressed: onPressed,
+      style: ButtonStyle.outlined,
+      color: color,
+      icon: icon,
+    );
+  }
+  factory PaisaButton.mediumText({
+    required String text,
+    required VoidCallback onPressed,
+    Color? color,
+    IconData? icon,
+  }) {
+    return PaisaButton(
+      text: text,
+      onPressed: onPressed,
+      style: ButtonStyle.text,
+      color: color,
+      icon: icon,
+    );
+  }
+
+  // Factory methods for specific sizes and styles
+  factory PaisaButton.smallElevated({
+    required String text,
+    required VoidCallback onPressed,
+    Color? color,
+    IconData? icon,
+  }) {
+    return PaisaButton(
+      text: text,
+      onPressed: onPressed,
+      size: ButtonSize.small,
+      color: color,
+      icon: icon,
+    );
+  }
+  factory PaisaButton.smallOutlined({
+    required String text,
+    required VoidCallback onPressed,
+    Color? color,
+    IconData? icon,
+  }) {
+    return PaisaButton(
+      text: text,
+      onPressed: onPressed,
+      size: ButtonSize.small,
+      style: ButtonStyle.outlined,
+      color: color,
+      icon: icon,
+    );
+  }
+  factory PaisaButton.smallText({
+    required String text,
+    required VoidCallback onPressed,
+    Color? color,
+    IconData? icon,
+  }) {
+    return PaisaButton(
+      text: text,
+      onPressed: onPressed,
+      size: ButtonSize.small,
+      style: ButtonStyle.text,
+      color: color,
+      icon: icon,
+    );
+  }
+
+  final Color? color;
+  final IconData? icon;
   final VoidCallback onPressed;
-  final String title;
+  final ButtonSize size;
+  final ButtonStyle style;
+  final String text;
+
+  EdgeInsetsGeometry _getPadding() {
+    switch (size) {
+      case ButtonSize.small:
+        return EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h);
+      case ButtonSize.medium:
+        return EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h);
+      case ButtonSize.large:
+        return EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h);
+    }
+  }
+
+  double _getBorderRadius() {
+    switch (size) {
+      case ButtonSize.small:
+        return 32.r;
+      case ButtonSize.medium:
+        return 32.r;
+      case ButtonSize.large:
+        return 32.r;
+    }
+  }
+
+  double? _getFontSize(BuildContext context) {
+    switch (size) {
+      case ButtonSize.small:
+        return context.bodySmall?.fontSize;
+      case ButtonSize.medium:
+        return context.bodyMedium?.fontSize;
+      case ButtonSize.large:
+        return context.bodyLarge?.fontSize;
+    }
+  }
+
+  double _getIconSize() {
+    switch (size) {
+      case ButtonSize.small:
+        return 16.h;
+      case ButtonSize.medium:
+        return 18.h;
+      case ButtonSize.large:
+        return 20.h;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return OutlinedButton.icon(
-      onPressed: onPressed,
-      style: OutlinedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        foregroundColor: context.primary,
-      ),
-      label: Text(title),
-      icon: Icon(MdiIcons.sortVariant),
-    );
+    final Color backgroundColor = color ?? context.primary;
+    final Color foregroundColor = color ?? context.onPrimary;
+    final EdgeInsetsGeometry padding = _getPadding();
+    final double borderRadius = _getBorderRadius();
+    final double? fontSize = _getFontSize(context);
+    final double iconSize = _getIconSize();
+
+    Widget button;
+    switch (style) {
+      case ButtonStyle.elevated:
+        button = icon == null
+            ? ElevatedButton(
+                onPressed: onPressed,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: backgroundColor,
+                  foregroundColor: foregroundColor,
+                  padding: padding,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(borderRadius),
+                  ),
+                ),
+                child: Text(text, style: TextStyle(fontSize: fontSize)),
+              )
+            : ElevatedButton.icon(
+                onPressed: onPressed,
+                icon: Icon(icon, size: iconSize),
+                label: Text(text, style: TextStyle(fontSize: fontSize)),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: backgroundColor,
+                  foregroundColor: foregroundColor,
+                  padding: padding,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(borderRadius),
+                  ),
+                ),
+              );
+        break;
+      case ButtonStyle.outlined:
+        button = icon == null
+            ? OutlinedButton(
+                onPressed: onPressed,
+                style: OutlinedButton.styleFrom(
+                  padding: padding,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(borderRadius),
+                  ),
+                ),
+                child: Text(
+                  text,
+                  style: TextStyle(fontSize: fontSize),
+                ),
+              )
+            : OutlinedButton.icon(
+                onPressed: onPressed,
+                icon: Icon(icon, size: iconSize),
+                label: Text(
+                  text,
+                  style: TextStyle(fontSize: fontSize),
+                ),
+                style: OutlinedButton.styleFrom(
+                  padding: padding,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(borderRadius),
+                  ),
+                ),
+              );
+        break;
+      case ButtonStyle.text:
+        button = icon == null
+            ? TextButton(
+                onPressed: onPressed,
+                style: TextButton.styleFrom(
+                  padding: padding,
+                ),
+                child: Text(
+                  text,
+                  style: TextStyle(fontSize: fontSize),
+                ),
+              )
+            : TextButton.icon(
+                onPressed: onPressed,
+                icon: Icon(icon, size: iconSize),
+                label: Text(
+                  text,
+                  style: TextStyle(fontSize: fontSize),
+                ),
+                style: TextButton.styleFrom(
+                  padding: padding,
+                ),
+              );
+        break;
+    }
+
+    return button;
   }
 }

@@ -2,7 +2,10 @@
   "ar": [
     "goals",
     "addGoalTooltip",
-    "customize"
+    "customize",
+    "statistics",
+    "welcomeAppTitle",
+    "welcomeAppSubTitle"
   ],
 
   "be": [
@@ -30,7 +33,10 @@
     "dateAndTime",
     "goals",
     "addGoalTooltip",
-    "customize"
+    "customize",
+    "statistics",
+    "welcomeAppTitle",
+    "welcomeAppSubTitle"
   ],
 
   "cs": [
@@ -41,7 +47,10 @@
     "dateAndTime",
     "goals",
     "addGoalTooltip",
-    "customize"
+    "customize",
+    "statistics",
+    "welcomeAppTitle",
+    "welcomeAppSubTitle"
   ],
 
   "de": [
@@ -56,13 +65,19 @@
     "dateAndTime",
     "goals",
     "addGoalTooltip",
-    "customize"
+    "customize",
+    "statistics",
+    "welcomeAppTitle",
+    "welcomeAppSubTitle"
   ],
 
   "es": [
     "goals",
     "addGoalTooltip",
-    "customize"
+    "customize",
+    "statistics",
+    "welcomeAppTitle",
+    "welcomeAppSubTitle"
   ],
 
   "fr": [
@@ -82,11 +97,17 @@
     "dateAndTime",
     "goals",
     "addGoalTooltip",
-    "customize"
+    "customize",
+    "statistics",
+    "welcomeAppTitle",
+    "welcomeAppSubTitle"
   ],
 
   "gu": [
-    "emptyRecommendedAccountsInfo"
+    "emptyRecommendedAccountsInfo",
+    "statistics",
+    "welcomeAppTitle",
+    "welcomeAppSubTitle"
   ],
 
   "it": [
@@ -120,7 +141,10 @@
     "dateAndTime",
     "goals",
     "addGoalTooltip",
-    "customize"
+    "customize",
+    "statistics",
+    "welcomeAppTitle",
+    "welcomeAppSubTitle"
   ],
 
   "kn": [
@@ -146,7 +170,10 @@
     "dateAndTime",
     "goals",
     "addGoalTooltip",
-    "customize"
+    "customize",
+    "statistics",
+    "welcomeAppTitle",
+    "welcomeAppSubTitle"
   ],
 
   "ne": [
@@ -157,7 +184,10 @@
     "dateAndTime",
     "goals",
     "addGoalTooltip",
-    "customize"
+    "customize",
+    "statistics",
+    "welcomeAppTitle",
+    "welcomeAppSubTitle"
   ],
 
   "pl": [
@@ -178,7 +208,10 @@
     "dateAndTime",
     "goals",
     "addGoalTooltip",
-    "customize"
+    "customize",
+    "statistics",
+    "welcomeAppTitle",
+    "welcomeAppSubTitle"
   ],
 
   "pt": [
@@ -204,7 +237,10 @@
     "dateAndTime",
     "goals",
     "addGoalTooltip",
-    "customize"
+    "customize",
+    "statistics",
+    "welcomeAppTitle",
+    "welcomeAppSubTitle"
   ],
 
   "ru": [
@@ -232,7 +268,10 @@
     "dateAndTime",
     "goals",
     "addGoalTooltip",
-    "customize"
+    "customize",
+    "statistics",
+    "welcomeAppTitle",
+    "welcomeAppSubTitle"
   ],
 
   "ta": [
@@ -244,11 +283,53 @@
     "dateAndTime",
     "goals",
     "addGoalTooltip",
-    "customize"
+    "customize",
+    "statistics",
+    "welcomeAppTitle",
+    "welcomeAppSubTitle"
   ],
 
   "tr": [
-    "customize"
+    "validAmount",
+    "saveAsCSVDesc",
+    "appRate",
+    "appRateDesc",
+    "raiseABugOrRequest",
+    "raiseABugOrRequestDesc",
+    "transferName",
+    "debt",
+    "credit",
+    "enterCategory",
+    "addDebt",
+    "addCredit",
+    "enterBudget",
+    "enterDescription",
+    "validDescription",
+    "payDebt",
+    "payCredit",
+    "enterAmount",
+    "emptyDebts",
+    "emptyDebtsDesc",
+    "emptyCredit",
+    "emptyCreditDesc",
+    "enterInitialAmount",
+    "enterNumberOptional",
+    "enterAccountName",
+    "enterCardHolderName",
+    "search",
+    "addNew",
+    "delete",
+    "appBarSearch",
+    "noTransaction",
+    "enterSymbol",
+    "leftSymbol",
+    "rightSymbol",
+    "customSymbol",
+    "intoTitle",
+    "customize",
+    "statistics",
+    "welcomeAppTitle",
+    "welcomeAppSubTitle"
   ],
 
   "uk": [
@@ -259,7 +340,10 @@
     "dateAndTime",
     "goals",
     "addGoalTooltip",
-    "customize"
+    "customize",
+    "statistics",
+    "welcomeAppTitle",
+    "welcomeAppSubTitle"
   ],
 
   "vi": [
@@ -271,11 +355,17 @@
     "dateAndTime",
     "goals",
     "addGoalTooltip",
-    "customize"
+    "customize",
+    "statistics",
+    "welcomeAppTitle",
+    "welcomeAppSubTitle"
   ],
 
   "zh": [
-    "customize"
+    "customize",
+    "statistics",
+    "welcomeAppTitle",
+    "welcomeAppSubTitle"
   ],
 
   "zh_TW": [
@@ -296,6 +386,9 @@
     "dateAndTime",
     "goals",
     "addGoalTooltip",
-    "customize"
+    "customize",
+    "statistics",
+    "welcomeAppTitle",
+    "welcomeAppSubTitle"
   ]
 }

@@ -86,11 +86,11 @@ class _AddRecurringPageState extends State<AddRecurringPage> {
                 bottomNavigationBar: SafeArea(
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: PaisaBigButton(
+                    child: PaisaButton.largeElevated(
                       onPressed: () {
                         recurringCubit.addRecurringEvent();
                       },
-                      title: context.loc.add,
+                      text: context.loc.add,
                     ),
                   ),
                 ),

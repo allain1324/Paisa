@@ -1,6 +1,9 @@
 // Dart imports:
 
 // Flutter imports:
+import 'dart:math';
+
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
@@ -145,16 +148,6 @@ class OverViewPage extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 124),
                 physics: const BouncingScrollPhysics(),
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16.0,
-                      vertical: 8,
-                    ),
-                    child: FilterTabs(
-                      valueNotifier:
-                          getIt<SummaryController>().filterExpenseNotifier,
-                    ),
-                  ),
                   FilterGroupCategoryTransactionWidget(
                     transactions: transactions,
                     valueNotifier: controller.filterExpenseNotifier,
@@ -214,4 +207,84 @@ class OverViewPage extends StatelessWidget {
       ),
     );
   }
+}
+
+class BackgroundPainter extends CustomPainter {
+  final double animationValue;
+
+  BackgroundPainter({super.repaint, required this.animationValue});
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint();
+
+    // Animate light purple circle
+    paint.color = Color(0xFFB19CD9).withOpacity(0.5);
+    double radius = 50 + sin(animationValue * 2 * pi) * 10;
+    canvas.drawCircle(
+        Offset(size.width * 0.1, size.height * (0.1 + animationValue * 0.05)),
+        radius,
+        paint);
+
+    // Animate light pink circle
+    paint.color = Color(0xFFFFC0CB).withOpacity(0.5);
+    radius = 80 + cos(animationValue * 2 * pi) * 15;
+    canvas.drawCircle(
+        Offset(size.width * (0.85 - animationValue * 0.05), size.height * 0.2),
+        radius,
+        paint);
+
+    // Animate overlapping circles
+    paint.color = Color(0xFFB19CD9).withOpacity(0.5);
+    canvas.drawCircle(
+        Offset(size.width * (0.15 + animationValue * 0.05), size.height * 0.8),
+        60,
+        paint);
+    paint.color = Color(0xFFFFC0CB).withOpacity(0.5);
+    canvas.drawCircle(
+        Offset(size.width * 0.25, size.height * (0.85 - animationValue * 0.05)),
+        50,
+        paint);
+
+    // Animate white circles
+    paint.color = Colors.white.withOpacity(0.2);
+    canvas.drawCircle(
+        Offset(size.width * 0.7, size.height * (0.3 + animationValue * 0.05)),
+        100,
+        paint);
+    canvas.drawCircle(
+        Offset(size.width * (0.8 - animationValue * 0.05), size.height * 0.4),
+        80,
+        paint);
+
+    // Animate star
+    paint.color = Colors.white;
+    final starCenter = Offset(size.width * (0.3 + animationValue * 0.05),
+        size.height * (0.3 + sin(animationValue * 2 * pi) * 0.05));
+    final starPath = Path()
+      ..moveTo(starCenter.dx, starCenter.dy - 10)
+      ..lineTo(starCenter.dx + 5, starCenter.dy - 5)
+      ..lineTo(starCenter.dx + 10, starCenter.dy)
+      ..lineTo(starCenter.dx + 5, starCenter.dy + 5)
+      ..lineTo(starCenter.dx, starCenter.dy + 10)
+      ..lineTo(starCenter.dx - 5, starCenter.dy + 5)
+      ..lineTo(starCenter.dx - 10, starCenter.dy)
+      ..lineTo(starCenter.dx - 5, starCenter.dy - 5)
+      ..close();
+    canvas.drawPath(starPath, paint);
+
+    // Animate sunburst
+    paint.color = Colors.white.withOpacity(0.5);
+    final sunburstCenter = Offset(size.width * 0.9, size.height * 0.9);
+    for (var i = 0; i < 12; i++) {
+      final angle = i * pi / 6 + animationValue * 2 * pi;
+      canvas.drawLine(
+        sunburstCenter,
+        sunburstCenter + Offset(cos(angle) * 30, sin(angle) * 30),
+        paint..strokeWidth = 2,
+      );
+    }
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

@@ -27,7 +27,7 @@ class TransactionTotalForMonthWidget extends StatelessWidget {
             color: context.onPrimaryContainer.withOpacity(0.85),
           ),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: 8.h),
         Row(
           children: [
             Expanded(
@@ -51,11 +51,11 @@ class TransactionTotalForMonthWidget extends StatelessWidget {
                       ],
                     ),
                   ),
+                  SizedBox(height: 6.h),
                   Text(
                     '+${income.toFormateCurrency(context)}',
-                    style: context.titleLarge?.copyWith(
+                    style: context.titleMedium?.copyWith(
                       color: context.onPrimaryContainer,
-                      fontSize: 17.sp,
                     ),
                   ),
                 ],
@@ -81,11 +81,11 @@ class TransactionTotalForMonthWidget extends StatelessWidget {
                       ],
                     ),
                   ),
+                  SizedBox(height: 6.h),
                   Text(
                     '-${outcome.toFormateCurrency(context)}',
-                    style: context.titleLarge?.copyWith(
+                    style: context.titleMedium?.copyWith(
                       color: context.onPrimaryContainer,
-                      fontSize: 17.sp,
                     ),
                   ),
                 ],

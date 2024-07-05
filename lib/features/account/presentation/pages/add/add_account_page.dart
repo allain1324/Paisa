@@ -217,7 +217,7 @@ class AccountPageState extends State<AccountPage> {
                 bottomNavigationBar: SafeArea(
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: PaisaBigButton(
+                    child: PaisaButton.largeElevated(
                       onPressed: () {
                         final isValid = _form.currentState!.validate();
                         if (!isValid) {
@@ -227,7 +227,7 @@ class AccountPageState extends State<AccountPage> {
                             .read<AccountBloc>()
                             .add(AddOrUpdateAccountEvent(isAccountAddOrUpdate));
                       },
-                      title: isAccountAddOrUpdate
+                      text: isAccountAddOrUpdate
                           ? context.loc.add
                           : context.loc.update,
                     ),
@@ -245,7 +245,7 @@ class AccountPageState extends State<AccountPage> {
                       icon: const Icon(Icons.info_rounded),
                     ),
                     DeleteAccountWidget(accountId: widget.accountId),
-                    PaisaButton(
+                    PaisaButton.mediumElevated(
                       onPressed: () {
                         final isValid = _form.currentState!.validate();
                         if (!isValid) {
@@ -255,7 +255,7 @@ class AccountPageState extends State<AccountPage> {
                             .read<AccountBloc>()
                             .add(AddOrUpdateAccountEvent(isAccountAddOrUpdate));
                       },
-                      title: isAccountAddOrUpdate
+                      text: isAccountAddOrUpdate
                           ? context.loc.add
                           : context.loc.update,
                     ),
@@ -402,9 +402,9 @@ class DeleteAccountWidget extends StatelessWidget {
           color: context.error,
         ),
       ),
-      tablet: (p0) => PaisaTextButton(
+      tablet: (p0) => PaisaButton.mediumText(
         onPressed: () => onPressed(context),
-        title: context.loc.delete,
+        text: context.loc.delete,
       ),
     );
   }

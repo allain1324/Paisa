@@ -76,6 +76,7 @@ class HiveAdapters {
       ..registerAdapter(RecurringTypeAdapter())
       ..registerAdapter(RecurringModelAdapter())
       ..registerAdapter(GoalModelAdapter())
+      ..registerAdapter(TransactionModelTypeAdapter())
       ..registerAdapter(FilterExpenseAdapter());
   }
 

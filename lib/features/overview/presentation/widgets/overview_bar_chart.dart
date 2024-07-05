@@ -6,6 +6,7 @@ import 'package:paisa/core/common.dart';
 import 'package:paisa/core/theme/custom_color.dart';
 import 'package:paisa/core/widgets/paisa_widgets/paisa_card.dart';
 import 'package:paisa/features/intro/domain/entities/country_entity.dart';
+import 'package:paisa/features/overview/presentation/widgets/filter_tabs_widget.dart';
 import 'package:paisa/features/overview/presentation/widgets/overview_transaction_widget.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
 import 'package:provider/provider.dart';
@@ -23,7 +24,28 @@ class OverViewBarChartWidget extends StatelessWidget {
     return PaisaFilledCard(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: BarChartSample(groupedTransactions: groupedTransactions),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      context.loc.statistics,
+                      style: context.bodyLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const FilterDropDown()
+                ],
+              ),
+            ),
+            BarChartSample(groupedTransactions: groupedTransactions),
+          ],
+        ),
       ),
     );
   }

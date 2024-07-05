@@ -59,14 +59,17 @@ class PaisaTitle extends StatelessWidget {
 }
 
 class PaisaIcon extends StatelessWidget {
-  const PaisaIcon({super.key});
-
+  const PaisaIcon({
+    super.key,
+    this.size = 32,
+  });
+  final double size;
   @override
   Widget build(BuildContext context) {
     return Icon(
       Icons.wallet,
       color: context.primary,
-      size: 32,
+      size: size,
     );
   }
 }

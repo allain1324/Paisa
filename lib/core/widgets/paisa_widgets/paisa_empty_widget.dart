@@ -56,8 +56,10 @@ class EmptyWidget extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             if (onActionPressed != null)
-              PaisaTextButton(
-                  onPressed: onActionPressed!, title: actionTitle ?? '')
+              PaisaButton.mediumText(
+                onPressed: onActionPressed!,
+                text: actionTitle ?? '',
+              )
             else
               const SizedBox.shrink()
           ],

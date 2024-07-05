@@ -53,9 +53,9 @@ class TransactionDeleteWidget extends StatelessWidget {
             color: context.error,
           ),
         ),
-        tablet: (p0) => PaisaTextButton(
+        tablet: (p0) => PaisaButton.mediumText(
           onPressed: () => onPressed(context),
-          title: context.loc.delete,
+          text: context.loc.delete,
         ),
       );
     }

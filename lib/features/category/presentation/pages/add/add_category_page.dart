@@ -141,7 +141,7 @@ class _CategoryPageState extends State<CategoryPage> {
               bottomNavigationBar: SafeArea(
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: PaisaBigButton(
+                  child: PaisaButton.largeElevated(
                     onPressed: () {
                       final isValid = _formKey.currentState!.validate();
                       if (!isValid) {
@@ -152,7 +152,7 @@ class _CategoryPageState extends State<CategoryPage> {
                           .read<CategoryBloc>()
                           .add(AddOrUpdateCategoryEvent(isAddCategory));
                     },
-                    title: isAddCategory ? context.loc.add : context.loc.update,
+                    text: isAddCategory ? context.loc.add : context.loc.update,
                   ),
                 ),
               ),
@@ -164,7 +164,7 @@ class _CategoryPageState extends State<CategoryPage> {
                       : context.loc.updateCategory,
                   actions: [
                     DeleteCategoryWidget(categoryId: widget.categoryId),
-                    PaisaButton(
+                    PaisaButton.mediumElevated(
                       onPressed: () {
                         final isValid = _formKey.currentState!.validate();
                         if (!isValid) {
@@ -175,7 +175,7 @@ class _CategoryPageState extends State<CategoryPage> {
                             .read<CategoryBloc>()
                             .add(AddOrUpdateCategoryEvent(isAddCategory));
                       },
-                      title:
+                      text:
                           isAddCategory ? context.loc.add : context.loc.update,
                     ),
                     const SizedBox(width: 16),
@@ -266,9 +266,9 @@ class DeleteCategoryWidget extends StatelessWidget {
           color: context.error,
         ),
       ),
-      tablet: (p0) => PaisaTextButton(
+      tablet: (p0) => PaisaButton.mediumText(
         onPressed: () => onPressed(context),
-        title: context.loc.delete,
+        text: context.loc.delete,
       ),
     );
   }

@@ -48,11 +48,11 @@ class _BiometricPageState extends State<BiometricPage> {
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: PaisaBigButton(
+          child: PaisaButton.largeElevated(
             onPressed: () {
               checkBiometrics();
             },
-            title: context.loc.authenticate,
+            text: context.loc.authenticate,
           ),
         ),
       ),

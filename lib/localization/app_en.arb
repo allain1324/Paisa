@@ -810,21 +810,6 @@
         "description": "Title text shown on the intro page",
         "type": "text"
     },
-    "intoSummary1": "Manage your money with our app",
-    "@intoSummary1": {
-        "description": "Hint message 1 shown on the intro page",
-        "type": "text"
-    },
-    "intoSummary2": "Easy expense tracking for a better budget",
-    "@intoSummary2": {
-        "description": "Hint message 2 shown on the intro page",
-        "type": "text"
-    },
-    "intoSummary3": "Stay on top of your expenses, anytime, anywhere",
-    "@intoSummary3": {
-        "description": "Hint message 3 shown on the intro page",
-        "type": "text"
-    },
     "introCTA": "Get started",
     "@introCTA": {
         "description": "Text shown on the intro screen button",
@@ -1088,6 +1073,21 @@
     "customize": "Customize",
     "@customize": {
         "description": "Subtitle text shown on the settings page section",
+        "type": "text"
+    },
+    "statistics": "Statistics",
+    "@statistics": {
+        "description": "Subtitle text shown on the overview page bar chat title",
+        "type": "text"
+    },
+    "welcomeAppTitle": "Welcome to Paisa",
+    "@welcomeAppTitle": {
+        "description": "Title text shown on the welcome page",
+        "type": "text"
+    },
+    "welcomeAppSubTitle": "Your personal finance companion for smarter money management",
+    "@welcomeAppSubTitle": {
+        "description": "Subtitle text shown on the welcome page",
         "type": "text"
     }
 }

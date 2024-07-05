@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Package imports:
 import 'package:hive_flutter/adapters.dart';
@@ -8,7 +9,6 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:paisa/core/common.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/features/account/data/model/account_model.dart';
-import 'package:paisa/features/account/presentation/widgets/account_summary_widget.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/transaction_total_for_month_widget.dart';
 import 'package:paisa/features/home/presentation/pages/summary/widgets/total_balance_widget.dart';
 import 'package:paisa/features/transaction/domain/entities/transaction_entity.dart';
@@ -30,38 +30,28 @@ class TransactionTotalWidget extends StatelessWidget {
     final double totalAccountBalance =
         getIt<Box<AccountModel>>().totalAccountInitialAmount;
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(bottom: 8, left: 8, right: 8),
-          child: PaisaCard(
-            color: context.primaryContainer,
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  TotalBalanceWidget(
-                    title: context.loc.totalBalance,
-                    amount: totalExpenseBalance + totalAccountBalance,
-                  ),
-                  const SizedBox(height: 32),
-                  TransactionTotalForMonthWidget(
-                    outcome: totalExpenses,
-                    income: totalIncome,
-                  ),
-                ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8),
+      child: PaisaCard(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TotalBalanceWidget(
+                title: context.loc.totalBalance,
+                amount: totalExpenseBalance + totalAccountBalance,
               ),
-            ),
+              SizedBox(height: 32.h),
+              TransactionTotalForMonthWidget(
+                outcome: totalExpenses,
+                income: totalIncome,
+              ),
+            ],
           ),
         ),
-        AccountSummaryWidget(expenses: expenses),
-      ],
+      ),
     );
   }
 }

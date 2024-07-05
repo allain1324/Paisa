@@ -69,6 +69,8 @@ extension ExpenseModelHelper on TransactionModel {
         type: type,
         description: description ?? '',
         superId: superId,
+        fromAccountId: fromAccountId,
+        toAccountId: toAccountId,
       );
 }
 

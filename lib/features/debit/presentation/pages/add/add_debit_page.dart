@@ -186,7 +186,7 @@ class _DebitPageState extends State<DebitPage> {
               bottomNavigationBar: SafeArea(
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: PaisaBigButton(
+                  child: PaisaButton.largeElevated(
                     onPressed: () {
                       final isValid = _formKey.currentState!.validate();
                       if (!isValid) {
@@ -194,7 +194,7 @@ class _DebitPageState extends State<DebitPage> {
                       }
                       debitBloc.add(AddOrUpdateEvent(isDebtAddOrUpdate));
                     },
-                    title: isDebtAddOrUpdate
+                    text: isDebtAddOrUpdate
                         ? context.loc.add
                         : context.loc.update,
                   ),

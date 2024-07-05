@@ -55,7 +55,7 @@ class HomeMobileWidget extends StatelessWidget {
                     selectedIcon: e.selectedIcon,
                     label: Text(e.pageType.name(context)),
                   )),
-              const Divider(),
+              const PaisaDivider(),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: ListTile(

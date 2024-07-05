@@ -34,25 +34,25 @@ class _CategoryIconPickerPageState extends State<CategoryIconPickerPage> {
             icon: const Icon(Icons.close)),
         title: Text(context.loc.chooseIcon),
         actions: [
-          PaisaTextButton(
+          PaisaButton.mediumText(
             onPressed: () {
               paisaIconPicker(
                 context: context,
                 defaultIcon: selectedIcon!,
               ).then((resultIcon) => selectedIcon = resultIcon);
             },
-            title: context.loc.more,
+            text: context.loc.more,
           )
         ],
       ),
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: PaisaBigButton(
+          child: PaisaButton.largeElevated(
             onPressed: () {
               GoRouter.of(context).pop(selectedIcon);
             },
-            title: context.loc.done,
+            text: context.loc.done,
           ),
         ),
       ),
@@ -154,7 +154,6 @@ Map<String, List<IconData>> paisaIconMap() {
       MdiIcons.cash,
       MdiIcons.creditCard,
       MdiIcons.sale,
-      MdiIcons.shopping,
       MdiIcons.store,
     ],
     'Transportation': [

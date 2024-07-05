@@ -55,7 +55,6 @@ class CurrentTheme extends StatelessWidget {
   Widget build(BuildContext context) {
     final Color color =
         isSelected ? context.primary : Theme.of(context).disabledColor;
-
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 4),
@@ -72,10 +71,10 @@ class CurrentTheme extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Icon(currentTheme.icon, color: color),
-                const SizedBox(height: 8),
+                const SizedBox(height: 24),
                 Text(
                   currentTheme.stringValue,
-                  style: context.bodySmall?.copyWith(
+                  style: context.bodyMedium?.copyWith(
                     color: color,
                   ),
                 ),

@@ -113,9 +113,10 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
           const TransactionState.transactionError('Enter valid amount'));
     }
     if (transactionType == TransactionType.transfer) {
-      if (fromAccountId == null || toAccountId == -1) {
-        return emit(const TransactionState.transactionError(
-            'Select from and to account'));
+      if (fromAccountId == null || toAccountId == null) {
+        return emit(
+          const TransactionState.transactionError('Select from and to account'),
+        );
       }
     } else {
       if (accountId == null || accountId == -1) {
@@ -138,6 +139,8 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
         accountId: accountId ?? 0,
         transactionType: transactionType,
         description: description,
+        fromAccountId: fromAccountId ?? -1,
+        toAccountId: toAccountId ?? -1,
       ));
     } else {
       if (currentExpense == null) return;
@@ -150,6 +153,8 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
         name: name,
         time: dateTime,
         type: transactionType,
+        fromAccountId: fromAccountId ?? -1,
+        toAccountId: toAccountId ?? -1,
       ));
     }
     emit(TransactionState.transactionAdded(isAddOrUpdate: event.isAdding));

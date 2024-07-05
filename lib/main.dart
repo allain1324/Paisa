@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:get_it/get_it.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 // Project imports:
 import 'package:paisa/app.dart';
@@ -33,7 +34,7 @@ Future<void> main() async {
       TargetPlatform.iOS == defaultTargetPlatform) {
     initAppShortcuts();
   }
-  //_addDummyData();
+  _addDummyData();
 }
 
 void _addDummyData() async {
@@ -44,39 +45,53 @@ void _addDummyData() async {
   await accountDataSource.clear();
   await categoryDataSource.clear();
   await transactionDataSource.clear();
-
+  List<String> names = [
+    'Home & Living',
+    'Health & Wellness',
+    'Technology & Gadgets',
+    'Food & Dining',
+    'Travel & Adventure',
+    'Fashion & Accessories',
+    'Education & Learning',
+    'Entertainment & Media',
+    'Finance & Investments',
+    'Sports & Fitness'
+  ];
   for (int i = 0; i < 10; i++) {
     await accountDataSource.add(
       AccountModel(
         bankName: 'Bank Name $i',
         name: 'Holder name $i',
         cardType: CardType.values[Random().nextInt(3)],
-        color: Colors.amber.value,
+        color:
+            Colors.primaries[Random().nextInt(Colors.primaries.length)].value,
       ),
     );
 
     await categoryDataSource.add(
       CategoryModel(
-        name: 'Category name $i',
-        color: Colors.amber.value,
-        icon: Icons.car_crash.codePoint,
+        name: names[Random().nextInt(names.length)],
+        color:
+            Colors.primaries[Random().nextInt(Colors.primaries.length)].value,
+        icon: MdiIcons.getIcons()[Random().nextInt(MdiIcons.getIcons().length)]
+            .codePoint,
       ),
     );
   }
   final random = Random();
   final startDate = DateTime(
-    2019,
+    2024,
   );
   final endDate = DateTime.now();
 
-  for (int i = 0; i < 200; i++) {
+  for (int i = 0; i < 1000; i++) {
     int accountId = Random().nextInt(10);
     int categoryId = Random().nextInt(10);
     final difference = endDate.difference(startDate).inDays;
     final randomDay = random.nextInt(difference);
     final randomDate = startDate.add(Duration(days: randomDay));
     await transactionDataSource.add(TransactionModel(
-      name: 'Transaction name $i',
+      name: names[Random().nextInt(names.length)],
       time: randomDate,
       accountId: accountId,
       categoryId: categoryId,

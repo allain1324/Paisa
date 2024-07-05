@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 // Package imports:
 
@@ -12,29 +13,77 @@ import 'package:paisa/features/home/presentation/controller/summary_controller.d
 import 'package:paisa/main.dart';
 
 class FilterTabs extends StatelessWidget {
-  const FilterTabs({super.key, required this.valueNotifier});
+  const FilterTabs({
+    super.key,
+    required this.valueNotifier,
+  });
 
   final ValueNotifier<FilterExpense> valueNotifier;
 
   @override
   Widget build(BuildContext context) {
-    final filters = [
-      FilterExpense.daily,
-      FilterExpense.weekly,
-      FilterExpense.monthly,
-      FilterExpense.yearly,
-      FilterExpense.all,
-    ];
     return ValueListenableBuilder<FilterExpense>(
       valueListenable: valueNotifier,
       builder: (context, snapshot, child) {
         return SelectionTabWidget(
-          tabs: filters.map((e) => e.stringValue(context)).toList(),
+          tabs:
+              FilterExpense.values.map((e) => e.stringValue(context)).toList(),
           onSelected: (value) {
             valueNotifier.value = value.toFilterExpense(context);
           },
           selected: snapshot.stringValue(context),
         );
+      },
+    );
+  }
+}
+
+class FilterDropDown extends StatefulWidget {
+  const FilterDropDown({super.key});
+
+  @override
+  State<FilterDropDown> createState() => _FilterDropDownState();
+}
+
+class _FilterDropDownState extends State<FilterDropDown> {
+  @override
+  Widget build(BuildContext context) {
+    return PopupMenuButton(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: RichText(
+          text: TextSpan(
+            style: context.bodyMedium,
+            children: [
+              TextSpan(
+                text: getIt<SummaryController>()
+                    .filterExpenseNotifier
+                    .value
+                    .stringValue(context),
+                style: context.bodyMedium,
+              ),
+              const WidgetSpan(
+                alignment: PlaceholderAlignment.middle,
+                child: Icon(
+                  Icons.arrow_drop_down,
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+      itemBuilder: (context) {
+        return FilterExpense.values
+            .map(
+              (e) => PopupMenuItem(
+                value: e,
+                child: Text(e.stringValue(context)),
+              ),
+            )
+            .toList();
+      },
+      onSelected: (value) {
+        getIt<SummaryController>().filterExpenseNotifier.value = value;
       },
     );
   }

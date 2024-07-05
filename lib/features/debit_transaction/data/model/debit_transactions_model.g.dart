@@ -6,6 +6,45 @@ part of 'debit_transactions_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
+class TransactionModelTypeAdapter extends TypeAdapter<TransactionModelType> {
+  @override
+  final int typeId = 23;
+
+  @override
+  TransactionModelType read(BinaryReader reader) {
+    switch (reader.readByte()) {
+      case 1:
+        return TransactionModelType.debit;
+      case 2:
+        return TransactionModelType.goal;
+      default:
+        return TransactionModelType.debit;
+    }
+  }
+
+  @override
+  void write(BinaryWriter writer, TransactionModelType obj) {
+    switch (obj) {
+      case TransactionModelType.debit:
+        writer.writeByte(1);
+        break;
+      case TransactionModelType.goal:
+        writer.writeByte(2);
+        break;
+    }
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TransactionModelTypeAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
 class DebitTransactionsModelAdapter
     extends TypeAdapter<_$DebitTransactionsModelImpl> {
   @override

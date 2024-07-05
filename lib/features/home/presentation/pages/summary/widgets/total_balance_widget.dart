@@ -23,14 +23,13 @@ class TotalBalanceWidget extends StatelessWidget {
         Text(
           title,
           style: context.titleMedium?.copyWith(
-            fontSize: 13.sp,
             color: context.onPrimaryContainer.withOpacity(0.85),
           ),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: 8.h),
         Text(
           amount.toFormateCurrency(context),
-          style: context.headlineMedium?.copyWith(
+          style: context.headlineLarge?.copyWith(
             color: context.onPrimaryContainer,
             fontWeight: FontWeight.w700,
           ),

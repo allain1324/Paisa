@@ -17,6 +17,7 @@ extension MappingOnTransaction on DebitTransactionsModel {
         amount: amount,
         now: now,
         parentId: parentId,
+        superId: superId,
       );
 }
 

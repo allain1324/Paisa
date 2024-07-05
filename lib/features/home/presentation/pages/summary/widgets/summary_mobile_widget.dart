@@ -8,6 +8,7 @@ import 'package:paisa/core/enum/transaction_type.dart';
 import 'package:paisa/core/widgets/paisa_widget.dart';
 import 'package:paisa/core/widgets/section_list_view/sectioned_list_view.dart';
 import 'package:paisa/features/account/domain/entities/account_entity.dart';
+import 'package:paisa/features/account/presentation/widgets/account_summary_widget.dart';
 import 'package:paisa/features/category/domain/entities/category.dart';
 import 'package:paisa/features/home/presentation/controller/summary_controller.dart';
 import 'package:paisa/features/home/presentation/pages/home/home_cubit.dart';
@@ -36,6 +37,7 @@ class SummaryMobileWidget extends StatelessWidget {
             [
               const WelcomeNameWidget(),
               TransactionTotalWidget(expenses: expenses),
+              AccountSummaryWidget(expenses: expenses),
               ListTile(
                 contentPadding: const EdgeInsets.symmetric(
                   horizontal: 16,

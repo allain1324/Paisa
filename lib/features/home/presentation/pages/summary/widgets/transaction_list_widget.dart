@@ -21,34 +21,29 @@ class TransactionsListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      physics: const NeverScrollableScrollPhysics(),
-      slivers: [
-        SliverList.separated(
-          separatorBuilder: (context, index) => Divider(
-            indent: 72,
-            height: 0,
-            color: Theme.of(context).dividerColor,
-          ),
-          itemCount: expenses.length,
-          itemBuilder: (_, index) {
-            final TransactionEntity expense = expenses[index];
-            final AccountEntity? account = BlocProvider.of<HomeCubit>(context)
-                .fetchAccountFromId(expense.accountId);
-            final CategoryEntity? category = BlocProvider.of<HomeCubit>(context)
-                .fetchCategoryFromId(expense.categoryId);
-            if (account == null || category == null) {
-              return const SizedBox.shrink();
-            } else {
-              return TransactionItemWidget(
-                expense: expense,
-                account: account,
-                category: category,
-              );
-            }
-          },
-        ),
-      ],
+    return SliverList.separated(
+      separatorBuilder: (context, index) => Divider(
+        indent: 72,
+        height: 0,
+        color: Theme.of(context).dividerColor,
+      ),
+      itemCount: expenses.length,
+      itemBuilder: (_, index) {
+        final TransactionEntity expense = expenses[index];
+        final AccountEntity? account = BlocProvider.of<HomeCubit>(context)
+            .fetchAccountFromId(expense.accountId);
+        final CategoryEntity? category = BlocProvider.of<HomeCubit>(context)
+            .fetchCategoryFromId(expense.categoryId);
+        if (account == null || category == null) {
+          return const SizedBox.shrink();
+        } else {
+          return TransactionItemWidget(
+            expense: expense,
+            account: account,
+            category: category,
+          );
+        }
+      },
     );
   }
 }
