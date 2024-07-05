@@ -1,1 +1,5 @@
-#### Fixed stuck on logo
+#### Fix debit transactions add/ delete
+
+#### Fix Transfer transactions
+
+#### Improved welcome page
